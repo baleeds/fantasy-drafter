@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover so the list runs under the home indicator rather
+         than stopping short of it; safe-area insets handle the padding. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1"
+    />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Inlined so the page makes no request for it. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🏈</text></svg>"
+    />
+    <title>Drag prototype — Fantasy Drafter</title>
+  </head>
+  <body>
+    <header id="header">
+      <div class="bar">
+        <div class="titles">
+          <h1>Drag prototype</h1>
+          <p id="generated">loading…</p>
+        </div>
+        <div class="actions">
+          <button id="tune" type="button">Tune</button>
+          <button id="reset" type="button">Reset</button>
+        </div>
+      </div>
+
+      <div id="tuning" hidden>
+        <label>
+          <span>Long press</span>
+          <input id="longpress" type="range" min="120" max="700" step="10" />
+          <output id="longpress-value"></output>
+        </label>
+        <label>
+          <span>Autoscroll</span>
+          <input id="autoscroll" type="range" min="4" max="40" step="1" />
+          <output id="autoscroll-value"></output>
+        </label>
+        <p class="hint">
+          Press and hold a player to pick him up, then drag. Hold near the top or
+          bottom edge to scroll.
+        </p>
+      </div>
+
+      <p id="status" role="status"></p>
+    </header>
+
+    <main>
+      <ol id="board"></ol>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

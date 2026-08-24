@@ -5,8 +5,18 @@
   "type": "module",
   "description": "A single-purpose board for running my fantasy football draft.",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "typecheck": "tsc --noEmit",
     "refresh": "node scripts/fetch-rankings.mjs",
     "refresh:dry": "node scripts/fetch-rankings.mjs --dry-run",
-    "test": "node --test \"scripts/**/*.test.mjs\""
+    "test": "node --test \"scripts/**/*.test.mjs\"",
+    "test:drag": "node test/drag-check.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
   }
 }
