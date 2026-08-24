@@ -132,6 +132,24 @@ try {
   );
   await page.click('.chip[data-filter="ALL"]');
 
+  // --- My picks stay on the board -----------------------------------------
+  // The point of hiding taken players is to collapse the run that went between
+  // my picks, not to lose sight of my own team.
+  check(
+    "my pick stays on the board with 'show taken' off",
+    (await page.evaluate(() => !document.querySelector("#show-drafted").checked)) &&
+      (await page.locator(".row.state-mine").count()) === 1,
+  );
+  check(
+    "and someone else's pick is gone from it",
+    (await page.locator(".row.state-gone").count()) === 0,
+  );
+  check(
+    "my pick keeps its board position rather than being pulled to the top",
+    Number(await page.locator(".row.state-mine").locator(".rank").innerText()) > 1,
+    `at board #${await page.locator(".row.state-mine").locator(".rank").innerText()}`,
+  );
+
   // --- Search reaches drafted players --------------------------------------
   await page.fill("#search", first);
   check("search finds a drafted player", (await visibleCount()) >= 1);
@@ -140,11 +158,11 @@ try {
     (await page.locator(".row").first().locator(".tag.gone").count()) === 1,
   );
   await page.click("#search-clear");
-  check("clearing search restores the board", (await visibleCount()) === 298);
+  check("clearing search restores the board", (await visibleCount()) === 299);
 
   // --- Show drafted ---------------------------------------------------------
   await page.check("#show-drafted");
-  check("show drafted brings them back inline", (await visibleCount()) === 300);
+  check("showing taken players brings them back inline", (await visibleCount()) === 300);
   await page.uncheck("#show-drafted");
 
   // --- Undo -----------------------------------------------------------------

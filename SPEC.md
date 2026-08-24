@@ -361,10 +361,17 @@ player was in fact acquired.
 |---|---|---|
 | Available | Shown | Normal |
 | Taken by someone else | Hidden | Dimmed, struck through, in place |
-| Mine | Hidden in board, always in roster panel | Accent colour + badge, never struck |
+| Mine | **Always shown**, in board position | Accent colour + badge, never struck |
 
-- **"Show drafted" toggle** brings taken players back inline, for scanning and
-  confirming whether someone actually went.
+**My own picks never leave the board.** Hiding taken players is for collapsing
+the run of players that went between my picks — it is not a reason to lose
+sight of my own team. So with the toggle off, the board reads as: best
+available, best available, *my guy*, best available — my roster threaded
+through the list at the positions I took them, with everyone else's picks
+closed up.
+
+- **"Show taken" toggle** brings other people's picks back inline, for scanning
+  and confirming whether someone actually went. It has no effect on mine.
 - **`MINE` filter chip** shows only my team by name. This reuses the existing
   filter row rather than introducing a separate view mode.
 - **Fade-out animation** whenever a player leaves the visible list, in every

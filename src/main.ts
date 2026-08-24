@@ -74,8 +74,11 @@ function visibleRows(): BoardRow[] {
     if (query) return row.player.name.toLowerCase().includes(query);
 
     if (settings.filter === "MINE") return row.state === "mine";
-    if (row.state === "mine") return settings.showDrafted;
-    if (row.state === "gone") return settings.showDrafted;
+
+    // My own picks stay on the board whatever the toggle says. Hiding taken
+    // players is for collapsing the run of players that went between my picks
+    // — not for losing sight of my own team.
+    if (row.state === "gone" && !settings.showDrafted) return false;
 
     if (settings.filter === "ALL") return true;
     if (settings.filter === "FLEX") return FLEX.includes(row.player.position);
@@ -118,10 +121,12 @@ async function draftPlayer(id: number, mine: boolean): Promise<void> {
   board.pick(id, mine);
   savePicks(board.picks);
 
-  // Animate before re-rendering, so the row is still on screen while it fades.
-  if (!settings.showDrafted && settings.filter !== "MINE") {
-    await view.playLeaving(id);
-  }
+  // Animate only if the row is actually about to disappear — my own picks stay
+  // put, and fading one out and straight back in would read as a glitch.
+  // Asking the filter rather than reasoning about it keeps the two in step.
+  const stillVisible = visibleRows().some((row) => row.player.id === id);
+  if (!stillVisible) await view.playLeaving(id);
+
   render();
 }
 
