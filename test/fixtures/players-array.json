@@ -1,0 +1,7709 @@
+[
+ {
+  "playerName": "Jahmyr Gibbs",
+  "playerID": 1508,
+  "position": "RB",
+  "team": "DET",
+  "rookie": false,
+  "age": 24.4,
+  "oneQBValues": {
+   "rank": 1,
+   "positionalRank": 1,
+   "overallTier": 1,
+   "startSitOverallRank": 1,
+   "startSitPositionalRank": 1,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Bijan Robinson",
+  "playerID": 1507,
+  "position": "RB",
+  "team": "ATL",
+  "rookie": false,
+  "age": 24.6,
+  "oneQBValues": {
+   "rank": 2,
+   "positionalRank": 2,
+   "overallTier": 1,
+   "startSitOverallRank": 2,
+   "startSitPositionalRank": 2,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ja'Marr Chase",
+  "playerID": 1004,
+  "position": "WR",
+  "team": "CIN",
+  "rookie": false,
+  "age": 26.5,
+  "oneQBValues": {
+   "rank": 3,
+   "positionalRank": 1,
+   "overallTier": 1,
+   "startSitOverallRank": 5,
+   "startSitPositionalRank": 3,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jaxon Smith-Njigba",
+  "playerID": 1530,
+  "position": "WR",
+  "team": "SEA",
+  "rookie": false,
+  "age": 24.5,
+  "oneQBValues": {
+   "rank": 4,
+   "positionalRank": 2,
+   "overallTier": 1,
+   "startSitOverallRank": 3,
+   "startSitPositionalRank": 1,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Puka Nacua",
+  "playerID": 1519,
+  "position": "WR",
+  "team": "LAR",
+  "rookie": false,
+  "age": 25.2,
+  "oneQBValues": {
+   "rank": 5,
+   "positionalRank": 3,
+   "overallTier": 1,
+   "startSitOverallRank": 4,
+   "startSitPositionalRank": 2,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Groin",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Josh Allen",
+  "playerID": 365,
+  "position": "QB",
+  "team": "BUF",
+  "rookie": false,
+  "age": 30.3,
+  "oneQBValues": {
+   "rank": 6,
+   "positionalRank": 1,
+   "overallTier": 2,
+   "startSitOverallRank": 8,
+   "startSitPositionalRank": 1,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Amon-Ra St. Brown",
+  "playerID": 1010,
+  "position": "WR",
+  "team": "DET",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 7,
+   "positionalRank": 4,
+   "overallTier": 3,
+   "startSitOverallRank": 10,
+   "startSitPositionalRank": 5,
+   "startSitOverallTier": 2
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "CeeDee Lamb",
+  "playerID": 546,
+  "position": "WR",
+  "team": "DAL",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 8,
+   "positionalRank": 5,
+   "overallTier": 4,
+   "startSitOverallRank": 9,
+   "startSitPositionalRank": 4,
+   "startSitOverallTier": 2
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brock Bowers",
+  "playerID": 1704,
+  "position": "TE",
+  "team": "LVR",
+  "rookie": false,
+  "age": 23.7,
+  "oneQBValues": {
+   "rank": 9,
+   "positionalRank": 1,
+   "overallTier": 4,
+   "startSitOverallRank": 12,
+   "startSitPositionalRank": 1,
+   "startSitOverallTier": 3
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ashton Jeanty",
+  "playerID": 1831,
+  "position": "RB",
+  "team": "LVR",
+  "rookie": false,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 10,
+   "positionalRank": 3,
+   "overallTier": 4,
+   "startSitOverallRank": 18,
+   "startSitPositionalRank": 6,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Ankle",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Jonathan Taylor",
+  "playerID": 634,
+  "position": "RB",
+  "team": "IND",
+  "rookie": false,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 11,
+   "positionalRank": 4,
+   "overallTier": 4,
+   "startSitOverallRank": 6,
+   "startSitPositionalRank": 3,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Trey McBride",
+  "playerID": 1353,
+  "position": "TE",
+  "team": "ARI",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 12,
+   "positionalRank": 2,
+   "overallTier": 4,
+   "startSitOverallRank": 13,
+   "startSitPositionalRank": 2,
+   "startSitOverallTier": 3
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Justin Jefferson",
+  "playerID": 542,
+  "position": "WR",
+  "team": "MIN",
+  "rookie": false,
+  "age": 27.2,
+  "oneQBValues": {
+   "rank": 13,
+   "positionalRank": 6,
+   "overallTier": 4,
+   "startSitOverallRank": 21,
+   "startSitPositionalRank": 11,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "James Cook",
+  "playerID": 1331,
+  "position": "RB",
+  "team": "BUF",
+  "rookie": false,
+  "age": 26.9,
+  "oneQBValues": {
+   "rank": 14,
+   "positionalRank": 5,
+   "overallTier": 4,
+   "startSitOverallRank": 20,
+   "startSitPositionalRank": 7,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "De'Von Achane",
+  "playerID": 1491,
+  "position": "RB",
+  "team": "MIA",
+  "rookie": false,
+  "age": 24.9,
+  "oneQBValues": {
+   "rank": 15,
+   "positionalRank": 6,
+   "overallTier": 4,
+   "startSitOverallRank": 7,
+   "startSitPositionalRank": 4,
+   "startSitOverallTier": 1
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Omarion Hampton",
+  "playerID": 1833,
+  "position": "RB",
+  "team": "LAC",
+  "rookie": false,
+  "age": 23.4,
+  "oneQBValues": {
+   "rank": 16,
+   "positionalRank": 7,
+   "overallTier": 4,
+   "startSitOverallRank": 27,
+   "startSitPositionalRank": 9,
+   "startSitOverallTier": 5
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Christian McCaffrey",
+  "playerID": 283,
+  "position": "RB",
+  "team": "SFO",
+  "rookie": false,
+  "age": 30.2,
+  "oneQBValues": {
+   "rank": 17,
+   "positionalRank": 8,
+   "overallTier": 5,
+   "startSitOverallRank": 11,
+   "startSitPositionalRank": 5,
+   "startSitOverallTier": 3
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "George Pickens",
+  "playerID": 1379,
+  "position": "WR",
+  "team": "DAL",
+  "rookie": false,
+  "age": 25.5,
+  "oneQBValues": {
+   "rank": 18,
+   "positionalRank": 7,
+   "overallTier": 5,
+   "startSitOverallRank": 17,
+   "startSitPositionalRank": 9,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Malik Nabers",
+  "playerID": 1678,
+  "position": "WR",
+  "team": "NYG",
+  "rookie": false,
+  "age": 23.1,
+  "oneQBValues": {
+   "rank": 19,
+   "positionalRank": 8,
+   "overallTier": 5,
+   "startSitOverallRank": 14,
+   "startSitPositionalRank": 6,
+   "startSitOverallTier": 3
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Saquon Barkley",
+  "playerID": 1,
+  "position": "RB",
+  "team": "PHI",
+  "rookie": false,
+  "age": 29.5,
+  "oneQBValues": {
+   "rank": 20,
+   "positionalRank": 9,
+   "overallTier": 5,
+   "startSitOverallRank": 29,
+   "startSitPositionalRank": 11,
+   "startSitOverallTier": 5
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Drake London",
+  "playerID": 1368,
+  "position": "WR",
+  "team": "ATL",
+  "rookie": false,
+  "age": 25.1,
+  "oneQBValues": {
+   "rank": 21,
+   "positionalRank": 9,
+   "overallTier": 5,
+   "startSitOverallRank": 16,
+   "startSitPositionalRank": 8,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Lamar Jackson",
+  "playerID": 372,
+  "position": "QB",
+  "team": "BAL",
+  "rookie": false,
+  "age": 29.6,
+  "oneQBValues": {
+   "rank": 22,
+   "positionalRank": 2,
+   "overallTier": 5,
+   "startSitOverallRank": 26,
+   "startSitPositionalRank": 3,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Drake Maye",
+  "playerID": 1643,
+  "position": "QB",
+  "team": "NEP",
+  "rookie": false,
+  "age": 24,
+  "oneQBValues": {
+   "rank": 23,
+   "positionalRank": 3,
+   "overallTier": 5,
+   "startSitOverallRank": 22,
+   "startSitPositionalRank": 2,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jeremiyah Love",
+  "playerID": 2020,
+  "position": "RB",
+  "team": "ARI",
+  "rookie": true,
+  "age": 21.2,
+  "oneQBValues": {
+   "rank": 24,
+   "positionalRank": 10,
+   "overallTier": 5,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 31
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Ankle",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Tetairoa McMillan",
+  "playerID": 1860,
+  "position": "WR",
+  "team": "CAR",
+  "rookie": false,
+  "age": 23.4,
+  "oneQBValues": {
+   "rank": 25,
+   "positionalRank": 10,
+   "overallTier": 5,
+   "startSitOverallRank": 25,
+   "startSitPositionalRank": 13,
+   "startSitOverallTier": 5
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chris Olave",
+  "playerID": 1371,
+  "position": "WR",
+  "team": "NOS",
+  "rookie": false,
+  "age": 26.2,
+  "oneQBValues": {
+   "rank": 26,
+   "positionalRank": 11,
+   "overallTier": 5,
+   "startSitOverallRank": 47,
+   "startSitPositionalRank": 20,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kenneth Walker III",
+  "playerID": 1327,
+  "position": "RB",
+  "team": "KCC",
+  "rookie": false,
+  "age": 25.8,
+  "oneQBValues": {
+   "rank": 27,
+   "positionalRank": 11,
+   "overallTier": 5,
+   "startSitOverallRank": 65,
+   "startSitPositionalRank": 21,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chase Brown",
+  "playerID": 1489,
+  "position": "RB",
+  "team": "CIN",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 28,
+   "positionalRank": 12,
+   "overallTier": 5,
+   "startSitOverallRank": 55,
+   "startSitPositionalRank": 18,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Emeka Egbuka",
+  "playerID": 1870,
+  "position": "WR",
+  "team": "TBB",
+  "rookie": false,
+  "age": 23.9,
+  "oneQBValues": {
+   "rank": 29,
+   "positionalRank": 12,
+   "overallTier": 5,
+   "startSitOverallRank": 15,
+   "startSitPositionalRank": 7,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Toe",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Nico Collins",
+  "playerID": 1040,
+  "position": "WR",
+  "team": "HOU",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 30,
+   "positionalRank": 13,
+   "overallTier": 5,
+   "startSitOverallRank": 23,
+   "startSitPositionalRank": 12,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "DeVonta Smith",
+  "playerID": 1005,
+  "position": "WR",
+  "team": "PHI",
+  "rookie": false,
+  "age": 27.8,
+  "oneQBValues": {
+   "rank": 31,
+   "positionalRank": 14,
+   "overallTier": 5,
+   "startSitOverallRank": 49,
+   "startSitPositionalRank": 21,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Colston Loveland",
+  "playerID": 1893,
+  "position": "TE",
+  "team": "CHI",
+  "rookie": false,
+  "age": 22.4,
+  "oneQBValues": {
+   "rank": 32,
+   "positionalRank": 3,
+   "overallTier": 5,
+   "startSitOverallRank": 61,
+   "startSitPositionalRank": 5,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ladd McConkey",
+  "playerID": 1690,
+  "position": "WR",
+  "team": "LAC",
+  "rookie": false,
+  "age": 24.8,
+  "oneQBValues": {
+   "rank": 33,
+   "positionalRank": 15,
+   "overallTier": 5,
+   "startSitOverallRank": 31,
+   "startSitPositionalRank": 14,
+   "startSitOverallTier": 5
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jayden Daniels",
+  "playerID": 1644,
+  "position": "QB",
+  "team": "WAS",
+  "rookie": false,
+  "age": 25.7,
+  "oneQBValues": {
+   "rank": 34,
+   "positionalRank": 4,
+   "overallTier": 5,
+   "startSitOverallRank": 42,
+   "startSitPositionalRank": 7,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kyren Williams",
+  "playerID": 1326,
+  "position": "RB",
+  "team": "LAR",
+  "rookie": false,
+  "age": 26,
+  "oneQBValues": {
+   "rank": 35,
+   "positionalRank": 13,
+   "overallTier": 5,
+   "startSitOverallRank": 33,
+   "startSitPositionalRank": 13,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Rashee Rice",
+  "playerID": 1540,
+  "position": "WR",
+  "team": "KCC",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 36,
+   "positionalRank": 16,
+   "overallTier": 5,
+   "startSitOverallRank": 19,
+   "startSitPositionalRank": 10,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyler Warren",
+  "playerID": 1891,
+  "position": "TE",
+  "team": "IND",
+  "rookie": false,
+  "age": 24.2,
+  "oneQBValues": {
+   "rank": 37,
+   "positionalRank": 4,
+   "overallTier": 5,
+   "startSitOverallRank": 34,
+   "startSitPositionalRank": 3,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Groin",
+   "injuryReturn": "Aug 29, 2026"
+  }
+ },
+ {
+  "playerName": "A.J. Brown",
+  "playerID": 217,
+  "position": "WR",
+  "team": "NEP",
+  "rookie": false,
+  "age": 29.2,
+  "oneQBValues": {
+   "rank": 38,
+   "positionalRank": 17,
+   "overallTier": 5,
+   "startSitOverallRank": 51,
+   "startSitPositionalRank": 22,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Joe Burrow",
+  "playerID": 601,
+  "position": "QB",
+  "team": "CIN",
+  "rookie": false,
+  "age": 29.7,
+  "oneQBValues": {
+   "rank": 39,
+   "positionalRank": 5,
+   "overallTier": 5,
+   "startSitOverallRank": 53,
+   "startSitPositionalRank": 10,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Garrett Wilson",
+  "playerID": 1370,
+  "position": "WR",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 26.1,
+  "oneQBValues": {
+   "rank": 40,
+   "positionalRank": 18,
+   "overallTier": 5,
+   "startSitOverallRank": 43,
+   "startSitPositionalRank": 17,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Quinshon Judkins",
+  "playerID": 1840,
+  "position": "RB",
+  "team": "CLE",
+  "rookie": false,
+  "age": 22.8,
+  "oneQBValues": {
+   "rank": 41,
+   "positionalRank": 14,
+   "overallTier": 5,
+   "startSitOverallRank": 30,
+   "startSitPositionalRank": 12,
+   "startSitOverallTier": 5
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Breece Hall",
+  "playerID": 1324,
+  "position": "RB",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 25.2,
+  "oneQBValues": {
+   "rank": 42,
+   "positionalRank": 15,
+   "overallTier": 5,
+   "startSitOverallRank": 37,
+   "startSitPositionalRank": 15,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Groin",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Rome Odunze",
+  "playerID": 1679,
+  "position": "WR",
+  "team": "CHI",
+  "rookie": false,
+  "age": 24.2,
+  "oneQBValues": {
+   "rank": 43,
+   "positionalRank": 19,
+   "overallTier": 5,
+   "startSitOverallRank": 38,
+   "startSitPositionalRank": 15,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Caleb Williams",
+  "playerID": 1642,
+  "position": "QB",
+  "team": "CHI",
+  "rookie": false,
+  "age": 24.8,
+  "oneQBValues": {
+   "rank": 44,
+   "positionalRank": 6,
+   "overallTier": 5,
+   "startSitOverallRank": 48,
+   "startSitPositionalRank": 8,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Justin Herbert",
+  "playerID": 599,
+  "position": "QB",
+  "team": "LAC",
+  "rookie": false,
+  "age": 28.4,
+  "oneQBValues": {
+   "rank": 45,
+   "positionalRank": 7,
+   "overallTier": 5,
+   "startSitOverallRank": 35,
+   "startSitPositionalRank": 5,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Javonte Williams",
+  "playerID": 1033,
+  "position": "RB",
+  "team": "DAL",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 46,
+   "positionalRank": 16,
+   "overallTier": 5,
+   "startSitOverallRank": 36,
+   "startSitPositionalRank": 14,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jalen Hurts",
+  "playerID": 595,
+  "position": "QB",
+  "team": "PHI",
+  "rookie": false,
+  "age": 28,
+  "oneQBValues": {
+   "rank": 47,
+   "positionalRank": 8,
+   "overallTier": 5,
+   "startSitOverallRank": 40,
+   "startSitPositionalRank": 6,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Zay Flowers",
+  "playerID": 1536,
+  "position": "WR",
+  "team": "BAL",
+  "rookie": false,
+  "age": 26,
+  "oneQBValues": {
+   "rank": 48,
+   "positionalRank": 20,
+   "overallTier": 5,
+   "startSitOverallRank": 58,
+   "startSitPositionalRank": 26,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cam Skattebo",
+  "playerID": 1834,
+  "position": "RB",
+  "team": "NYG",
+  "rookie": false,
+  "age": 24.6,
+  "oneQBValues": {
+   "rank": 49,
+   "positionalRank": 17,
+   "overallTier": 5,
+   "startSitOverallRank": 69,
+   "startSitPositionalRank": 22,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Derrick Henry",
+  "playerID": 296,
+  "position": "RB",
+  "team": "BAL",
+  "rookie": false,
+  "age": 32.6,
+  "oneQBValues": {
+   "rank": 50,
+   "positionalRank": 18,
+   "overallTier": 5,
+   "startSitOverallRank": 44,
+   "startSitPositionalRank": 17,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Carnell Tate",
+  "playerID": 2045,
+  "position": "WR",
+  "team": "TEN",
+  "rookie": true,
+  "age": 21.6,
+  "oneQBValues": {
+   "rank": 51,
+   "positionalRank": 21,
+   "overallTier": 5,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 31
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tee Higgins",
+  "playerID": 543,
+  "position": "WR",
+  "team": "CIN",
+  "rookie": false,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 52,
+   "positionalRank": 22,
+   "overallTier": 5,
+   "startSitOverallRank": 41,
+   "startSitPositionalRank": 16,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "TreVeyon Henderson",
+  "playerID": 1832,
+  "position": "RB",
+  "team": "NEP",
+  "rookie": false,
+  "age": 23.8,
+  "oneQBValues": {
+   "rank": 53,
+   "positionalRank": 19,
+   "overallTier": 5,
+   "startSitOverallRank": 39,
+   "startSitPositionalRank": 16,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jaylen Waddle",
+  "playerID": 1007,
+  "position": "WR",
+  "team": "DEN",
+  "rookie": false,
+  "age": 27.7,
+  "oneQBValues": {
+   "rank": 54,
+   "positionalRank": 23,
+   "overallTier": 5,
+   "startSitOverallRank": 54,
+   "startSitPositionalRank": 24,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Luther Burden",
+  "playerID": 1859,
+  "position": "WR",
+  "team": "CHI",
+  "rookie": false,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 55,
+   "positionalRank": 24,
+   "overallTier": 5,
+   "startSitOverallRank": 118,
+   "startSitPositionalRank": 50,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Groin",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Patrick Mahomes",
+  "playerID": 272,
+  "position": "QB",
+  "team": "KCC",
+  "rookie": false,
+  "age": 30.9,
+  "oneQBValues": {
+   "rank": 56,
+   "positionalRank": 9,
+   "overallTier": 5,
+   "startSitOverallRank": 32,
+   "startSitPositionalRank": 4,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Bucky Irving",
+  "playerID": 1661,
+  "position": "RB",
+  "team": "TBB",
+  "rookie": false,
+  "age": 24,
+  "oneQBValues": {
+   "rank": 57,
+   "positionalRank": 20,
+   "overallTier": 5,
+   "startSitOverallRank": 24,
+   "startSitPositionalRank": 8,
+   "startSitOverallTier": 4
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jadarian Price",
+  "playerID": 2021,
+  "position": "RB",
+  "team": "SEA",
+  "rookie": true,
+  "age": 22.9,
+  "oneQBValues": {
+   "rank": 58,
+   "positionalRank": 21,
+   "overallTier": 5,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 31
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Bo Nix",
+  "playerID": 1645,
+  "position": "QB",
+  "team": "DEN",
+  "rookie": false,
+  "age": 26.5,
+  "oneQBValues": {
+   "rank": 59,
+   "positionalRank": 10,
+   "overallTier": 5,
+   "startSitOverallRank": 56,
+   "startSitPositionalRank": 11,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "D.J. Moore",
+  "playerID": 304,
+  "position": "WR",
+  "team": "BUF",
+  "rookie": false,
+  "age": 29.4,
+  "oneQBValues": {
+   "rank": 60,
+   "positionalRank": 25,
+   "overallTier": 5,
+   "startSitOverallRank": 90,
+   "startSitPositionalRank": 37,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "D'Andre Swift",
+  "playerID": 639,
+  "position": "RB",
+  "team": "CHI",
+  "rookie": false,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 61,
+   "positionalRank": 22,
+   "overallTier": 5,
+   "startSitOverallRank": 79,
+   "startSitPositionalRank": 26,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tucker Kraft",
+  "playerID": 1511,
+  "position": "TE",
+  "team": "GBP",
+  "rookie": false,
+  "age": 25.8,
+  "oneQBValues": {
+   "rank": 62,
+   "positionalRank": 5,
+   "overallTier": 5,
+   "startSitOverallRank": 78,
+   "startSitPositionalRank": 8,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Travis Etienne",
+  "playerID": 1030,
+  "position": "RB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 63,
+   "positionalRank": 23,
+   "overallTier": 5,
+   "startSitOverallRank": 75,
+   "startSitPositionalRank": 24,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Josh Jacobs",
+  "playerID": 303,
+  "position": "RB",
+  "team": "GBP",
+  "rookie": false,
+  "age": 28.5,
+  "oneQBValues": {
+   "rank": 64,
+   "positionalRank": 24,
+   "overallTier": 5,
+   "startSitOverallRank": 28,
+   "startSitPositionalRank": 10,
+   "startSitOverallTier": 5
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Groin",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Jameson Williams",
+  "playerID": 1373,
+  "position": "WR",
+  "team": "DET",
+  "rookie": false,
+  "age": 25.4,
+  "oneQBValues": {
+   "rank": 65,
+   "positionalRank": 26,
+   "overallTier": 6,
+   "startSitOverallRank": 52,
+   "startSitPositionalRank": 23,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Sam LaPorta",
+  "playerID": 1522,
+  "position": "TE",
+  "team": "DET",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 66,
+   "positionalRank": 6,
+   "overallTier": 6,
+   "startSitOverallRank": 63,
+   "startSitPositionalRank": 6,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hip",
+   "injuryReturn": "Aug 29, 2026"
+  }
+ },
+ {
+  "playerName": "Jaxson Dart",
+  "playerID": 1821,
+  "position": "QB",
+  "team": "NYG",
+  "rookie": false,
+  "age": 23.3,
+  "oneQBValues": {
+   "rank": 67,
+   "positionalRank": 11,
+   "overallTier": 6,
+   "startSitOverallRank": 423,
+   "startSitPositionalRank": 53,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Harold Fannin",
+  "playerID": 1892,
+  "position": "TE",
+  "team": "CLE",
+  "rookie": false,
+  "age": 22.1,
+  "oneQBValues": {
+   "rank": 68,
+   "positionalRank": 7,
+   "overallTier": 6,
+   "startSitOverallRank": 85,
+   "startSitPositionalRank": 11,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dak Prescott",
+  "playerID": 371,
+  "position": "QB",
+  "team": "DAL",
+  "rookie": false,
+  "age": 33.1,
+  "oneQBValues": {
+   "rank": 69,
+   "positionalRank": 12,
+   "overallTier": 7,
+   "startSitOverallRank": 64,
+   "startSitPositionalRank": 12,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "David Montgomery",
+  "playerID": 288,
+  "position": "RB",
+  "team": "HOU",
+  "rookie": false,
+  "age": 29.2,
+  "oneQBValues": {
+   "rank": 70,
+   "positionalRank": 25,
+   "overallTier": 7,
+   "startSitOverallRank": 87,
+   "startSitPositionalRank": 27,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Marvin Harrison Jr.",
+  "playerID": 1677,
+  "position": "WR",
+  "team": "ARI",
+  "rookie": false,
+  "age": 24,
+  "oneQBValues": {
+   "rank": 71,
+   "positionalRank": 27,
+   "overallTier": 7,
+   "startSitOverallRank": 46,
+   "startSitPositionalRank": 19,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Trevor Lawrence",
+  "playerID": 1094,
+  "position": "QB",
+  "team": "JAC",
+  "rookie": false,
+  "age": 26.9,
+  "oneQBValues": {
+   "rank": 72,
+   "positionalRank": 13,
+   "overallTier": 7,
+   "startSitOverallRank": 112,
+   "startSitPositionalRank": 19,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brian Thomas Jr.",
+  "playerID": 1681,
+  "position": "WR",
+  "team": "JAC",
+  "rookie": false,
+  "age": 23.9,
+  "oneQBValues": {
+   "rank": 73,
+   "positionalRank": 28,
+   "overallTier": 7,
+   "startSitOverallRank": 57,
+   "startSitPositionalRank": 25,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brock Purdy",
+  "playerID": 1314,
+  "position": "QB",
+  "team": "SFO",
+  "rookie": false,
+  "age": 26.6,
+  "oneQBValues": {
+   "rank": 74,
+   "positionalRank": 14,
+   "overallTier": 7,
+   "startSitOverallRank": 91,
+   "startSitPositionalRank": 16,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Makai Lemon",
+  "playerID": 2047,
+  "position": "WR",
+  "team": "PHI",
+  "rookie": true,
+  "age": 22.2,
+  "oneQBValues": {
+   "rank": 75,
+   "positionalRank": 29,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 31
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Fernando Mendoza",
+  "playerID": 2010,
+  "position": "QB",
+  "team": "LVR",
+  "rookie": true,
+  "age": 22.9,
+  "oneQBValues": {
+   "rank": 76,
+   "positionalRank": 15,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 104,
+   "startSitOverallTier": 31
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jordyn Tyson",
+  "playerID": 2046,
+  "position": "WR",
+  "team": "NOS",
+  "rookie": true,
+  "age": 22,
+  "oneQBValues": {
+   "rank": 77,
+   "positionalRank": 30,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 31
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Doubtful",
+   "injuryCode": 3,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Oct 18, 2026"
+  }
+ },
+ {
+  "playerName": "Jordan Love",
+  "playerID": 596,
+  "position": "QB",
+  "team": "GBP",
+  "rookie": false,
+  "age": 27.8,
+  "oneQBValues": {
+   "rank": 78,
+   "positionalRank": 16,
+   "overallTier": 7,
+   "startSitOverallRank": 67,
+   "startSitPositionalRank": 13,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Davante Adams",
+  "playerID": 277,
+  "position": "WR",
+  "team": "LAR",
+  "rookie": false,
+  "age": 33.7,
+  "oneQBValues": {
+   "rank": 79,
+   "positionalRank": 31,
+   "overallTier": 7,
+   "startSitOverallRank": 45,
+   "startSitPositionalRank": 18,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Josh Downs",
+  "playerID": 1533,
+  "position": "WR",
+  "team": "IND",
+  "rookie": false,
+  "age": 25,
+  "oneQBValues": {
+   "rank": 80,
+   "positionalRank": 32,
+   "overallTier": 7,
+   "startSitOverallRank": 109,
+   "startSitPositionalRank": 44,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Baker Mayfield",
+  "playerID": 215,
+  "position": "QB",
+  "team": "TBB",
+  "rookie": false,
+  "age": 31.4,
+  "oneQBValues": {
+   "rank": 81,
+   "positionalRank": 17,
+   "overallTier": 7,
+   "startSitOverallRank": 50,
+   "startSitPositionalRank": 9,
+   "startSitOverallTier": 6
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kyle Pitts",
+  "playerID": 1051,
+  "position": "TE",
+  "team": "ATL",
+  "rookie": false,
+  "age": 25.9,
+  "oneQBValues": {
+   "rank": 82,
+   "positionalRank": 8,
+   "overallTier": 7,
+   "startSitOverallRank": 83,
+   "startSitPositionalRank": 10,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Michael Pittman",
+  "playerID": 536,
+  "position": "WR",
+  "team": "PIT",
+  "rookie": false,
+  "age": 28.9,
+  "oneQBValues": {
+   "rank": 83,
+   "positionalRank": 33,
+   "overallTier": 7,
+   "startSitOverallRank": 71,
+   "startSitPositionalRank": 29,
+   "startSitOverallTier": 8
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Jordan Addison",
+  "playerID": 1513,
+  "position": "WR",
+  "team": "MIN",
+  "rookie": false,
+  "age": 24.6,
+  "oneQBValues": {
+   "rank": 84,
+   "positionalRank": 34,
+   "overallTier": 7,
+   "startSitOverallRank": 66,
+   "startSitPositionalRank": 27,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Christian Watson",
+  "playerID": 1348,
+  "position": "WR",
+  "team": "GBP",
+  "rookie": false,
+  "age": 27.3,
+  "oneQBValues": {
+   "rank": 85,
+   "positionalRank": 35,
+   "overallTier": 7,
+   "startSitOverallRank": 147,
+   "startSitPositionalRank": 58,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jaylen Warren",
+  "playerID": 1301,
+  "position": "RB",
+  "team": "PIT",
+  "rookie": false,
+  "age": 27.8,
+  "oneQBValues": {
+   "rank": 86,
+   "positionalRank": 26,
+   "overallTier": 7,
+   "startSitOverallRank": 60,
+   "startSitPositionalRank": 19,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jared Goff",
+  "playerID": 388,
+  "position": "QB",
+  "team": "DET",
+  "rookie": false,
+  "age": 31.9,
+  "oneQBValues": {
+   "rank": 87,
+   "positionalRank": 18,
+   "overallTier": 7,
+   "startSitOverallRank": 70,
+   "startSitPositionalRank": 14,
+   "startSitOverallTier": 8
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "George Kittle",
+  "playerID": 298,
+  "position": "TE",
+  "team": "SFO",
+  "rookie": false,
+  "age": 32.9,
+  "oneQBValues": {
+   "rank": 88,
+   "positionalRank": 9,
+   "overallTier": 7,
+   "startSitOverallRank": 59,
+   "startSitPositionalRank": 4,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Achilles",
+   "injuryReturn": "Sep 10, 2026"
+  }
+ },
+ {
+  "playerName": "Terry McLaurin",
+  "playerID": 328,
+  "position": "WR",
+  "team": "WAS",
+  "rookie": false,
+  "age": 30.9,
+  "oneQBValues": {
+   "rank": 89,
+   "positionalRank": 36,
+   "overallTier": 7,
+   "startSitOverallRank": 100,
+   "startSitPositionalRank": 42,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "KC Concepcion",
+  "playerID": 2049,
+  "position": "WR",
+  "team": "CLE",
+  "rookie": true,
+  "age": 21.9,
+  "oneQBValues": {
+   "rank": 90,
+   "positionalRank": 37,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 32
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Alec Pierce",
+  "playerID": 1385,
+  "position": "WR",
+  "team": "IND",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 91,
+   "positionalRank": 38,
+   "overallTier": 7,
+   "startSitOverallRank": 139,
+   "startSitPositionalRank": 58,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryName": "Out",
+   "injuryCode": 4,
+   "injuryArea": "Ankle",
+   "injuryReturn": "Aug 29, 2026"
+  }
+ },
+ {
+  "playerName": "Cam Ward",
+  "playerID": 1819,
+  "position": "QB",
+  "team": "TEN",
+  "rookie": false,
+  "age": 24.2,
+  "oneQBValues": {
+   "rank": 92,
+   "positionalRank": 19,
+   "overallTier": 7,
+   "startSitOverallRank": 134,
+   "startSitPositionalRank": 23,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Denzel Boston",
+  "playerID": 2048,
+  "position": "WR",
+  "team": "CLE",
+  "rookie": true,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 93,
+   "positionalRank": 39,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 32
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Quentin Johnston",
+  "playerID": 1534,
+  "position": "WR",
+  "team": "LAC",
+  "rookie": false,
+  "age": 25,
+  "oneQBValues": {
+   "rank": 94,
+   "positionalRank": 40,
+   "overallTier": 7,
+   "startSitOverallRank": 81,
+   "startSitPositionalRank": 33,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Lower Body",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Dalton Kincaid",
+  "playerID": 1521,
+  "position": "TE",
+  "team": "BUF",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 95,
+   "positionalRank": 10,
+   "overallTier": 7,
+   "startSitOverallRank": 82,
+   "startSitPositionalRank": 9,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Wan'Dale Robinson",
+  "playerID": 1374,
+  "position": "WR",
+  "team": "TEN",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 96,
+   "positionalRank": 41,
+   "overallTier": 7,
+   "startSitOverallRank": 96,
+   "startSitPositionalRank": 39,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "RJ Harvey",
+  "playerID": 1857,
+  "position": "RB",
+  "team": "DEN",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 97,
+   "positionalRank": 27,
+   "overallTier": 7,
+   "startSitOverallRank": 62,
+   "startSitPositionalRank": 20,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Matthew Golden",
+  "playerID": 1864,
+  "position": "WR",
+  "team": "GBP",
+  "rookie": false,
+  "age": 23.1,
+  "oneQBValues": {
+   "rank": 98,
+   "positionalRank": 42,
+   "overallTier": 7,
+   "startSitOverallRank": 97,
+   "startSitPositionalRank": 40,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jayden Reed",
+  "playerID": 1512,
+  "position": "WR",
+  "team": "GBP",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 99,
+   "positionalRank": 43,
+   "overallTier": 7,
+   "startSitOverallRank": 122,
+   "startSitPositionalRank": 53,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kenyon Sadiq",
+  "playerID": 2091,
+  "position": "TE",
+  "team": "NYJ",
+  "rookie": true,
+  "age": 21.5,
+  "oneQBValues": {
+   "rank": 100,
+   "positionalRank": 11,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 153,
+   "startSitOverallTier": 32
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Abdomen",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "DK Metcalf",
+  "playerID": 224,
+  "position": "WR",
+  "team": "PIT",
+  "rookie": false,
+  "age": 28.7,
+  "oneQBValues": {
+   "rank": 101,
+   "positionalRank": 44,
+   "overallTier": 7,
+   "startSitOverallRank": 74,
+   "startSitPositionalRank": 31,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Jake Ferguson",
+  "playerID": 1358,
+  "position": "TE",
+  "team": "DAL",
+  "rookie": false,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 102,
+   "positionalRank": 12,
+   "overallTier": 7,
+   "startSitOverallRank": 76,
+   "startSitPositionalRank": 7,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Rhamondre Stevenson",
+  "playerID": 1036,
+  "position": "RB",
+  "team": "NEP",
+  "rookie": false,
+  "age": 28.5,
+  "oneQBValues": {
+   "rank": 103,
+   "positionalRank": 28,
+   "overallTier": 7,
+   "startSitOverallRank": 119,
+   "startSitPositionalRank": 33,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jayden Higgins",
+  "playerID": 1872,
+  "position": "WR",
+  "team": "HOU",
+  "rookie": false,
+  "age": 23.7,
+  "oneQBValues": {
+   "rank": 104,
+   "positionalRank": 45,
+   "overallTier": 7,
+   "startSitOverallRank": 123,
+   "startSitPositionalRank": 54,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "IR",
+   "injuryCode": 6,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Feb 15, 2027"
+  }
+ },
+ {
+  "playerName": "Courtland Sutton",
+  "playerID": 226,
+  "position": "WR",
+  "team": "DEN",
+  "rookie": false,
+  "age": 30.9,
+  "oneQBValues": {
+   "rank": 105,
+   "positionalRank": 46,
+   "overallTier": 7,
+   "startSitOverallRank": 68,
+   "startSitPositionalRank": 28,
+   "startSitOverallTier": 7
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Mike Evans",
+  "playerID": 275,
+  "position": "WR",
+  "team": "SFO",
+  "rookie": false,
+  "age": 33,
+  "oneQBValues": {
+   "rank": 106,
+   "positionalRank": 47,
+   "overallTier": 7,
+   "startSitOverallRank": 114,
+   "startSitPositionalRank": 46,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Quadriceps",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Matthew Stafford",
+  "playerID": 356,
+  "position": "QB",
+  "team": "LAR",
+  "rookie": false,
+  "age": 38.5,
+  "oneQBValues": {
+   "rank": 107,
+   "positionalRank": 20,
+   "overallTier": 7,
+   "startSitOverallRank": 95,
+   "startSitPositionalRank": 17,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jakobi Meyers",
+  "playerID": 13,
+  "position": "WR",
+  "team": "JAC",
+  "rookie": false,
+  "age": 29.8,
+  "oneQBValues": {
+   "rank": 108,
+   "positionalRank": 48,
+   "overallTier": 7,
+   "startSitOverallRank": 86,
+   "startSitPositionalRank": 35,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hand",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Jonah Coleman",
+  "playerID": 2025,
+  "position": "RB",
+  "team": "DEN",
+  "rookie": true,
+  "age": 23,
+  "oneQBValues": {
+   "rank": 109,
+   "positionalRank": 29,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 32
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Romeo Doubs",
+  "playerID": 1338,
+  "position": "WR",
+  "team": "NEP",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 110,
+   "positionalRank": 49,
+   "overallTier": 7,
+   "startSitOverallRank": 120,
+   "startSitPositionalRank": 51,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Xavier Worthy",
+  "playerID": 1683,
+  "position": "WR",
+  "team": "KCC",
+  "rookie": false,
+  "age": 23.3,
+  "oneQBValues": {
+   "rank": 111,
+   "positionalRank": 50,
+   "overallTier": 7,
+   "startSitOverallRank": 80,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Shoulder",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Rashid Shaheed",
+  "playerID": 1463,
+  "position": "WR",
+  "team": "SEA",
+  "rookie": false,
+  "age": 28,
+  "oneQBValues": {
+   "rank": 112,
+   "positionalRank": 51,
+   "overallTier": 7,
+   "startSitOverallRank": 115,
+   "startSitPositionalRank": 47,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Zach Charbonnet",
+  "playerID": 1477,
+  "position": "RB",
+  "team": "SEA",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 113,
+   "positionalRank": 30,
+   "overallTier": 7,
+   "startSitOverallRank": 73,
+   "startSitPositionalRank": 23,
+   "startSitOverallTier": 8
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Out",
+   "injuryCode": 4,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Sep 9, 2026"
+  }
+ },
+ {
+  "playerName": "Blake Corum",
+  "playerID": 1656,
+  "position": "RB",
+  "team": "LAR",
+  "rookie": false,
+  "age": 25.7,
+  "oneQBValues": {
+   "rank": 114,
+   "positionalRank": 31,
+   "overallTier": 7,
+   "startSitOverallRank": 129,
+   "startSitPositionalRank": 38,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "J.K. Dobbins",
+  "playerID": 636,
+  "position": "RB",
+  "team": "DEN",
+  "rookie": false,
+  "age": 27.7,
+  "oneQBValues": {
+   "rank": 115,
+   "positionalRank": 32,
+   "overallTier": 7,
+   "startSitOverallRank": 106,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Sam Darnold",
+  "playerID": 331,
+  "position": "QB",
+  "team": "SEA",
+  "rookie": false,
+  "age": 29.2,
+  "oneQBValues": {
+   "rank": 116,
+   "positionalRank": 21,
+   "overallTier": 7,
+   "startSitOverallRank": 113,
+   "startSitPositionalRank": 20,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kyler Murray",
+  "playerID": 379,
+  "position": "QB",
+  "team": "MIN",
+  "rookie": false,
+  "age": 29,
+  "oneQBValues": {
+   "rank": 117,
+   "positionalRank": 22,
+   "overallTier": 7,
+   "startSitOverallRank": 130,
+   "startSitPositionalRank": 21,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Travis Hunter",
+  "playerID": 1863,
+  "position": "WR",
+  "team": "JAC",
+  "rookie": false,
+  "age": 23.3,
+  "oneQBValues": {
+   "rank": 118,
+   "positionalRank": 52,
+   "overallTier": 7,
+   "startSitOverallRank": 72,
+   "startSitPositionalRank": 30,
+   "startSitOverallTier": 8
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Isaiah Likely",
+  "playerID": 1357,
+  "position": "TE",
+  "team": "NYG",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 119,
+   "positionalRank": 13,
+   "overallTier": 7,
+   "startSitOverallRank": 137,
+   "startSitPositionalRank": 16,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chuba Hubbard",
+  "playerID": 1014,
+  "position": "RB",
+  "team": "CAR",
+  "rookie": false,
+  "age": 27.2,
+  "oneQBValues": {
+   "rank": 120,
+   "positionalRank": 33,
+   "overallTier": 7,
+   "startSitOverallRank": 77,
+   "startSitPositionalRank": 25,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Omar Cooper Jr.",
+  "playerID": 2050,
+  "position": "WR",
+  "team": "NYJ",
+  "rookie": true,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 121,
+   "positionalRank": 53,
+   "overallTier": 7,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 33
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kenneth Gainwell",
+  "playerID": 1032,
+  "position": "RB",
+  "team": "TBB",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 122,
+   "positionalRank": 34,
+   "overallTier": 8,
+   "startSitOverallRank": 151,
+   "startSitPositionalRank": 44,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "C.J. Stroud",
+  "playerID": 1496,
+  "position": "QB",
+  "team": "HOU",
+  "rookie": false,
+  "age": 24.9,
+  "oneQBValues": {
+   "rank": 123,
+   "positionalRank": 23,
+   "overallTier": 8,
+   "startSitOverallRank": 101,
+   "startSitPositionalRank": 18,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chris Godwin",
+  "playerID": 299,
+  "position": "WR",
+  "team": "TBB",
+  "rookie": false,
+  "age": 30.5,
+  "oneQBValues": {
+   "rank": 124,
+   "positionalRank": 54,
+   "overallTier": 8,
+   "startSitOverallRank": 132,
+   "startSitPositionalRank": 55,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Travis Kelce",
+  "playerID": 264,
+  "position": "TE",
+  "team": "KCC",
+  "rookie": false,
+  "age": 36.9,
+  "oneQBValues": {
+   "rank": 125,
+   "positionalRank": 14,
+   "overallTier": 8,
+   "startSitOverallRank": 94,
+   "startSitPositionalRank": 12,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jordan Mason",
+  "playerID": 1426,
+  "position": "RB",
+  "team": "MIN",
+  "rookie": false,
+  "age": 27.2,
+  "oneQBValues": {
+   "rank": 126,
+   "positionalRank": 35,
+   "overallTier": 8,
+   "startSitOverallRank": 102,
+   "startSitPositionalRank": 30,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Daniel Jones",
+  "playerID": 87,
+  "position": "QB",
+  "team": "IND",
+  "rookie": false,
+  "age": 29.2,
+  "oneQBValues": {
+   "rank": 127,
+   "positionalRank": 24,
+   "overallTier": 8,
+   "startSitOverallRank": 89,
+   "startSitPositionalRank": 15,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brenton Strange",
+  "playerID": 1555,
+  "position": "TE",
+  "team": "JAC",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 129,
+   "positionalRank": 15,
+   "overallTier": 8,
+   "startSitOverallRank": 584,
+   "startSitPositionalRank": 80,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Oronde Gadsden",
+  "playerID": 1888,
+  "position": "TE",
+  "team": "LAC",
+  "rookie": false,
+  "age": 23.2,
+  "oneQBValues": {
+   "rank": 130,
+   "positionalRank": 16,
+   "overallTier": 8,
+   "startSitOverallRank": 212,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Khalil Shakir",
+  "playerID": 1378,
+  "position": "WR",
+  "team": "BUF",
+  "rookie": false,
+  "age": 26.6,
+  "oneQBValues": {
+   "rank": 131,
+   "positionalRank": 55,
+   "overallTier": 8,
+   "startSitOverallRank": 93,
+   "startSitPositionalRank": 38,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Dallas Goedert",
+  "playerID": 382,
+  "position": "TE",
+  "team": "PHI",
+  "rookie": false,
+  "age": 31.6,
+  "oneQBValues": {
+   "rank": 132,
+   "positionalRank": 17,
+   "overallTier": 8,
+   "startSitOverallRank": 107,
+   "startSitPositionalRank": 14,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Denver Broncos",
+  "playerID": 1202,
+  "position": "DST",
+  "team": "DEN",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 133,
+   "positionalRank": 1,
+   "overallTier": 8,
+   "startSitOverallRank": 110,
+   "startSitPositionalRank": 1,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jacory Croskey-Merritt",
+  "playerID": 1924,
+  "position": "RB",
+  "team": "WAS",
+  "rookie": false,
+  "age": 25.4,
+  "oneQBValues": {
+   "rank": 134,
+   "positionalRank": 37,
+   "overallTier": 8,
+   "startSitOverallRank": 92,
+   "startSitPositionalRank": 28,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Mark Andrews",
+  "playerID": 366,
+  "position": "TE",
+  "team": "BAL",
+  "rookie": false,
+  "age": 31,
+  "oneQBValues": {
+   "rank": 135,
+   "positionalRank": 18,
+   "overallTier": 8,
+   "startSitOverallRank": 145,
+   "startSitPositionalRank": 19,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyrone Tracy",
+  "playerID": 1726,
+  "position": "RB",
+  "team": "NYG",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 136,
+   "positionalRank": 38,
+   "overallTier": 8,
+   "startSitOverallRank": 104,
+   "startSitPositionalRank": 31,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Rachaad White",
+  "playerID": 1280,
+  "position": "RB",
+  "team": "WAS",
+  "rookie": false,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 137,
+   "positionalRank": 39,
+   "overallTier": 8,
+   "startSitOverallRank": 143,
+   "startSitPositionalRank": 41,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Tony Pollard",
+  "playerID": 344,
+  "position": "RB",
+  "team": "TEN",
+  "rookie": false,
+  "age": 29.3,
+  "oneQBValues": {
+   "rank": 138,
+   "positionalRank": 40,
+   "overallTier": 8,
+   "startSitOverallRank": 124,
+   "startSitPositionalRank": 35,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brandon Aubrey",
+  "playerID": 1603,
+  "position": "PK",
+  "team": "DAL",
+  "rookie": false,
+  "age": 31.4,
+  "oneQBValues": {
+   "rank": 139,
+   "positionalRank": 1,
+   "overallTier": 8,
+   "startSitOverallRank": 127,
+   "startSitPositionalRank": 1,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyler Allgeier",
+  "playerID": 1328,
+  "position": "RB",
+  "team": "ARI",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 140,
+   "positionalRank": 41,
+   "overallTier": 8,
+   "startSitOverallRank": 126,
+   "startSitPositionalRank": 37,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "T.J. Hockenson",
+  "playerID": 247,
+  "position": "TE",
+  "team": "MIN",
+  "rookie": false,
+  "age": 29.1,
+  "oneQBValues": {
+   "rank": 141,
+   "positionalRank": 19,
+   "overallTier": 8,
+   "startSitOverallRank": 108,
+   "startSitPositionalRank": 15,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jalen McMillan",
+  "playerID": 1691,
+  "position": "WR",
+  "team": "TBB",
+  "rookie": false,
+  "age": 24.7,
+  "oneQBValues": {
+   "rank": 142,
+   "positionalRank": 56,
+   "overallTier": 8,
+   "startSitOverallRank": 172,
+   "startSitPositionalRank": 68,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Tory Horton",
+  "playerID": 1887,
+  "position": "WR",
+  "team": "SEA",
+  "rookie": false,
+  "age": 23.7,
+  "oneQBValues": {
+   "rank": 143,
+   "positionalRank": 57,
+   "overallTier": 8,
+   "startSitOverallRank": 135,
+   "startSitPositionalRank": 57,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 23, 2026"
+  }
+ },
+ {
+  "playerName": "Bryce Young",
+  "playerID": 1549,
+  "position": "QB",
+  "team": "CAR",
+  "rookie": false,
+  "age": 25.1,
+  "oneQBValues": {
+   "rank": 144,
+   "positionalRank": 25,
+   "overallTier": 8,
+   "startSitOverallRank": 144,
+   "startSitPositionalRank": 26,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Zachariah Branch",
+  "playerID": 2055,
+  "position": "WR",
+  "team": "ATL",
+  "rookie": true,
+  "age": 22.4,
+  "oneQBValues": {
+   "rank": 145,
+   "positionalRank": 58,
+   "overallTier": 8,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 34
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Seattle Seahawks",
+  "playerID": 1188,
+  "position": "DST",
+  "team": "SEA",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 146,
+   "positionalRank": 2,
+   "overallTier": 8,
+   "startSitOverallRank": 163,
+   "startSitPositionalRank": 4,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Elijah Sarratt",
+  "playerID": 2053,
+  "position": "WR",
+  "team": "BAL",
+  "rookie": true,
+  "age": 23.2,
+  "oneQBValues": {
+   "rank": 147,
+   "positionalRank": 59,
+   "overallTier": 8,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 34
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ricky Pearsall",
+  "playerID": 1685,
+  "position": "WR",
+  "team": "SFO",
+  "rookie": false,
+  "age": 26,
+  "oneQBValues": {
+   "rank": 148,
+   "positionalRank": 60,
+   "overallTier": 8,
+   "startSitOverallRank": 77,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "IR",
+   "injuryCode": 6,
+   "injuryArea": "Knee - PCL",
+   "injuryReturn": "Feb 15, 2027"
+  }
+ },
+ {
+  "playerName": "Ja'Kobi Lane",
+  "playerID": 2065,
+  "position": "WR",
+  "team": "BAL",
+  "rookie": true,
+  "age": 22,
+  "oneQBValues": {
+   "rank": 149,
+   "positionalRank": 61,
+   "overallTier": 8,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 34
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Nicholas Singleton",
+  "playerID": 2024,
+  "position": "RB",
+  "team": "TEN",
+  "rookie": true,
+  "age": 22.6,
+  "oneQBValues": {
+   "rank": 150,
+   "positionalRank": 42,
+   "overallTier": 8,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 34
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kayshon Boutte",
+  "playerID": 1539,
+  "position": "WR",
+  "team": "NEP",
+  "rookie": false,
+  "age": 24.3,
+  "oneQBValues": {
+   "rank": 151,
+   "positionalRank": 62,
+   "overallTier": 8,
+   "startSitOverallRank": 128,
+   "startSitPositionalRank": 54,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Juwan Johnson",
+  "playerID": 575,
+  "position": "TE",
+  "team": "NOS",
+  "rookie": false,
+  "age": 29.9,
+  "oneQBValues": {
+   "rank": 152,
+   "positionalRank": 20,
+   "overallTier": 8,
+   "startSitOverallRank": 105,
+   "startSitPositionalRank": 13,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cade Otton",
+  "playerID": 1361,
+  "position": "TE",
+  "team": "TBB",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 153,
+   "positionalRank": 21,
+   "overallTier": 8,
+   "startSitOverallRank": 148,
+   "startSitPositionalRank": 20,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Tyjae Spears",
+  "playerID": 1510,
+  "position": "RB",
+  "team": "TEN",
+  "rookie": false,
+  "age": 25.2,
+  "oneQBValues": {
+   "rank": 154,
+   "positionalRank": 43,
+   "overallTier": 8,
+   "startSitOverallRank": 136,
+   "startSitPositionalRank": 39,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chris Bell",
+  "playerID": 2054,
+  "position": "WR",
+  "team": "MIA",
+  "rookie": true,
+  "age": 22.2,
+  "oneQBValues": {
+   "rank": 155,
+   "positionalRank": 63,
+   "overallTier": 8,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 34
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Deebo Samuel",
+  "playerID": 383,
+  "position": "WR",
+  "team": "SFO",
+  "rookie": false,
+  "age": 30.6,
+  "oneQBValues": {
+   "rank": 156,
+   "positionalRank": 64,
+   "overallTier": 8,
+   "startSitOverallRank": 84,
+   "startSitPositionalRank": 34,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Elic Ayomanor",
+  "playerID": 1862,
+  "position": "WR",
+  "team": "TEN",
+  "rookie": false,
+  "age": 23.2,
+  "oneQBValues": {
+   "rank": 157,
+   "positionalRank": 65,
+   "overallTier": 8,
+   "startSitOverallRank": 121,
+   "startSitPositionalRank": 52,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Trey Benson",
+  "playerID": 1657,
+  "position": "RB",
+  "team": "ARI",
+  "rookie": false,
+  "age": 24.1,
+  "oneQBValues": {
+   "rank": 158,
+   "positionalRank": 44,
+   "overallTier": 8,
+   "startSitOverallRank": 73,
+   "startSitPositionalRank": 23,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Jaylin Noel",
+  "playerID": 1869,
+  "position": "WR",
+  "team": "HOU",
+  "rookie": false,
+  "age": 24,
+  "oneQBValues": {
+   "rank": 159,
+   "positionalRank": 66,
+   "overallTier": 8,
+   "startSitOverallRank": 157,
+   "startSitPositionalRank": 61,
+   "startSitOverallTier": 12
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Jauan Jennings",
+  "playerID": 576,
+  "position": "WR",
+  "team": "MIN",
+  "rookie": false,
+  "age": 29.1,
+  "oneQBValues": {
+   "rank": 160,
+   "positionalRank": 67,
+   "overallTier": 8,
+   "startSitOverallRank": 98,
+   "startSitPositionalRank": 41,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Malachi Fields",
+  "playerID": 2059,
+  "position": "WR",
+  "team": "NYG",
+  "rookie": true,
+  "age": 23,
+  "oneQBValues": {
+   "rank": 161,
+   "positionalRank": 68,
+   "overallTier": 8,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 34
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Troy Franklin",
+  "playerID": 1682,
+  "position": "WR",
+  "team": "DEN",
+  "rookie": false,
+  "age": 23.5,
+  "oneQBValues": {
+   "rank": 162,
+   "positionalRank": 69,
+   "overallTier": 8,
+   "startSitOverallRank": 88,
+   "startSitPositionalRank": 36,
+   "startSitOverallTier": 9
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Stefon Diggs",
+  "playerID": 262,
+  "position": "WR",
+  "team": "WAS",
+  "rookie": false,
+  "age": 32.7,
+  "oneQBValues": {
+   "rank": 163,
+   "positionalRank": 70,
+   "overallTier": 9,
+   "startSitOverallRank": 111,
+   "startSitPositionalRank": 45,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chigoziem Okonkwo",
+  "playerID": 1413,
+  "position": "TE",
+  "team": "WAS",
+  "rookie": false,
+  "age": 27,
+  "oneQBValues": {
+   "rank": 164,
+   "positionalRank": 22,
+   "overallTier": 9,
+   "startSitOverallRank": 198,
+   "startSitPositionalRank": 30,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dylan Sampson",
+  "playerID": 1836,
+  "position": "RB",
+  "team": "CLE",
+  "rookie": false,
+  "age": 21.9,
+  "oneQBValues": {
+   "rank": 165,
+   "positionalRank": 45,
+   "overallTier": 9,
+   "startSitOverallRank": 152,
+   "startSitPositionalRank": 45,
+   "startSitOverallTier": 11
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Michael Penix Jr.",
+  "playerID": 1646,
+  "position": "QB",
+  "team": "ATL",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 166,
+   "positionalRank": 26,
+   "overallTier": 9,
+   "startSitOverallRank": 142,
+   "startSitPositionalRank": 25,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Tank Bigsby",
+  "playerID": 1494,
+  "position": "RB",
+  "team": "PHI",
+  "rookie": false,
+  "age": 25,
+  "oneQBValues": {
+   "rank": 167,
+   "positionalRank": 46,
+   "overallTier": 9,
+   "startSitOverallRank": 158,
+   "startSitPositionalRank": 47,
+   "startSitOverallTier": 13
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jerry Jeudy",
+  "playerID": 545,
+  "position": "WR",
+  "team": "CLE",
+  "rookie": false,
+  "age": 27.3,
+  "oneQBValues": {
+   "rank": 168,
+   "positionalRank": 71,
+   "overallTier": 9,
+   "startSitOverallRank": 133,
+   "startSitPositionalRank": 56,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Alvin Kamara",
+  "playerID": 282,
+  "position": "RB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 31.1,
+  "oneQBValues": {
+   "rank": 169,
+   "positionalRank": 47,
+   "overallTier": 9,
+   "startSitOverallRank": 99,
+   "startSitPositionalRank": 29,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - MCL",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Mason Taylor",
+  "playerID": 1895,
+  "position": "TE",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 22.3,
+  "oneQBValues": {
+   "rank": 171,
+   "positionalRank": 23,
+   "overallTier": 9,
+   "startSitOverallRank": 153,
+   "startSitPositionalRank": 21,
+   "startSitOverallTier": 11
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Hunter Henry",
+  "playerID": 212,
+  "position": "TE",
+  "team": "NEP",
+  "rookie": false,
+  "age": 31.7,
+  "oneQBValues": {
+   "rank": 172,
+   "positionalRank": 24,
+   "overallTier": 9,
+   "startSitOverallRank": 140,
+   "startSitPositionalRank": 18,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Aaron Jones",
+  "playerID": 301,
+  "position": "RB",
+  "team": "MIN",
+  "rookie": false,
+  "age": 31.7,
+  "oneQBValues": {
+   "rank": 173,
+   "positionalRank": 48,
+   "overallTier": 9,
+   "startSitOverallRank": 123,
+   "startSitPositionalRank": 34,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jonathon Brooks",
+  "playerID": 1660,
+  "position": "RB",
+  "team": "CAR",
+  "rookie": false,
+  "age": 23.1,
+  "oneQBValues": {
+   "rank": 174,
+   "positionalRank": 49,
+   "overallTier": 9,
+   "startSitOverallRank": 256,
+   "startSitPositionalRank": 70,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brian Robinson",
+  "playerID": 1332,
+  "position": "RB",
+  "team": "ATL",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 175,
+   "positionalRank": 50,
+   "overallTier": 9,
+   "startSitOverallRank": 155,
+   "startSitPositionalRank": 46,
+   "startSitOverallTier": 11
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dalton Schultz",
+  "playerID": 487,
+  "position": "TE",
+  "team": "HOU",
+  "rookie": false,
+  "age": 30.1,
+  "oneQBValues": {
+   "rank": 176,
+   "positionalRank": 25,
+   "overallTier": 9,
+   "startSitOverallRank": 190,
+   "startSitPositionalRank": 27,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Mike Washington Jr.",
+  "playerID": 2030,
+  "position": "RB",
+  "team": "LVR",
+  "rookie": true,
+  "age": 23.1,
+  "oneQBValues": {
+   "rank": 177,
+   "positionalRank": 51,
+   "overallTier": 9,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 35
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Isiah Pacheco",
+  "playerID": 1366,
+  "position": "RB",
+  "team": "DET",
+  "rookie": false,
+  "age": 27.5,
+  "oneQBValues": {
+   "rank": 178,
+   "positionalRank": 52,
+   "overallTier": 9,
+   "startSitOverallRank": 141,
+   "startSitPositionalRank": 40,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - MCL",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Houston Texans",
+  "playerID": 1219,
+  "position": "DST",
+  "team": "HOU",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 179,
+   "positionalRank": 3,
+   "overallTier": 9,
+   "startSitOverallRank": 210,
+   "startSitPositionalRank": 12,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Los Angeles Rams",
+  "playerID": 1223,
+  "position": "DST",
+  "team": "LAR",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 180,
+   "positionalRank": 4,
+   "overallTier": 9,
+   "startSitOverallRank": 179,
+   "startSitPositionalRank": 5,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "J.J. McCarthy",
+  "playerID": 1647,
+  "position": "QB",
+  "team": "MIN",
+  "rookie": false,
+  "age": 23.6,
+  "oneQBValues": {
+   "rank": 181,
+   "positionalRank": 27,
+   "overallTier": 9,
+   "startSitOverallRank": 131,
+   "startSitPositionalRank": 22,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Braelon Allen",
+  "playerID": 1659,
+  "position": "RB",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 22.6,
+  "oneQBValues": {
+   "rank": 182,
+   "positionalRank": 53,
+   "overallTier": 9,
+   "startSitOverallRank": 149,
+   "startSitPositionalRank": 43,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chris Rodriguez",
+  "playerID": 1482,
+  "position": "RB",
+  "team": "JAC",
+  "rookie": false,
+  "age": 25.9,
+  "oneQBValues": {
+   "rank": 183,
+   "positionalRank": 54,
+   "overallTier": 9,
+   "startSitOverallRank": 193,
+   "startSitPositionalRank": 54,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tre Harris",
+  "playerID": 1861,
+  "position": "WR",
+  "team": "LAC",
+  "rookie": false,
+  "age": 24.5,
+  "oneQBValues": {
+   "rank": 184,
+   "positionalRank": 73,
+   "overallTier": 9,
+   "startSitOverallRank": 177,
+   "startSitPositionalRank": 71,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Keon Coleman",
+  "playerID": 1680,
+  "position": "WR",
+  "team": "BUF",
+  "rookie": false,
+  "age": 23.3,
+  "oneQBValues": {
+   "rank": 185,
+   "positionalRank": 74,
+   "overallTier": 9,
+   "startSitOverallRank": 116,
+   "startSitPositionalRank": 48,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Foot",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "David Njoku",
+  "playerID": 252,
+  "position": "TE",
+  "team": "LAC",
+  "rookie": false,
+  "age": 30.1,
+  "oneQBValues": {
+   "rank": 186,
+   "positionalRank": 26,
+   "overallTier": 9,
+   "startSitOverallRank": 139,
+   "startSitPositionalRank": 17,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Elijah Arroyo",
+  "playerID": 1897,
+  "position": "TE",
+  "team": "SEA",
+  "rookie": false,
+  "age": 23.4,
+  "oneQBValues": {
+   "rank": 187,
+   "positionalRank": 27,
+   "overallTier": 9,
+   "startSitOverallRank": 169,
+   "startSitPositionalRank": 24,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Emmett Johnson",
+  "playerID": 2022,
+  "position": "RB",
+  "team": "KCC",
+  "rookie": true,
+  "age": 22.9,
+  "oneQBValues": {
+   "rank": 188,
+   "positionalRank": 55,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Adonai Mitchell",
+  "playerID": 1689,
+  "position": "WR",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 23.9,
+  "oneQBValues": {
+   "rank": 189,
+   "positionalRank": 75,
+   "overallTier": 10,
+   "startSitOverallRank": 170,
+   "startSitPositionalRank": 67,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tank Dell",
+  "playerID": 1531,
+  "position": "WR",
+  "team": "HOU",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 190,
+   "positionalRank": 76,
+   "overallTier": 10,
+   "startSitOverallRank": 214,
+   "startSitPositionalRank": 79,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - ACL + MCL",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Pat Freiermuth",
+  "playerID": 1053,
+  "position": "TE",
+  "team": "PIT",
+  "rookie": false,
+  "age": 27.8,
+  "oneQBValues": {
+   "rank": 191,
+   "positionalRank": 28,
+   "overallTier": 10,
+   "startSitOverallRank": 168,
+   "startSitPositionalRank": 23,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brandon Aiyuk",
+  "playerID": 538,
+  "position": "WR",
+  "team": "SFO",
+  "rookie": false,
+  "age": 28.4,
+  "oneQBValues": {
+   "rank": 192,
+   "positionalRank": 77,
+   "overallTier": 10,
+   "startSitOverallRank": 117,
+   "startSitPositionalRank": 49,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Holdout",
+   "injuryCode": 7,
+   "injuryArea": "Knee - ACL + MCL",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Ollie Gordon",
+  "playerID": 1848,
+  "position": "RB",
+  "team": "MIA",
+  "rookie": false,
+  "age": 22.6,
+  "oneQBValues": {
+   "rank": 193,
+   "positionalRank": 56,
+   "overallTier": 10,
+   "startSitOverallRank": 146,
+   "startSitPositionalRank": 42,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Ribs",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Eli Stowers",
+  "playerID": 2092,
+  "position": "TE",
+  "team": "PHI",
+  "rookie": true,
+  "age": 23.4,
+  "oneQBValues": {
+   "rank": 194,
+   "positionalRank": 29,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 153,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tua Tagovailoa",
+  "playerID": 600,
+  "position": "QB",
+  "team": "ATL",
+  "rookie": false,
+  "age": 28.5,
+  "oneQBValues": {
+   "rank": 195,
+   "positionalRank": 28,
+   "overallTier": 10,
+   "startSitOverallRank": 178,
+   "startSitPositionalRank": 27,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Marvin Mims",
+  "playerID": 1535,
+  "position": "WR",
+  "team": "DEN",
+  "rookie": false,
+  "age": 24.4,
+  "oneQBValues": {
+   "rank": 196,
+   "positionalRank": 78,
+   "overallTier": 10,
+   "startSitOverallRank": 164,
+   "startSitPositionalRank": 64,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Philadelphia Eagles",
+  "playerID": 1185,
+  "position": "DST",
+  "team": "PHI",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 197,
+   "positionalRank": 5,
+   "overallTier": 10,
+   "startSitOverallRank": 156,
+   "startSitPositionalRank": 2,
+   "startSitOverallTier": 12
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Green Bay Packers",
+  "playerID": 1204,
+  "position": "DST",
+  "team": "GBP",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 198,
+   "positionalRank": 6,
+   "overallTier": 10,
+   "startSitOverallRank": 159,
+   "startSitPositionalRank": 3,
+   "startSitOverallTier": 13
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kaleb Johnson",
+  "playerID": 1837,
+  "position": "RB",
+  "team": "PIT",
+  "rookie": false,
+  "age": 23,
+  "oneQBValues": {
+   "rank": 199,
+   "positionalRank": 57,
+   "overallTier": 10,
+   "startSitOverallRank": 171,
+   "startSitPositionalRank": 49,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cameron Dicker",
+  "playerID": 1460,
+  "position": "PK",
+  "team": "LAC",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 200,
+   "positionalRank": 2,
+   "overallTier": 10,
+   "startSitOverallRank": 186,
+   "startSitPositionalRank": 2,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Darnell Mooney",
+  "playerID": 911,
+  "position": "WR",
+  "team": "NYG",
+  "rookie": false,
+  "age": 28.8,
+  "oneQBValues": {
+   "rank": 201,
+   "positionalRank": 79,
+   "overallTier": 10,
+   "startSitOverallRank": 160,
+   "startSitPositionalRank": 62,
+   "startSitOverallTier": 13
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Germie Bernard",
+  "playerID": 2051,
+  "position": "WR",
+  "team": "PIT",
+  "rookie": true,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 202,
+   "positionalRank": 80,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chris Brazzell II",
+  "playerID": 2057,
+  "position": "WR",
+  "team": "CAR",
+  "rookie": true,
+  "age": 22.8,
+  "oneQBValues": {
+   "rank": 203,
+   "positionalRank": 81,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryName": "IR",
+   "injuryCode": 6,
+   "injuryArea": "Knee",
+   "injuryReturn": "Feb 15, 2027"
+  }
+ },
+ {
+  "playerName": "Calvin Ridley",
+  "playerID": 293,
+  "position": "WR",
+  "team": "TEN",
+  "rookie": false,
+  "age": 31.7,
+  "oneQBValues": {
+   "rank": 204,
+   "positionalRank": 82,
+   "overallTier": 10,
+   "startSitOverallRank": 150,
+   "startSitPositionalRank": 59,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cole Kmet",
+  "playerID": 569,
+  "position": "TE",
+  "team": "CHI",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 205,
+   "positionalRank": 30,
+   "overallTier": 10,
+   "startSitOverallRank": 191,
+   "startSitPositionalRank": 28,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ty Simpson",
+  "playerID": 2011,
+  "position": "QB",
+  "team": "LAR",
+  "rookie": true,
+  "age": 23.7,
+  "oneQBValues": {
+   "rank": 207,
+   "positionalRank": 29,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 104,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cooper Kupp",
+  "playerID": 310,
+  "position": "WR",
+  "team": "SEA",
+  "rookie": false,
+  "age": 33.2,
+  "oneQBValues": {
+   "rank": 209,
+   "positionalRank": 85,
+   "overallTier": 10,
+   "startSitOverallRank": 154,
+   "startSitPositionalRank": 60,
+   "startSitOverallTier": 11
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Sean Tucker",
+  "playerID": 1493,
+  "position": "RB",
+  "team": "TBB",
+  "rookie": false,
+  "age": 24.8,
+  "oneQBValues": {
+   "rank": 210,
+   "positionalRank": 58,
+   "overallTier": 10,
+   "startSitOverallRank": 187,
+   "startSitPositionalRank": 53,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Minnesota Vikings",
+  "playerID": 1215,
+  "position": "DST",
+  "team": "MIN",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 211,
+   "positionalRank": 7,
+   "overallTier": 10,
+   "startSitOverallRank": 204,
+   "startSitPositionalRank": 11,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kaytron Allen",
+  "playerID": 2026,
+  "position": "RB",
+  "team": "WAS",
+  "rookie": true,
+  "age": 23.6,
+  "oneQBValues": {
+   "rank": 212,
+   "positionalRank": 59,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Baltimore Ravens",
+  "playerID": 1220,
+  "position": "DST",
+  "team": "BAL",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 213,
+   "positionalRank": 8,
+   "overallTier": 10,
+   "startSitOverallRank": 196,
+   "startSitPositionalRank": 8,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Aaron Rodgers",
+  "playerID": 235,
+  "position": "QB",
+  "team": "PIT",
+  "rookie": false,
+  "age": 42.7,
+  "oneQBValues": {
+   "rank": 214,
+   "positionalRank": 30,
+   "overallTier": 10,
+   "startSitOverallRank": 203,
+   "startSitPositionalRank": 28,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Demond Claiborne",
+  "playerID": 2029,
+  "position": "RB",
+  "team": "MIN",
+  "rookie": true,
+  "age": 22.9,
+  "oneQBValues": {
+   "rank": 215,
+   "positionalRank": 60,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 36
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Justin Fields",
+  "playerID": 1015,
+  "position": "QB",
+  "team": "KCC",
+  "rookie": false,
+  "age": 27.5,
+  "oneQBValues": {
+   "rank": 216,
+   "positionalRank": 31,
+   "overallTier": 10,
+   "startSitOverallRank": 138,
+   "startSitPositionalRank": 24,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ray Davis",
+  "playerID": 1666,
+  "position": "RB",
+  "team": "BUF",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 217,
+   "positionalRank": 61,
+   "overallTier": 10,
+   "startSitOverallRank": 176,
+   "startSitPositionalRank": 50,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ja'Tavion Sanders",
+  "playerID": 1706,
+  "position": "TE",
+  "team": "CAR",
+  "rookie": false,
+  "age": 23.4,
+  "oneQBValues": {
+   "rank": 218,
+   "positionalRank": 31,
+   "overallTier": 10,
+   "startSitOverallRank": 182,
+   "startSitPositionalRank": 26,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Michael Mayer",
+  "playerID": 1520,
+  "position": "TE",
+  "team": "LVR",
+  "rookie": false,
+  "age": 25.1,
+  "oneQBValues": {
+   "rank": 219,
+   "positionalRank": 32,
+   "overallTier": 10,
+   "startSitOverallRank": 205,
+   "startSitPositionalRank": 31,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Keenan Allen",
+  "playerID": 265,
+  "position": "WR",
+  "team": "IND",
+  "rookie": false,
+  "age": 34.3,
+  "oneQBValues": {
+   "rank": 220,
+   "positionalRank": 86,
+   "overallTier": 10,
+   "startSitOverallRank": 103,
+   "startSitPositionalRank": 43,
+   "startSitOverallTier": 10
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kendre Miller",
+  "playerID": 1479,
+  "position": "RB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 24.2,
+  "oneQBValues": {
+   "rank": 221,
+   "positionalRank": 62,
+   "overallTier": 10,
+   "startSitOverallRank": 202,
+   "startSitPositionalRank": 57,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "MarShawn Lloyd",
+  "playerID": 1667,
+  "position": "RB",
+  "team": "GBP",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 222,
+   "positionalRank": 63,
+   "overallTier": 10,
+   "startSitOverallRank": 229,
+   "startSitPositionalRank": 63,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Trevor Etienne",
+  "playerID": 1845,
+  "position": "RB",
+  "team": "CAR",
+  "rookie": false,
+  "age": 22.1,
+  "oneQBValues": {
+   "rank": 223,
+   "positionalRank": 64,
+   "overallTier": 10,
+   "startSitOverallRank": 211,
+   "startSitPositionalRank": 59,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Los Angeles Chargers",
+  "playerID": 1189,
+  "position": "DST",
+  "team": "LAC",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 224,
+   "positionalRank": 9,
+   "overallTier": 10,
+   "startSitOverallRank": 223,
+   "startSitPositionalRank": 16,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Antonio Williams",
+  "playerID": 2060,
+  "position": "WR",
+  "team": "WAS",
+  "rookie": true,
+  "age": 22.1,
+  "oneQBValues": {
+   "rank": 225,
+   "positionalRank": 87,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 37
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Marquise Brown",
+  "playerID": 311,
+  "position": "WR",
+  "team": "PHI",
+  "rookie": false,
+  "age": 29.2,
+  "oneQBValues": {
+   "rank": 226,
+   "positionalRank": 88,
+   "overallTier": 10,
+   "startSitOverallRank": 167,
+   "startSitPositionalRank": 66,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Terrance Ferguson",
+  "playerID": 1896,
+  "position": "TE",
+  "team": "LAR",
+  "rookie": false,
+  "age": 23.5,
+  "oneQBValues": {
+   "rank": 227,
+   "positionalRank": 33,
+   "overallTier": 10,
+   "startSitOverallRank": 219,
+   "startSitPositionalRank": 33,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jerome Ford",
+  "playerID": 1329,
+  "position": "RB",
+  "team": "WAS",
+  "rookie": false,
+  "age": 27,
+  "oneQBValues": {
+   "rank": 228,
+   "positionalRank": 65,
+   "overallTier": 10,
+   "startSitOverallRank": 195,
+   "startSitPositionalRank": 55,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Christian Kirk",
+  "playerID": 221,
+  "position": "WR",
+  "team": "SFO",
+  "rookie": false,
+  "age": 29.8,
+  "oneQBValues": {
+   "rank": 229,
+   "positionalRank": 89,
+   "overallTier": 10,
+   "startSitOverallRank": 174,
+   "startSitPositionalRank": 69,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Calf",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "James Conner",
+  "playerID": 268,
+  "position": "RB",
+  "team": "ARI",
+  "rookie": false,
+  "age": 31.3,
+  "oneQBValues": {
+   "rank": 230,
+   "positionalRank": 66,
+   "overallTier": 10,
+   "startSitOverallRank": 165,
+   "startSitPositionalRank": 48,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Foot",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Detroit Lions",
+  "playerID": 1191,
+  "position": "DST",
+  "team": "DET",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 231,
+   "positionalRank": 10,
+   "overallTier": 10,
+   "startSitOverallRank": 194,
+   "startSitPositionalRank": 7,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyreek Hill",
+  "playerID": 286,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 32.5,
+  "oneQBValues": {
+   "rank": 232,
+   "positionalRank": 90,
+   "overallTier": 10,
+   "startSitOverallRank": 161,
+   "startSitPositionalRank": 63,
+   "startSitOverallTier": 13
+  },
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee - ACL",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Buffalo Bills",
+  "playerID": 1134,
+  "position": "DST",
+  "team": "BUF",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 233,
+   "positionalRank": 11,
+   "overallTier": 10,
+   "startSitOverallRank": 201,
+   "startSitPositionalRank": 10,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jaylen Wright",
+  "playerID": 1673,
+  "position": "RB",
+  "team": "MIA",
+  "rookie": false,
+  "age": 23.4,
+  "oneQBValues": {
+   "rank": 234,
+   "positionalRank": 67,
+   "overallTier": 10,
+   "startSitOverallRank": 207,
+   "startSitPositionalRank": 58,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cleveland Browns",
+  "playerID": 1196,
+  "position": "DST",
+  "team": "CLE",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 235,
+   "positionalRank": 12,
+   "overallTier": 10,
+   "startSitOverallRank": 213,
+   "startSitPositionalRank": 13,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Rashod Bateman",
+  "playerID": 1070,
+  "position": "WR",
+  "team": "BAL",
+  "rookie": false,
+  "age": 26.7,
+  "oneQBValues": {
+   "rank": 236,
+   "positionalRank": 91,
+   "overallTier": 10,
+   "startSitOverallRank": 188,
+   "startSitPositionalRank": 75,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Devin Neal",
+  "playerID": 1835,
+  "position": "RB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 23,
+  "oneQBValues": {
+   "rank": 237,
+   "positionalRank": 68,
+   "overallTier": 10,
+   "startSitOverallRank": 243,
+   "startSitPositionalRank": 66,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Cedric Tillman",
+  "playerID": 1537,
+  "position": "WR",
+  "team": "CLE",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 238,
+   "positionalRank": 92,
+   "overallTier": 10,
+   "startSitOverallRank": 166,
+   "startSitPositionalRank": 65,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Evan Engram",
+  "playerID": 229,
+  "position": "TE",
+  "team": "DEN",
+  "rookie": false,
+  "age": 32,
+  "oneQBValues": {
+   "rank": 239,
+   "positionalRank": 34,
+   "overallTier": 10,
+   "startSitOverallRank": 162,
+   "startSitPositionalRank": 22,
+   "startSitOverallTier": 14
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Xavier Legette",
+  "playerID": 1702,
+  "position": "WR",
+  "team": "CAR",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 240,
+   "positionalRank": 93,
+   "overallTier": 10,
+   "startSitOverallRank": 183,
+   "startSitPositionalRank": 73,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Ankle",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Ted Hurst",
+  "playerID": 2068,
+  "position": "WR",
+  "team": "TBB",
+  "rookie": true,
+  "age": 22.1,
+  "oneQBValues": {
+   "rank": 241,
+   "positionalRank": 94,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 37
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Shedeur Sanders",
+  "playerID": 1820,
+  "position": "QB",
+  "team": "CLE",
+  "rookie": false,
+  "age": 24.5,
+  "oneQBValues": {
+   "rank": 242,
+   "positionalRank": 32,
+   "overallTier": 10,
+   "startSitOverallRank": 222,
+   "startSitPositionalRank": 29,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kansas City Chiefs",
+  "playerID": 1192,
+  "position": "DST",
+  "team": "KCC",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 243,
+   "positionalRank": 13,
+   "overallTier": 10,
+   "startSitOverallRank": 200,
+   "startSitPositionalRank": 9,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Luke Musgrave",
+  "playerID": 1523,
+  "position": "TE",
+  "team": "GBP",
+  "rookie": false,
+  "age": 26,
+  "oneQBValues": {
+   "rank": 244,
+   "positionalRank": 35,
+   "overallTier": 10,
+   "startSitOverallRank": 219,
+   "startSitPositionalRank": 33,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryName": "Out",
+   "injuryCode": 4,
+   "injuryArea": "Neck",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Jalen Royals",
+  "playerID": 1875,
+  "position": "WR",
+  "team": "KCC",
+  "rookie": false,
+  "age": 23.5,
+  "oneQBValues": {
+   "rank": 245,
+   "positionalRank": 95,
+   "overallTier": 10,
+   "startSitOverallRank": 209,
+   "startSitPositionalRank": 78,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Max Klare",
+  "playerID": 2095,
+  "position": "TE",
+  "team": "LAR",
+  "rookie": true,
+  "age": 23.1,
+  "oneQBValues": {
+   "rank": 246,
+   "positionalRank": 36,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 153,
+   "startSitOverallTier": 37
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Skyler Bell",
+  "playerID": 2056,
+  "position": "WR",
+  "team": "BUF",
+  "rookie": true,
+  "age": 24.1,
+  "oneQBValues": {
+   "rank": 247,
+   "positionalRank": 96,
+   "overallTier": 10,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 37
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Lower Body",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Pittsburgh Steelers",
+  "playerID": 1193,
+  "position": "DST",
+  "team": "PIT",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 248,
+   "positionalRank": 14,
+   "overallTier": 10,
+   "startSitOverallRank": 189,
+   "startSitPositionalRank": 6,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Noah Gray",
+  "playerID": 1059,
+  "position": "TE",
+  "team": "KCC",
+  "rookie": false,
+  "age": 27.3,
+  "oneQBValues": {
+   "rank": 249,
+   "positionalRank": 37,
+   "overallTier": 10,
+   "startSitOverallRank": 225,
+   "startSitPositionalRank": 35,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Darius Slayton",
+  "playerID": 77,
+  "position": "WR",
+  "team": "NYG",
+  "rookie": false,
+  "age": 29.6,
+  "oneQBValues": {
+   "rank": 250,
+   "positionalRank": 97,
+   "overallTier": 10,
+   "startSitOverallRank": 184,
+   "startSitPositionalRank": 74,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Evan McPherson",
+  "playerID": 1161,
+  "position": "PK",
+  "team": "CIN",
+  "rookie": false,
+  "age": 27.1,
+  "oneQBValues": {
+   "rank": 251,
+   "positionalRank": 3,
+   "overallTier": 10,
+   "startSitOverallRank": 206,
+   "startSitPositionalRank": 3,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jahan Dotson",
+  "playerID": 1372,
+  "position": "WR",
+  "team": "ATL",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 252,
+   "positionalRank": 98,
+   "overallTier": 10,
+   "startSitOverallRank": 231,
+   "startSitPositionalRank": 82,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jalen Tolbert",
+  "playerID": 1347,
+  "position": "WR",
+  "team": "MIA",
+  "rookie": false,
+  "age": 27.5,
+  "oneQBValues": {
+   "rank": 253,
+   "positionalRank": 99,
+   "overallTier": 10,
+   "startSitOverallRank": 233,
+   "startSitPositionalRank": 83,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chris Boswell",
+  "playerID": 1167,
+  "position": "PK",
+  "team": "PIT",
+  "rookie": false,
+  "age": 35.4,
+  "oneQBValues": {
+   "rank": 254,
+   "positionalRank": 4,
+   "overallTier": 10,
+   "startSitOverallRank": 238,
+   "startSitPositionalRank": 6,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Calvin Austin III",
+  "playerID": 1362,
+  "position": "WR",
+  "team": "NYG",
+  "rookie": false,
+  "age": 27.4,
+  "oneQBValues": {
+   "rank": 255,
+   "positionalRank": 100,
+   "overallTier": 10,
+   "startSitOverallRank": 199,
+   "startSitPositionalRank": 76,
+   "startSitOverallTier": 15
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jonnu Smith",
+  "playerID": 84,
+  "position": "TE",
+  "team": "FA",
+  "rookie": false,
+  "age": 31,
+  "oneQBValues": {
+   "rank": 256,
+   "positionalRank": 38,
+   "overallTier": 10,
+   "startSitOverallRank": 192,
+   "startSitPositionalRank": 29,
+   "startSitOverallTier": 15
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Mike Gesicki",
+  "playerID": 330,
+  "position": "TE",
+  "team": "CIN",
+  "rookie": false,
+  "age": 30.9,
+  "oneQBValues": {
+   "rank": 257,
+   "positionalRank": 39,
+   "overallTier": 10,
+   "startSitOverallRank": 224,
+   "startSitPositionalRank": 34,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tez Johnson",
+  "playerID": 1868,
+  "position": "WR",
+  "team": "TBB",
+  "rookie": false,
+  "age": 24.3,
+  "oneQBValues": {
+   "rank": 258,
+   "positionalRank": 101,
+   "overallTier": 10,
+   "startSitOverallRank": 252,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Groin",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "San Francisco 49ers",
+  "playerID": 1221,
+  "position": "DST",
+  "team": "SFO",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 259,
+   "positionalRank": 15,
+   "overallTier": 10,
+   "startSitOverallRank": 215,
+   "startSitPositionalRank": 14,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "New England Patriots",
+  "playerID": 1199,
+  "position": "DST",
+  "team": "NEP",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 260,
+   "positionalRank": 16,
+   "overallTier": 10,
+   "startSitOverallRank": 245,
+   "startSitPositionalRank": 17,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Joe Mixon",
+  "playerID": 273,
+  "position": "RB",
+  "team": "FA",
+  "rookie": false,
+  "age": 30.1,
+  "oneQBValues": {
+   "rank": 261,
+   "positionalRank": 69,
+   "overallTier": 11,
+   "startSitOverallRank": 197,
+   "startSitPositionalRank": 56,
+   "startSitOverallTier": 15
+  },
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Foot",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Will Shipley",
+  "playerID": 1664,
+  "position": "RB",
+  "team": "PHI",
+  "rookie": false,
+  "age": 24,
+  "oneQBValues": {
+   "rank": 262,
+   "positionalRank": 70,
+   "overallTier": 11,
+   "startSitOverallRank": 218,
+   "startSitPositionalRank": 61,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Zach Ertz",
+  "playerID": 305,
+  "position": "TE",
+  "team": "FA",
+  "rookie": false,
+  "age": 35.8,
+  "oneQBValues": {
+   "rank": 263,
+   "positionalRank": 40,
+   "overallTier": 11,
+   "startSitOverallRank": 173,
+   "startSitPositionalRank": 25,
+   "startSitOverallTier": 14
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kevin Coleman",
+  "playerID": 2076,
+  "position": "WR",
+  "team": "MIA",
+  "rookie": true,
+  "age": 23,
+  "oneQBValues": {
+   "rank": 264,
+   "positionalRank": 102,
+   "overallTier": 11,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 38
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Roschon Johnson",
+  "playerID": 1483,
+  "position": "RB",
+  "team": "CHI",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 265,
+   "positionalRank": 71,
+   "overallTier": 11,
+   "startSitOverallRank": 230,
+   "startSitPositionalRank": 64,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Roman Wilson",
+  "playerID": 1692,
+  "position": "WR",
+  "team": "PIT",
+  "rookie": false,
+  "age": 25.2,
+  "oneQBValues": {
+   "rank": 267,
+   "positionalRank": 103,
+   "overallTier": 11,
+   "startSitOverallRank": 220,
+   "startSitPositionalRank": 80,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kareem Hunt",
+  "playerID": 214,
+  "position": "RB",
+  "team": "FA",
+  "rookie": false,
+  "age": 31,
+  "oneQBValues": {
+   "rank": 266,
+   "positionalRank": 72,
+   "overallTier": 11,
+   "startSitOverallRank": 185,
+   "startSitPositionalRank": 52,
+   "startSitOverallTier": 15
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyquan Thornton",
+  "playerID": 1346,
+  "position": "WR",
+  "team": "KCC",
+  "rookie": false,
+  "age": 26,
+  "oneQBValues": {
+   "rank": 268,
+   "positionalRank": 104,
+   "overallTier": 11,
+   "startSitOverallRank": 234,
+   "startSitPositionalRank": 84,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jordan James",
+  "playerID": 1844,
+  "position": "RB",
+  "team": "SFO",
+  "rookie": false,
+  "age": 22.4,
+  "oneQBValues": {
+   "rank": 269,
+   "positionalRank": 73,
+   "overallTier": 11,
+   "startSitOverallRank": 266,
+   "startSitPositionalRank": 71,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Ribs",
+   "injuryReturn": "Aug 27, 2026"
+  }
+ },
+ {
+  "playerName": "Jake Elliott",
+  "playerID": 1143,
+  "position": "PK",
+  "team": "PHI",
+  "rookie": false,
+  "age": 31.6,
+  "oneQBValues": {
+   "rank": 270,
+   "positionalRank": 5,
+   "overallTier": 12,
+   "startSitOverallRank": 216,
+   "startSitPositionalRank": 4,
+   "startSitOverallTier": 17
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Isaiah Bond",
+  "playerID": 1865,
+  "position": "WR",
+  "team": "CLE",
+  "rookie": false,
+  "age": 22.4,
+  "oneQBValues": {
+   "rank": 271,
+   "positionalRank": 105,
+   "overallTier": 12,
+   "startSitOverallRank": 253,
+   "startSitPositionalRank": 91,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jalen Milroe",
+  "playerID": 1822,
+  "position": "QB",
+  "team": "SEA",
+  "rookie": false,
+  "age": 23.7,
+  "oneQBValues": {
+   "rank": 273,
+   "positionalRank": 33,
+   "overallTier": 12,
+   "startSitOverallRank": 240,
+   "startSitPositionalRank": 30,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Luke McCaffrey",
+  "playerID": 1698,
+  "position": "WR",
+  "team": "WAS",
+  "rookie": false,
+  "age": 25.4,
+  "oneQBValues": {
+   "rank": 274,
+   "positionalRank": 106,
+   "overallTier": 12,
+   "startSitOverallRank": 244,
+   "startSitPositionalRank": 87,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Najee Harris",
+  "playerID": 1031,
+  "position": "RB",
+  "team": "NYG",
+  "rookie": false,
+  "age": 28.5,
+  "oneQBValues": {
+   "rank": 275,
+   "positionalRank": 75,
+   "overallTier": 12,
+   "startSitOverallRank": 217,
+   "startSitPositionalRank": 60,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dawson Knox",
+  "playerID": 88,
+  "position": "TE",
+  "team": "BUF",
+  "rookie": false,
+  "age": 29.8,
+  "oneQBValues": {
+   "rank": 276,
+   "positionalRank": 41,
+   "overallTier": 12,
+   "startSitOverallRank": 232,
+   "startSitPositionalRank": 37,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyler Bass",
+  "playerID": 1168,
+  "position": "PK",
+  "team": "BUF",
+  "rookie": false,
+  "age": 29.5,
+  "oneQBValues": {
+   "rank": 277,
+   "positionalRank": 6,
+   "overallTier": 12,
+   "startSitOverallRank": 237,
+   "startSitPositionalRank": 5,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jack Endries",
+  "playerID": 2093,
+  "position": "TE",
+  "team": "CIN",
+  "rookie": true,
+  "age": 22.4,
+  "oneQBValues": {
+   "rank": 278,
+   "positionalRank": 42,
+   "overallTier": 12,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 153,
+   "startSitOverallTier": 39
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Xavier Hutchinson",
+  "playerID": 1547,
+  "position": "WR",
+  "team": "HOU",
+  "rookie": false,
+  "age": 26.2,
+  "oneQBValues": {
+   "rank": 280,
+   "positionalRank": 107,
+   "overallTier": 12,
+   "startSitOverallRank": 249,
+   "startSitPositionalRank": 89,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Noah Fant",
+  "playerID": 243,
+  "position": "TE",
+  "team": "NOS",
+  "rookie": false,
+  "age": 28.8,
+  "oneQBValues": {
+   "rank": 281,
+   "positionalRank": 43,
+   "overallTier": 12,
+   "startSitOverallRank": 236,
+   "startSitPositionalRank": 38,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "CJ Daniels",
+  "playerID": 2052,
+  "position": "WR",
+  "team": "LAR",
+  "rookie": true,
+  "age": 24.6,
+  "oneQBValues": {
+   "rank": 282,
+   "positionalRank": 108,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 39
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dyami Brown",
+  "playerID": 1069,
+  "position": "WR",
+  "team": "WAS",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 283,
+   "positionalRank": 109,
+   "overallTier": 13,
+   "startSitOverallRank": 257,
+   "startSitPositionalRank": 93,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Seth McGowan",
+  "playerID": 2023,
+  "position": "RB",
+  "team": "IND",
+  "rookie": true,
+  "age": 24.8,
+  "oneQBValues": {
+   "rank": 284,
+   "positionalRank": 77,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 39
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Joshua Palmer",
+  "playerID": 1065,
+  "position": "WR",
+  "team": "BUF",
+  "rookie": false,
+  "age": 26.9,
+  "oneQBValues": {
+   "rank": 285,
+   "positionalRank": 110,
+   "overallTier": 13,
+   "startSitOverallRank": 208,
+   "startSitPositionalRank": 77,
+   "startSitOverallTier": 16
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Devin Singletary",
+  "playerID": 238,
+  "position": "RB",
+  "team": "NYG",
+  "rookie": false,
+  "age": 29,
+  "oneQBValues": {
+   "rank": 286,
+   "positionalRank": 78,
+   "overallTier": 13,
+   "startSitOverallRank": 250,
+   "startSitPositionalRank": 69,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tampa Bay Buccaneers",
+  "playerID": 1205,
+  "position": "DST",
+  "team": "TBB",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 287,
+   "positionalRank": 17,
+   "overallTier": 13,
+   "startSitOverallRank": 221,
+   "startSitPositionalRank": 15,
+   "startSitOverallTier": 18
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyler Higbee",
+  "playerID": 159,
+  "position": "TE",
+  "team": "LAR",
+  "rookie": false,
+  "age": 33.6,
+  "oneQBValues": {
+   "rank": 288,
+   "positionalRank": 44,
+   "overallTier": 13,
+   "startSitOverallRank": 228,
+   "startSitPositionalRank": 36,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dameon Pierce",
+  "playerID": 1307,
+  "position": "RB",
+  "team": "PHI",
+  "rookie": false,
+  "age": 26.5,
+  "oneQBValues": {
+   "rank": 289,
+   "positionalRank": 79,
+   "overallTier": 13,
+   "startSitOverallRank": 242,
+   "startSitPositionalRank": 65,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Hamstring",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Tutu Atwell",
+  "playerID": 1078,
+  "position": "WR",
+  "team": "MIA",
+  "rookie": false,
+  "age": 26.9,
+  "oneQBValues": {
+   "rank": 290,
+   "positionalRank": 111,
+   "overallTier": 13,
+   "startSitOverallRank": 261,
+   "startSitPositionalRank": 95,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kendrick Bourne",
+  "playerID": 153,
+  "position": "WR",
+  "team": "ARI",
+  "rookie": false,
+  "age": 31,
+  "oneQBValues": {
+   "rank": 291,
+   "positionalRank": 112,
+   "overallTier": 13,
+   "startSitOverallRank": 235,
+   "startSitPositionalRank": 85,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Elijah Moore",
+  "playerID": 1012,
+  "position": "WR",
+  "team": "PHI",
+  "rookie": false,
+  "age": 26.4,
+  "oneQBValues": {
+   "rank": 292,
+   "positionalRank": 113,
+   "overallTier": 13,
+   "startSitOverallRank": 248,
+   "startSitPositionalRank": 88,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Neck",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Michael Trigg",
+  "playerID": 2094,
+  "position": "TE",
+  "team": "DAL",
+  "rookie": true,
+  "age": 24.2,
+  "oneQBValues": {
+   "rank": 293,
+   "positionalRank": 45,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 153,
+   "startSitOverallTier": 39
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Toe",
+   "injuryReturn": "Aug 28, 2026"
+  }
+ },
+ {
+  "playerName": "Le'Veon Moss",
+  "playerID": 2027,
+  "position": "RB",
+  "team": "MIA",
+  "rookie": true,
+  "age": 23.8,
+  "oneQBValues": {
+   "rank": 294,
+   "positionalRank": 80,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 39
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryName": "RETIRED",
+   "injuryCode": 1,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Feb 15, 2027"
+  }
+ },
+ {
+  "playerName": "Indianapolis Colts",
+  "playerID": 1201,
+  "position": "DST",
+  "team": "IND",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 296,
+   "positionalRank": 18,
+   "overallTier": 13,
+   "startSitOverallRank": 255,
+   "startSitPositionalRank": 18,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Deion Burks",
+  "playerID": 2058,
+  "position": "WR",
+  "team": "IND",
+  "rookie": true,
+  "age": 23.6,
+  "oneQBValues": {
+   "rank": 297,
+   "positionalRank": 114,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 39
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chicago Bears",
+  "playerID": 1182,
+  "position": "DST",
+  "team": "CHI",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 298,
+   "positionalRank": 19,
+   "overallTier": 13,
+   "startSitOverallRank": 258,
+   "startSitPositionalRank": 19,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Nick Chubb",
+  "playerID": 274,
+  "position": "RB",
+  "team": "FA",
+  "rookie": false,
+  "age": 30.6,
+  "oneQBValues": {
+   "rank": 299,
+   "positionalRank": 82,
+   "overallTier": 13,
+   "startSitOverallRank": 180,
+   "startSitPositionalRank": 51,
+   "startSitOverallTier": 15
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Spencer Rattler",
+  "playerID": 1649,
+  "position": "QB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 25.9,
+  "oneQBValues": {
+   "rank": 300,
+   "positionalRank": 34,
+   "overallTier": 13,
+   "startSitOverallRank": 251,
+   "startSitPositionalRank": 31,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jam Miller",
+  "playerID": 2034,
+  "position": "RB",
+  "team": "NEP",
+  "rookie": true,
+  "age": 22.3,
+  "oneQBValues": {
+   "rank": 301,
+   "positionalRank": 83,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 256,
+   "startSitOverallTier": 40
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Darren Waller",
+  "playerID": 349,
+  "position": "TE",
+  "team": "CAR",
+  "rookie": false,
+  "age": 33.9,
+  "oneQBValues": {
+   "rank": 302,
+   "positionalRank": 46,
+   "overallTier": 13,
+   "startSitOverallRank": 239,
+   "startSitPositionalRank": 39,
+   "startSitOverallTier": 19
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Miles Sanders",
+  "playerID": 222,
+  "position": "RB",
+  "team": "FA",
+  "rookie": false,
+  "age": 29.3,
+  "oneQBValues": {
+   "rank": 303,
+   "positionalRank": 84,
+   "overallTier": 13,
+   "startSitOverallRank": 247,
+   "startSitPositionalRank": 68,
+   "startSitOverallTier": 19
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Garrett Nussmeier",
+  "playerID": 2013,
+  "position": "QB",
+  "team": "KCC",
+  "rookie": true,
+  "age": 24.5,
+  "oneQBValues": {
+   "rank": 304,
+   "positionalRank": 35,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 104,
+   "startSitOverallTier": 40
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Barion Brown",
+  "playerID": 2089,
+  "position": "WR",
+  "team": "NOS",
+  "rookie": true,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 305,
+   "positionalRank": 115,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 341,
+   "startSitOverallTier": 40
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Harrison Butker",
+  "playerID": 1141,
+  "position": "PK",
+  "team": "KCC",
+  "rookie": false,
+  "age": 31.1,
+  "oneQBValues": {
+   "rank": 307,
+   "positionalRank": 7,
+   "overallTier": 13,
+   "startSitOverallRank": 259,
+   "startSitPositionalRank": 7,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "DeAndre Hopkins",
+  "playerID": 280,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 34.2,
+  "oneQBValues": {
+   "rank": 309,
+   "positionalRank": 118,
+   "overallTier": 13,
+   "startSitOverallRank": 226,
+   "startSitPositionalRank": 81,
+   "startSitOverallTier": 19
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "John Metchie",
+  "playerID": 1376,
+  "position": "WR",
+  "team": "CAR",
+  "rookie": false,
+  "age": 26.1,
+  "oneQBValues": {
+   "rank": 310,
+   "positionalRank": 119,
+   "overallTier": 13,
+   "startSitOverallRank": 264,
+   "startSitPositionalRank": 98,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Curtis Samuel",
+  "playerID": 244,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 30,
+  "oneQBValues": {
+   "rank": 311,
+   "positionalRank": 120,
+   "overallTier": 13,
+   "startSitOverallRank": 254,
+   "startSitPositionalRank": 92,
+   "startSitOverallTier": 20
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Anthony Richardson",
+  "playerID": 1498,
+  "position": "QB",
+  "team": "IND",
+  "rookie": false,
+  "age": 24.2,
+  "oneQBValues": {
+   "rank": 313,
+   "positionalRank": 36,
+   "overallTier": 13,
+   "startSitOverallRank": 267,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jermaine Burton",
+  "playerID": 1695,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 25.2,
+  "oneQBValues": {
+   "rank": 314,
+   "positionalRank": 122,
+   "overallTier": 13,
+   "startSitOverallRank": 265,
+   "startSitPositionalRank": 99,
+   "startSitOverallTier": 20
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Josh Reynolds",
+  "playerID": 61,
+  "position": "WR",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 31.5,
+  "oneQBValues": {
+   "rank": 315,
+   "positionalRank": 123,
+   "overallTier": 13,
+   "startSitOverallRank": 262,
+   "startSitPositionalRank": 96,
+   "startSitOverallTier": 20
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Hunter Renfrow",
+  "playerID": 100,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 30.7,
+  "oneQBValues": {
+   "rank": 316,
+   "positionalRank": 124,
+   "overallTier": 13,
+   "startSitOverallRank": 269,
+   "startSitPositionalRank": 101,
+   "startSitOverallTier": 21
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Adam Thielen",
+  "playerID": 308,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 36,
+  "oneQBValues": {
+   "rank": 317,
+   "positionalRank": 125,
+   "overallTier": 13,
+   "startSitOverallRank": 259,
+   "startSitPositionalRank": 94,
+   "startSitOverallTier": 20
+  },
+  "injury": {
+   "injuryName": "RETIRED",
+   "injuryCode": 1,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Feb 15, 2027"
+  }
+ },
+ {
+  "playerName": "Tyler Lockett",
+  "playerID": 285,
+  "position": "WR",
+  "team": "FA",
+  "rookie": false,
+  "age": 33.9,
+  "oneQBValues": {
+   "rank": 318,
+   "positionalRank": 126,
+   "overallTier": 13,
+   "startSitOverallRank": 241,
+   "startSitPositionalRank": 86,
+   "startSitOverallTier": 19
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cade York",
+  "playerID": 1414,
+  "position": "PK",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 321,
+   "positionalRank": 8,
+   "overallTier": 13,
+   "startSitOverallRank": 279,
+   "startSitPositionalRank": 9,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Austin Ekeler",
+  "playerID": 385,
+  "position": "RB",
+  "team": "FA",
+  "rookie": false,
+  "age": 31.3,
+  "oneQBValues": {
+   "rank": 327,
+   "positionalRank": 88,
+   "overallTier": 13,
+   "startSitOverallRank": 246,
+   "startSitPositionalRank": 67,
+   "startSitOverallTier": 19
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "New York Giants",
+  "playerID": 1186,
+  "position": "DST",
+  "team": "NYG",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 328,
+   "positionalRank": 20,
+   "overallTier": 13,
+   "startSitOverallRank": 278,
+   "startSitPositionalRank": 21,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jason Myers",
+  "playerID": 1148,
+  "position": "PK",
+  "team": "SEA",
+  "rookie": false,
+  "age": 35.3,
+  "oneQBValues": {
+   "rank": 329,
+   "positionalRank": 9,
+   "overallTier": 13,
+   "startSitOverallRank": 276,
+   "startSitPositionalRank": 8,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Xavier Restrepo",
+  "playerID": 1866,
+  "position": "WR",
+  "team": "TEN",
+  "rookie": false,
+  "age": 24.4,
+  "oneQBValues": {
+   "rank": 331,
+   "positionalRank": 130,
+   "overallTier": 13,
+   "startSitOverallRank": 283,
+   "startSitPositionalRank": 107,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Washington Commanders",
+  "playerID": 1183,
+  "position": "DST",
+  "team": "WAS",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 333,
+   "positionalRank": 21,
+   "overallTier": 13,
+   "startSitOverallRank": 272,
+   "startSitPositionalRank": 20,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Brandin Cooks",
+  "playerID": 307,
+  "position": "WR",
+  "team": "BUF",
+  "rookie": false,
+  "age": 32.9,
+  "oneQBValues": {
+   "rank": 334,
+   "positionalRank": 132,
+   "overallTier": 13,
+   "startSitOverallRank": 277,
+   "startSitPositionalRank": 104,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jacob Cowing",
+  "playerID": 1703,
+  "position": "WR",
+  "team": "SFO",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 337,
+   "positionalRank": 134,
+   "overallTier": 13,
+   "startSitOverallRank": 284,
+   "startSitPositionalRank": 108,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jacksonville Jaguars",
+  "playerID": 1194,
+  "position": "DST",
+  "team": "JAC",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 339,
+   "positionalRank": 22,
+   "overallTier": 13,
+   "startSitOverallRank": 522,
+   "startSitPositionalRank": 23,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Zay Jones",
+  "playerID": 327,
+  "position": "WR",
+  "team": "HOU",
+  "rookie": false,
+  "age": 31.4,
+  "oneQBValues": {
+   "rank": 341,
+   "positionalRank": 135,
+   "overallTier": 13,
+   "startSitOverallRank": 289,
+   "startSitPositionalRank": 110,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Luke Altmyer",
+  "playerID": 2018,
+  "position": "QB",
+  "team": "DET",
+  "rookie": true,
+  "age": 23.8,
+  "oneQBValues": {
+   "rank": 348,
+   "positionalRank": 39,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 104,
+   "startSitOverallTier": 40
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Elijah Mitchell",
+  "playerID": 1013,
+  "position": "RB",
+  "team": "FA",
+  "rookie": false,
+  "age": 28.3,
+  "oneQBValues": {
+   "rank": 349,
+   "positionalRank": 93,
+   "overallTier": 13,
+   "startSitOverallRank": 324,
+   "startSitPositionalRank": 85,
+   "startSitOverallTier": 22
+  },
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Undisclosed",
+   "injuryReturn": "Sep 13, 2026"
+  }
+ },
+ {
+  "playerName": "Dillon Gabriel",
+  "playerID": 1826,
+  "position": "QB",
+  "team": "CLE",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 350,
+   "positionalRank": 40,
+   "overallTier": 13,
+   "startSitOverallRank": 291,
+   "startSitPositionalRank": 34,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Malik Willis",
+  "playerID": 1310,
+  "position": "QB",
+  "team": "MIA",
+  "rookie": false,
+  "age": 27.2,
+  "oneQBValues": {
+   "rank": 369,
+   "positionalRank": 43,
+   "overallTier": 13,
+   "startSitOverallRank": 308,
+   "startSitPositionalRank": 37,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Russell Wilson",
+  "playerID": 257,
+  "position": "QB",
+  "team": "FA",
+  "rookie": false,
+  "age": 37.7,
+  "oneQBValues": {
+   "rank": 382,
+   "positionalRank": 47,
+   "overallTier": 13,
+   "startSitOverallRank": 323,
+   "startSitPositionalRank": 41,
+   "startSitOverallTier": 22
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Will Howard",
+  "playerID": 1825,
+  "position": "QB",
+  "team": "PIT",
+  "rookie": false,
+  "age": 24.9,
+  "oneQBValues": {
+   "rank": 386,
+   "positionalRank": 48,
+   "overallTier": 13,
+   "startSitOverallRank": 326,
+   "startSitPositionalRank": 42,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Matt Gay",
+  "playerID": 1156,
+  "position": "PK",
+  "team": "LVR",
+  "rookie": false,
+  "age": 32.4,
+  "oneQBValues": {
+   "rank": 390,
+   "positionalRank": 12,
+   "overallTier": 13,
+   "startSitOverallRank": 334,
+   "startSitPositionalRank": 12,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Taysom Hill",
+  "playerID": 150,
+  "position": "TE",
+  "team": "FA",
+  "rookie": false,
+  "age": 36,
+  "oneQBValues": {
+   "rank": 398,
+   "positionalRank": 56,
+   "overallTier": 13,
+   "startSitOverallRank": 318,
+   "startSitPositionalRank": 45,
+   "startSitOverallTier": 22
+  },
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Damien Martinez",
+  "playerID": 1843,
+  "position": "RB",
+  "team": "GBP",
+  "rookie": false,
+  "age": 22.6,
+  "oneQBValues": {
+   "rank": 410,
+   "positionalRank": 113,
+   "overallTier": 13,
+   "startSitOverallRank": 356,
+   "startSitPositionalRank": 98,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jason Sanders",
+  "playerID": 1136,
+  "position": "PK",
+  "team": "NYJ",
+  "rookie": false,
+  "age": 30.8,
+  "oneQBValues": {
+   "rank": 425,
+   "positionalRank": 13,
+   "overallTier": 13,
+   "startSitOverallRank": 375,
+   "startSitPositionalRank": 15,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Joey Slye",
+  "playerID": 1173,
+  "position": "PK",
+  "team": "TEN",
+  "rookie": false,
+  "age": 30.4,
+  "oneQBValues": {
+   "rank": 444,
+   "positionalRank": 14,
+   "overallTier": 13,
+   "startSitOverallRank": 432,
+   "startSitPositionalRank": 18,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ty Chandler",
+  "playerID": 1282,
+  "position": "RB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 28.3,
+  "oneQBValues": {
+   "rank": 456,
+   "positionalRank": 129,
+   "overallTier": 13,
+   "startSitOverallRank": 398,
+   "startSitPositionalRank": 113,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Daniel Carlson",
+  "playerID": 1138,
+  "position": "PK",
+  "team": "LVR",
+  "rookie": false,
+  "age": 31.6,
+  "oneQBValues": {
+   "rank": 464,
+   "positionalRank": 16,
+   "overallTier": 13,
+   "startSitOverallRank": 354,
+   "startSitPositionalRank": 14,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jake Bates",
+  "playerID": 1775,
+  "position": "PK",
+  "team": "DET",
+  "rookie": false,
+  "age": 27.5,
+  "oneQBValues": {
+   "rank": 472,
+   "positionalRank": 17,
+   "overallTier": 13,
+   "startSitOverallRank": 437,
+   "startSitPositionalRank": 19,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Raheem Mostert",
+  "playerID": 43,
+  "position": "RB",
+  "team": "LVR",
+  "rookie": false,
+  "age": 34.4,
+  "oneQBValues": {
+   "rank": 480,
+   "positionalRank": 137,
+   "overallTier": 13,
+   "startSitOverallRank": 420,
+   "startSitPositionalRank": 120,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryName": "Questionable",
+   "injuryCode": 2,
+   "injuryArea": "Knee",
+   "injuryReturn": "Jul 1, 2026"
+  }
+ },
+ {
+  "playerName": "Matt Prater",
+  "playerID": 1212,
+  "position": "PK",
+  "team": "BUF",
+  "rookie": false,
+  "age": 42,
+  "oneQBValues": {
+   "rank": 483,
+   "positionalRank": 18,
+   "overallTier": 13,
+   "startSitOverallRank": 427,
+   "startSitPositionalRank": 17,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyler Shough",
+  "playerID": 1828,
+  "position": "QB",
+  "team": "NOS",
+  "rookie": false,
+  "age": 26.9,
+  "oneQBValues": {
+   "rank": 484,
+   "positionalRank": 60,
+   "overallTier": 13,
+   "startSitOverallRank": 423,
+   "startSitPositionalRank": 53,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kirk Cousins",
+  "playerID": 396,
+  "position": "QB",
+  "team": "LVR",
+  "rookie": false,
+  "age": 38,
+  "oneQBValues": {
+   "rank": 488,
+   "positionalRank": 61,
+   "overallTier": 13,
+   "startSitOverallRank": 428,
+   "startSitPositionalRank": 55,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Wil Lutz",
+  "playerID": 1145,
+  "position": "PK",
+  "team": "DEN",
+  "rookie": false,
+  "age": 32.1,
+  "oneQBValues": {
+   "rank": 492,
+   "positionalRank": 19,
+   "overallTier": 13,
+   "startSitOverallRank": 477,
+   "startSitPositionalRank": 21,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jameis Winston",
+  "playerID": 413,
+  "position": "QB",
+  "team": "NYG",
+  "rookie": false,
+  "age": 32.6,
+  "oneQBValues": {
+   "rank": 501,
+   "positionalRank": 62,
+   "overallTier": 13,
+   "startSitOverallRank": 444,
+   "startSitPositionalRank": 56,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ka'imi Fairbairn",
+  "playerID": 1146,
+  "position": "PK",
+  "team": "HOU",
+  "rookie": false,
+  "age": 32.6,
+  "oneQBValues": {
+   "rank": 529,
+   "positionalRank": 21,
+   "overallTier": 13,
+   "startSitOverallRank": 471,
+   "startSitPositionalRank": 20,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "New York Jets",
+  "playerID": 1198,
+  "position": "DST",
+  "team": "NYJ",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 572,
+   "positionalRank": 23,
+   "overallTier": 13,
+   "startSitOverallRank": 442,
+   "startSitPositionalRank": 22,
+   "startSitOverallTier": 22
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cairo Santos",
+  "playerID": 1153,
+  "position": "PK",
+  "team": "CHI",
+  "rookie": false,
+  "age": 34.8,
+  "oneQBValues": {
+   "rank": 579,
+   "positionalRank": 24,
+   "overallTier": 13,
+   "startSitOverallRank": 520,
+   "startSitPositionalRank": 25,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Greg Joseph",
+  "playerID": 1135,
+  "position": "PK",
+  "team": "LVR",
+  "rookie": false,
+  "age": 32,
+  "oneQBValues": {
+   "rank": 593,
+   "positionalRank": 28,
+   "overallTier": 13,
+   "startSitOverallRank": 519,
+   "startSitPositionalRank": 24,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chase McLaughlin",
+  "playerID": 1172,
+  "position": "PK",
+  "team": "TBB",
+  "rookie": false,
+  "age": 30.4,
+  "oneQBValues": {
+   "rank": 597,
+   "positionalRank": 29,
+   "overallTier": 13,
+   "startSitOverallRank": 536,
+   "startSitPositionalRank": 27,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 10,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Will Reichard",
+  "playerID": 1714,
+  "position": "PK",
+  "team": "MIN",
+  "rookie": false,
+  "age": 25.6,
+  "oneQBValues": {
+   "rank": 600,
+   "positionalRank": 30,
+   "overallTier": 13,
+   "startSitOverallRank": 541,
+   "startSitPositionalRank": 29,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Spencer Shrader",
+  "playerID": 1802,
+  "position": "PK",
+  "team": "IND",
+  "rookie": false,
+  "age": 27.3,
+  "oneQBValues": {
+   "rank": 621,
+   "positionalRank": 32,
+   "overallTier": 13,
+   "startSitOverallRank": 575,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tyler Loop",
+  "playerID": 1912,
+  "position": "PK",
+  "team": "BAL",
+  "rookie": false,
+  "age": 25,
+  "oneQBValues": {
+   "rank": 631,
+   "positionalRank": 34,
+   "overallTier": 13,
+   "startSitOverallRank": 557,
+   "startSitPositionalRank": 31,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cam Little",
+  "playerID": 1713,
+  "position": "PK",
+  "team": "JAC",
+  "rookie": false,
+  "age": 23,
+  "oneQBValues": {
+   "rank": 669,
+   "positionalRank": 38,
+   "overallTier": 13,
+   "startSitOverallRank": 638,
+   "startSitPositionalRank": 38,
+   "startSitOverallTier": 26
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Arizona Cardinals",
+  "playerID": 1184,
+  "position": "DST",
+  "team": "ARI",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 671,
+   "positionalRank": 24,
+   "overallTier": 13,
+   "startSitOverallRank": 540,
+   "startSitPositionalRank": 24,
+   "startSitOverallTier": 23
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Carolina Panthers",
+  "playerID": 1224,
+  "position": "DST",
+  "team": "CAR",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 706,
+   "positionalRank": 25,
+   "overallTier": 13,
+   "startSitOverallRank": 609,
+   "startSitPositionalRank": 25,
+   "startSitOverallTier": 25
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Chad Ryland",
+  "playerID": 1568,
+  "position": "PK",
+  "team": "ARI",
+  "rookie": false,
+  "age": 26.8,
+  "oneQBValues": {
+   "rank": 711,
+   "positionalRank": 41,
+   "overallTier": 13,
+   "startSitOverallRank": 877,
+   "startSitPositionalRank": 66,
+   "startSitOverallTier": 28
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Atlanta Falcons",
+  "playerID": 1225,
+  "position": "DST",
+  "team": "ATL",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 742,
+   "positionalRank": 26,
+   "overallTier": 13,
+   "startSitOverallRank": 623,
+   "startSitPositionalRank": 27,
+   "startSitOverallTier": 25
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Las Vegas Raiders",
+  "playerID": 1190,
+  "position": "DST",
+  "team": "LVR",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 763,
+   "positionalRank": 27,
+   "overallTier": 13,
+   "startSitOverallRank": 678,
+   "startSitPositionalRank": 28,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dallas Cowboys",
+  "playerID": 1187,
+  "position": "DST",
+  "team": "DAL",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 785,
+   "positionalRank": 28,
+   "overallTier": 13,
+   "startSitOverallRank": 620,
+   "startSitPositionalRank": 26,
+   "startSitOverallTier": 25
+  },
+  "byeWeek": 14,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Nick Folk",
+  "playerID": 1213,
+  "position": "PK",
+  "team": "ATL",
+  "rookie": false,
+  "age": 41.8,
+  "oneQBValues": {
+   "rank": 799,
+   "positionalRank": 47,
+   "overallTier": 13,
+   "startSitOverallRank": 756,
+   "startSitPositionalRank": 47,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Riley Patterson",
+  "playerID": 1160,
+  "position": "PK",
+  "team": "MIA",
+  "rookie": false,
+  "age": 27,
+  "oneQBValues": {
+   "rank": 806,
+   "positionalRank": 48,
+   "overallTier": 13,
+   "startSitOverallRank": 734,
+   "startSitPositionalRank": 44,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Harrison Mevis",
+  "playerID": 1773,
+  "position": "PK",
+  "team": "LAR",
+  "rookie": false,
+  "age": 24.4,
+  "oneQBValues": {
+   "rank": 811,
+   "positionalRank": 49,
+   "overallTier": 13,
+   "startSitOverallRank": 754,
+   "startSitPositionalRank": 46,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tennessee Titans",
+  "playerID": 1195,
+  "position": "DST",
+  "team": "TEN",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 818,
+   "positionalRank": 29,
+   "overallTier": 13,
+   "startSitOverallRank": 733,
+   "startSitPositionalRank": 29,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 9,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "New Orleans Saints",
+  "playerID": 1222,
+  "position": "DST",
+  "team": "NOS",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 838,
+   "positionalRank": 30,
+   "overallTier": 13,
+   "startSitOverallRank": 820,
+   "startSitPositionalRank": 30,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Blake Grupe",
+  "playerID": 1625,
+  "position": "PK",
+  "team": "IND",
+  "rookie": false,
+  "age": 27.8,
+  "oneQBValues": {
+   "rank": 896,
+   "positionalRank": 58,
+   "overallTier": 13,
+   "startSitOverallRank": 840,
+   "startSitPositionalRank": 62,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Andres Borregales",
+  "playerID": 1911,
+  "position": "PK",
+  "team": "NEP",
+  "rookie": false,
+  "age": 24.6,
+  "oneQBValues": {
+   "rank": 920,
+   "positionalRank": 62,
+   "overallTier": 13,
+   "startSitOverallRank": 830,
+   "startSitPositionalRank": 59,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ryan Fitzgerald",
+  "playerID": 1937,
+  "position": "PK",
+  "team": "CAR",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 937,
+   "positionalRank": 65,
+   "overallTier": 13,
+   "startSitOverallRank": 829,
+   "startSitPositionalRank": 58,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 5,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Tanner Brown",
+  "playerID": 1600,
+  "position": "PK",
+  "team": "NOS",
+  "rookie": false,
+  "age": 26.6,
+  "oneQBValues": {
+   "rank": 945,
+   "positionalRank": 66,
+   "overallTier": 13,
+   "startSitOverallRank": 836,
+   "startSitPositionalRank": 60,
+   "startSitOverallTier": 27
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Andre Szmyt",
+  "playerID": 1607,
+  "position": "PK",
+  "team": "CLE",
+  "rookie": false,
+  "age": 27.9,
+  "oneQBValues": {
+   "rank": 951,
+   "positionalRank": 67,
+   "overallTier": 13,
+   "startSitOverallRank": 890,
+   "startSitPositionalRank": 69,
+   "startSitOverallTier": 28
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Drew Stevens",
+  "playerID": 2143,
+  "position": "PK",
+  "team": "WAS",
+  "rookie": true,
+  "age": 22.7,
+  "oneQBValues": {
+   "rank": 977,
+   "positionalRank": 70,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Matthew Wright",
+  "playerID": 1174,
+  "position": "PK",
+  "team": "BUF",
+  "rookie": false,
+  "age": 30.4,
+  "oneQBValues": {
+   "rank": 1024,
+   "positionalRank": 78,
+   "overallTier": 13,
+   "startSitOverallRank": 927,
+   "startSitPositionalRank": 79,
+   "startSitOverallTier": 29
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Mike Badgley",
+  "playerID": 1155,
+  "position": "PK",
+  "team": "BUF",
+  "rookie": false,
+  "age": 31.1,
+  "oneQBValues": {
+   "rank": 1034,
+   "positionalRank": 80,
+   "overallTier": 13,
+   "startSitOverallRank": 959,
+   "startSitPositionalRank": 87,
+   "startSitOverallTier": 30
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Ben Sauls",
+  "playerID": 2004,
+  "position": "PK",
+  "team": "NYG",
+  "rookie": false,
+  "age": 25.1,
+  "oneQBValues": {
+   "rank": 1051,
+   "positionalRank": 86,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Cincinnati Bengals",
+  "playerID": 1197,
+  "position": "DST",
+  "team": "CIN",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 1084,
+   "positionalRank": 31,
+   "overallTier": 13,
+   "startSitOverallRank": 904,
+   "startSitPositionalRank": 31,
+   "startSitOverallTier": 29
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Miami Dolphins",
+  "playerID": 1200,
+  "position": "DST",
+  "team": "MIA",
+  "rookie": false,
+  "age": -1,
+  "oneQBValues": {
+   "rank": 1744,
+   "positionalRank": 32,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 32,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 6,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Jude McAtamney",
+  "playerID": 1777,
+  "position": "PK",
+  "team": "NYG",
+  "rookie": false,
+  "age": 26.3,
+  "oneQBValues": {
+   "rank": 1912,
+   "positionalRank": 105,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Eddy Pineiro",
+  "playerID": 1137,
+  "position": "PK",
+  "team": "SFO",
+  "rookie": false,
+  "age": 30.9,
+  "oneQBValues": {
+   "rank": 1740,
+   "positionalRank": 93,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Maddux Trujillo",
+  "playerID": 1975,
+  "position": "PK",
+  "team": "BUF",
+  "rookie": false,
+  "age": 22.8,
+  "oneQBValues": {
+   "rank": 1985,
+   "positionalRank": 109,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 7,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Charlie Smyth",
+  "playerID": 2002,
+  "position": "PK",
+  "team": "NOS",
+  "rookie": false,
+  "age": 24.8,
+  "oneQBValues": {
+   "rank": 2006,
+   "positionalRank": 110,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Trey Smack",
+  "playerID": 2117,
+  "position": "PK",
+  "team": "GBP",
+  "rookie": true,
+  "age": 23.1,
+  "oneQBValues": {
+   "rank": 2069,
+   "positionalRank": 111,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 11,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Kansei Matsuzawa",
+  "playerID": 2145,
+  "position": "PK",
+  "team": "LVR",
+  "rookie": true,
+  "age": 27.6,
+  "oneQBValues": {
+   "rank": 2096,
+   "positionalRank": 112,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 13,
+  "injury": {
+   "injuryCode": 1
+  }
+ },
+ {
+  "playerName": "Dominic Zvada",
+  "playerID": 2149,
+  "position": "PK",
+  "team": "NYG",
+  "rookie": true,
+  "age": 22.8,
+  "oneQBValues": {
+   "rank": 2100,
+   "positionalRank": 113,
+   "overallTier": 13,
+   "startSitOverallRank": 971,
+   "startSitPositionalRank": 90,
+   "startSitOverallTier": 42
+  },
+  "byeWeek": 8,
+  "injury": {
+   "injuryCode": 1
+  }
+ }
+]

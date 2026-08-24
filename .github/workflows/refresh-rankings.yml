@@ -1,0 +1,47 @@
+name: Refresh rankings
+
+on:
+  schedule:
+    # Daily at 12:00 UTC through preseason and draft season. There is nothing
+    # to track the rest of the year, and a year-round job would be 270 empty
+    # runs for the sake of three useful months.
+    - cron: "0 12 * 7-9 *"
+  # So I can refresh by hand on the morning of the draft.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-rankings
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # The transform tests run before the fetch, not after. If the pipeline
+      # itself is broken there is no point pulling fresh data through it.
+      - name: Test the transform
+        run: npm test
+
+      - name: Fetch and validate
+        run: node scripts/fetch-rankings.mjs --only-if-changed
+
+      - name: Commit if the rankings moved
+        run: |
+          if git diff --quiet -- public/players.json; then
+            echo "No change to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/players.json
+          git commit -m "Refresh KTC rankings"
+          git push
