@@ -44,13 +44,12 @@
 
       <div class="strip">
         <span id="roster"></span>
-        <label class="toggle">
+        <label class="toggle" id="taken-toggle">
           <input id="show-drafted" type="checkbox" />
           <span>Show taken</span>
         </label>
       </div>
 
-      <button id="undo" type="button" class="undo" hidden></button>
       <p id="status" role="status"></p>
 
       <div id="menu" hidden>
@@ -85,6 +84,8 @@
       <ol id="board"></ol>
     </main>
 
+    <button id="undo" type="button" class="undo" hidden></button>
+
     <div id="sheet" hidden>
       <div id="sheet-backdrop"></div>
       <div class="sheet-panel">
@@ -101,18 +102,23 @@
           <button id="sheet-down" type="button">↓ Move down</button>
         </div>
 
-        <label class="sheet-row toggle">
-          <input id="sheet-dnd" type="checkbox" />
-          <span>Do not draft</span>
-        </label>
+        <!-- Toggles, not actions. Every one of these is a state the player is
+             either in or not, and pressing it again is how you get out. -->
+        <div class="sheet-row toggles">
+          <button id="toggle-mine" class="toggle-btn" type="button" aria-pressed="false">
+            Mine
+          </button>
+          <button id="toggle-taken" class="toggle-btn" type="button" aria-pressed="false">
+            Taken
+          </button>
+        </div>
+        <button id="toggle-dnd" class="toggle-btn sheet-row wide" type="button" aria-pressed="false">
+          Do not draft
+        </button>
 
         <label class="sheet-row">
           <input id="sheet-note" type="text" placeholder="Note…" maxlength="80" />
         </label>
-
-        <button id="sheet-draft" type="button" class="sheet-row primary">
-          I drafted him
-        </button>
       </div>
     </div>
 

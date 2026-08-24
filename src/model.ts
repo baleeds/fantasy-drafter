@@ -242,10 +242,32 @@ export class Board {
     return this.states.get(id) ?? "available";
   }
 
+  /**
+   * Set a player's state directly, in either direction.
+   *
+   * Correcting a mistake by saying what is true beats correcting it by undoing
+   * — undo only reaches the most recent action, and only for as long as you
+   * remember it was the most recent. This is why the log is edited in place
+   * rather than only appended to: a player who changes hands keeps his
+   * position in the pick order, because he did go off the board when he did.
+   */
+  setState(id: number, state: PlayerState): void {
+    const at = this.picks.findIndex((pick) => pick.id === id);
+
+    if (state === "available") {
+      if (at !== -1) this.picks.splice(at, 1);
+    } else if (at !== -1) {
+      this.picks[at].mine = state === "mine";
+    } else {
+      this.picks.push({ id, mine: state === "mine" });
+    }
+
+    this.deriveStates();
+  }
+
   pick(id: number, mine: boolean): void {
     if (this.stateOf(id) !== "available") return;
-    this.picks.push({ id, mine });
-    this.deriveStates();
+    this.setState(id, mine ? "mine" : "gone");
   }
 
   /** Pop the most recent pick. Unlimited, because the log is the only state. */

@@ -207,15 +207,36 @@ button:active {
   height: 18px;
 }
 
+/*
+ * Floating, brief, and out of the way. Every state is reversible by tapping
+ * the player, so this only covers the seconds between a row leaving the screen
+ * and my noticing — a permanent bar would be permanent clutter for that.
+ */
 .undo {
-  display: block;
-  width: calc(100% - 24px);
-  margin: 0 12px 8px;
-  min-height: 38px;
-  font-size: 13px;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 10%, transparent);
-  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 50;
+  max-width: calc(100% - 32px);
+  min-height: 44px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-fg);
+  background: var(--fg);
+  border: none;
+  border-radius: 22px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.28);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (prefers-color-scheme: dark) {
+  .undo {
+    color: var(--bg);
+  }
 }
 
 #status {
@@ -332,11 +353,29 @@ input[type="range"] {
   gap: 1px;
 }
 
+.name-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
 .name {
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.injury {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  color: var(--warn);
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
 }
 
 .meta {
@@ -364,11 +403,6 @@ input[type="range"] {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.tag.injury {
-  color: var(--warn);
-  background: color-mix(in srgb, var(--warn) 14%, transparent);
 }
 
 .tag.gone {
@@ -474,9 +508,14 @@ input[type="range"] {
   box-shadow: inset 3px 0 0 var(--accent);
 }
 
-.row.state-mine .mine-btn,
 .row.state-gone .mine-btn {
   visibility: hidden;
+}
+
+.mine-btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
 }
 
 /*
@@ -618,11 +657,32 @@ body.is-dragging {
   -webkit-appearance: none;
 }
 
-.primary {
+.toggles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Pressed means the player is in that state. Pressing again takes him out. */
+.toggle-btn {
+  min-height: 48px;
   justify-content: center;
+  font-weight: 500;
+}
+
+.toggle-btn.wide {
+  width: 100%;
+}
+
+.toggle-btn[aria-pressed="true"] {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-fg);
   font-weight: 600;
-  min-height: 48px;
+}
+
+#toggle-dnd[aria-pressed="true"] {
+  background: var(--down);
+  border-color: var(--down);
+  color: #fff;
 }

@@ -79,14 +79,20 @@ function createRow(id: number): HTMLLIElement {
   const row = document.createElement("li");
   row.className = "row";
   row.dataset.id = String(id);
+  // The injury badge sits on the name line because it describes the player.
+  // Draft status sits on the right because it describes the board. Mixing the
+  // two into one strip made "Q Groin" read as a kind of pick.
   row.innerHTML = `<span class="rank"></span>
     <span class="main">
-      <span class="name"></span>
+      <span class="name-line">
+        <span class="name"></span>
+        <span class="injury"></span>
+      </span>
       <span class="meta"></span>
     </span>
     <span class="tags"></span>
     <span class="moved"></span>
-    <button class="mine-btn" type="button" aria-label="I drafted him">ME</button>
+    <button class="mine-btn" type="button">ME</button>
     <span class="grip" aria-hidden="true"></span>`;
   return row;
 }
@@ -94,7 +100,11 @@ function createRow(id: number): HTMLLIElement {
 function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): void {
   const { player } = row;
 
-  el.className = `row state-${row.state}${row.doNotDraft ? " dnd" : ""} mode-${mode}`;
+  // Draft state is a draft-mode idea. In prep the board is just my ranking of
+  // players, so nobody is struck through or badged as taken there.
+  const state = mode === "draft" ? row.state : "available";
+
+  el.className = `row state-${state}${row.doNotDraft ? " dnd" : ""} mode-${mode}`;
   text(el, ".rank", String(row.position));
   text(el, ".name", player.name);
 
@@ -106,17 +116,29 @@ function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): vo
   ].filter(Boolean);
   text(el, ".meta", meta.join(" · "));
 
-  // Injury and status live on one line so the row height never changes.
+  const injury = el.querySelector(".injury") as HTMLElement;
+  injury.textContent = player.injury
+    ? `${player.injury.status.slice(0, 1)} ${player.injury.area}`
+    : "";
+  injury.hidden = !player.injury;
+
+  // Status badges stay on one line so the row height never changes.
   const tags = el.querySelector(".tags")!;
   tags.textContent = "";
-  if (row.state === "gone") tags.append(tag("GONE", "gone"));
-  if (row.state === "mine") tags.append(tag("MINE", "mine"));
+  if (state === "gone") tags.append(tag("GONE", "gone"));
+  if (state === "mine") tags.append(tag("MINE", "mine"));
   // Flagged players are hidden from the board, so this badge is what identifies
   // them when they turn up in a search or under the DND chip.
   if (row.doNotDraft) tags.append(tag("DND", "dnd"));
-  if (player.injury) {
-    tags.append(tag(`${player.injury.status.slice(0, 1)} ${player.injury.area}`, "injury"));
-  }
+
+  // A toggle, not a one-way action: pressed means he is mine, and pressing it
+  // again gives him back.
+  const mine = el.querySelector(".mine-btn") as HTMLButtonElement;
+  mine.setAttribute("aria-pressed", String(state === "mine"));
+  mine.setAttribute(
+    "aria-label",
+    state === "mine" ? `${player.name} is mine — tap to release` : `I drafted ${player.name}`,
+  );
 
   const moved = el.querySelector(".moved") as HTMLElement;
   const delta = row.moved;

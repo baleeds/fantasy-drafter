@@ -105,7 +105,7 @@ try {
 
   check("tapping a row takes him off the board", (await nameAt(0)) === second);
   check("the board shrinks by one", (await visibleCount()) === 299);
-  check("undo appears and names him", (await page.locator("#undo").innerText()).includes(first));
+  check("undo is offered when a row leaves the screen", (await page.locator("#undo").innerText()).includes(first));
 
   // --- Mine ----------------------------------------------------------------
   const mineTarget = await nameAt(0);
@@ -165,11 +165,45 @@ try {
   check("showing taken players brings them back inline", (await visibleCount()) === 300);
   await page.uncheck("#show-drafted");
 
-  // --- Undo -----------------------------------------------------------------
-  await page.click("#undo");
-  await page.click("#undo");
-  check("undo walks the whole log back", (await visibleCount()) === 300);
-  check("and the undo control goes away", await page.locator("#undo").isHidden());
+  // --- Correcting by toggling, not by undoing ------------------------------
+  // Undo only reaches the last action; tapping the player reaches any of them.
+  await page.check("#show-drafted");
+  const goneRow = page.locator(".row.state-gone").first();
+  const goneName = await goneRow.locator(".name").innerText();
+  await goneRow.click();
+  await page.waitForTimeout(350);
+  check(
+    "tapping a taken player puts him back",
+    (await page.locator(`.row.state-gone`).count()) === 0,
+    `un-took ${goneName}`,
+  );
+
+  const mineRow = page.locator(".row.state-mine").first();
+  const mineName = await mineRow.locator(".name").innerText();
+  await mineRow.click();
+  await page.waitForTimeout(350);
+  check(
+    "tapping one of mine releases him rather than marking him taken",
+    (await page.locator(".row.state-mine").count()) === 0 &&
+      (await page.locator(".row.state-gone").count()) === 0,
+    `released ${mineName}`,
+  );
+  await page.uncheck("#show-drafted");
+  check("the board is whole again", (await visibleCount()) === 300);
+
+  // The ME button is a toggle too.
+  await rows().nth(0).locator(".mine-btn").click();
+  await page.waitForTimeout(350);
+  check(
+    "ME claims a player",
+    (await rows().nth(0).locator(".mine-btn").getAttribute("aria-pressed")) === "true",
+  );
+  await rows().nth(0).locator(".mine-btn").click();
+  await page.waitForTimeout(350);
+  check(
+    "and pressing it again gives him back",
+    (await page.locator(".row.state-mine").count()) === 0,
+  );
 
   // --- Releasing a touch drag must not count as a tap ----------------------
   // Still in draft mode, where a tap takes a player off the board. Reordering
@@ -185,8 +219,60 @@ try {
   );
   check("and it did reorder him", (await nameAt(0)) === dragged, `${dragged} to top`);
 
+  // --- Undo expires ---------------------------------------------------------
+  await rows().nth(0).click();
+  await page.waitForTimeout(400);
+  check("undo appears on a pick", await page.locator("#undo").isVisible());
+  check(
+    "and it floats over the board rather than sitting in the header",
+    await page.locator("#undo").evaluate((b) => getComputedStyle(b).position === "fixed"),
+  );
+  await page.waitForTimeout(7200);
+  check("undo goes away on its own", await page.locator("#undo").isHidden());
+  await page.check("#show-drafted");
+  await page.locator(".row.state-gone").first().click();
+  await page.waitForTimeout(350);
+  await page.uncheck("#show-drafted");
+
+  // --- The injury badge belongs to the player, not to the draft status ------
+  const injuryPlace = await page.evaluate(() => {
+    const row = [...document.querySelectorAll(".row")].find((r) => {
+      const i = r.querySelector(".injury");
+      return i && !i.hidden && i.textContent;
+    });
+    if (!row) return null;
+    return {
+      onNameLine: !!row.querySelector(".name-line .injury"),
+      leftOfStatus:
+        row.querySelector(".injury").getBoundingClientRect().left <
+        row.querySelector(".tags").getBoundingClientRect().left,
+    };
+  });
+  check(
+    "the injury badge sits with the player name",
+    injuryPlace?.onNameLine === true && injuryPlace.leftOfStatus === true,
+    JSON.stringify(injuryPlace),
+  );
+
   // --- Prep mode: the sheet, do-not-draft, notes ---------------------------
   await page.click('.modes button[data-mode="prep"]');
+
+  // Prep is about what I think of players, not what has happened to them.
+  check(
+    "prep hides the MINE filter",
+    await page.locator('.chip[data-filter="MINE"]').isHidden(),
+  );
+  check(
+    "prep hides the 'show taken' toggle",
+    await page.locator("#taken-toggle").isHidden(),
+  );
+  check("and shows the whole board", (await visibleCount()) === 300);
+  check(
+    "prep marks nobody as taken or mine",
+    (await page.locator(".row.state-gone").count()) === 0 &&
+      (await page.locator(".row.state-mine").count()) === 0 &&
+      (await page.locator(".tag.gone").count()) === 0,
+  );
 
   // Snapshot every indicator before flagging anyone. The board already carries
   // a real move by this point, so "all indicators are blank" would be the
@@ -203,10 +289,18 @@ try {
   const prepTarget = await nameAt(2);
   await rows().nth(2).click();
   check("tapping in prep opens the sheet, not a pick", await page.locator("#sheet").isVisible());
+  check(
+    "the sheet hides mine/taken in prep",
+    await page.locator(".toggles").isHidden(),
+  );
+  check(
+    "but still offers do-not-draft",
+    await page.locator("#toggle-dnd").isVisible(),
+  );
   check("the sheet names the right player", (await page.locator("#sheet-name").innerText()) === prepTarget);
 
   await page.fill("#sheet-note", "handcuff");
-  await page.check("#sheet-dnd");
+  await page.click("#toggle-dnd");
   await page.click("#sheet-close");
 
   check("a flagged player drops out of the board", (await visibleCount()) === 299);
@@ -262,7 +356,7 @@ try {
 
   // Unflagging from there has to work, or the chip is a dead end.
   await rows().nth(0).click();
-  await page.uncheck("#sheet-dnd");
+  await page.click("#toggle-dnd");
   await page.click("#sheet-close");
   check("unflagging from the DND view empties it", (await visibleCount()) === 0);
 
@@ -341,7 +435,7 @@ async function checkDurability() {
 
     const flagged = await page.locator(".row").nth(6).locator(".name").innerText();
     await page.locator(".row").nth(6).click();
-    await page.check("#sheet-dnd");
+    await page.click("#toggle-dnd");
     await page.fill("#sheet-note", "sleeper");
     await page.click("#sheet-close");
 

@@ -254,6 +254,48 @@ test("picks derive player state rather than storing it", () => {
   ]);
 });
 
+test("a state can be set in either direction", () => {
+  const board = new Board(makePlayers(4));
+
+  board.setState(100, "gone");
+  assert.equal(board.stateOf(100), "gone");
+
+  board.setState(100, "mine");
+  assert.equal(board.stateOf(100), "mine");
+  assert.equal(board.picks.length, 1, "changing hands should not add a second entry");
+
+  board.setState(100, "available");
+  assert.equal(board.stateOf(100), "available");
+  assert.deepEqual(board.picks, []);
+});
+
+test("a player who changes hands keeps his place in the pick order", () => {
+  const board = new Board(makePlayers(4));
+  board.setState(100, "gone");
+  board.setState(101, "gone");
+  board.setState(102, "gone");
+
+  // He did come off the board when he came off it, whoever ended up with him.
+  board.setState(100, "mine");
+  assert.deepEqual(board.picks.map((p) => p.id), [100, 101, 102]);
+});
+
+test("releasing a player mid-log leaves the rest in order", () => {
+  const board = new Board(makePlayers(5));
+  for (const id of [100, 101, 102, 103]) board.setState(id, "gone");
+
+  board.setState(101, "available");
+  assert.deepEqual(board.picks.map((p) => p.id), [100, 102, 103]);
+  assert.equal(board.stateOf(101), "available");
+});
+
+test("setting the state a player is already in changes nothing", () => {
+  const board = new Board(makePlayers(3));
+  board.setState(100, "gone");
+  board.setState(100, "gone");
+  assert.equal(board.picks.length, 1);
+});
+
 test("undo is unlimited and walks the whole log back", () => {
   const board = new Board(makePlayers(4));
   board.pick(100, false);

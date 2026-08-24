@@ -274,6 +274,12 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 
 ### Prep mode — before the draft
 
+**Prep has no draft state.** Nobody is taken or mine while I am building the
+board, so there is no MINE chip, no "show taken" toggle, no strike-through and
+no status badges — and the sheet offers only ordering, the do-not-draft flag,
+and a note. Mid-draft I can still drop into prep to reorder; it simply shows
+the whole board as a ranking, which is what prep is for.
+
 - **Load the KTC board** — ordered and ready to use with zero setup.
 - **Reorder by dragging**, on both desktop and phone. On touch this is a
   long-press to pick a player up, with the list autoscrolling when the held
@@ -293,15 +299,25 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 - **Best available at top**, sorted by my order. One flat list, no grouping.
 - **Position filter chips** — ALL / QB / RB / WR / TE / FLEX / MINE. No K or DST
   chips; those positions do not exist in this app.
-- **One tap marks a player drafted.** A second, distinct action marks
-  **"I drafted him"** — a separate button rather than a long-press, since
-  long-press is taken by drag.
-- **Undo, unlimited.** See "The pick log" below.
+- **Every state is a toggle, in both directions.** A tap moves a player between
+  available and taken; the **ME** button claims him and releases him; a tap on
+  one of my own players gives him back rather than marking him taken by someone
+  else, which is never what that tap means. Correcting a mistake by saying what
+  is true beats correcting it by undoing: undo only reaches the most recent
+  action, and only for as long as I remember it was the most recent.
+- **Undo is a brief floating offer, not a standing control.** It covers the one
+  case a toggle cannot — a mis-tap on a player who then leaves the screen, so
+  there is no row left to tap back. It appears at the bottom, and goes away
+  after a few seconds. (This reverses an earlier decision to make it permanent:
+  that was the right call when a pick was one-way, and became clutter once
+  every state could be tapped back.)
 - **Search** to jump to a name. I'll hear a name announced and need to find it
   in two seconds. **Search covers drafted players too**, marked `GONE` — often
   the answer I need is "he went four picks ago", and a search restricted to
   available players fails at exactly the moment it matters.
-- **Injury badges** — "Q — Knee/ACL" inline, for deciding whether to take the risk.
+- **Injury badges** — "Q Knee/ACL" beside the player's name, not out with the
+  draft-status badges. It is a fact about the player, and grouping it with GONE
+  and MINE made it read as a kind of pick.
 - **Do-not-draft players are hidden, not moved.** The flag says "don't take
   him"; it is not an opinion that everyone below him is a spot better than I
   thought. He keeps his board position, so flagging one player renumbers nobody
