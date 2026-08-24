@@ -11,10 +11,12 @@
     "typecheck": "tsc --noEmit",
     "refresh": "node scripts/fetch-rankings.mjs",
     "refresh:dry": "node scripts/fetch-rankings.mjs --dry-run",
-    "test": "node --test \"scripts/**/*.test.mjs\"",
-    "test:drag": "node test/drag-check.mjs"
+    "test": "node --test --experimental-strip-types \"scripts/**/*.test.mjs\" \"src/**/*.test.ts\"",
+    "test:drag": "node test/drag-check.mjs",
+    "test:app": "node test/app-check.mjs"
   },
   "devDependencies": {
+    "@types/node": "^26.2.0",
     "playwright": "^1.62.1",
     "typescript": "^7.0.2",
     "vite": "^8.2.2"

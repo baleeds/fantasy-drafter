@@ -64,6 +64,7 @@ export function enableDragReorder(cfg: DragConfig): void {
   let pointerY = 0;
   let rafId = 0;
   let lastFrame = 0;
+  let swallowNextClick = false;
 
   // --- Picking a row up ----------------------------------------------------
 
@@ -195,6 +196,12 @@ export function enableDragReorder(cfg: DragConfig): void {
     dragging = false;
     sourceRow = null;
     touchId = null;
+
+    // Releasing a drag also produces a click. In draft mode a click marks a
+    // player drafted, so without this a reorder would take him off the board.
+    swallowNextClick = true;
+    setTimeout(() => (swallowNextClick = false), 400);
+
     cfg.onStateChange?.(false);
 
     if (currentIndex !== startIndex) cfg.onReorder(startIndex, currentIndex);
@@ -262,7 +269,10 @@ export function enableDragReorder(cfg: DragConfig): void {
 
   // --- Mouse ---------------------------------------------------------------
   // No long press on desktop: there is no scroll gesture to disambiguate from,
-  // so waiting would just make the interaction feel sticky.
+  // so waiting would just make the interaction feel sticky. But the drag must
+  // not start until the pointer actually moves, or every plain click ends a
+  // zero-distance "drag" — and since ending a drag swallows the click that
+  // follows it, tapping a player would do nothing at all.
 
   list.addEventListener("mousedown", (e) => {
     if (e.button !== 0 || dragging) return;
@@ -271,19 +281,36 @@ export function enableDragReorder(cfg: DragConfig): void {
     if ((e.target as HTMLElement).closest("button, a, input")) return;
 
     e.preventDefault();
+    startX = e.clientX;
+    startY = e.clientY;
     pointerY = e.clientY;
     pendingRow = row;
-    beginDrag();
   });
 
   document.addEventListener("mousemove", (e) => {
-    if (!dragging) return;
     pointerY = e.clientY;
+    if (dragging || !pendingRow) return;
+    if (Math.hypot(e.clientX - startX, e.clientY - startY) > MOVE_SLOP) beginDrag();
   });
 
-  document.addEventListener("mouseup", endDrag);
+  document.addEventListener("mouseup", () => {
+    cancelPending();
+    endDrag();
+  });
 
   // --- Gestures the browser would otherwise claim ---------------------------
+
+  // Capture phase, so this runs before any delegated click handler on the list.
+  document.addEventListener(
+    "click",
+    (e) => {
+      if (!swallowNextClick) return;
+      swallowNextClick = false;
+      e.stopPropagation();
+      e.preventDefault();
+    },
+    true,
+  );
 
   document.addEventListener("contextmenu", (e) => {
     if (dragging || pendingRow) e.preventDefault();

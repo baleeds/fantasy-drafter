@@ -14,22 +14,45 @@
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🏈</text></svg>"
     />
-    <title>Drag prototype — Fantasy Drafter</title>
+    <title>Fantasy Drafter</title>
   </head>
   <body>
     <header id="header">
       <div class="bar">
-        <div class="titles">
-          <h1>Drag prototype</h1>
-          <p id="generated">loading…</p>
+        <button id="mode" type="button" class="mode"></button>
+        <div class="search-wrap">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search a name…"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            enterkeyhint="search"
+          />
+          <button id="search-clear" type="button" aria-label="Clear search">×</button>
         </div>
-        <div class="actions">
-          <button id="tune" type="button">Tune</button>
-          <button id="reset" type="button">Reset</button>
-        </div>
+        <button id="menu-toggle" type="button" aria-label="Menu">⋯</button>
       </div>
 
-      <div id="tuning" hidden>
+      <div id="filters" class="filters"></div>
+
+      <div class="strip">
+        <span id="roster"></span>
+        <label class="toggle">
+          <input id="show-drafted" type="checkbox" />
+          <span>Show drafted</span>
+        </label>
+      </div>
+
+      <button id="undo" type="button" class="undo" hidden></button>
+      <p id="status" role="status"></p>
+
+      <div id="menu" hidden>
+        <p id="generated"></p>
+        <button id="reset-draft" type="button">Reset draft — keeps my rankings</button>
+        <button id="reset-order" type="button">Reset order to KTC — keeps flags</button>
+        <button id="reset-all" type="button" class="danger">Erase everything</button>
         <label>
           <span>Long press</span>
           <input id="longpress" type="range" min="120" max="700" step="10" />
@@ -40,18 +63,43 @@
           <input id="autoscroll" type="range" min="4" max="40" step="1" />
           <output id="autoscroll-value"></output>
         </label>
-        <p class="hint">
-          Press and hold a player to pick him up, then drag. Hold near the top or
-          bottom edge to scroll.
-        </p>
       </div>
-
-      <p id="status" role="status"></p>
     </header>
 
     <main>
       <ol id="board"></ol>
     </main>
+
+    <div id="sheet" hidden>
+      <div id="sheet-backdrop"></div>
+      <div class="sheet-panel">
+        <div class="sheet-head">
+          <div>
+            <h2 id="sheet-name"></h2>
+            <p id="sheet-meta"></p>
+          </div>
+          <button id="sheet-close" type="button" aria-label="Close">Done</button>
+        </div>
+
+        <div class="sheet-row nudges">
+          <button id="sheet-up" type="button">↑ Move up</button>
+          <button id="sheet-down" type="button">↓ Move down</button>
+        </div>
+
+        <label class="sheet-row toggle">
+          <input id="sheet-dnd" type="checkbox" />
+          <span>Do not draft</span>
+        </label>
+
+        <label class="sheet-row">
+          <input id="sheet-note" type="text" placeholder="Note…" maxlength="80" />
+        </label>
+
+        <button id="sheet-draft" type="button" class="sheet-row primary">
+          I drafted him
+        </button>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

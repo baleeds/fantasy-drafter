@@ -5,15 +5,16 @@ why it is built this way.
 
 **Live: https://baleeds.github.io/fantasy-drafter/**
 
-Right now that URL serves the *drag prototype* — step 2 of the build order — not
-the app. It is the 300-player list and the reorder gesture and nothing else,
-deployed so the interaction can be judged on a real phone before the rest of the
-draft UI is built on top of it.
+Two modes over one list. **Prep** is where the board gets built — long-press to
+drag a player, tap to open his sheet for notes, a do-not-draft flag, and
+single-spot nudges. **Draft** is the screen for the night — tap takes a player
+off the board, the **ME** button marks him mine, and undo is unlimited.
 
 ```sh
-npm run dev           # local dev server
+npm run dev                 # local dev server
 npm run preview -- --host   # serve the built site on the LAN, for phone testing
 npm run typecheck
+npm run test                # model and pipeline
 npm run build
 ```
 
@@ -25,21 +26,43 @@ Every push to the default branch deploys.
 > site but not create one, so `enablement: true` fails with "Resource not
 > accessible by integration".
 
-## Testing the drag
+## How it is put together
 
-`src/drag.ts` is the highest-risk piece of UI in the app. The reasoning behind
-its shape is commented at the top of that file — the short version is that it
-uses raw touch events rather than Pointer Events, because only those let a
-handler stop the page scrolling out from under a held row.
+| File | What lives there |
+|---|---|
+| `src/model.ts` | The board. Ordering, flags, and the pick log. No DOM. |
+| `src/store.ts` | localStorage for the personal layer, separate from the KTC baseline. |
+| `src/board-view.ts` | Renders and reconciles the list in place. |
+| `src/drag.ts` | The long-press drag gesture. |
+| `src/main.ts` | Modes, filters, search, the sheet, wiring. |
+
+Two rules the code depends on and will not tell you about at runtime:
+
+- **Every row is exactly one height.** The drag works out where a held player
+  will land by arithmetic, not by hit-testing 300 elements, so anything that
+  makes one row taller silently skews every drop. `test/app-check.mjs` asserts
+  it.
+- **The baseline and the personal layer never merge.** `players.json` is
+  replaced wholesale on every refresh; my ordering, flags, and notes live apart
+  and are keyed by KTC's `playerID`. Flattening them would mean each refresh
+  destroyed the prep work.
+
+## Testing
 
 ```sh
-npm run build && npm run test:drag
+npm run test                       # model and pipeline — fast, in CI
+npm run build && npm run test:app  # the board in a real browser
+npm run build && npm run test:drag # the drag gesture
 ```
 
-That pins the four behaviours that break silently, the important one being that
-an ordinary swipe still scrolls rather than picking up a row. It is deliberately
-not in CI: the browser download would slow every deploy. Run it after touching
-`src/drag.ts`.
+The two browser checks are deliberately out of CI: the browser download would
+slow every deploy. Run them after touching `src/drag.ts` or the board.
+
+They exist for the failures that are silent rather than loud — an ordinary
+swipe that stops scrolling and starts dragging instead, a `hidden` panel that
+still swallows taps, a row tap that does nothing because the click was
+attributed to a zero-distance drag. Every one of those shipped at some point
+during the build and was caught here rather than at the table.
 
 ## The rankings pipeline
 

@@ -5,8 +5,10 @@
   --line: #e5e7eb;
   --raised: #f7f8fa;
   --accent: #2563eb;
+  --accent-fg: #ffffff;
   --up: #15803d;
   --down: #b91c1c;
+  --warn: #b45309;
   --row-height: 56px;
 }
 
@@ -17,9 +19,11 @@
     --muted: #9aa1ac;
     --line: #262a31;
     --raised: #171a20;
-    --accent: #60a5fa;
+    --accent: #3b82f6;
+    --accent-fg: #ffffff;
     --up: #4ade80;
     --down: #f87171;
+    --warn: #fbbf24;
   }
 }
 
@@ -27,13 +31,41 @@
   box-sizing: border-box;
 }
 
+/*
+ * The `hidden` attribute only sets `display: none` from the UA stylesheet, so
+ * any author `display` rule silently beats it. Without this the player sheet
+ * stays laid out while "hidden" and its full-screen backdrop swallows every
+ * tap on the page.
+ */
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
   font: 15px/1.3 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  /* Stops iOS resizing text when the phone is turned sideways. */
   -webkit-text-size-adjust: 100%;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 44px; /* a thumb target, not a cursor target */
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+button:active {
+  background: var(--line);
 }
 
 /* --- Header --------------------------------------------------------------- */
@@ -50,63 +82,173 @@ body {
 .bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 10px 14px;
+  gap: 8px;
+  padding: 8px 12px;
 }
 
-h1 {
-  margin: 0;
-  font-size: 15px;
+.mode {
+  flex-shrink: 0;
   font-weight: 600;
+  min-width: 74px;
 }
 
-#generated {
-  margin: 2px 0 0;
+.mode.draft {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+#search {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 34px 0 12px;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  -webkit-appearance: none;
+}
+
+#search-clear {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-height: 40px;
+  padding: 0 10px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+}
+
+#menu-toggle {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Chips scroll rather than wrap, so the header height never changes. */
+.filters {
+  display: flex;
+  gap: 5px;
+  padding: 0 12px 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 17px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+}
+
+.strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 12px 8px;
+  font-size: 12px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#roster {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.toggle input {
+  accent-color: var(--accent);
+  width: 18px;
+  height: 18px;
+}
+
+.undo {
+  display: block;
+  width: calc(100% - 24px);
+  margin: 0 12px 8px;
+  min-height: 38px;
+  font-size: 13px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+#status {
+  margin: 0;
+  padding: 0 12px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: var(--accent);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#menu {
+  border-top: 1px solid var(--line);
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+#menu p {
+  margin: 0;
   font-size: 12px;
   color: var(--muted);
 }
 
-.actions {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
+#menu button {
+  text-align: left;
+  font-size: 14px;
 }
 
-button {
-  font: inherit;
-  font-size: 13px;
-  color: var(--fg);
-  background: var(--raised);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  /* 44px tall: a thumb target, not a cursor target. */
-  min-height: 44px;
-  padding: 0 14px;
-  cursor: pointer;
+#menu .danger {
+  color: var(--down);
 }
 
-button:active {
-  background: var(--line);
-}
-
-#tuning {
-  border-top: 1px solid var(--line);
-  padding: 12px 14px;
+#menu label {
   display: grid;
-  gap: 10px;
-}
-
-#tuning label {
-  display: grid;
-  grid-template-columns: 84px 1fr 88px;
+  grid-template-columns: 80px 1fr 60px;
   align-items: center;
   gap: 10px;
   font-size: 13px;
   color: var(--muted);
 }
 
-#tuning output {
+#menu output {
   text-align: right;
   font-variant-numeric: tabular-nums;
   color: var(--fg);
@@ -117,24 +259,6 @@ input[type="range"] {
   accent-color: var(--accent);
 }
 
-.hint {
-  margin: 0;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-#status {
-  margin: 0;
-  padding: 0 14px;
-  height: 22px;
-  line-height: 22px;
-  font-size: 12px;
-  color: var(--accent);
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 /* --- The board ------------------------------------------------------------ */
 
 #board {
@@ -143,14 +267,23 @@ input[type="range"] {
   padding: 0 0 env(safe-area-inset-bottom);
 }
 
+/*
+ * Every row is exactly --row-height. The drag's slot arithmetic assumes a
+ * uniform pitch, so nothing in here may grow the row: overflow is hidden and
+ * the badges sit on one line.
+ */
 .row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   height: var(--row-height);
-  padding: 0 14px;
+  padding: 0 12px;
   border-bottom: 1px solid var(--line);
   background: var(--bg);
+  overflow: hidden;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 
   /* Vertical panning still belongs to the browser; the drag takes over only
      after a long press, via preventDefault in the touchmove handler. */
@@ -164,7 +297,7 @@ input[type="range"] {
 }
 
 .rank {
-  width: 30px;
+  width: 28px;
   flex-shrink: 0;
   font-size: 13px;
   color: var(--muted);
@@ -190,17 +323,51 @@ input[type="range"] {
 .meta {
   font-size: 12px;
   color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.injury {
-  font-size: 11px;
-  color: var(--down);
+.tags {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  max-width: 40%;
+  overflow: hidden;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tag.injury {
+  color: var(--warn);
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+}
+
+.tag.gone {
+  color: var(--muted);
+  background: var(--raised);
+}
+
+.tag.mine {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 
 .moved {
   font-size: 12px;
   font-variant-numeric: tabular-nums;
   flex-shrink: 0;
+  min-width: 26px;
+  text-align: right;
 }
 
 .moved.up {
@@ -213,20 +380,83 @@ input[type="range"] {
 
 /* Purely a visual affordance — the whole row is draggable. */
 .grip {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
   opacity: 0.35;
   background:
-    linear-gradient(var(--fg) 0 0) 0 3px / 16px 1.5px no-repeat,
-    linear-gradient(var(--fg) 0 0) 0 8px / 16px 1.5px no-repeat,
-    linear-gradient(var(--fg) 0 0) 0 13px / 16px 1.5px no-repeat;
+    linear-gradient(var(--fg) 0 0) 0 2px / 14px 1.5px no-repeat,
+    linear-gradient(var(--fg) 0 0) 0 7px / 14px 1.5px no-repeat,
+    linear-gradient(var(--fg) 0 0) 0 12px / 14px 1.5px no-repeat;
+}
+
+.mine-btn {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* The grip belongs to prep, the ME button to draft. */
+.row.mode-prep .mine-btn,
+.row.mode-draft .grip {
+  display: none;
+}
+
+/* --- The three player states ---------------------------------------------- */
+
+/*
+ * Available, taken by someone else, and mine are three different kinds of
+ * information. Strike-through is deliberately wrong for my own picks: it reads
+ * as "lost, stop looking" when the player was in fact acquired.
+ */
+.row.state-gone .name,
+.row.state-gone .meta {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.row.state-gone {
+  opacity: 0.55;
+}
+
+.row.state-mine {
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.row.state-mine .mine-btn,
+.row.state-gone .mine-btn {
+  visibility: hidden;
+}
+
+.row.dnd .name {
+  text-decoration: line-through;
+}
+
+.row.dnd {
+  opacity: 0.45;
+}
+
+/* --- Leaving --------------------------------------------------------------- */
+
+/* Half a second of motion is what catches a mis-tap. Without it a wrong tap
+   removes a player silently. */
+.row.leaving {
+  opacity: 0;
+  transform: translateX(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    transition: none;
+  }
 }
 
 /* --- Dragging ------------------------------------------------------------- */
 
-/* The held row stays in the list so the slot arithmetic keeps working; it is
-   just shown as an empty gap. */
 .row.dragging {
   background: var(--raised);
 }
@@ -245,10 +475,89 @@ input[type="range"] {
   border-radius: 10px;
   background: var(--bg);
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.22);
-  transform-origin: center;
   scale: 1.02;
 }
 
 body.is-dragging {
   cursor: grabbing;
+}
+
+/* --- Player sheet ---------------------------------------------------------- */
+
+#sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+}
+
+#sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.4);
+}
+
+.sheet-panel {
+  position: relative;
+  width: 100%;
+  background: var(--bg);
+  border-radius: 16px 16px 0 0;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  display: grid;
+  gap: 10px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sheet-head h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.sheet-head p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.sheet-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nudges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.nudges button {
+  min-height: 48px;
+}
+
+#sheet-note {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  -webkit-appearance: none;
+}
+
+.primary {
+  justify-content: center;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 600;
+  min-height: 48px;
 }
