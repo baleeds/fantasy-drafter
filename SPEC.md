@@ -93,7 +93,7 @@ GitHub Action  →  fetch keeptradecut.com/fantasy-rankings
                →  extract playersArray
                →  filter PK and DST, read oneQBValues only
                →  assign dense boardRank
-               →  slim to the fields above (1.3MB HTML → ~15KB JSON)
+               →  slim to the fields above (1.3MB HTML → ~85KB JSON)
                →  validate, then commit players.json
 App           →  loads the committed JSON
 ```
@@ -138,8 +138,10 @@ reshuffle the board through iteration order alone.
 
 ### Data quirks to handle
 
-- **`overallTier` is monotonic** across all 300 skill players — 13 tiers, clean
-  ascending runs. Safe to render as contiguous groups on an unmodified board.
+- **`overallTier` is monotonic** across all 300 skill players — clean ascending
+  runs, safe to render as contiguous groups on an unmodified board. But see
+  "KTC's tiers are not good tiers" below: monotonic is the *only* nice property
+  they have.
 - **17 players have no `byeWeek`.** Render blank, don't render `undefined`.
 - **`injury` is present on nearly every player** but healthy ones are just
   `{injuryCode: 1}`. Only badge when `injuryCode > 1` (66 players currently).
@@ -150,6 +152,38 @@ reshuffle the board through iteration order alone.
   good, not when players actually come off the board. Fine as a starting order
   for a board I hand-reorder anyway, but not a source of "he'll last another
   round."
+
+### KTC's tiers are not good tiers
+
+Discovered while building the pipeline, and it changes a feature decision.
+`overallTier` is monotonic, but it is **lumpy and unstable**:
+
+| Capture | Tier count | Smallest tier | Largest tier |
+|---|---|---|---|
+| Morning | 13 | 1 player | 56 players |
+| Two fetches later, minutes apart | 10, then 11 | 1 player | 78 players |
+
+A 78-player tier is not a tier, and a 1-player tier is not one either. The count
+and the boundaries both move between fetches minutes apart, so tier identity is
+not stable enough to store anything against.
+
+Two consequences:
+
+- **The tier countdown cannot run on KTC's tiers.** "4 left in this tier" was
+  specified as the app's answer to "can I wait?" — the feature standing in for
+  the pick countdown we cut. On a 78-player tier it would read "61 left" and
+  mean nothing. The countdown runs on **my** tier breaks, and is simply absent
+  in stretches of the board where I haven't drawn any.
+- **My tier breaks replace KTC's, they do not layer on top.** This settles the
+  question the spec left open. Once I place a break anywhere, my breaks are the
+  tier structure for the whole board; KTC's `overallTier` demotes to a per-player
+  badge showing where the crowd would have grouped him. Layering two grouping
+  schemes on one list would be unreadable at a glance, and glanceability is the
+  entire point of the draft screen.
+
+Until I draw a break, KTC's tiers render as the starting grouping — they are a
+reasonable first pass and better than an undifferentiated list of 300. They just
+cannot be load-bearing.
 
 ## Data model
 
@@ -162,16 +196,31 @@ My layer  (localStorage)             — never touched by a refresh
 ```
 
 ```jsonc
-// My layer, keyed by KTC playerID
 {
-  "1508": {
-    "sortKey": 8500,          // see "How ordering is stored" below; absent if never moved
-    "doNotDraft": false,
-    "note": "handcuff is available late",
-    "status": "available"     // available | drafted | mine
-  }
+  // Per-player, keyed by KTC playerID. Sparse — only players I touched.
+  "overrides": {
+    "1508": {
+      "sortKey": 8500,        // see "How ordering is stored"; absent if never moved
+      "doNotDraft": false,
+      "note": "handcuff is available late"
+    }
+  },
+
+  // My tier structure, as positions on the sort-key scale rather than player
+  // references — so a break stays where I put it even if the player it sat
+  // above gets moved or drops out of KTC entirely.
+  "tierBreaks": [12500, 31500, 58000],
+
+  // Draft state. Append-only; see "The pick log".
+  "picks": [
+    { "playerID": 1508, "mine": false },
+    { "playerID": 1414, "mine": true  }
+  ]
 }
 ```
+
+Note there is **no `status` field on a player.** Drafted state is derived from
+the pick log, not stored per player.
 
 Flattening these into one list would mean every rankings refresh destroys my
 prep work. Keeping them separate means I can refresh the morning of the draft
@@ -234,7 +283,8 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 - **Non-contiguous tiers.** Once the board is reordered, KTC's tiers no longer
   appear in contiguous runs — a tier 3 player can sit between two tier 5s. Tier
   must therefore render as a per-player badge once a custom order exists.
-  Manual tier breaks are what provide real section grouping.
+  Manual tier breaks are what provide real section grouping — and per "KTC's
+  tiers are not good tiers", they would need to anyway.
 - **Orphaned overrides.** A player dropped from KTC leaves an override behind.
   Harmless at this scale — keep them, since players do get re-added.
 
@@ -252,6 +302,9 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 - **Do-not-draft flag** on any player.
 - **Per-player notes** — short free text.
 - **Edit tier breaks** — KTC's tiers are the starting point, not the last word.
+  Placing my first break switches the board to my tier structure entirely; KTC's
+  tier survives as a per-player badge. Stored in the personal layer as a set of
+  sort-key positions, so a rankings refresh cannot move my breaks.
 - **Manual add** for anyone missing. Minor, given a 300-player board.
 - **"Moved" indicator** — how far a player sits from KTC's rank (`↑12` / `↓8`),
   so my own biases are visible.
@@ -279,7 +332,9 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
   wait?", and it is deliberately not a prediction. It is grounded entirely in my
   own board and answers the question that actually matters at the table: not
   "will this specific player survive", but "if I wait and lose him, is there an
-  equivalent player left?"
+  equivalent player left?" It counts against **my** tier breaks only — KTC's are
+  too lumpy to count against, and showing "61 left in this tier" would be worse
+  than showing nothing. Where I have drawn no breaks, there is no countdown.
 
 ### The pick log
 
@@ -429,12 +484,18 @@ Pick timing is therefore coupled to ADP, and returns only if ADP does.
 
 - Is a "run the refresh workflow" button worth adding to the UI, or is the
   GitHub Actions manual-dispatch page good enough?
-- The pipeline should assert that the field it reads is the *draft* ranking, not
-  the start/sit one, since the two live side by side and differ enormously. A
-  cheap check: no more than a handful of skill players in the top 50 may carry
-  a `rank` above 200. This is the exact mistake that produced a wrong board once
-  already.
 
 **Answered:** `startSitOverallRank` is a separate weekly start/sit product, not
 a seasonal drift in the draft ranking. `rank` is the draft ranking and is stable
 in meaning. See "Use `rank`, not `startSitOverallRank`".
+
+**Answered:** the pipeline now asserts it is reading the draft ranking. The
+originally-proposed check (top-50 players carrying a high `rank`) does not work
+— the board is sorted by that field, so it is true by construction whichever
+field you read. The guards that do work key on the start/sit sentinel instead:
+it collapses non-lineup players onto one value, so a large tie cluster or a
+top 100 containing no rookies means the wrong field. Both are data-driven rather
+than name-based, so they don't need revisiting each season.
+
+**Answered:** tier breaks replace KTC's tiers rather than layering on them. See
+"KTC's tiers are not good tiers".
