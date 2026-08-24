@@ -149,14 +149,13 @@ function summarise(players) {
     return acc;
   }, {});
   const injured = players.filter((p) => p.injury).length;
-  const tiers = new Set(players.map((p) => p.tier)).size;
 
   console.log(
     `\n  ${Object.entries(byPosition)
       .map(([pos, n]) => `${pos} ${n}`)
       .join("  ")}`,
   );
-  console.log(`  ${tiers} tiers, ${injured} carrying an injury designation`);
+  console.log(`  ${injured} carrying an injury designation`);
   console.log(
     `  top of board: ${players
       .slice(0, 3)

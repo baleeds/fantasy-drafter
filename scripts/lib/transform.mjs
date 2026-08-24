@@ -23,7 +23,10 @@ export const VALUE_SET = "oneQBValues";
  */
 const RANK_FIELD = "rank";
 const POSITIONAL_RANK_FIELD = "positionalRank";
-const TIER_FIELD = "overallTier";
+
+// KTC's `overallTier` is deliberately not carried through. See "Tiers are out,
+// for now" in the spec — the tiers are lumpy and unstable enough to be
+// misleading, and nothing in the app currently reads them.
 
 /**
  * Pull `var playersArray = [...]` out of the rankings page HTML.
@@ -84,7 +87,6 @@ function slim(player, boardRank) {
     boardRank,
     ktcRank: v[RANK_FIELD],
     positionalRank: v[POSITIONAL_RANK_FIELD],
-    tier: v[TIER_FIELD],
     rookie: Boolean(player.rookie),
   };
 
@@ -132,7 +134,7 @@ export function validate(players) {
       fail(`${who}: unexpected position ${p?.position}`);
     }
     if (!p?.team) fail(`${who}: missing team`);
-    for (const field of ["boardRank", "ktcRank", "tier"]) {
+    for (const field of ["boardRank", "ktcRank"]) {
       if (!Number.isInteger(p?.[field]) || p[field] < 1) {
         fail(`${who}: ${field} is not a positive integer (${p?.[field]})`);
       }

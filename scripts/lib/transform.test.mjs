@@ -80,6 +80,13 @@ test("optional fields are omitted rather than shipped as undefined", () => {
   for (const p of badged) assert.ok(p.injury.status, `${p.name} has an empty injury status`);
 });
 
+test("tier is not carried through", () => {
+  // KTC's tiers are lumpy and unstable; nothing reads them. Asserted so the
+  // field cannot quietly reappear in the shipped board.
+  const board = buildBoard(raw);
+  assert.equal(board.some((p) => "tier" in p), false);
+});
+
 test("a board built from the real draft ranking validates", () => {
   assert.deepEqual(validate(buildBoard(raw)), []);
 });
@@ -102,7 +109,6 @@ test("validate rejects a board built from the start/sit ranking", () => {
       boardRank: i + 1,
       ktcRank: p.oneQBValues.startSitOverallRank,
       positionalRank: p.oneQBValues.startSitPositionalRank,
-      tier: p.oneQBValues.startSitOverallTier,
       rookie: Boolean(p.rookie),
     }));
 

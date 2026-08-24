@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T18:47:55.617Z",
+  "generatedAt": "2026-08-24T18:54:56.333Z",
   "source": "https://keeptradecut.com/fantasy-rankings",
   "format": "redraft-1qb",
   "playerCount": 300,
@@ -12,7 +12,6 @@
       "boardRank": 1,
       "ktcRank": 1,
       "positionalRank": 1,
-      "tier": 1,
       "rookie": false,
       "byeWeek": 6,
       "age": 24.4
@@ -25,7 +24,6 @@
       "boardRank": 2,
       "ktcRank": 2,
       "positionalRank": 2,
-      "tier": 1,
       "rookie": false,
       "byeWeek": 11,
       "age": 24.6
@@ -38,7 +36,6 @@
       "boardRank": 3,
       "ktcRank": 3,
       "positionalRank": 1,
-      "tier": 1,
       "rookie": false,
       "byeWeek": 6,
       "age": 26.5
@@ -51,7 +48,6 @@
       "boardRank": 4,
       "ktcRank": 4,
       "positionalRank": 2,
-      "tier": 1,
       "rookie": false,
       "byeWeek": 11,
       "age": 24.5
@@ -64,7 +60,6 @@
       "boardRank": 5,
       "ktcRank": 5,
       "positionalRank": 3,
-      "tier": 1,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.2,
@@ -82,7 +77,6 @@
       "boardRank": 6,
       "ktcRank": 6,
       "positionalRank": 1,
-      "tier": 2,
       "rookie": false,
       "byeWeek": 7,
       "age": 30.3
@@ -95,7 +89,6 @@
       "boardRank": 7,
       "ktcRank": 7,
       "positionalRank": 4,
-      "tier": 3,
       "rookie": false,
       "byeWeek": 6,
       "age": 26.8
@@ -108,7 +101,6 @@
       "boardRank": 8,
       "ktcRank": 8,
       "positionalRank": 5,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 14,
       "age": 27.4
@@ -121,46 +113,18 @@
       "boardRank": 9,
       "ktcRank": 9,
       "positionalRank": 1,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 13,
       "age": 23.7
-    },
-    {
-      "id": 634,
-      "name": "Jonathan Taylor",
-      "position": "RB",
-      "team": "IND",
-      "boardRank": 10,
-      "ktcRank": 10,
-      "positionalRank": 3,
-      "tier": 4,
-      "rookie": false,
-      "byeWeek": 13,
-      "age": 27.6
-    },
-    {
-      "id": 1353,
-      "name": "Trey McBride",
-      "position": "TE",
-      "team": "ARI",
-      "boardRank": 11,
-      "ktcRank": 11,
-      "positionalRank": 2,
-      "tier": 4,
-      "rookie": false,
-      "byeWeek": 14,
-      "age": 26.8
     },
     {
       "id": 1831,
       "name": "Ashton Jeanty",
       "position": "RB",
       "team": "LVR",
-      "boardRank": 12,
-      "ktcRank": 12,
-      "positionalRank": 4,
-      "tier": 4,
+      "boardRank": 10,
+      "ktcRank": 10,
+      "positionalRank": 3,
       "rookie": false,
       "byeWeek": 13,
       "age": 22.7,
@@ -171,6 +135,30 @@
       }
     },
     {
+      "id": 634,
+      "name": "Jonathan Taylor",
+      "position": "RB",
+      "team": "IND",
+      "boardRank": 11,
+      "ktcRank": 11,
+      "positionalRank": 4,
+      "rookie": false,
+      "byeWeek": 13,
+      "age": 27.6
+    },
+    {
+      "id": 1353,
+      "name": "Trey McBride",
+      "position": "TE",
+      "team": "ARI",
+      "boardRank": 12,
+      "ktcRank": 12,
+      "positionalRank": 2,
+      "rookie": false,
+      "byeWeek": 14,
+      "age": 26.8
+    },
+    {
       "id": 542,
       "name": "Justin Jefferson",
       "position": "WR",
@@ -178,7 +166,6 @@
       "boardRank": 13,
       "ktcRank": 13,
       "positionalRank": 6,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.2
@@ -191,7 +178,6 @@
       "boardRank": 14,
       "ktcRank": 14,
       "positionalRank": 5,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.9
@@ -204,7 +190,6 @@
       "boardRank": 15,
       "ktcRank": 15,
       "positionalRank": 6,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 6,
       "age": 24.9
@@ -217,7 +202,6 @@
       "boardRank": 16,
       "ktcRank": 16,
       "positionalRank": 7,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.4
@@ -230,7 +214,6 @@
       "boardRank": 17,
       "ktcRank": 17,
       "positionalRank": 8,
-      "tier": 4,
       "rookie": false,
       "byeWeek": 8,
       "age": 30.2,
@@ -248,7 +231,6 @@
       "boardRank": 18,
       "ktcRank": 18,
       "positionalRank": 7,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 14,
       "age": 25.5
@@ -261,7 +243,6 @@
       "boardRank": 19,
       "ktcRank": 19,
       "positionalRank": 8,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 8,
       "age": 23.1,
@@ -279,36 +260,33 @@
       "boardRank": 20,
       "ktcRank": 20,
       "positionalRank": 9,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 29.5
-    },
-    {
-      "id": 1368,
-      "name": "Drake London",
-      "position": "WR",
-      "team": "ATL",
-      "boardRank": 21,
-      "ktcRank": 21,
-      "positionalRank": 9,
-      "tier": 5,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 25.1
     },
     {
       "id": 372,
       "name": "Lamar Jackson",
       "position": "QB",
       "team": "BAL",
-      "boardRank": 22,
-      "ktcRank": 22,
+      "boardRank": 21,
+      "ktcRank": 21,
       "positionalRank": 2,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 29.6
+    },
+    {
+      "id": 1368,
+      "name": "Drake London",
+      "position": "WR",
+      "team": "ATL",
+      "boardRank": 22,
+      "ktcRank": 22,
+      "positionalRank": 9,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 25.1
     },
     {
       "id": 1643,
@@ -318,7 +296,6 @@
       "boardRank": 23,
       "ktcRank": 23,
       "positionalRank": 3,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 24
@@ -331,7 +308,6 @@
       "boardRank": 24,
       "ktcRank": 24,
       "positionalRank": 10,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.4
@@ -344,7 +320,6 @@
       "boardRank": 25,
       "ktcRank": 25,
       "positionalRank": 10,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 6,
       "age": 26.4
@@ -357,7 +332,6 @@
       "boardRank": 26,
       "ktcRank": 26,
       "positionalRank": 11,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.2
@@ -370,7 +344,6 @@
       "boardRank": 27,
       "ktcRank": 27,
       "positionalRank": 11,
-      "tier": 5,
       "rookie": true,
       "byeWeek": 14,
       "age": 21.2,
@@ -388,7 +361,6 @@
       "boardRank": 28,
       "ktcRank": 28,
       "positionalRank": 12,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 5,
       "age": 25.8
@@ -401,7 +373,6 @@
       "boardRank": 29,
       "ktcRank": 29,
       "positionalRank": 12,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 23.9,
@@ -419,7 +390,6 @@
       "boardRank": 30,
       "ktcRank": 30,
       "positionalRank": 13,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 8,
       "age": 27.4
@@ -432,7 +402,6 @@
       "boardRank": 31,
       "ktcRank": 31,
       "positionalRank": 14,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.8,
@@ -450,7 +419,6 @@
       "boardRank": 32,
       "ktcRank": 32,
       "positionalRank": 15,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 7,
       "age": 24.8
@@ -463,7 +431,6 @@
       "boardRank": 33,
       "ktcRank": 33,
       "positionalRank": 16,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 29.2
@@ -476,7 +443,6 @@
       "boardRank": 34,
       "ktcRank": 34,
       "positionalRank": 13,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 26
@@ -489,7 +455,6 @@
       "boardRank": 35,
       "ktcRank": 35,
       "positionalRank": 3,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 22.4
@@ -502,7 +467,6 @@
       "boardRank": 36,
       "ktcRank": 36,
       "positionalRank": 4,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.7
@@ -515,7 +479,6 @@
       "boardRank": 37,
       "ktcRank": 37,
       "positionalRank": 4,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 24.2,
@@ -533,7 +496,6 @@
       "boardRank": 38,
       "ktcRank": 38,
       "positionalRank": 17,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 5,
       "age": 26.3
@@ -546,7 +508,6 @@
       "boardRank": 39,
       "ktcRank": 39,
       "positionalRank": 5,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 6,
       "age": 29.7
@@ -559,7 +520,6 @@
       "boardRank": 40,
       "ktcRank": 40,
       "positionalRank": 14,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 22.8,
@@ -577,7 +537,6 @@
       "boardRank": 41,
       "ktcRank": 41,
       "positionalRank": 15,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 25.2,
@@ -595,7 +554,6 @@
       "boardRank": 42,
       "ktcRank": 42,
       "positionalRank": 18,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 26.1
@@ -608,7 +566,6 @@
       "boardRank": 43,
       "ktcRank": 43,
       "positionalRank": 19,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.2
@@ -621,7 +578,6 @@
       "boardRank": 44,
       "ktcRank": 44,
       "positionalRank": 6,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.8
@@ -634,7 +590,6 @@
       "boardRank": 45,
       "ktcRank": 45,
       "positionalRank": 7,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 7,
       "age": 28.4
@@ -647,7 +602,6 @@
       "boardRank": 46,
       "ktcRank": 46,
       "positionalRank": 16,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 14,
       "age": 26.3
@@ -660,7 +614,6 @@
       "boardRank": 47,
       "ktcRank": 47,
       "positionalRank": 8,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 28
@@ -673,7 +626,6 @@
       "boardRank": 48,
       "ktcRank": 48,
       "positionalRank": 17,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 8,
       "age": 24.6
@@ -686,7 +638,6 @@
       "boardRank": 49,
       "ktcRank": 49,
       "positionalRank": 20,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 26
@@ -699,7 +650,6 @@
       "boardRank": 50,
       "ktcRank": 50,
       "positionalRank": 18,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 32.6
@@ -712,7 +662,6 @@
       "boardRank": 51,
       "ktcRank": 51,
       "positionalRank": 21,
-      "tier": 5,
       "rookie": true,
       "byeWeek": 9,
       "age": 21.6
@@ -725,7 +674,6 @@
       "boardRank": 52,
       "ktcRank": 52,
       "positionalRank": 22,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.6
@@ -738,7 +686,6 @@
       "boardRank": 53,
       "ktcRank": 53,
       "positionalRank": 19,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.8
@@ -751,7 +698,6 @@
       "boardRank": 54,
       "ktcRank": 54,
       "positionalRank": 23,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.7
@@ -764,7 +710,6 @@
       "boardRank": 55,
       "ktcRank": 55,
       "positionalRank": 20,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 24
@@ -777,7 +722,6 @@
       "boardRank": 56,
       "ktcRank": 56,
       "positionalRank": 24,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 22.7,
@@ -795,7 +739,6 @@
       "boardRank": 57,
       "ktcRank": 57,
       "positionalRank": 9,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 5,
       "age": 30.9,
@@ -813,7 +756,6 @@
       "boardRank": 58,
       "ktcRank": 58,
       "positionalRank": 21,
-      "tier": 5,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.9
@@ -826,7 +768,6 @@
       "boardRank": 59,
       "ktcRank": 59,
       "positionalRank": 10,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 26.5
@@ -839,7 +780,6 @@
       "boardRank": 60,
       "ktcRank": 60,
       "positionalRank": 25,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 7,
       "age": 29.4
@@ -852,7 +792,6 @@
       "boardRank": 61,
       "ktcRank": 61,
       "positionalRank": 22,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.6
@@ -865,7 +804,6 @@
       "boardRank": 62,
       "ktcRank": 62,
       "positionalRank": 5,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.8,
@@ -883,7 +821,6 @@
       "boardRank": 63,
       "ktcRank": 63,
       "positionalRank": 23,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 8,
       "age": 27.6
@@ -896,7 +833,6 @@
       "boardRank": 64,
       "ktcRank": 64,
       "positionalRank": 24,
-      "tier": 5,
       "rookie": false,
       "byeWeek": 11,
       "age": 28.5,
@@ -914,7 +850,6 @@
       "boardRank": 65,
       "ktcRank": 65,
       "positionalRank": 26,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 6,
       "age": 25.4
@@ -927,7 +862,6 @@
       "boardRank": 66,
       "ktcRank": 66,
       "positionalRank": 6,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 6,
       "age": 25.6,
@@ -945,7 +879,6 @@
       "boardRank": 67,
       "ktcRank": 67,
       "positionalRank": 11,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 8,
       "age": 23.3
@@ -958,7 +891,6 @@
       "boardRank": 68,
       "ktcRank": 68,
       "positionalRank": 7,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 11,
       "age": 22.1
@@ -971,7 +903,6 @@
       "boardRank": 69,
       "ktcRank": 69,
       "positionalRank": 25,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 8,
       "age": 29.2
@@ -984,7 +915,6 @@
       "boardRank": 70,
       "ktcRank": 70,
       "positionalRank": 12,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 14,
       "age": 33.1
@@ -997,7 +927,6 @@
       "boardRank": 71,
       "ktcRank": 71,
       "positionalRank": 27,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 14,
       "age": 24
@@ -1010,7 +939,6 @@
       "boardRank": 72,
       "ktcRank": 72,
       "positionalRank": 13,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.9
@@ -1023,7 +951,6 @@
       "boardRank": 73,
       "ktcRank": 73,
       "positionalRank": 28,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.9
@@ -1036,7 +963,6 @@
       "boardRank": 74,
       "ktcRank": 74,
       "positionalRank": 14,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.6
@@ -1049,7 +975,6 @@
       "boardRank": 75,
       "ktcRank": 75,
       "positionalRank": 29,
-      "tier": 6,
       "rookie": true,
       "byeWeek": 10,
       "age": 22.2,
@@ -1067,7 +992,6 @@
       "boardRank": 76,
       "ktcRank": 76,
       "positionalRank": 15,
-      "tier": 6,
       "rookie": true,
       "byeWeek": 13,
       "age": 22.9
@@ -1080,7 +1004,6 @@
       "boardRank": 77,
       "ktcRank": 77,
       "positionalRank": 16,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.8
@@ -1093,7 +1016,6 @@
       "boardRank": 78,
       "ktcRank": 78,
       "positionalRank": 30,
-      "tier": 6,
       "rookie": true,
       "byeWeek": 8,
       "age": 22,
@@ -1111,7 +1033,6 @@
       "boardRank": 79,
       "ktcRank": 79,
       "positionalRank": 31,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 11,
       "age": 33.7
@@ -1124,7 +1045,6 @@
       "boardRank": 80,
       "ktcRank": 80,
       "positionalRank": 32,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 13,
       "age": 25
@@ -1137,7 +1057,6 @@
       "boardRank": 81,
       "ktcRank": 81,
       "positionalRank": 17,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 10,
       "age": 31.4
@@ -1150,7 +1069,6 @@
       "boardRank": 82,
       "ktcRank": 82,
       "positionalRank": 8,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.9
@@ -1163,7 +1081,6 @@
       "boardRank": 83,
       "ktcRank": 83,
       "positionalRank": 33,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 9,
       "age": 28.9,
@@ -1181,7 +1098,6 @@
       "boardRank": 84,
       "ktcRank": 84,
       "positionalRank": 34,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 6,
       "age": 24.6
@@ -1194,7 +1110,6 @@
       "boardRank": 85,
       "ktcRank": 85,
       "positionalRank": 35,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.3
@@ -1207,7 +1122,6 @@
       "boardRank": 86,
       "ktcRank": 86,
       "positionalRank": 26,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 9,
       "age": 27.8
@@ -1220,7 +1134,6 @@
       "boardRank": 87,
       "ktcRank": 87,
       "positionalRank": 36,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 7,
       "age": 30.9
@@ -1233,7 +1146,6 @@
       "boardRank": 88,
       "ktcRank": 88,
       "positionalRank": 37,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 13,
       "age": 26.3,
@@ -1251,7 +1163,6 @@
       "boardRank": 89,
       "ktcRank": 89,
       "positionalRank": 18,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 6,
       "age": 31.9
@@ -1264,7 +1175,6 @@
       "boardRank": 90,
       "ktcRank": 90,
       "positionalRank": 9,
-      "tier": 6,
       "rookie": false,
       "byeWeek": 8,
       "age": 32.9,
@@ -1282,7 +1192,6 @@
       "boardRank": 91,
       "ktcRank": 91,
       "positionalRank": 38,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 11,
       "age": 21.9
@@ -1295,7 +1204,6 @@
       "boardRank": 92,
       "ktcRank": 92,
       "positionalRank": 19,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 9,
       "age": 24.2
@@ -1308,7 +1216,6 @@
       "boardRank": 93,
       "ktcRank": 93,
       "positionalRank": 39,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.7
@@ -1321,7 +1228,6 @@
       "boardRank": 94,
       "ktcRank": 94,
       "positionalRank": 40,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 25,
@@ -1339,7 +1245,6 @@
       "boardRank": 95,
       "ktcRank": 95,
       "positionalRank": 10,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.8
@@ -1352,7 +1257,6 @@
       "boardRank": 96,
       "ktcRank": 96,
       "positionalRank": 41,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 9,
       "age": 25.6
@@ -1365,7 +1269,6 @@
       "boardRank": 97,
       "ktcRank": 97,
       "positionalRank": 27,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 25.6
@@ -1378,7 +1281,6 @@
       "boardRank": 98,
       "ktcRank": 98,
       "positionalRank": 42,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.1
@@ -1391,7 +1293,6 @@
       "boardRank": 99,
       "ktcRank": 99,
       "positionalRank": 11,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 13,
       "age": 21.5,
@@ -1409,7 +1310,6 @@
       "boardRank": 100,
       "ktcRank": 100,
       "positionalRank": 43,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 9,
       "age": 28.7,
@@ -1427,7 +1327,6 @@
       "boardRank": 101,
       "ktcRank": 101,
       "positionalRank": 12,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 14,
       "age": 27.6
@@ -1440,7 +1339,6 @@
       "boardRank": 102,
       "ktcRank": 102,
       "positionalRank": 28,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 28.5
@@ -1453,7 +1351,6 @@
       "boardRank": 103,
       "ktcRank": 103,
       "positionalRank": 44,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.3
@@ -1466,7 +1363,6 @@
       "boardRank": 104,
       "ktcRank": 104,
       "positionalRank": 45,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 33,
@@ -1484,7 +1380,6 @@
       "boardRank": 105,
       "ktcRank": 105,
       "positionalRank": 46,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 30.9
@@ -1497,7 +1392,6 @@
       "boardRank": 106,
       "ktcRank": 106,
       "positionalRank": 20,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 38.5
@@ -1510,7 +1404,6 @@
       "boardRank": 107,
       "ktcRank": 107,
       "positionalRank": 47,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 29.8,
@@ -1528,7 +1421,6 @@
       "boardRank": 108,
       "ktcRank": 108,
       "positionalRank": 29,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 10,
       "age": 23
@@ -1541,7 +1433,6 @@
       "boardRank": 109,
       "ktcRank": 109,
       "positionalRank": 48,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 23.7,
@@ -1559,20 +1450,30 @@
       "boardRank": 110,
       "ktcRank": 110,
       "positionalRank": 49,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.4
+    },
+    {
+      "id": 636,
+      "name": "J.K. Dobbins",
+      "position": "RB",
+      "team": "DEN",
+      "boardRank": 111,
+      "ktcRank": 111,
+      "positionalRank": 30,
+      "rookie": false,
+      "byeWeek": 10,
+      "age": 27.7
     },
     {
       "id": 1683,
       "name": "Xavier Worthy",
       "position": "WR",
       "team": "KCC",
-      "boardRank": 111,
-      "ktcRank": 111,
+      "boardRank": 112,
+      "ktcRank": 112,
       "positionalRank": 50,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.3,
@@ -1587,10 +1488,9 @@
       "name": "Rashid Shaheed",
       "position": "WR",
       "team": "SEA",
-      "boardRank": 112,
-      "ktcRank": 112,
+      "boardRank": 113,
+      "ktcRank": 113,
       "positionalRank": 51,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 28
@@ -1600,10 +1500,9 @@
       "name": "Zach Charbonnet",
       "position": "RB",
       "team": "SEA",
-      "boardRank": 113,
-      "ktcRank": 113,
-      "positionalRank": 30,
-      "tier": 7,
+      "boardRank": 114,
+      "ktcRank": 114,
+      "positionalRank": 31,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.6,
@@ -1618,26 +1517,12 @@
       "name": "Blake Corum",
       "position": "RB",
       "team": "LAR",
-      "boardRank": 114,
-      "ktcRank": 114,
-      "positionalRank": 31,
-      "tier": 7,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 25.7
-    },
-    {
-      "id": 636,
-      "name": "J.K. Dobbins",
-      "position": "RB",
-      "team": "DEN",
       "boardRank": 115,
       "ktcRank": 115,
       "positionalRank": 32,
-      "tier": 7,
       "rookie": false,
-      "byeWeek": 10,
-      "age": 27.7
+      "byeWeek": 11,
+      "age": 25.7
     },
     {
       "id": 331,
@@ -1647,7 +1532,6 @@
       "boardRank": 116,
       "ktcRank": 116,
       "positionalRank": 21,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 29.2
@@ -1660,7 +1544,6 @@
       "boardRank": 117,
       "ktcRank": 117,
       "positionalRank": 22,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 6,
       "age": 29
@@ -1673,7 +1556,6 @@
       "boardRank": 118,
       "ktcRank": 118,
       "positionalRank": 52,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.3
@@ -1686,7 +1568,6 @@
       "boardRank": 119,
       "ktcRank": 119,
       "positionalRank": 13,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.4
@@ -1699,7 +1580,6 @@
       "boardRank": 120,
       "ktcRank": 120,
       "positionalRank": 33,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 5,
       "age": 27.2,
@@ -1717,7 +1597,6 @@
       "boardRank": 121,
       "ktcRank": 121,
       "positionalRank": 53,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 13,
       "age": 22.7
@@ -1730,7 +1609,6 @@
       "boardRank": 122,
       "ktcRank": 122,
       "positionalRank": 34,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.4
@@ -1743,7 +1621,6 @@
       "boardRank": 123,
       "ktcRank": 123,
       "positionalRank": 23,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 24.9
@@ -1756,7 +1633,6 @@
       "boardRank": 124,
       "ktcRank": 124,
       "positionalRank": 35,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.2
@@ -1769,7 +1645,6 @@
       "boardRank": 125,
       "ktcRank": 125,
       "positionalRank": 54,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 30.5
@@ -1782,7 +1657,6 @@
       "boardRank": 126,
       "ktcRank": 126,
       "positionalRank": 14,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 5,
       "age": 36.9
@@ -1795,7 +1669,6 @@
       "boardRank": 127,
       "ktcRank": 127,
       "positionalRank": 24,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 13,
       "age": 29.2
@@ -1808,7 +1681,6 @@
       "boardRank": 128,
       "ktcRank": 129,
       "positionalRank": 15,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.6
@@ -1821,7 +1693,6 @@
       "boardRank": 129,
       "ktcRank": 130,
       "positionalRank": 16,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.2
@@ -1834,7 +1705,6 @@
       "boardRank": 130,
       "ktcRank": 131,
       "positionalRank": 55,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.6,
@@ -1852,7 +1722,6 @@
       "boardRank": 131,
       "ktcRank": 132,
       "positionalRank": 17,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 31.6
@@ -1865,7 +1734,6 @@
       "boardRank": 132,
       "ktcRank": 134,
       "positionalRank": 37,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.4,
@@ -1883,7 +1751,6 @@
       "boardRank": 133,
       "ktcRank": 135,
       "positionalRank": 18,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 13,
       "age": 31
@@ -1896,7 +1763,6 @@
       "boardRank": 134,
       "ktcRank": 136,
       "positionalRank": 38,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.8
@@ -1909,7 +1775,6 @@
       "boardRank": 135,
       "ktcRank": 137,
       "positionalRank": 39,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 7,
       "age": 27.6,
@@ -1927,7 +1792,6 @@
       "boardRank": 136,
       "ktcRank": 138,
       "positionalRank": 40,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 9,
       "age": 29.3
@@ -1940,7 +1804,6 @@
       "boardRank": 137,
       "ktcRank": 139,
       "positionalRank": 41,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 14,
       "age": 26.4
@@ -1953,7 +1816,6 @@
       "boardRank": 138,
       "ktcRank": 141,
       "positionalRank": 19,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 6,
       "age": 29.1
@@ -1966,7 +1828,6 @@
       "boardRank": 139,
       "ktcRank": 142,
       "positionalRank": 56,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.7,
@@ -1984,7 +1845,6 @@
       "boardRank": 140,
       "ktcRank": 143,
       "positionalRank": 57,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.7,
@@ -2002,7 +1862,6 @@
       "boardRank": 141,
       "ktcRank": 144,
       "positionalRank": 25,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 5,
       "age": 25.1
@@ -2015,7 +1874,6 @@
       "boardRank": 142,
       "ktcRank": 145,
       "positionalRank": 58,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.4
@@ -2028,7 +1886,6 @@
       "boardRank": 143,
       "ktcRank": 147,
       "positionalRank": 59,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 26,
@@ -2046,7 +1903,6 @@
       "boardRank": 144,
       "ktcRank": 148,
       "positionalRank": 60,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 13,
       "age": 22
@@ -2059,7 +1915,6 @@
       "boardRank": 145,
       "ktcRank": 149,
       "positionalRank": 42,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 9,
       "age": 22.6
@@ -2072,7 +1927,6 @@
       "boardRank": 146,
       "ktcRank": 150,
       "positionalRank": 61,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 13,
       "age": 23.2
@@ -2085,7 +1939,6 @@
       "boardRank": 147,
       "ktcRank": 151,
       "positionalRank": 62,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 24.3
@@ -2098,7 +1951,6 @@
       "boardRank": 148,
       "ktcRank": 152,
       "positionalRank": 20,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 29.9
@@ -2111,7 +1963,6 @@
       "boardRank": 149,
       "ktcRank": 153,
       "positionalRank": 21,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.4,
@@ -2129,7 +1980,6 @@
       "boardRank": 150,
       "ktcRank": 154,
       "positionalRank": 43,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 9,
       "age": 25.2
@@ -2142,7 +1992,6 @@
       "boardRank": 151,
       "ktcRank": 155,
       "positionalRank": 63,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 6,
       "age": 22.2
@@ -2155,7 +2004,6 @@
       "boardRank": 152,
       "ktcRank": 156,
       "positionalRank": 64,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 30.6
@@ -2168,7 +2016,6 @@
       "boardRank": 153,
       "ktcRank": 157,
       "positionalRank": 65,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 9,
       "age": 23.2
@@ -2181,7 +2028,6 @@
       "boardRank": 154,
       "ktcRank": 158,
       "positionalRank": 44,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 14,
       "age": 24.1,
@@ -2199,7 +2045,6 @@
       "boardRank": 155,
       "ktcRank": 159,
       "positionalRank": 66,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 8,
       "age": 24,
@@ -2217,7 +2062,6 @@
       "boardRank": 156,
       "ktcRank": 160,
       "positionalRank": 67,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 6,
       "age": 29.1
@@ -2230,7 +2074,6 @@
       "boardRank": 157,
       "ktcRank": 161,
       "positionalRank": 68,
-      "tier": 7,
       "rookie": true,
       "byeWeek": 8,
       "age": 23
@@ -2243,7 +2086,6 @@
       "boardRank": 158,
       "ktcRank": 162,
       "positionalRank": 69,
-      "tier": 7,
       "rookie": false,
       "byeWeek": 10,
       "age": 23.5
@@ -2256,7 +2098,6 @@
       "boardRank": 159,
       "ktcRank": 163,
       "positionalRank": 70,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 32.7
@@ -2269,7 +2110,6 @@
       "boardRank": 160,
       "ktcRank": 164,
       "positionalRank": 22,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 27
@@ -2282,7 +2122,6 @@
       "boardRank": 161,
       "ktcRank": 165,
       "positionalRank": 45,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 21.9
@@ -2295,7 +2134,6 @@
       "boardRank": 162,
       "ktcRank": 166,
       "positionalRank": 46,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 25
@@ -2308,7 +2146,6 @@
       "boardRank": 163,
       "ktcRank": 167,
       "positionalRank": 71,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.3
@@ -2321,7 +2158,6 @@
       "boardRank": 164,
       "ktcRank": 169,
       "positionalRank": 26,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.3,
@@ -2339,7 +2175,6 @@
       "boardRank": 165,
       "ktcRank": 170,
       "positionalRank": 47,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 31.1,
@@ -2357,7 +2192,6 @@
       "boardRank": 166,
       "ktcRank": 171,
       "positionalRank": 23,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 13,
       "age": 22.3
@@ -2370,7 +2204,6 @@
       "boardRank": 167,
       "ktcRank": 172,
       "positionalRank": 24,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 31.7
@@ -2383,7 +2216,6 @@
       "boardRank": 168,
       "ktcRank": 173,
       "positionalRank": 48,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 31.7
@@ -2396,7 +2228,6 @@
       "boardRank": 169,
       "ktcRank": 174,
       "positionalRank": 49,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.1
@@ -2409,7 +2240,6 @@
       "boardRank": 170,
       "ktcRank": 175,
       "positionalRank": 50,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.4
@@ -2422,7 +2252,6 @@
       "boardRank": 171,
       "ktcRank": 176,
       "positionalRank": 25,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 30.1
@@ -2435,7 +2264,6 @@
       "boardRank": 172,
       "ktcRank": 177,
       "positionalRank": 51,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 13,
       "age": 23.1
@@ -2448,7 +2276,6 @@
       "boardRank": 173,
       "ktcRank": 178,
       "positionalRank": 52,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.5,
@@ -2466,7 +2293,6 @@
       "boardRank": 174,
       "ktcRank": 181,
       "positionalRank": 27,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 23.6,
@@ -2484,7 +2310,6 @@
       "boardRank": 175,
       "ktcRank": 182,
       "positionalRank": 53,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 13,
       "age": 22.6
@@ -2497,7 +2322,6 @@
       "boardRank": 176,
       "ktcRank": 183,
       "positionalRank": 54,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.9
@@ -2510,7 +2334,6 @@
       "boardRank": 177,
       "ktcRank": 184,
       "positionalRank": 73,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 24.5,
@@ -2528,7 +2351,6 @@
       "boardRank": 178,
       "ktcRank": 185,
       "positionalRank": 74,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.3,
@@ -2546,7 +2368,6 @@
       "boardRank": 179,
       "ktcRank": 186,
       "positionalRank": 26,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 30.1
@@ -2559,7 +2380,6 @@
       "boardRank": 180,
       "ktcRank": 187,
       "positionalRank": 27,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.4
@@ -2572,7 +2392,6 @@
       "boardRank": 181,
       "ktcRank": 188,
       "positionalRank": 75,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 13,
       "age": 23.9
@@ -2585,7 +2404,6 @@
       "boardRank": 182,
       "ktcRank": 189,
       "positionalRank": 55,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 5,
       "age": 22.9
@@ -2598,7 +2416,6 @@
       "boardRank": 183,
       "ktcRank": 190,
       "positionalRank": 76,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.8,
@@ -2616,7 +2433,6 @@
       "boardRank": 184,
       "ktcRank": 191,
       "positionalRank": 28,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 9,
       "age": 27.8
@@ -2629,7 +2445,6 @@
       "boardRank": 185,
       "ktcRank": 192,
       "positionalRank": 77,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.4,
@@ -2647,7 +2462,6 @@
       "boardRank": 186,
       "ktcRank": 193,
       "positionalRank": 56,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 22.6,
@@ -2665,7 +2479,6 @@
       "boardRank": 187,
       "ktcRank": 194,
       "positionalRank": 29,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 10,
       "age": 23.4
@@ -2678,7 +2491,6 @@
       "boardRank": 188,
       "ktcRank": 196,
       "positionalRank": 78,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.4,
@@ -2696,7 +2508,6 @@
       "boardRank": 189,
       "ktcRank": 197,
       "positionalRank": 28,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 28.5
@@ -2709,7 +2520,6 @@
       "boardRank": 190,
       "ktcRank": 199,
       "positionalRank": 57,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 9,
       "age": 23
@@ -2722,7 +2532,6 @@
       "boardRank": 191,
       "ktcRank": 201,
       "positionalRank": 79,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.8
@@ -2735,7 +2544,6 @@
       "boardRank": 192,
       "ktcRank": 202,
       "positionalRank": 80,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 9,
       "age": 22.7
@@ -2746,9 +2554,8 @@
       "position": "WR",
       "team": "CAR",
       "boardRank": 193,
-      "ktcRank": 203,
-      "positionalRank": 81,
-      "tier": 8,
+      "ktcRank": 204,
+      "positionalRank": 82,
       "rookie": true,
       "byeWeek": 5,
       "age": 22.8,
@@ -2764,9 +2571,8 @@
       "position": "WR",
       "team": "TEN",
       "boardRank": 194,
-      "ktcRank": 204,
-      "positionalRank": 82,
-      "tier": 8,
+      "ktcRank": 205,
+      "positionalRank": 83,
       "rookie": false,
       "byeWeek": 9,
       "age": 31.7
@@ -2777,9 +2583,8 @@
       "position": "TE",
       "team": "CHI",
       "boardRank": 195,
-      "ktcRank": 205,
+      "ktcRank": 206,
       "positionalRank": 30,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.4
@@ -2790,9 +2595,8 @@
       "position": "QB",
       "team": "LAR",
       "boardRank": 196,
-      "ktcRank": 207,
+      "ktcRank": 208,
       "positionalRank": 29,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 11,
       "age": 23.7
@@ -2805,7 +2609,6 @@
       "boardRank": 197,
       "ktcRank": 209,
       "positionalRank": 85,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 33.2
@@ -2818,36 +2621,33 @@
       "boardRank": 198,
       "ktcRank": 210,
       "positionalRank": 58,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.8
-    },
-    {
-      "id": 2026,
-      "name": "Kaytron Allen",
-      "position": "RB",
-      "team": "WAS",
-      "boardRank": 199,
-      "ktcRank": 212,
-      "positionalRank": 59,
-      "tier": 8,
-      "rookie": true,
-      "byeWeek": 7,
-      "age": 23.6
     },
     {
       "id": 235,
       "name": "Aaron Rodgers",
       "position": "QB",
       "team": "PIT",
-      "boardRank": 200,
-      "ktcRank": 214,
+      "boardRank": 199,
+      "ktcRank": 213,
       "positionalRank": 30,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 9,
       "age": 42.7
+    },
+    {
+      "id": 2026,
+      "name": "Kaytron Allen",
+      "position": "RB",
+      "team": "WAS",
+      "boardRank": 200,
+      "ktcRank": 214,
+      "positionalRank": 59,
+      "rookie": true,
+      "byeWeek": 7,
+      "age": 23.6
     },
     {
       "id": 2029,
@@ -2857,7 +2657,6 @@
       "boardRank": 201,
       "ktcRank": 215,
       "positionalRank": 60,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 6,
       "age": 22.9
@@ -2870,7 +2669,6 @@
       "boardRank": 202,
       "ktcRank": 216,
       "positionalRank": 31,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 5,
       "age": 27.5
@@ -2883,7 +2681,6 @@
       "boardRank": 203,
       "ktcRank": 217,
       "positionalRank": 61,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.8
@@ -2896,23 +2693,21 @@
       "boardRank": 204,
       "ktcRank": 218,
       "positionalRank": 31,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.4
     },
     {
-      "id": 1520,
-      "name": "Michael Mayer",
-      "position": "TE",
-      "team": "LVR",
+      "id": 1845,
+      "name": "Trevor Etienne",
+      "position": "RB",
+      "team": "CAR",
       "boardRank": 205,
       "ktcRank": 219,
-      "positionalRank": 32,
-      "tier": 8,
+      "positionalRank": 62,
       "rookie": false,
-      "byeWeek": 13,
-      "age": 25.1
+      "byeWeek": 5,
+      "age": 22.1
     },
     {
       "id": 265,
@@ -2922,7 +2717,6 @@
       "boardRank": 206,
       "ktcRank": 220,
       "positionalRank": 86,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 13,
       "age": 34.3
@@ -2934,8 +2728,7 @@
       "team": "NOS",
       "boardRank": 207,
       "ktcRank": 221,
-      "positionalRank": 62,
-      "tier": 8,
+      "positionalRank": 63,
       "rookie": false,
       "byeWeek": 8,
       "age": 24.2
@@ -2947,24 +2740,22 @@
       "team": "GBP",
       "boardRank": 208,
       "ktcRank": 222,
-      "positionalRank": 63,
-      "tier": 8,
+      "positionalRank": 64,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.6
     },
     {
-      "id": 1845,
-      "name": "Trevor Etienne",
-      "position": "RB",
-      "team": "CAR",
+      "id": 1520,
+      "name": "Michael Mayer",
+      "position": "TE",
+      "team": "LVR",
       "boardRank": 209,
       "ktcRank": 223,
-      "positionalRank": 64,
-      "tier": 8,
+      "positionalRank": 32,
       "rookie": false,
-      "byeWeek": 5,
-      "age": 22.1
+      "byeWeek": 13,
+      "age": 25.1
     },
     {
       "id": 2060,
@@ -2974,7 +2765,6 @@
       "boardRank": 210,
       "ktcRank": 225,
       "positionalRank": 87,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 7,
       "age": 22.1
@@ -2987,7 +2777,6 @@
       "boardRank": 211,
       "ktcRank": 226,
       "positionalRank": 88,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 29.2
@@ -3000,7 +2789,6 @@
       "boardRank": 212,
       "ktcRank": 227,
       "positionalRank": 33,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.5
@@ -3013,7 +2801,6 @@
       "boardRank": 213,
       "ktcRank": 228,
       "positionalRank": 65,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 7,
       "age": 27,
@@ -3031,7 +2818,6 @@
       "boardRank": 214,
       "ktcRank": 229,
       "positionalRank": 89,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 29.8,
@@ -3049,7 +2835,6 @@
       "boardRank": 215,
       "ktcRank": 230,
       "positionalRank": 66,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 14,
       "age": 31.3,
@@ -3067,7 +2852,6 @@
       "boardRank": 216,
       "ktcRank": 232,
       "positionalRank": 90,
-      "tier": 8,
       "rookie": false,
       "age": 32.5,
       "injury": {
@@ -3084,7 +2868,6 @@
       "boardRank": 217,
       "ktcRank": 234,
       "positionalRank": 67,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 23.4
@@ -3097,7 +2880,6 @@
       "boardRank": 218,
       "ktcRank": 236,
       "positionalRank": 91,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 13,
       "age": 26.7
@@ -3110,7 +2892,6 @@
       "boardRank": 219,
       "ktcRank": 237,
       "positionalRank": 68,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 23,
@@ -3128,7 +2909,6 @@
       "boardRank": 220,
       "ktcRank": 238,
       "positionalRank": 92,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.4,
@@ -3146,7 +2926,6 @@
       "boardRank": 221,
       "ktcRank": 239,
       "positionalRank": 34,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 32
@@ -3159,7 +2938,6 @@
       "boardRank": 222,
       "ktcRank": 240,
       "positionalRank": 93,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 5,
       "age": 25.6,
@@ -3177,7 +2955,6 @@
       "boardRank": 223,
       "ktcRank": 241,
       "positionalRank": 94,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 10,
       "age": 22.1
@@ -3190,7 +2967,6 @@
       "boardRank": 224,
       "ktcRank": 242,
       "positionalRank": 32,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 24.5
@@ -3203,7 +2979,6 @@
       "boardRank": 225,
       "ktcRank": 244,
       "positionalRank": 35,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 26,
@@ -3221,7 +2996,6 @@
       "boardRank": 226,
       "ktcRank": 245,
       "positionalRank": 95,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.5
@@ -3234,7 +3008,6 @@
       "boardRank": 227,
       "ktcRank": 246,
       "positionalRank": 36,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 11,
       "age": 23.1
@@ -3247,7 +3020,6 @@
       "boardRank": 228,
       "ktcRank": 247,
       "positionalRank": 96,
-      "tier": 8,
       "rookie": true,
       "byeWeek": 7,
       "age": 24.1,
@@ -3265,7 +3037,6 @@
       "boardRank": 229,
       "ktcRank": 249,
       "positionalRank": 37,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 5,
       "age": 27.3
@@ -3278,7 +3049,6 @@
       "boardRank": 230,
       "ktcRank": 250,
       "positionalRank": 97,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 29.6
@@ -3289,9 +3059,8 @@
       "position": "WR",
       "team": "ATL",
       "boardRank": 231,
-      "ktcRank": 252,
+      "ktcRank": 253,
       "positionalRank": 98,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.4
@@ -3302,9 +3071,8 @@
       "position": "WR",
       "team": "MIA",
       "boardRank": 232,
-      "ktcRank": 253,
+      "ktcRank": 254,
       "positionalRank": 99,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.5
@@ -3317,7 +3085,6 @@
       "boardRank": 233,
       "ktcRank": 255,
       "positionalRank": 100,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 8,
       "age": 27.4
@@ -3330,7 +3097,6 @@
       "boardRank": 234,
       "ktcRank": 256,
       "positionalRank": 38,
-      "tier": 8,
       "rookie": false,
       "age": 31
     },
@@ -3342,7 +3108,6 @@
       "boardRank": 235,
       "ktcRank": 257,
       "positionalRank": 39,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 6,
       "age": 30.9
@@ -3355,7 +3120,6 @@
       "boardRank": 236,
       "ktcRank": 258,
       "positionalRank": 101,
-      "tier": 8,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.3,
@@ -3373,7 +3137,6 @@
       "boardRank": 237,
       "ktcRank": 261,
       "positionalRank": 69,
-      "tier": 9,
       "rookie": false,
       "age": 30.1,
       "injury": {
@@ -3390,7 +3153,6 @@
       "boardRank": 238,
       "ktcRank": 262,
       "positionalRank": 70,
-      "tier": 9,
       "rookie": false,
       "byeWeek": 10,
       "age": 24
@@ -3403,7 +3165,6 @@
       "boardRank": 239,
       "ktcRank": 263,
       "positionalRank": 40,
-      "tier": 9,
       "rookie": false,
       "age": 35.8
     },
@@ -3415,7 +3176,6 @@
       "boardRank": 240,
       "ktcRank": 264,
       "positionalRank": 102,
-      "tier": 9,
       "rookie": true,
       "byeWeek": 6,
       "age": 23
@@ -3428,7 +3188,6 @@
       "boardRank": 241,
       "ktcRank": 265,
       "positionalRank": 71,
-      "tier": 9,
       "rookie": false,
       "byeWeek": 10,
       "age": 25.6
@@ -3441,7 +3200,6 @@
       "boardRank": 242,
       "ktcRank": 266,
       "positionalRank": 72,
-      "tier": 9,
       "rookie": false,
       "age": 31
     },
@@ -3453,7 +3211,6 @@
       "boardRank": 243,
       "ktcRank": 267,
       "positionalRank": 103,
-      "tier": 9,
       "rookie": false,
       "byeWeek": 9,
       "age": 25.2
@@ -3466,7 +3223,6 @@
       "boardRank": 244,
       "ktcRank": 268,
       "positionalRank": 104,
-      "tier": 9,
       "rookie": false,
       "byeWeek": 5,
       "age": 26
@@ -3479,7 +3235,6 @@
       "boardRank": 245,
       "ktcRank": 269,
       "positionalRank": 73,
-      "tier": 9,
       "rookie": false,
       "byeWeek": 8,
       "age": 22.4,
@@ -3497,7 +3252,6 @@
       "boardRank": 246,
       "ktcRank": 271,
       "positionalRank": 105,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 11,
       "age": 22.4
@@ -3510,7 +3264,6 @@
       "boardRank": 247,
       "ktcRank": 273,
       "positionalRank": 33,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.7
@@ -3523,7 +3276,6 @@
       "boardRank": 248,
       "ktcRank": 274,
       "positionalRank": 106,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.4
@@ -3536,7 +3288,6 @@
       "boardRank": 249,
       "ktcRank": 275,
       "positionalRank": 75,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.5
@@ -3549,7 +3300,6 @@
       "boardRank": 250,
       "ktcRank": 276,
       "positionalRank": 41,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 7,
       "age": 29.8
@@ -3562,7 +3312,6 @@
       "boardRank": 251,
       "ktcRank": 277,
       "positionalRank": 107,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.2
@@ -3575,7 +3324,6 @@
       "boardRank": 252,
       "ktcRank": 279,
       "positionalRank": 42,
-      "tier": 10,
       "rookie": true,
       "byeWeek": 6,
       "age": 22.4
@@ -3588,20 +3336,30 @@
       "boardRank": 253,
       "ktcRank": 281,
       "positionalRank": 43,
-      "tier": 10,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.8
+    },
+    {
+      "id": 153,
+      "name": "Kendrick Bourne",
+      "position": "WR",
+      "team": "ARI",
+      "boardRank": 254,
+      "ktcRank": 282,
+      "positionalRank": 108,
+      "rookie": false,
+      "byeWeek": 14,
+      "age": 31
     },
     {
       "id": 1069,
       "name": "Dyami Brown",
       "position": "WR",
       "team": "WAS",
-      "boardRank": 254,
-      "ktcRank": 282,
-      "positionalRank": 108,
-      "tier": 11,
+      "boardRank": 255,
+      "ktcRank": 283,
+      "positionalRank": 109,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.8
@@ -3611,10 +3369,9 @@
       "name": "Seth McGowan",
       "position": "RB",
       "team": "IND",
-      "boardRank": 255,
-      "ktcRank": 283,
+      "boardRank": 256,
+      "ktcRank": 284,
       "positionalRank": 77,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 13,
       "age": 24.8
@@ -3624,10 +3381,9 @@
       "name": "Joshua Palmer",
       "position": "WR",
       "team": "BUF",
-      "boardRank": 256,
-      "ktcRank": 284,
-      "positionalRank": 109,
-      "tier": 11,
+      "boardRank": 257,
+      "ktcRank": 285,
+      "positionalRank": 110,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.9
@@ -3637,10 +3393,9 @@
       "name": "Devin Singletary",
       "position": "RB",
       "team": "NYG",
-      "boardRank": 257,
-      "ktcRank": 285,
+      "boardRank": 258,
+      "ktcRank": 286,
       "positionalRank": 78,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 8,
       "age": 29
@@ -3650,10 +3405,9 @@
       "name": "Tyler Higbee",
       "position": "TE",
       "team": "LAR",
-      "boardRank": 258,
-      "ktcRank": 287,
+      "boardRank": 259,
+      "ktcRank": 288,
       "positionalRank": 44,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 11,
       "age": 33.6
@@ -3663,10 +3417,9 @@
       "name": "Dameon Pierce",
       "position": "RB",
       "team": "PHI",
-      "boardRank": 259,
-      "ktcRank": 288,
+      "boardRank": 260,
+      "ktcRank": 289,
       "positionalRank": 79,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 10,
       "age": 26.5,
@@ -3681,26 +3434,12 @@
       "name": "Tutu Atwell",
       "position": "WR",
       "team": "MIA",
-      "boardRank": 260,
-      "ktcRank": 289,
-      "positionalRank": 110,
-      "tier": 11,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 26.9
-    },
-    {
-      "id": 153,
-      "name": "Kendrick Bourne",
-      "position": "WR",
-      "team": "ARI",
       "boardRank": 261,
       "ktcRank": 290,
       "positionalRank": 111,
-      "tier": 11,
       "rookie": false,
-      "byeWeek": 14,
-      "age": 31
+      "byeWeek": 6,
+      "age": 26.9
     },
     {
       "id": 1012,
@@ -3710,7 +3449,6 @@
       "boardRank": 262,
       "ktcRank": 291,
       "positionalRank": 112,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 10,
       "age": 26.4,
@@ -3728,7 +3466,6 @@
       "boardRank": 263,
       "ktcRank": 292,
       "positionalRank": 113,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 11,
       "age": 24.6
@@ -3741,7 +3478,6 @@
       "boardRank": 264,
       "ktcRank": 293,
       "positionalRank": 45,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 14,
       "age": 24.2,
@@ -3752,30 +3488,28 @@
       }
     },
     {
-      "id": 2027,
-      "name": "Le'Veon Moss",
-      "position": "RB",
-      "team": "MIA",
-      "boardRank": 265,
-      "ktcRank": 294,
-      "positionalRank": 80,
-      "tier": 11,
-      "rookie": true,
-      "byeWeek": 6,
-      "age": 23.8
-    },
-    {
       "id": 2058,
       "name": "Deion Burks",
       "position": "WR",
       "team": "IND",
-      "boardRank": 266,
-      "ktcRank": 297,
+      "boardRank": 265,
+      "ktcRank": 296,
       "positionalRank": 114,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 13,
       "age": 23.6
+    },
+    {
+      "id": 2027,
+      "name": "Le'Veon Moss",
+      "position": "RB",
+      "team": "MIA",
+      "boardRank": 266,
+      "ktcRank": 298,
+      "positionalRank": 81,
+      "rookie": true,
+      "byeWeek": 6,
+      "age": 23.8
     },
     {
       "id": 274,
@@ -3785,7 +3519,6 @@
       "boardRank": 267,
       "ktcRank": 299,
       "positionalRank": 82,
-      "tier": 11,
       "rookie": false,
       "age": 30.6
     },
@@ -3797,7 +3530,6 @@
       "boardRank": 268,
       "ktcRank": 300,
       "positionalRank": 34,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 8,
       "age": 25.9
@@ -3810,7 +3542,6 @@
       "boardRank": 269,
       "ktcRank": 301,
       "positionalRank": 83,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.3
@@ -3823,7 +3554,6 @@
       "boardRank": 270,
       "ktcRank": 302,
       "positionalRank": 46,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 5,
       "age": 33.9
@@ -3836,7 +3566,6 @@
       "boardRank": 271,
       "ktcRank": 303,
       "positionalRank": 84,
-      "tier": 11,
       "rookie": false,
       "age": 29.3
     },
@@ -3848,7 +3577,6 @@
       "boardRank": 272,
       "ktcRank": 304,
       "positionalRank": 35,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 5,
       "age": 24.5
@@ -3861,7 +3589,6 @@
       "boardRank": 273,
       "ktcRank": 305,
       "positionalRank": 115,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 8,
       "age": 22.7
@@ -3874,7 +3601,6 @@
       "boardRank": 274,
       "ktcRank": 309,
       "positionalRank": 118,
-      "tier": 11,
       "rookie": false,
       "age": 34.2
     },
@@ -3886,7 +3612,6 @@
       "boardRank": 275,
       "ktcRank": 310,
       "positionalRank": 119,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 5,
       "age": 26.1
@@ -3899,7 +3624,6 @@
       "boardRank": 276,
       "ktcRank": 311,
       "positionalRank": 120,
-      "tier": 11,
       "rookie": false,
       "age": 30
     },
@@ -3911,7 +3635,6 @@
       "boardRank": 277,
       "ktcRank": 313,
       "positionalRank": 36,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 13,
       "age": 24.2
@@ -3924,7 +3647,6 @@
       "boardRank": 278,
       "ktcRank": 314,
       "positionalRank": 122,
-      "tier": 11,
       "rookie": false,
       "age": 25.2
     },
@@ -3936,7 +3658,6 @@
       "boardRank": 279,
       "ktcRank": 315,
       "positionalRank": 123,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 13,
       "age": 31.5
@@ -3949,7 +3670,6 @@
       "boardRank": 280,
       "ktcRank": 316,
       "positionalRank": 124,
-      "tier": 11,
       "rookie": false,
       "age": 30.7
     },
@@ -3961,7 +3681,6 @@
       "boardRank": 281,
       "ktcRank": 317,
       "positionalRank": 125,
-      "tier": 11,
       "rookie": false,
       "age": 36
     },
@@ -3973,7 +3692,6 @@
       "boardRank": 282,
       "ktcRank": 318,
       "positionalRank": 126,
-      "tier": 11,
       "rookie": false,
       "age": 33.9
     },
@@ -3985,7 +3703,6 @@
       "boardRank": 283,
       "ktcRank": 327,
       "positionalRank": 88,
-      "tier": 11,
       "rookie": false,
       "age": 31.3
     },
@@ -3997,7 +3714,6 @@
       "boardRank": 284,
       "ktcRank": 331,
       "positionalRank": 130,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 9,
       "age": 24.4
@@ -4010,7 +3726,6 @@
       "boardRank": 285,
       "ktcRank": 334,
       "positionalRank": 132,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 7,
       "age": 32.9
@@ -4023,7 +3738,6 @@
       "boardRank": 286,
       "ktcRank": 337,
       "positionalRank": 134,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 8,
       "age": 25.6
@@ -4036,7 +3750,6 @@
       "boardRank": 287,
       "ktcRank": 341,
       "positionalRank": 135,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 8,
       "age": 31.4
@@ -4049,7 +3762,6 @@
       "boardRank": 288,
       "ktcRank": 348,
       "positionalRank": 39,
-      "tier": 11,
       "rookie": true,
       "byeWeek": 6,
       "age": 23.8
@@ -4062,7 +3774,6 @@
       "boardRank": 289,
       "ktcRank": 349,
       "positionalRank": 93,
-      "tier": 11,
       "rookie": false,
       "age": 28.3,
       "injury": {
@@ -4079,7 +3790,6 @@
       "boardRank": 290,
       "ktcRank": 350,
       "positionalRank": 40,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.6
@@ -4092,7 +3802,6 @@
       "boardRank": 291,
       "ktcRank": 369,
       "positionalRank": 43,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.2
@@ -4105,7 +3814,6 @@
       "boardRank": 292,
       "ktcRank": 382,
       "positionalRank": 47,
-      "tier": 11,
       "rookie": false,
       "age": 37.7
     },
@@ -4117,7 +3825,6 @@
       "boardRank": 293,
       "ktcRank": 386,
       "positionalRank": 48,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 9,
       "age": 24.9
@@ -4130,7 +3837,6 @@
       "boardRank": 294,
       "ktcRank": 398,
       "positionalRank": 56,
-      "tier": 11,
       "rookie": false,
       "age": 36
     },
@@ -4142,7 +3848,6 @@
       "boardRank": 295,
       "ktcRank": 410,
       "positionalRank": 113,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 11,
       "age": 22.6
@@ -4155,7 +3860,6 @@
       "boardRank": 296,
       "ktcRank": 456,
       "positionalRank": 129,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.3
@@ -4168,7 +3872,6 @@
       "boardRank": 297,
       "ktcRank": 480,
       "positionalRank": 137,
-      "tier": 11,
       "rookie": false,
       "byeWeek": 13,
       "age": 34.4,
@@ -4184,9 +3887,8 @@
       "position": "QB",
       "team": "NOS",
       "boardRank": 298,
-      "ktcRank": 484,
-      "positionalRank": 60,
-      "tier": 11,
+      "ktcRank": 485,
+      "positionalRank": 61,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.9
@@ -4197,9 +3899,8 @@
       "position": "QB",
       "team": "LVR",
       "boardRank": 299,
-      "ktcRank": 488,
-      "positionalRank": 61,
-      "tier": 11,
+      "ktcRank": 489,
+      "positionalRank": 62,
       "rookie": false,
       "byeWeek": 13,
       "age": 38
@@ -4210,9 +3911,8 @@
       "position": "QB",
       "team": "NYG",
       "boardRank": 300,
-      "ktcRank": 501,
-      "positionalRank": 62,
-      "tier": 11,
+      "ktcRank": 502,
+      "positionalRank": 63,
       "rookie": false,
       "byeWeek": 8,
       "age": 32.6
