@@ -125,8 +125,9 @@ function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): vo
   // Status badges stay on one line so the row height never changes.
   const tags = el.querySelector(".tags")!;
   tags.textContent = "";
+  // No MINE badge: the pressed ME button and the accent bar already say it,
+  // and a third marker for one state is just width.
   if (state === "gone") tags.append(tag("GONE", "gone"));
-  if (state === "mine") tags.append(tag("MINE", "mine"));
   // Flagged players are hidden from the board, so this badge is what identifies
   // them when they turn up in a search or under the DND chip.
   if (row.doNotDraft) tags.append(tag("DND", "dnd"));

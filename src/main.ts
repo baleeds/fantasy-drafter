@@ -52,7 +52,7 @@ async function start(): Promise<void> {
 
   const res = await fetch(`${import.meta.env.BASE_URL}players.json`);
   if (!res.ok) {
-    el("#status").textContent = `Could not load players.json (${res.status})`;
+    flash(`Could not load players.json (${res.status})`);
     return;
   }
   const data: { generatedAt: string; playerCount: number; players: Player[] } =
@@ -305,7 +305,7 @@ function syncChips(): void {
       chip.classList.toggle("active", chip.dataset.filter === "ALL");
     }
   }
-  el("#taken-toggle").hidden = draftOnly;
+  el(".strip").hidden = draftOnly;
 }
 
 function wireHeader(): void {
@@ -599,12 +599,17 @@ function wireDrag(): void {
 
 // --- Odds and ends ----------------------------------------------------------
 
+/**
+ * Transient feedback, floated over the board rather than given a permanent
+ * 20px strip in the header it was empty in almost all the time.
+ */
 let flashTimer = 0;
 function flash(message: string): void {
   const status = el("#status");
   status.textContent = message;
+  status.hidden = false;
   clearTimeout(flashTimer);
-  flashTimer = window.setTimeout(() => (status.textContent = ""), 2500);
+  flashTimer = window.setTimeout(() => (status.hidden = true), 2500);
 }
 
 // Keep the settings object honest if a stored value predates a new default.

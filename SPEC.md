@@ -275,9 +275,9 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 ### Prep mode — before the draft
 
 **Prep has no draft state.** Nobody is taken or mine while I am building the
-board, so there is no MINE chip, no "show taken" toggle, no strike-through and
-no status badges — and the sheet offers only ordering, the do-not-draft flag,
-and a note. Mid-draft I can still drop into prep to reorder; it simply shows
+board, so there is no MINE chip, no roster strip, no "show taken" toggle, no
+strike-through and no status badges — and the sheet offers only ordering, the
+do-not-draft flag, and a note. The header is a third shorter for it. Mid-draft I can still drop into prep to reorder; it simply shows
 the whole board as a ranking, which is what prep is for.
 
 - **Load the KTC board** — ordered and ready to use with zero setup.
@@ -382,7 +382,7 @@ player was in fact acquired.
 |---|---|---|
 | Available | Shown | Normal |
 | Taken by someone else | Hidden | Dimmed, struck through, in place |
-| Mine | **Always shown**, in board position | Accent colour + badge, never struck |
+| Mine | **Always shown**, in board position | Accent bar and a pressed ME button, never struck |
 
 **My own picks never leave the board.** Hiding taken players is for collapsing
 the run of players that went between my picks — it is not a reason to lose

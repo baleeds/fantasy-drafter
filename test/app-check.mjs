@@ -196,7 +196,12 @@ try {
   await page.waitForTimeout(350);
   check(
     "ME claims a player",
-    (await rows().nth(0).locator(".mine-btn").getAttribute("aria-pressed")) === "true",
+    (await rows().nth(0).locator(".mine-btn").getAttribute("aria-pressed")) === "true" &&
+      (await rows().nth(0).evaluate((r) => r.classList.contains("state-mine"))),
+  );
+  check(
+    "and says so without a redundant badge",
+    (await rows().nth(0).locator(".tag").count()) === 0,
   );
   await rows().nth(0).locator(".mine-btn").click();
   await page.waitForTimeout(350);
@@ -263,8 +268,19 @@ try {
     await page.locator('.chip[data-filter="MINE"]').isHidden(),
   );
   check(
-    "prep hides the 'show taken' toggle",
-    await page.locator("#taken-toggle").isHidden(),
+    "prep hides the roster strip and 'show taken' — both count picks",
+    (await page.locator(".strip").isHidden()) &&
+      (await page.locator("#taken-toggle").isHidden()),
+  );
+  check(
+    "and the header is shorter for it",
+    (await page.evaluate(() => document.querySelector("#header").getBoundingClientRect().height)) <
+      (await page.evaluate(() => {
+        document.querySelector('.modes button[data-mode="draft"]').click();
+        const h = document.querySelector("#header").getBoundingClientRect().height;
+        document.querySelector('.modes button[data-mode="prep"]').click();
+        return h;
+      })),
   );
   check("and shows the whole board", (await visibleCount()) === 300);
   check(
