@@ -16,7 +16,7 @@ judged on how well it works during those four hours.
 | Storage | `localStorage`, autosaved on every change. |
 | Network | Must work fully offline. Draft venue wifi is unreliable. |
 | Users | One. No accounts, no sync, no sharing. |
-| League format | **Redraft, 1QB** is the default. Superflex and dynasty available as toggles. |
+| League format | **Redraft, 1QB.** Fixed, not configurable — no dynasty, no superflex. |
 
 ## Rankings source: KeepTradeCut
 
@@ -25,17 +25,17 @@ entered by hand.
 
 ### How the data is obtained
 
-Both KTC ranking pages embed the full player list as a JavaScript array
+The redraft rankings page embeds the full player list as a JavaScript array
 directly in the HTML:
 
 ```
 https://keeptradecut.com/fantasy-rankings   → 376 players (redraft)
-https://keeptradecut.com/dynasty-rankings   → 500 players (dynasty)
 ```
 
-Each page contains `var playersArray = [ ... ];` — a plain JSON array. No API
-key, no authentication, no client-side request to intercept. A regex extracts
-it in one step.
+It contains `var playersArray = [ ... ];` — a plain JSON array. No API key, no
+authentication, no client-side request to intercept. A regex extracts it in one
+step. (`/dynasty-rankings` carries 500 players in the same shape, but this app
+does not fetch it.)
 
 ### Fields we consume
 
@@ -50,11 +50,12 @@ it in one step.
 | `injury` | injury badge — status, body area, expected return |
 | `age`, `rookie` | secondary display |
 
-Rank/tier fields live under either `oneQBValues` or `superflexValues`, which are
-**separate orderings, not minor reshuffles**. Josh Allen is 6th overall in 1QB
-but 4th in superflex, and superflex puts Drake Maye and Lamar Jackson in the top
-8 where 1QB has neither. Loading the wrong one produces a board that is wrong
-from the first round.
+These live under `oneQBValues`. A parallel `superflexValues` object exists with
+the same shape and a **genuinely different ordering** — Josh Allen is 6th in
+1QB but 4th in superflex, which also puts Drake Maye and Lamar Jackson in the
+top 8 where 1QB has neither. We read `oneQBValues` and ignore the other; the
+pipeline should name the value set explicitly rather than defaulting, since the
+two are interchangeable in shape and silently wrong in content.
 
 ### Use `rank`, not `startSitOverallRank`
 
@@ -88,15 +89,23 @@ fetch this directly** from a GitHub Pages origin. The fetch happens at build
 time instead:
 
 ```
-GitHub Action  →  fetch both KTC pages
+GitHub Action  →  fetch keeptradecut.com/fantasy-rankings
                →  extract playersArray
-               →  slim to the fields above (1.3MB HTML → ~40KB JSON)
-               →  commit players.json
+               →  filter PK and DST, read oneQBValues only
+               →  assign dense boardRank
+               →  slim to the fields above (1.3MB HTML → ~15KB JSON)
+               →  validate, then commit players.json
 App           →  loads the committed JSON
 ```
 
 This is preferable to a live fetch regardless of CORS: it loads instantly and
 works with no internet at all.
+
+**One format only.** My league is redraft 1QB, so the pipeline fetches only the
+redraft page and reads only `oneQBValues`. The dynasty page and the superflex
+value set are not fetched, not shipped, and there is no format toggle in the UI.
+This is a quarter of the data and removes a setting that could silently be wrong
+on draft night. Adding a format back later is a pipeline change, not a redesign.
 
 **Schedule:** daily during preseason, plus `workflow_dispatch` so I can refresh
 manually the morning of the draft. The UI displays a **"rankings as of <date>"**
@@ -234,10 +243,12 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 ### Prep mode — before the draft
 
 - **Load the KTC board** — ordered, tiered, ready to use with zero setup.
-- **Format toggles** — Redraft/Dynasty and 1QB/Superflex. Defaults to Redraft
-  1QB.
-- **Reorder players** — drag-and-drop on desktop; up/down and "move to #N"
-  buttons that work on a phone. Drag-only is unusable on a touchscreen.
+- **Reorder by dragging**, on both desktop and phone. On touch this is a
+  long-press to pick a player up, with the list autoscrolling when the held
+  player nears the top or bottom edge. See "Drag on touch" below — this is the
+  highest-risk piece of UI in the app and gets validated first.
+- **Up/down nudge buttons** alongside drag, for single-spot moves where picking
+  a player up is more effort than the move is worth.
 - **Do-not-draft flag** on any player.
 - **Per-player notes** — short free text.
 - **Edit tier breaks** — KTC's tiers are the starting point, not the last word.
@@ -252,18 +263,66 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 - **Position filter chips** — ALL / QB / RB / WR / TE / FLEX / MINE. No K or DST
   chips; those positions do not exist in this app.
 - **One tap marks a player drafted.** A second, distinct action marks
-  **"I drafted him"** (long-press or a separate button).
-- **Undo.** Non-negotiable — mis-taps happen constantly when the board moves fast.
+  **"I drafted him"** — a separate button rather than a long-press, since
+  long-press is taken by drag.
+- **Undo, unlimited.** See "The pick log" below.
 - **Search** to jump to a name. I'll hear a name announced and need to find it
-  in two seconds.
+  in two seconds. **Search covers drafted players too**, marked `GONE` — often
+  the answer I need is "he went four picks ago", and a search restricted to
+  available players fails at exactly the moment it matters.
 - **Injury badges** — "Q — Knee/ACL" inline, for deciding whether to take the risk.
 - **Do-not-draft players** render dimmed and struck through, sunk to the bottom.
-- **My roster panel** — counts by position, so I know I still need a TE.
+- **My roster panel** — raw counts by position (2 RB, 3 WR). Deliberately no
+  starter requirements: that would mean configuring a starting lineup, and I'd
+  rather do the "do I need a TE yet" arithmetic myself than maintain a setting.
 - **Tier countdown** — "4 left in this tier." This is the app's answer to "can I
   wait?", and it is deliberately not a prediction. It is grounded entirely in my
   own board and answers the question that actually matters at the table: not
   "will this specific player survive", but "if I wait and lose him, is there an
   equivalent player left?"
+
+### The pick log
+
+Draft state is an **append-only log of picks**, not a mutable `status` field on
+each player:
+
+```jsonc
+[
+  { "playerID": 1508, "mine": false },
+  { "playerID": 1414, "mine": true  }
+]
+```
+
+A player's state is derived by scanning the log rather than stored. This costs
+nothing at 300 players and buys three things:
+
+- **Unlimited undo** — pop the last entry. No separate undo stack to maintain
+  and keep consistent with the thing it is undoing.
+- **A draft history** for free: pick order, and what went between my picks.
+- **"Reset draft" is emptying an array**, which cannot leave stale flags behind
+  on individual players.
+
+Mis-taps are the common case this exists for, so undo is a persistent control,
+not a transient toast that disappears before I notice the mistake.
+
+### Drag on touch
+
+Long-press-to-drag with edge autoscroll over a 300-player list is the most
+failure-prone UI in this app, and it is the one piece I cannot verify by
+reasoning about it. Known hazards:
+
+- Long-press competes with the browser's own text selection and context menu on
+  iOS, and with page scroll. Touch handlers need `touch-action` set and
+  non-passive listeners to `preventDefault` reliably.
+- Autoscroll speed has to be proportional to edge proximity, or dragging from
+  120 to 15 is either unusably slow or overshoots wildly.
+- The drop target must stay legible while scrolling, or I cannot tell where the
+  player will land.
+
+**This gets built and tested on the actual phone first**, before the rest of the
+draft UI. If it proves unpleasant in practice, the fallback is pinning relative
+to another player ("put him above Olave"), which needs no precise gesture and
+maps just as cleanly onto the midpoint sort key.
 
 ### The three player states
 
@@ -325,6 +384,9 @@ player was in fact acquired.
 
 - **Vanilla TypeScript + Vite, no framework.** The app is one sorted list with
   filters. Nothing to upgrade when I come back to this next August.
+- **Set Vite's `base` to the repo name.** GitHub Pages project sites serve from
+  `/fantasy-drafter/`, and the default `base: "/"` yields a blank page with a
+  404 on every asset.
 - **`players.json` is committed** rather than generated at deploy time. Daily
   data commits are noisy, but the last good file always exists in git.
 - **The refresh Action validates before committing.** Player count in a sane
@@ -332,6 +394,23 @@ player was in fact acquired.
   position. On failure it fails loudly and leaves the previous `players.json`
   untouched. A stale board beats an empty one, and a KTC redesign must not be
   able to break the app during draft week.
+
+## Build order
+
+The draft is two to four weeks out, which is enough time to build the MVP as
+specced and then rehearse it. Order matters more than usual here, because the
+two riskiest pieces are not the ones that look hardest:
+
+1. **The KTC pipeline** — the Action, the field validation, `players.json`.
+   Everything sits on it, and it is where the one real mistake has already
+   happened.
+2. **Touch drag** — on the actual phone, in isolation. If this doesn't work,
+   I want to know in week one, not week three.
+3. The board, filters, search, and the pick log.
+4. URL encoding, export/import, resets.
+5. **Rehearsal against a live mock draft, end to end.** This tool gets used once,
+   under time pressure, with no opportunity to debug. Anything not exercised in
+   a mock is untested. "Reset draft" exists precisely so a mock costs nothing.
 
 ## Non-goals
 
