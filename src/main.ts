@@ -165,17 +165,22 @@ function syncChips(): void {
 }
 
 function wireHeader(): void {
-  const modeToggle = el<HTMLButtonElement>("#mode");
+  const modeButtons = [...document.querySelectorAll<HTMLButtonElement>(".modes button")];
   const syncMode = () => {
-    modeToggle.textContent = settings.mode === "prep" ? "Prep" : "Draft";
-    modeToggle.classList.toggle("draft", settings.mode === "draft");
+    for (const button of modeButtons) {
+      const active = button.dataset.mode === settings.mode;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    }
   };
-  modeToggle.addEventListener("click", () => {
-    settings.mode = settings.mode === "prep" ? "draft" : "prep";
-    saveSettings(settings);
-    syncMode();
-    render();
-  });
+  for (const button of modeButtons) {
+    button.addEventListener("click", () => {
+      settings.mode = button.dataset.mode as Settings["mode"];
+      saveSettings(settings);
+      syncMode();
+      render();
+    });
+  }
   syncMode();
 
   const searchInput = el<HTMLInputElement>("#search");

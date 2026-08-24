@@ -19,7 +19,12 @@
   <body>
     <header id="header">
       <div class="bar">
-        <button id="mode" type="button" class="mode"></button>
+        <!-- Both states visible: a single button showing the current mode
+             reads equally as "you are here" and "tap to go here". -->
+        <div class="modes" role="group" aria-label="Mode">
+          <button type="button" data-mode="prep">Prep</button>
+          <button type="button" data-mode="draft">Draft</button>
+        </div>
         <div class="search-wrap">
           <input
             id="search"

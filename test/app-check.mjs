@@ -85,8 +85,18 @@ try {
   await page.click('.chip[data-filter="ALL"]');
 
   // --- Draft mode and the pick log ----------------------------------------
-  await page.click("#mode");
-  check("mode toggles to draft", (await page.locator("#mode").innerText()) === "Draft");
+  await page.click('.modes button[data-mode="draft"]');
+  check(
+    "switching to draft marks that mode active",
+    await page.locator('.modes button[data-mode="draft"]').evaluate((b) =>
+      b.classList.contains("active"),
+    ),
+  );
+  check(
+    "and both modes stay visible so neither is a guess",
+    (await page.locator(".modes button").count()) === 2 &&
+      (await page.locator(".modes button").first().isVisible()),
+  );
 
   const first = await nameAt(0);
   const second = await nameAt(1);
@@ -158,7 +168,7 @@ try {
   check("and it did reorder him", (await nameAt(0)) === dragged, `${dragged} to top`);
 
   // --- Prep mode: the sheet, do-not-draft, notes ---------------------------
-  await page.click("#mode");
+  await page.click('.modes button[data-mode="prep"]');
   const prepTarget = await nameAt(2);
   await rows().nth(2).click();
   check("tapping in prep opens the sheet, not a pick", await page.locator("#sheet").isVisible());
@@ -188,16 +198,18 @@ try {
   check("nudge moves a player one spot", (await nameAt(4)) === nudgeTarget);
 
   // --- Persistence ----------------------------------------------------------
-  await page.click("#mode");
-  const beforeReload = {
-    fifth: await nameAt(4),
-    mode: await page.locator("#mode").innerText(),
-  };
+  await page.click('.modes button[data-mode="draft"]');
+  const beforeReload = { fifth: await nameAt(4) };
   await page.reload({ waitUntil: "networkidle" });
   await page.waitForSelector(".row");
 
   check("the board order survives a reload", (await nameAt(4)) === beforeReload.fifth);
-  check("the mode survives a reload", (await page.locator("#mode").innerText()) === beforeReload.mode);
+  check(
+    "the mode survives a reload",
+    await page.locator('.modes button[data-mode="draft"]').evaluate((b) =>
+      b.classList.contains("active"),
+    ),
+  );
 
   // --- Reset draft keeps rankings -------------------------------------------
   await rows().nth(0).click();

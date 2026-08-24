@@ -86,15 +86,28 @@ button:active {
   padding: 8px 12px;
 }
 
-.mode {
+.modes {
+  display: flex;
   flex-shrink: 0;
-  font-weight: 600;
-  min-width: 74px;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-.mode.draft {
+.modes button {
+  min-height: 42px;
+  padding: 0 11px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.modes button.active {
   background: var(--accent);
-  border-color: var(--accent);
   color: var(--accent-fg);
 }
 
