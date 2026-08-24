@@ -21,16 +21,12 @@ export interface Settings {
   mode: "prep" | "draft";
   filter: string;
   showDrafted: boolean;
-  longPressMs: number;
-  autoscrollMaxSpeed: number;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   mode: "prep",
   filter: "ALL",
   showDrafted: false,
-  longPressMs: 350,
-  autoscrollMaxSpeed: 14,
 };
 
 export function loadOverrides(): Overrides {
@@ -42,7 +38,14 @@ export function loadPicks(): Pick[] {
 }
 
 export function loadSettings(): Settings {
-  return { ...DEFAULT_SETTINGS, ...read<Partial<Settings>>(KEYS.settings, {}) };
+  // Picked field by field rather than spread, so settings that no longer exist
+  // cannot ride along in storage and get written back out again.
+  const stored = read<Partial<Settings>>(KEYS.settings, {});
+  return {
+    mode: stored.mode === "draft" ? "draft" : DEFAULT_SETTINGS.mode,
+    filter: typeof stored.filter === "string" ? stored.filter : DEFAULT_SETTINGS.filter,
+    showDrafted: stored.showDrafted === true,
+  };
 }
 
 export function saveOverrides(overrides: Overrides): void {

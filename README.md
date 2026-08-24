@@ -8,7 +8,12 @@ why it is built this way.
 Two modes over one list. **Prep** is where the board gets built — long-press to
 drag a player, tap to open his sheet for notes, a do-not-draft flag, and
 single-spot nudges. **Draft** is the screen for the night — tap takes a player
-off the board, the **ME** button marks him mine, and undo is unlimited.
+off the board and tapping him again puts him back, and the **ME** button claims
+and releases him.
+
+The long-press delay and autoscroll speed were sliders while the gesture was
+being tuned on a real phone. They are constants in `src/drag.ts` now: a
+draft-night screen should not carry its own debug controls.
 
 ```sh
 npm run dev                 # local dev server

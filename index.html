@@ -37,7 +37,14 @@
           />
           <button id="search-clear" type="button" aria-label="Clear search">×</button>
         </div>
-        <button id="menu-toggle" type="button" aria-label="Menu">⋯</button>
+        <button id="menu-toggle" type="button" aria-label="Settings">
+          <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M19.14 12.94a7.07 7.07 0 0 0 0-1.88l2-1.58a.5.5 0 0 0 .12-.62l-1.9-3.28a.5.5 0 0 0-.6-.22l-2.39 1a7 7 0 0 0-1.62-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.8a.5.5 0 0 0-.5.42l-.36 2.54a7 7 0 0 0-1.62.94l-2.39-1a.5.5 0 0 0-.6.22L2.74 8.86a.5.5 0 0 0 .12.62l2 1.58a7.07 7.07 0 0 0 0 1.88l-2 1.58a.5.5 0 0 0-.12.62l1.9 3.28a.5.5 0 0 0 .6.22l2.39-1a7 7 0 0 0 1.62.94l.36 2.54a.5.5 0 0 0 .5.42h3.8a.5.5 0 0 0 .5-.42l.36-2.54a7 7 0 0 0 1.62-.94l2.39 1a.5.5 0 0 0 .6-.22l1.9-3.28a.5.5 0 0 0-.12-.62ZM12 15.6A3.6 3.6 0 1 1 15.6 12 3.6 3.6 0 0 1 12 15.6Z"
+            />
+          </svg>
+        </button>
       </div>
 
       <div id="filters" class="filters"></div>
@@ -65,16 +72,6 @@
         <button id="reset-draft" type="button">Reset draft — keeps my rankings</button>
         <button id="reset-order" type="button">Reset order to KTC — keeps flags</button>
         <button id="reset-all" type="button" class="danger">Erase everything</button>
-        <label>
-          <span>Long press</span>
-          <input id="longpress" type="range" min="120" max="700" step="10" />
-          <output id="longpress-value"></output>
-        </label>
-        <label>
-          <span>Autoscroll</span>
-          <input id="autoscroll" type="range" min="4" max="40" step="1" />
-          <output id="autoscroll-value"></output>
-        </label>
       </div>
     </header>
 

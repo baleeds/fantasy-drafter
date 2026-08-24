@@ -382,9 +382,6 @@ function wireHeader(): void {
   });
 
   wireBackup();
-
-  bindSlider("#longpress", "longPressMs", (v) => `${v}ms`);
-  bindSlider("#autoscroll", "autoscrollMaxSpeed", (v) => `${v}px`);
 }
 
 function wireBackup(): void {
@@ -450,22 +447,6 @@ function wireBackup(): void {
 
 function closeMenu(): void {
   el("#menu").hidden = true;
-}
-
-function bindSlider(
-  selector: string,
-  key: "longPressMs" | "autoscrollMaxSpeed",
-  format: (value: number) => string,
-): void {
-  const input = el<HTMLInputElement>(selector);
-  const output = el(`${selector}-value`);
-  input.value = String(settings[key]);
-  output.textContent = format(settings[key]);
-  input.addEventListener("input", () => {
-    settings[key] = Number(input.value);
-    output.textContent = format(settings[key]);
-    saveSettings(settings);
-  });
 }
 
 // --- The player sheet -------------------------------------------------------
@@ -575,8 +556,6 @@ function wireDrag(): void {
     rowSelector: ".row",
     handleSelector: ".grip",
     topInset: () => el("#header").getBoundingClientRect().height,
-    longPressMs: () => settings.longPressMs,
-    autoscrollMaxSpeed: () => settings.autoscrollMaxSpeed,
     onReorder: (from, to) => {
       // The drag reports indices into the rendered list, which may be filtered
       // or searched. Hand the model the players either side of the drop and

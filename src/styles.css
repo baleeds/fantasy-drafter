@@ -143,8 +143,11 @@ button:active {
 
 #menu-toggle {
   flex-shrink: 0;
-  font-size: 18px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 11px;
+  color: var(--muted);
 }
 
 /* Chips scroll rather than wrap, so the header height never changes. */
@@ -285,26 +288,6 @@ button:active {
 
 #menu .danger {
   color: var(--down);
-}
-
-#menu label {
-  display: grid;
-  grid-template-columns: 80px 1fr 60px;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
-#menu output {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  color: var(--fg);
-}
-
-input[type="range"] {
-  width: 100%;
-  accent-color: var(--accent);
 }
 
 /* --- The board ------------------------------------------------------------ */

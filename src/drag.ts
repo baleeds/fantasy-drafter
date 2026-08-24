@@ -37,10 +37,6 @@ export interface DragConfig {
   handleSelector?: string;
   /** Pixels of fixed UI at the top of the viewport, for the autoscroll zone. */
   topInset: () => number;
-  /** How long the finger must sit still before a row is picked up. */
-  longPressMs: () => number;
-  /** Autoscroll speed at the very edge, in px per frame. */
-  autoscrollMaxSpeed: () => number;
   onReorder: (from: number, to: number) => void;
   onStateChange?: (dragging: boolean) => void;
 }
@@ -50,6 +46,17 @@ const MOVE_SLOP = 10;
 
 /** Distance from an edge at which autoscroll begins, in px. */
 const EDGE_ZONE = 96;
+
+/**
+ * How long the finger must sit still before a row is picked up, and how fast
+ * the list scrolls when a held row reaches the edge.
+ *
+ * These were exposed as sliders while the gesture was being tuned on a real
+ * phone. They are settled now, and a draft-night screen has no business
+ * carrying its own debug controls.
+ */
+const LONG_PRESS_MS = 350;
+const AUTOSCROLL_MAX_SPEED = 14;
 
 export function enableDragReorder(cfg: DragConfig): void {
   const { list, rowSelector } = cfg;
@@ -142,7 +149,7 @@ export function enableDragReorder(cfg: DragConfig): void {
   }
 
   function autoscrollVelocity(): number {
-    const max = cfg.autoscrollMaxSpeed();
+    const max = AUTOSCROLL_MAX_SPEED;
     const top = cfg.topInset();
     const bottom = window.innerHeight;
 
@@ -224,7 +231,7 @@ export function enableDragReorder(cfg: DragConfig): void {
       pendingRow = row;
 
       clearTimeout(pressTimer);
-      pressTimer = window.setTimeout(beginDrag, cfg.longPressMs());
+      pressTimer = window.setTimeout(beginDrag, LONG_PRESS_MS);
     },
     { passive: true },
   );
