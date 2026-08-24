@@ -243,6 +243,12 @@ button:active {
   color: var(--muted);
 }
 
+#menu .note {
+  padding-top: 4px;
+  border-top: 1px solid var(--line);
+  line-height: 1.4;
+}
+
 #menu button {
   text-align: left;
   font-size: 14px;

@@ -289,7 +289,12 @@ export class Board {
  */
 export function keyBetween(before: number | null, after: number | null): number {
   if (before === null && after === null) return SPACING;
-  if (before === null) return after! / 2;
+  if (before === null) return Math.floor(after! / 2);
   if (after === null) return before + SPACING;
-  return (before + after) / 2;
+
+  // Floored, so keys stay whole numbers. Repeated halving would otherwise
+  // produce fractions, which survive into the URL encoding and turn a compact
+  // integer into a decimal string. Flooring can close a gap to 1, but the
+  // respace threshold is 2, so that triggers a renormalise on the same move.
+  return Math.floor((before + after) / 2);
 }

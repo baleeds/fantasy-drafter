@@ -241,6 +241,7 @@ try {
 
   check("no uncaught page errors", pageErrors.length === 0, pageErrors.join("; "));
 
+  await checkDurability();
   await checkDesktop();
 } finally {
   await browser.close();
@@ -251,9 +252,101 @@ const failed = results.filter((r) => !r.pass);
 console.log(`\n${results.length - failed.length}/${results.length} passed`);
 process.exit(failed.length === 0 ? 0 : 1);
 
+/**
+ * The whole point of the URL encoding: a browser that has thrown away its
+ * storage must be able to get the board back from a bookmark. Safari does
+ * exactly that after 7 days without interaction, which is the gap between
+ * prepping a board and using it.
+ */
+async function checkDurability() {
+  const first = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true });
+  const page = await first.newPage();
+
+  try {
+    await page.goto(URL, { waitUntil: "networkidle" });
+    await page.waitForSelector(".row");
+
+    // Build a board worth losing: move a player up and flag another.
+    // Drag a row that is already on screen, and drop just below the sticky
+    // header. scrollIntoViewIfNeeded would park a row *behind* that header,
+    // where the touch lands on the header instead of the list.
+    const headerBottom = await page.evaluate(
+      () => document.querySelector("#header").getBoundingClientRect().bottom,
+    );
+    const promoted = await page.locator(".row").nth(8).locator(".name").innerText();
+    const box = await page.locator(".row").nth(8).boundingBox();
+    await touchDrag(page, box.y + box.height / 2, headerBottom + 10, { steps: 26 });
+
+    const flagged = await page.locator(".row").nth(6).locator(".name").innerText();
+    await page.locator(".row").nth(6).click();
+    await page.check("#sheet-dnd");
+    await page.fill("#sheet-note", "sleeper");
+    await page.click("#sheet-close");
+
+    const bookmarked = page.url();
+    check("the address bar carries the board", bookmarked.includes("#b="), `${bookmarked.length} chars`);
+    check("and the link is short enough to bookmark", bookmarked.length < 2000);
+    check("notes never reach the link", !bookmarked.includes("sleeper"));
+
+    const order = await page.evaluate(() =>
+      [...document.querySelectorAll(".row .name")].slice(0, 12).map((n) => n.textContent),
+    );
+    // Without this the restore check could pass on two identical default
+    // boards, proving nothing.
+    check(
+      "the board actually differs from KTC's order before we test restoring it",
+      order.includes(promoted),
+      `${promoted} was #9, now at the top`,
+    );
+
+    // A brand-new context is a wiped browser: no localStorage, only the link.
+    const wiped = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true });
+    const restored = await wiped.newPage();
+    await restored.goto(bookmarked, { waitUntil: "networkidle" });
+    await restored.waitForSelector(".row");
+
+    const restoredOrder = await restored.evaluate(() =>
+      [...document.querySelectorAll(".row .name")].slice(0, 12).map((n) => n.textContent),
+    );
+    check("a wiped browser rebuilds the board from the link",
+      JSON.stringify(restoredOrder) === JSON.stringify(order),
+      `expected ${promoted} near the top`,
+    );
+
+    const restoredFlag = await restored.evaluate(
+      (name) =>
+        [...document.querySelectorAll(".row")].find(
+          (r) => r.querySelector(".name").textContent === name,
+        )?.classList.contains("dnd") ?? false,
+      flagged,
+    );
+    check("do-not-draft flags come back too", restoredFlag);
+
+    // Notes are deliberately not in the link, so they should not reappear.
+    const noteBack = await restored.evaluate(() =>
+      [...document.querySelectorAll(".row .meta")].some((m) => m.textContent.includes("sleeper")),
+    );
+    check("notes do not come back from a link, as designed", !noteBack);
+
+    await wiped.close();
+
+    // --- The backup file does carry notes ---------------------------------
+    const backup = await page.evaluate(() => ({
+      overrides: JSON.parse(localStorage.getItem("fd:overrides") ?? "{}"),
+    }));
+    const hasNote = Object.values(backup.overrides).some((o) => o.note === "sleeper");
+    check("the note survives in storage for the file export", hasNote);
+  } finally {
+    await first.close();
+  }
+}
+
 /** Drive a long-press drag through raw touch events. */
 async function touchDrag(target, fromY, toY, { holdMs = 500, steps = 20 } = {}) {
-  const cdp = await context.newCDPSession(target);
+  // Derived from the page, not the module-level context: the durability checks
+  // run in their own contexts, and a CDP session opened against the wrong one
+  // silently delivers no events at all.
+  const cdp = await target.context().newCDPSession(target);
   const x = 195;
   await cdp.send("Input.dispatchTouchEvent", {
     type: "touchStart",

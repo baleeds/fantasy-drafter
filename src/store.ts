@@ -57,6 +57,52 @@ export function saveSettings(settings: Settings): void {
   write(KEYS.settings, settings);
 }
 
+/**
+ * The full personal layer as a file — notes included, unlike the link. This is
+ * how a board moves between laptop and phone.
+ */
+export interface Backup {
+  app: "fantasy-drafter";
+  version: 1;
+  savedAt: string;
+  overrides: Overrides;
+  picks: Pick[];
+}
+
+export function makeBackup(overrides: Overrides, picks: Pick[]): Backup {
+  return {
+    app: "fantasy-drafter",
+    version: 1,
+    savedAt: new Date().toISOString(),
+    overrides,
+    picks,
+  };
+}
+
+/** Returns null for anything that isn't one of our backups. */
+export function readBackup(text: string): Backup | null {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    return null;
+  }
+
+  if (typeof parsed !== "object" || parsed === null) return null;
+  const backup = parsed as Partial<Backup>;
+  if (backup.app !== "fantasy-drafter" || backup.version !== 1) return null;
+  if (typeof backup.overrides !== "object" || backup.overrides === null) return null;
+  if (!Array.isArray(backup.picks)) return null;
+
+  // Picks drive what shows as drafted, so a malformed entry would corrupt the
+  // board rather than just be ignored.
+  for (const pick of backup.picks) {
+    if (typeof pick?.id !== "number" || typeof pick?.mine !== "boolean") return null;
+  }
+
+  return backup as Backup;
+}
+
 export function clearEverything(): void {
   for (const key of Object.values(KEYS)) localStorage.removeItem(key);
 }

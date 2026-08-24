@@ -47,6 +47,27 @@ Two rules the code depends on and will not tell you about at runtime:
   and are keyed by KTC's `playerID`. Flattening them would mean each refresh
   destroyed the prep work.
 
+## Not losing the board
+
+`localStorage` is not durable enough on its own for something built weeks
+before it is used: Safari deletes all script-writable storage for a site after
+7 days of browser use without interaction, which is exactly the gap between
+prepping in August and drafting in September.
+
+So **the address bar always holds the board.** Ordering and do-not-draft flags
+encode into the URL hash on every change, so a bookmark survives a storage
+wipe with nothing to remember to do. A realistic board is a few hundred
+characters; every player moved is still comfortably inside any browser's
+limit. The hash is never sent to the server.
+
+Notes are deliberately left out of the link — free text of unbounded length,
+and the cheapest thing to lose. They stay in `localStorage` and travel in the
+file export, which is the way to move a whole board between laptop and phone.
+
+Opening a link on a device with **no** stored board restores it silently; that
+is the recovery case. Opening one on a device that already has a *different*
+board asks first, so an old bookmark cannot quietly overwrite newer work.
+
 ## Testing
 
 ```sh

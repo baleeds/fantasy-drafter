@@ -55,6 +55,16 @@
 
       <div id="menu" hidden>
         <p id="generated"></p>
+
+        <p class="note">
+          The address bar always holds your board. Bookmark it and a wiped
+          browser costs you nothing.
+        </p>
+        <button id="copy-link" type="button">Copy board link</button>
+        <button id="export" type="button">Export a backup file</button>
+        <button id="import" type="button">Import a backup file</button>
+        <input id="import-file" type="file" accept="application/json,.json" hidden />
+
         <button id="reset-draft" type="button">Reset draft — keeps my rankings</button>
         <button id="reset-order" type="button">Reset order to KTC — keeps flags</button>
         <button id="reset-all" type="button" class="danger">Erase everything</button>

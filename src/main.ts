@@ -8,7 +8,8 @@
 
 import { enableDragReorder } from "./drag.ts";
 import { BoardView } from "./board-view.ts";
-import { Board, POSITIONS, type BoardRow, type Player, type Position } from "./model.ts";
+import { Board, POSITIONS, type BoardRow, type Overrides, type Player, type Position } from "./model.ts";
+import { decodeBoard, encodeBoard, shareableOverrides } from "./share.ts";
 import {
   DEFAULT_SETTINGS,
   clearEverything,
@@ -16,6 +17,8 @@ import {
   loadOverrides,
   loadPicks,
   loadSettings,
+  makeBackup,
+  readBackup,
   saveOverrides,
   savePicks,
   saveSettings,
@@ -55,6 +58,9 @@ async function start(): Promise<void> {
 
   el("#generated").textContent =
     `${data.playerCount} players · as of ${new Date(data.generatedAt).toLocaleDateString()}`;
+
+  restoreFromUrl();
+  syncUrl();
 
   buildFilters();
   wireHeader();
@@ -138,8 +144,71 @@ function undoPick(): void {
   flash(`Undid ${player.name}`);
 }
 
+/**
+ * Save and re-encode the link together, always. If these ever drift apart the
+ * bookmark silently goes stale, which is exactly the failure the link exists
+ * to prevent and exactly the one you would not notice until you needed it.
+ */
 function persistOverrides(): void {
   saveOverrides(board.overrides);
+  syncUrl();
+}
+
+function syncUrl(): void {
+  const payload = encodeBoard(shareableOverrides(board.overrides));
+  history.replaceState(null, "", `${location.pathname}${location.search}#b=${payload}`);
+}
+
+/**
+ * A link carries ordering and do-not-draft flags. Notes are not in it, so an
+ * incoming board is merged over whatever notes are already here rather than
+ * replacing them.
+ */
+function applyLinkedBoard(incoming: Overrides): void {
+  const merged: Overrides = {};
+  for (const [id, override] of Object.entries(incoming)) merged[id] = { ...override };
+  for (const [id, override] of Object.entries(board.overrides)) {
+    if (override.note) merged[id] = { ...merged[id], note: override.note };
+  }
+  board.overrides = merged;
+  persistOverrides();
+  render();
+}
+
+/**
+ * Read a board out of the address bar on load.
+ *
+ * With nothing stored this is the recovery case — a wiped browser opening a
+ * bookmark — and applies silently. With a board already here that differs, it
+ * asks: an old bookmark opened on a device carrying newer work should not
+ * quietly overwrite it.
+ */
+function restoreFromUrl(): void {
+  const payload = new URLSearchParams(location.hash.slice(1)).get("b");
+  if (!payload) return;
+
+  const decoded = decodeBoard(payload);
+  if (!decoded) {
+    flash("That link's board could not be read — leaving your board alone");
+    return;
+  }
+
+  const current = encodeBoard(shareableOverrides(board.overrides));
+  if (current === encodeBoard(decoded.overrides)) return;
+
+  const stored = Object.keys(shareableOverrides(board.overrides)).length;
+  const summary = `${decoded.placements} placement${decoded.placements === 1 ? "" : "s"} and ${decoded.doNotDraft} do-not-draft`;
+
+  if (stored > 0) {
+    if (!confirm(`This link holds a different board (${summary}). Replace the one on this device?`)) {
+      // Put the address bar back in step with what is actually loaded.
+      syncUrl();
+      return;
+    }
+  }
+
+  applyLinkedBoard(decoded.overrides);
+  flash(`Restored ${summary} from the link`);
 }
 
 // --- Header -----------------------------------------------------------------
@@ -240,8 +309,71 @@ function wireHeader(): void {
     location.reload();
   });
 
+  wireBackup();
+
   bindSlider("#longpress", "longPressMs", (v) => `${v}ms`);
   bindSlider("#autoscroll", "autoscrollMaxSpeed", (v) => `${v}px`);
+}
+
+function wireBackup(): void {
+  el("#copy-link").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      flash("Board link copied");
+    } catch {
+      // Clipboard access can be refused; the link is still in the address bar.
+      flash("Couldn't copy — the link is in the address bar");
+    }
+    closeMenu();
+  });
+
+  el("#export").addEventListener("click", () => {
+    const backup = makeBackup(board.overrides, board.picks);
+    const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `fantasy-board-${new Date().toISOString().slice(0, 10)}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+
+    closeMenu();
+    flash("Backup exported");
+  });
+
+  const fileInput = el<HTMLInputElement>("#import-file");
+  el("#import").addEventListener("click", () => fileInput.click());
+
+  fileInput.addEventListener("change", async () => {
+    const file = fileInput.files?.[0];
+    // Reset first, so picking the same file twice still fires a change event.
+    fileInput.value = "";
+    if (!file) return;
+
+    const backup = readBackup(await file.text());
+    if (!backup) {
+      flash("That file isn't a Fantasy Drafter backup");
+      return;
+    }
+
+    const placements = Object.keys(backup.overrides).length;
+    const message =
+      `Replace this device's board with the backup?\n\n` +
+      `${placements} player${placements === 1 ? "" : "s"} edited, ${backup.picks.length} pick${backup.picks.length === 1 ? "" : "s"}, ` +
+      `saved ${new Date(backup.savedAt).toLocaleString()}.`;
+    if (!confirm(message)) return;
+
+    board.overrides = backup.overrides;
+    board.picks.length = 0;
+    for (const pick of backup.picks) board.pick(pick.id, pick.mine);
+
+    persistOverrides();
+    savePicks(board.picks);
+    closeMenu();
+    render();
+    flash(`Imported ${placements} edited players and ${backup.picks.length} picks`);
+  });
 }
 
 function closeMenu(): void {
