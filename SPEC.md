@@ -245,10 +245,17 @@ Properties this gives us:
   players merge in at their natural position with no special handling.
 - **Players I placed stay placed.** Their key is frozen.
 
-The `* 1000` spacing keeps keys as integers rather than floats. Roughly ten
-midpoint insertions into the *same* gap will exhaust it; when any adjacent gap
-closes to less than 2, renormalise the entire board back to clean `* 1000`
-spacing. On 300 players that is instantaneous and in practice will rarely fire.
+The `* 1000` spacing keeps keys as integers. Roughly ten midpoint insertions
+into the *same* gap will exhaust it; when any adjacent gap closes to less than
+2, the spacing is reopened.
+
+**The respace touches only the players I placed.** They are redistributed
+between the untouched players either side of them, rather than the whole board
+being renumbered. Renumbering everything would hand an explicit key to every
+player merely *displaced* by my moves — 203 of 300 in a normal prep session —
+and an explicit key means "I decided this". That would freeze those players
+against the next KTC refresh, which is the exact property this layer exists to
+protect.
 
 **Rejected: a delta** (`offset: -12`). A delta means "always twelve spots better
 than whatever KTC currently thinks", which permanently couples my override to
@@ -291,7 +298,12 @@ the whole board as a ranking, which is what prep is for.
 - **Per-player notes** — short free text.
 - **Manual add** for anyone missing. Minor, given a 300-player board.
 - **"Moved" indicator** — how far a player sits from KTC's rank (`↑12` / `↓8`),
-  so my own biases are visible.
+  so my own biases are visible. **Only players I actually placed carry one.**
+  Moving one player up necessarily pushes everyone beneath him down a spot, and
+  that displacement is arithmetic, not an opinion: showing it would put an
+  arrow against 40 players for one decision, and cover two-thirds of the board
+  after a normal prep session. The arrow means "I decided this", so it appears
+  exactly where an explicit placement exists.
 - **Reset to KTC order** — undo for the whole board.
 
 ### Draft mode — the screen I live in

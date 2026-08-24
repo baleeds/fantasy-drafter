@@ -124,16 +124,69 @@ test("repeated insertion into one gap triggers a respace, and order survives", (
   assert.equal(new Set(rows.map((r) => r.player.id)).size, 30, "lost or duplicated a player");
 });
 
-test("a respace does not pin players who never moved", () => {
+test("a respace pins exactly the players I moved, and nobody else", () => {
+  const board = new Board(makePlayers(30));
+  const moved = new Set([120, 121, 122, 123, 124]);
+  for (let i = 0; i < 40; i++) board.moveTo(120 + (i % 5), 1);
+
+  // The earlier version of this test only asserted "fewer than 30", which
+  // passed while a respace was pinning every *displaced* player — 203 of 300
+  // on a real board. An explicit key means "I decided this"; handing one to a
+  // player I merely pushed aside freezes him against the next KTC refresh.
+  assert.deepEqual(
+    new Set(Object.keys(board.overrides).map(Number)),
+    moved,
+    "respace handed keys to players I never touched",
+  );
+});
+
+test("a displaced player still follows KTC after a respace and a refresh", () => {
   const board = new Board(makePlayers(30));
   for (let i = 0; i < 40; i++) board.moveTo(120 + (i % 5), 1);
 
-  // If a renormalise wrote a key for all 30, a later KTC refresh could not
-  // move anyone — which is the property the sparse layer exists to protect.
-  assert.ok(
-    Object.keys(board.overrides).length < 30,
-    `respace pinned every player (${Object.keys(board.overrides).length} overrides)`,
+  // KTC reverses its opinion of everyone I never touched.
+  const touched = new Set(Object.keys(board.overrides).map(Number));
+  const refreshed = makePlayers(30).map((p) =>
+    touched.has(p.id) ? p : { ...p, boardRank: 31 - p.boardRank },
   );
+
+  const after = new Board(refreshed, board.overrides, []);
+  const untouched = after.rows().filter((r) => !touched.has(r.player.id));
+  assert.deepEqual(
+    untouched.map((r) => r.player.boardRank),
+    [...untouched.map((r) => r.player.boardRank)].sort((a, b) => a - b),
+    "untouched players did not pick up the refreshed order",
+  );
+});
+
+test("only players I placed carry a delta", () => {
+  const board = new Board(makePlayers(50));
+  board.moveTo(140, 0); // P41 to the top
+
+  const withArrows = board.rows().filter((r) => r.placed && r.moved !== 0);
+  assert.equal(withArrows.length, 1, "one move should produce one arrow");
+  assert.equal(withArrows[0].player.name, "Player 41");
+  assert.equal(withArrows[0].moved, 40);
+
+  // The 40 players he displaced each sit one spot lower, but that is not an
+  // opinion I expressed and must not be shown as one.
+  const displaced = board.rows().find((r) => r.player.name === "Player 1")!;
+  assert.equal(displaced.moved, -1, "displacement is still true");
+  assert.equal(displaced.placed, false, "but it is not something I decided");
+});
+
+test("a placed player's delta tracks KTC moving underneath him", () => {
+  const board = new Board(makePlayers(10));
+  board.moveTo(104, 0); // Player 5 to the top: up 4
+  assert.equal(board.rows()[0].moved, 4);
+
+  // KTC comes round to my view: he is now their #2, so we barely disagree.
+  const refreshed = makePlayers(10).map((p) =>
+    p.id === 104 ? { ...p, boardRank: 2 } : p,
+  );
+  const after = new Board(refreshed, board.overrides, []);
+  const row = after.rows().find((r) => r.player.id === 104)!;
+  assert.equal(row.moved, 1, "the gap between my opinion and theirs should shrink");
 });
 
 // Positions cycle RB, WR, QB, TE, so the WRs are players 2, 6 and 10 — and

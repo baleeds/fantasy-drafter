@@ -141,8 +141,12 @@ function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): vo
     state === "mine" ? `${player.name} is mine — tap to release` : `I drafted ${player.name}`,
   );
 
+  // Only players I actually placed carry an arrow. Everyone else can be
+  // displaced by moves around them, and showing that as an arrow would put a
+  // number against a decision I never made — one promotion pushes 40 players
+  // down a spot, and a normal prep session would arrow two-thirds of the board.
   const moved = el.querySelector(".moved") as HTMLElement;
-  const delta = row.moved;
+  const delta = row.placed ? row.moved : 0;
   moved.textContent = delta === 0 ? "" : delta > 0 ? `↑${delta}` : `↓${-delta}`;
   moved.className = `moved ${delta > 0 ? "up" : delta < 0 ? "down" : ""}`;
 }

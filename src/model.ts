@@ -54,8 +54,15 @@ export interface BoardRow {
   player: Player;
   /** 1-based position on the full board, independent of any active filter. */
   position: number;
-  /** Positive means I rate him higher than KTC does. */
+  /**
+   * How far he sits from KTC's rank. Positive means I rate him higher.
+   *
+   * Only meaningful alongside `placed`: a player I never touched can still be
+   * displaced by moves around him, and that displacement is not an opinion.
+   */
   moved: number;
+  /** True if I put him here, rather than his having been pushed here. */
+  placed: boolean;
   state: PlayerState;
   doNotDraft: boolean;
   note: string;
@@ -107,6 +114,7 @@ export class Board {
       player,
       position: i + 1,
       moved: player.boardRank - (i + 1),
+      placed: this.isPlaced(player.id),
       state: this.stateOf(player.id),
       doNotDraft: this.isDoNotDraft(player.id),
       note: this.overrides[player.id]?.note ?? "",
@@ -170,13 +178,27 @@ export class Board {
     this.moveTo(id, to);
   }
 
+  /** Has an explicit key, meaning I put him where he is. */
+  isPlaced(id: number): boolean {
+    return this.overrides[id]?.sortKey !== undefined;
+  }
+
+  /** The key a player would inherit if I had never touched him. */
+  private naturalKey(player: Player): number {
+    return player.boardRank * SPACING;
+  }
+
   /**
-   * Midpoint insertion eventually exhausts a gap. When any two adjacent keys
-   * get within 2 of each other, respace the whole board.
+   * Midpoint insertion eventually exhausts a gap. When two adjacent keys get
+   * within 2 of each other, reopen the spacing.
    *
-   * Players whose respaced key matches what they would inherit anyway keep no
-   * override — otherwise a single renormalise would pin all 300 players and
-   * quietly break the "untouched players follow KTC" property.
+   * Only the players I actually placed are respaced, and they are spread
+   * between the untouched players either side of them rather than given
+   * positional keys. Respacing the whole board would hand an explicit key to
+   * every player merely *displaced* by my moves — 203 of 300 in a normal prep
+   * session — and an explicit key means "I decided this", which would freeze
+   * them against the next KTC refresh and light up their arrows for a move I
+   * never made.
    */
   private renormaliseIfTight(): void {
     const rows = this.rows();
@@ -186,11 +208,31 @@ export class Board {
     );
     if (!tight) return;
 
-    rows.forEach((row, i) => {
-      const key = (i + 1) * SPACING;
-      if (key === row.player.boardRank * SPACING) this.clearSortKey(row.player.id);
-      else this.setOverride(row.player.id, { sortKey: key });
-    });
+    const ordered = rows.map((r) => r.player);
+    let i = 0;
+    while (i < ordered.length) {
+      if (!this.isPlaced(ordered[i].id)) {
+        i++;
+        continue;
+      }
+
+      // A run of placed players, bounded by whoever is untouched either side.
+      let end = i;
+      while (end < ordered.length && this.isPlaced(ordered[end].id)) end++;
+
+      const count = end - i;
+      const low = i > 0 ? this.naturalKey(ordered[i - 1]) : 0;
+      const high =
+        end < ordered.length
+          ? this.naturalKey(ordered[end])
+          : low + SPACING * (count + 1);
+
+      const step = (high - low) / (count + 1);
+      for (let k = 0; k < count; k++) {
+        this.setOverride(ordered[i + k].id, { sortKey: Math.round(low + step * (k + 1)) });
+      }
+      i = end;
+    }
   }
 
   resetOrder(): void {
