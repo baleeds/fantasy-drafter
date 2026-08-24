@@ -195,40 +195,98 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 ### Draft mode — the screen I live in
 
 - **Best available at top**, sorted by my order, grouped by tier.
-- **Position filter chips** — ALL / QB / RB / WR / TE / K / DST / FLEX.
+- **Position filter chips** — ALL / QB / RB / WR / TE / K / DST / FLEX / MINE.
+  K and DST are excluded from ALL by default and reachable via their own chips;
+  they are drafted in the last two rounds and are noise for the other fourteen.
 - **One tap marks a player drafted.** A second, distinct action marks
   **"I drafted him"** (long-press or a separate button).
-- **Drafted players disappear** by default; toggle to show them struck through.
 - **Undo.** Non-negotiable — mis-taps happen constantly when the board moves fast.
 - **Search** to jump to a name. I'll hear a name announced and need to find it
   in two seconds.
 - **Injury badges** — "Q — Knee/ACL" inline, for deciding whether to take the risk.
 - **Do-not-draft players** render dimmed and struck through, sunk to the bottom.
 - **My roster panel** — counts by position, so I know I still need a TE.
-- **Tier countdown** — "4 left in this tier," the signal for whether I can wait.
+- **Tier countdown** — "4 left in this tier." This is the app's answer to "can I
+  wait?", and it is deliberately not a prediction. It is grounded entirely in my
+  own board and answers the question that actually matters at the table: not
+  "will this specific player survive", but "if I wait and lose him, is there an
+  equivalent player left?"
+
+### The three player states
+
+Available, taken-by-someone, and mine are three distinct kinds of information
+and must not share a visual treatment. In particular, **strike-through is wrong
+for my own picks** — it reads as "lost, unavailable, stop looking" when the
+player was in fact acquired.
+
+| State | Default visibility | Treatment |
+|---|---|---|
+| Available | Shown | Normal |
+| Taken by someone else | Hidden | Dimmed, struck through, in place |
+| Mine | Hidden in board, always in roster panel | Accent colour + badge, never struck |
+
+- **"Show drafted" toggle** brings taken players back inline, for scanning and
+  confirming whether someone actually went.
+- **`MINE` filter chip** shows only my team by name. This reuses the existing
+  filter row rather than introducing a separate view mode.
+- **Fade-out animation** whenever a player leaves the visible list, in every
+  mode. The half-second of motion is what catches a mis-tap; without it, a
+  wrong tap removes a player silently and I spend the rest of the draft
+  believing he is gone.
 
 ### Persistence & safety
 
 - Autosave to `localStorage` on every change.
-- **Export / import JSON.** The safety net: a dead phone shouldn't cost me the
-  board, and it lets me prep on the laptop and carry it to my phone.
+- **The board encodes into the URL.** `localStorage` is not durable enough to
+  trust on its own: Safari deletes all script-writable storage for a site after
+  7 days of browser use without interaction, which is exactly the gap between
+  prepping a board in August and drafting in September. The full personal layer
+  compresses into the URL hash, so bookmarking the page preserves the board
+  through any storage wipe, with no file management and no export to remember.
+  The hash fragment is never sent to the server, so length limits are generous.
+- **Scope limit, deliberate:** the URL is a *prep* backup — order, do-not-draft
+  flags, notes. Live draft state stays in `localStorage`, since eviction happens
+  between sessions rather than during one.
+- **Export / import JSON** stays as the mechanism for moving a board between
+  laptop and phone.
 - **Two separate resets** — "reset draft" (clears drafted flags, keeps my
   rankings) and "reset everything."
 - Confirmation before anything destructive.
 
 ### Later, not day one
 
+- **ADP as a second source**, deferred until I have seen how far the KTC board
+  diverges from how a room actually drafts.
 - Multiple saved boards (different leagues, or a redraft after a mock).
 - Bye-week filter, for spotting bye pileups.
 - Position-run indicator — last N picks by position, to see a RB run forming.
 - Dark mode.
-- PWA install + offline cache.
+- PWA install + offline cache. Also exempts storage from Safari eviction.
+
+## Implementation decisions
+
+- **Vanilla TypeScript + Vite, no framework.** The app is one sorted list with
+  filters. Nothing to upgrade when I come back to this next August.
+- **`players.json` is committed** rather than generated at deploy time. Daily
+  data commits are noisy, but the last good file always exists in git.
+- **The refresh Action validates before committing.** Player count in a sane
+  range, required fields present, top-ranked player is a plausible skill
+  position. On failure it fails loudly and leaves the previous `players.json`
+  untouched. A stale board beats an empty one, and a KTC redesign must not be
+  able to break the app during draft week.
 
 ## Non-goals
 
 No accounts, no backend, no sync with ESPN/Yahoo/Sleeper, no projections engine,
-no auction support, no multi-user, no league/draft-slot configuration and
-therefore no pick countdown. The tiered board carries that weight instead.
+no auction support, no multi-user, no league or draft-slot configuration.
+
+**No pick countdown, and this is a considered exclusion rather than a cut for
+scope.** "Will he last until my next pick?" is by definition an ADP question —
+it requires knowing when players come off the board, which crowd-sourced KTC
+value does not encode. A countdown beside a KTC-ranked board would be worse
+than absent: it presents a real number (11 picks away) with no way to estimate
+who disappears during those picks, and so reads as actionable when it is not.
+Pick timing is therefore coupled to ADP, and returns only if ADP does.
 
 ## Open questions
 
@@ -237,3 +295,5 @@ therefore no pick countdown. The tiered board carries that weight instead.
   to draft day.
 - Is a "run the refresh workflow" button worth adding to the UI, or is the
   GitHub Actions manual-dispatch page good enough?
+- How large does the encoded URL get with a heavily reordered board plus notes?
+  If it becomes unwieldy, notes are the first thing to drop from the encoding.
