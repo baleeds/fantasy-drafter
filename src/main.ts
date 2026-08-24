@@ -327,6 +327,7 @@ function wireDrag(): void {
   enableDragReorder({
     list: el<HTMLOListElement>("#board"),
     rowSelector: ".row",
+    handleSelector: ".grip",
     topInset: () => el("#header").getBoundingClientRect().height,
     longPressMs: () => settings.longPressMs,
     autoscrollMaxSpeed: () => settings.autoscrollMaxSpeed,

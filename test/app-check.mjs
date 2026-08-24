@@ -52,6 +52,11 @@ try {
   );
   check("every row is the same height", heights.length === 1, `heights: ${heights}`);
 
+  check(
+    "touch shows no drag handle",
+    await rows().nth(0).locator(".grip").isHidden(),
+  );
+
   // --- Filters -------------------------------------------------------------
   await page.click('.chip[data-filter="QB"]');
   const qbOnly = await page.evaluate(() =>
@@ -138,6 +143,20 @@ try {
   check("undo walks the whole log back", (await visibleCount()) === 300);
   check("and the undo control goes away", await page.locator("#undo").isHidden());
 
+  // --- Releasing a touch drag must not count as a tap ----------------------
+  // Still in draft mode, where a tap takes a player off the board. Reordering
+  // someone and having him vanish is the kind of thing you notice two rounds
+  // later, so it gets its own check.
+  const dragged = await nameAt(3);
+  const dragBox = await rows().nth(3).boundingBox();
+  await touchDrag(page, dragBox.y + dragBox.height / 2, dragBox.y - 130);
+
+  check(
+    "releasing a touch drag does not draft the player",
+    (await visibleCount()) === 300 && (await page.locator("#undo").isHidden()),
+  );
+  check("and it did reorder him", (await nameAt(0)) === dragged, `${dragged} to top`);
+
   // --- Prep mode: the sheet, do-not-draft, notes ---------------------------
   await page.click("#mode");
   const prepTarget = await nameAt(2);
@@ -191,6 +210,8 @@ try {
   check("and keeps my rankings", (await nameAt(4)) === beforeReload.fifth);
 
   check("no uncaught page errors", pageErrors.length === 0, pageErrors.join("; "));
+
+  await checkDesktop();
 } finally {
   await browser.close();
   server.kill();
@@ -199,6 +220,78 @@ try {
 const failed = results.filter((r) => !r.pass);
 console.log(`\n${results.length - failed.length}/${results.length} passed`);
 process.exit(failed.length === 0 ? 0 : 1);
+
+/** Drive a long-press drag through raw touch events. */
+async function touchDrag(target, fromY, toY, { holdMs = 500, steps = 20 } = {}) {
+  const cdp = await context.newCDPSession(target);
+  const x = 195;
+  await cdp.send("Input.dispatchTouchEvent", {
+    type: "touchStart",
+    touchPoints: [{ x, y: fromY }],
+  });
+  await target.waitForTimeout(holdMs);
+  for (let i = 1; i <= steps; i++) {
+    await cdp.send("Input.dispatchTouchEvent", {
+      type: "touchMove",
+      touchPoints: [{ x, y: fromY + ((toY - fromY) * i) / steps }],
+    });
+    await target.waitForTimeout(16);
+  }
+  await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+  await target.waitForTimeout(150);
+}
+
+/**
+ * The mouse path is a different interaction from the touch one: drag comes off
+ * a handle rather than a long press, so pressing on the row body must never
+ * reorder the board.
+ */
+async function checkDesktop() {
+  const desktop = await browser.newContext({ viewport: { width: 1200, height: 900 } });
+  const page = await desktop.newPage();
+  const errors = [];
+  page.on("pageerror", (e) => errors.push(String(e)));
+
+  try {
+    await page.goto(URL, { waitUntil: "networkidle" });
+    await page.waitForSelector(".row");
+
+    const rows = () => page.locator(".row");
+    const nameAt = (i) => rows().nth(i).locator(".name").innerText();
+
+    check(
+      "desktop shows the drag handle",
+      await rows().nth(0).locator(".grip").isVisible(),
+    );
+
+    // Press on the row body and move: must scroll/select, never reorder.
+    const top = await nameAt(0);
+    const body = await rows().nth(3).boundingBox();
+    await page.mouse.move(body.x + 120, body.y + body.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(body.x + 120, body.y - 150, { steps: 12 });
+    await page.mouse.up();
+    check("dragging the row body does not reorder", (await nameAt(0)) === top);
+
+    // Now the same movement from the handle.
+    const moving = await nameAt(3);
+    const grip = await rows().nth(3).locator(".grip").boundingBox();
+    await page.mouse.move(grip.x + grip.width / 2, grip.y + grip.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(grip.x + grip.width / 2, grip.y - 180, { steps: 16 });
+    await page.mouse.up();
+    await page.waitForTimeout(120);
+    check("dragging the handle reorders", (await nameAt(0)) === moving, `${moving} to top`);
+
+    // And an ordinary click still opens the sheet rather than being eaten.
+    await rows().nth(5).click();
+    check("a plain click still opens the sheet", await page.locator("#sheet").isVisible());
+
+    check("no desktop page errors", errors.length === 0, errors.join("; "));
+  } finally {
+    await desktop.close();
+  }
+}
 
 async function waitForServer() {
   for (let i = 0; i < 50; i++) {

@@ -28,6 +28,13 @@ export interface DragConfig {
   list: HTMLElement;
   /** Selector matching a draggable row within the list. */
   rowSelector: string;
+  /**
+   * Selector for the mouse drag handle. Touch has no handle — a long press
+   * anywhere on the row picks it up — but on a mouse there is no press to wait
+   * out, so dragging from anywhere means every stray click-and-twitch reorders
+   * the board.
+   */
+  handleSelector?: string;
   /** Pixels of fixed UI at the top of the viewport, for the autoscroll zone. */
   topInset: () => number;
   /** How long the finger must sit still before a row is picked up. */
@@ -64,7 +71,6 @@ export function enableDragReorder(cfg: DragConfig): void {
   let pointerY = 0;
   let rafId = 0;
   let lastFrame = 0;
-  let swallowNextClick = false;
 
   // --- Picking a row up ----------------------------------------------------
 
@@ -196,12 +202,6 @@ export function enableDragReorder(cfg: DragConfig): void {
     dragging = false;
     sourceRow = null;
     touchId = null;
-
-    // Releasing a drag also produces a click. In draft mode a click marks a
-    // player drafted, so without this a reorder would take him off the board.
-    swallowNextClick = true;
-    setTimeout(() => (swallowNextClick = false), 400);
-
     cfg.onStateChange?.(false);
 
     if (currentIndex !== startIndex) cfg.onReorder(startIndex, currentIndex);
@@ -252,12 +252,17 @@ export function enableDragReorder(cfg: DragConfig): void {
     { passive: false },
   );
 
-  const finish = () => {
+  const finish = (e: TouchEvent) => {
+    // A touch sequence is followed by a synthetic click. Preventing the default
+    // action of touchend suppresses it, which is what stops releasing a dragged
+    // row from also counting as a tap on him — in draft mode, that would mark
+    // the player you just reordered as drafted.
+    if (dragging && e.cancelable) e.preventDefault();
     cancelPending();
     endDrag();
   };
-  document.addEventListener("touchend", finish);
-  document.addEventListener("touchcancel", finish);
+  document.addEventListener("touchend", finish, { passive: false });
+  document.addEventListener("touchcancel", finish, { passive: false });
 
   function findTouch(touches: TouchList): Touch | null {
     if (touchId === null) return touches[0] ?? null;
@@ -268,29 +273,28 @@ export function enableDragReorder(cfg: DragConfig): void {
   }
 
   // --- Mouse ---------------------------------------------------------------
-  // No long press on desktop: there is no scroll gesture to disambiguate from,
-  // so waiting would just make the interaction feel sticky. But the drag must
-  // not start until the pointer actually moves, or every plain click ends a
-  // zero-distance "drag" — and since ending a drag swallows the click that
-  // follows it, tapping a player would do nothing at all.
+  // A mouse drag starts from the handle and starts at once. There is no long
+  // press to wait out and no scroll gesture to disambiguate from, so a delay
+  // would only make it feel sticky — but without a handle, pressing anywhere
+  // on a row would begin a drag, which reads as the board lurching under an
+  // ordinary click.
 
   list.addEventListener("mousedown", (e) => {
     if (e.button !== 0 || dragging) return;
-    const row = (e.target as HTMLElement).closest<HTMLElement>(rowSelector);
+    const target = e.target as HTMLElement;
+    if (cfg.handleSelector && !target.closest(cfg.handleSelector)) return;
+
+    const row = target.closest<HTMLElement>(rowSelector);
     if (!row) return;
-    if ((e.target as HTMLElement).closest("button, a, input")) return;
 
     e.preventDefault();
-    startX = e.clientX;
-    startY = e.clientY;
     pointerY = e.clientY;
     pendingRow = row;
+    beginDrag();
   });
 
   document.addEventListener("mousemove", (e) => {
-    pointerY = e.clientY;
-    if (dragging || !pendingRow) return;
-    if (Math.hypot(e.clientX - startX, e.clientY - startY) > MOVE_SLOP) beginDrag();
+    if (dragging) pointerY = e.clientY;
   });
 
   document.addEventListener("mouseup", () => {
@@ -300,12 +304,19 @@ export function enableDragReorder(cfg: DragConfig): void {
 
   // --- Gestures the browser would otherwise claim ---------------------------
 
-  // Capture phase, so this runs before any delegated click handler on the list.
+  // The handle is for dragging and nothing else. A short mouse drag starts and
+  // ends inside it, and the click that follows would otherwise land on the row
+  // — so clicking the handle never reaches the list. Capture phase, to get
+  // ahead of any delegated handler.
+  //
+  // A long mouse drag needs no such guard: the click fires on the nearest
+  // common ancestor of press and release, which for a drag across rows is the
+  // list itself rather than any row.
   document.addEventListener(
     "click",
     (e) => {
-      if (!swallowNextClick) return;
-      swallowNextClick = false;
+      if (!cfg.handleSelector) return;
+      if (!(e.target as HTMLElement).closest(cfg.handleSelector)) return;
       e.stopPropagation();
       e.preventDefault();
     },
