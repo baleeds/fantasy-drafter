@@ -55,8 +55,8 @@ which are **separate orderings, not minor reshuffles**. Josh Allen is QB1 and
 overall #8 in 1QB, but overall #1 in superflex. Loading the wrong one produces
 a board that is wrong from the first pick.
 
-Positions cover `QB / RB / WR / TE / PK / DST`, so kickers and defenses are
-included and the board is complete.
+The source covers `QB / RB / WR / TE / PK / DST`. Kickers and defenses are
+filtered out in the pipeline — see "Positions: skill players only" below.
 
 ### Pipeline
 
@@ -79,6 +79,37 @@ works with no internet at all.
 manually the morning of the draft. The UI displays a **"rankings as of <date>"**
 line — injury data in particular goes stale within days, and I need to know
 what I'm looking at.
+
+### Positions: skill players only
+
+My league does not use kickers or defenses, so **PK and DST are dropped entirely
+in the pipeline** — not hidden in the UI. There are no K or DST filter chips and
+those players never enter the app. This takes the redraft board from 376 players
+to **300**, of which 260 are genuinely ranked (see the unranked bucket below).
+
+### Densification
+
+KTC's `startSitOverallRank` **cannot be used directly as a sort key.** Three
+things are wrong with it:
+
+- **K and DST are interleaved** into the overall ranks — Eagles DST at 156,
+  Packers at 159, Seahawks at 163. Filtering them out leaves gaps, which would
+  make the "moved" indicator drift permanently, since board position and KTC
+  rank would no longer share a scale.
+- **Ranks are not unique.** Only 320 distinct ranks across 376 players. Eight
+  are genuine ties — Zach Charbonnet and Trey Benson both sit at 73.
+- **Rank 971 is an "unranked" sentinel** holding 50 players (40 of them skill
+  players), mostly rookies and deep prospects.
+
+Left alone, the 40-player sentinel bucket would all receive the identical sort
+key and fall into whatever order the JSON happened to arrive in — meaning **the
+bottom of the board could silently reshuffle on every refresh.**
+
+So the pipeline filters K/DST, sorts by `(startSitOverallRank, playerName)`, and
+assigns a **dense `boardRank` of 1..300**. The app uses `boardRank`, never the
+raw KTC rank. This resolves the gaps, the ties, and the sentinel bucket in one
+step, and makes ordering deterministic across refreshes. Raw `ktcRank` is
+retained as a display-only field.
 
 ### Data quirks to handle
 
@@ -126,9 +157,14 @@ anchor to a neighbouring player. Players I have never moved store no ordering
 data at all and inherit KTC's rank as their key:
 
 ```js
-sortKey(player) = override.sortKey ?? (player.ktcRank * 1000)
+sortKey(player) = override.sortKey ?? (player.boardRank * 1000)
 // board order = sort ascending by sortKey
 ```
+
+This uses the dense `boardRank` assigned by the pipeline, **not** KTC's raw
+rank. Raw ranks contain ties and a 40-player sentinel bucket, which would hand
+many players an identical key and let the board reshuffle between refreshes.
+See "Densification" above.
 
 Dragging a player between neighbours A and B assigns him the midpoint:
 
@@ -149,7 +185,7 @@ Properties this gives us:
 The `* 1000` spacing keeps keys as integers rather than floats. Roughly ten
 midpoint insertions into the *same* gap will exhaust it; when any adjacent gap
 closes to less than 2, renormalise the entire board back to clean `* 1000`
-spacing. On 376 players that is instantaneous and in practice will rarely fire.
+spacing. On 300 players that is instantaneous and in practice will rarely fire.
 
 **Rejected: a delta** (`offset: -12`). A delta means "always twelve spots better
 than whatever KTC currently thinks", which permanently couples my override to
@@ -187,7 +223,7 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 - **Do-not-draft flag** on any player.
 - **Per-player notes** — short free text.
 - **Edit tier breaks** — KTC's tiers are the starting point, not the last word.
-- **Manual add** for anyone missing. Minor, given 376 players covering K and DST.
+- **Manual add** for anyone missing. Minor, given a 300-player board.
 - **"Moved" indicator** — how far a player sits from KTC's rank (`↑12` / `↓8`),
   so my own biases are visible.
 - **Reset to KTC order** — undo for the whole board.
@@ -195,9 +231,8 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
 ### Draft mode — the screen I live in
 
 - **Best available at top**, sorted by my order, grouped by tier.
-- **Position filter chips** — ALL / QB / RB / WR / TE / K / DST / FLEX / MINE.
-  K and DST are excluded from ALL by default and reachable via their own chips;
-  they are drafted in the last two rounds and are noise for the other fourteen.
+- **Position filter chips** — ALL / QB / RB / WR / TE / FLEX / MINE. No K or DST
+  chips; those positions do not exist in this app.
 - **One tap marks a player drafted.** A second, distinct action marks
   **"I drafted him"** (long-press or a separate button).
 - **Undo.** Non-negotiable — mis-taps happen constantly when the board moves fast.
@@ -240,13 +275,18 @@ player was in fact acquired.
 - **The board encodes into the URL.** `localStorage` is not durable enough to
   trust on its own: Safari deletes all script-writable storage for a site after
   7 days of browser use without interaction, which is exactly the gap between
-  prepping a board in August and drafting in September. The full personal layer
+  prepping a board in August and drafting in September. The personal layer
   compresses into the URL hash, so bookmarking the page preserves the board
   through any storage wipe, with no file management and no export to remember.
   The hash fragment is never sent to the server, so length limits are generous.
-- **Scope limit, deliberate:** the URL is a *prep* backup — order, do-not-draft
-  flags, notes. Live draft state stays in `localStorage`, since eviction happens
-  between sessions rather than during one.
+- **The URL encodes ordering and do-not-draft flags only. Notes are excluded** —
+  they are free text with unbounded length, and they are the least costly thing
+  to lose in a storage wipe. Keeping them out means the encoded URL has a
+  predictable ceiling rather than growing with how much I happened to type.
+  Notes still persist in `localStorage` and still travel in the JSON export.
+- **Scope limit, deliberate:** the URL is a *prep* backup — ordering and
+  do-not-draft flags. Live draft state stays in `localStorage`, since eviction
+  happens between sessions rather than during one.
 - **Export / import JSON** stays as the mechanism for moving a board between
   laptop and phone.
 - **Two separate resets** — "reset draft" (clears drafted flags, keeps my
@@ -295,5 +335,7 @@ Pick timing is therefore coupled to ADP, and returns only if ADP does.
   to draft day.
 - Is a "run the refresh workflow" button worth adding to the UI, or is the
   GitHub Actions manual-dispatch page good enough?
-- How large does the encoded URL get with a heavily reordered board plus notes?
-  If it becomes unwieldy, notes are the first thing to drop from the encoding.
+- Should the 40-player unranked tail (KTC's rank-971 sentinel) be visually
+  separated from the 260 genuinely ranked players? KTC is expressing "no
+  opinion" about them rather than "ranked last", and the board currently
+  presents those as the same thing.
