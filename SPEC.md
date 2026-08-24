@@ -106,7 +106,7 @@ My layer  (localStorage)             — never touched by a refresh
 // My layer, keyed by KTC playerID
 {
   "1508": {
-    "customRank": 3,          // my position in the board, if moved
+    "sortKey": 8500,          // see "How ordering is stored" below; absent if never moved
     "doNotDraft": false,
     "note": "handcuff is available late",
     "status": "available"     // available | drafted | mine
@@ -118,6 +118,62 @@ Flattening these into one list would mean every rankings refresh destroys my
 prep work. Keeping them separate means I can refresh the morning of the draft
 and keep my order, my flags, and my notes — while newly added players merge in
 automatically.
+
+### How ordering is stored
+
+Ordering is a **sparse sort key**, not a delta against KTC and not a positional
+anchor to a neighbouring player. Players I have never moved store no ordering
+data at all and inherit KTC's rank as their key:
+
+```js
+sortKey(player) = override.sortKey ?? (player.ktcRank * 1000)
+// board order = sort ascending by sortKey
+```
+
+Dragging a player between neighbours A and B assigns him the midpoint:
+
+```js
+override.sortKey = (sortKey(A) + sortKey(B)) / 2
+```
+
+Properties this gives us:
+
+- **The personal layer stays sparse.** Only players I actually moved are stored.
+- **Moving one player renumbers nobody else.** No cascading rewrite, no
+  collision handling.
+- **Refreshes behave correctly by default.** Untouched players pick up KTC's new
+  ranks automatically — correct, because I have no opinion about them. New
+  players merge in at their natural position with no special handling.
+- **Players I placed stay placed.** Their key is frozen.
+
+The `* 1000` spacing keeps keys as integers rather than floats. Roughly ten
+midpoint insertions into the *same* gap will exhaust it; when any adjacent gap
+closes to less than 2, renormalise the entire board back to clean `* 1000`
+spacing. On 376 players that is instantaneous and in practice will rarely fire.
+
+**Rejected: a delta** (`offset: -12`). A delta means "always twelve spots better
+than whatever KTC currently thinks", which permanently couples my override to
+the opinion I was trying to override. Bump a player from 20 to 8, then watch him
+fall to 90 on an injury, and the board says 78 — when what I meant was "top ten".
+
+**Rejected: a positional anchor** (`{after: playerID}`). Semantically richer, but
+it propagates baseline volatility in the wrong direction: if the anchor player
+collapses 80 spots, everyone anchored behind him is dragged down too. It also
+needs handling for broken chains when an anchor leaves the list, and for cycles.
+
+### Consequences to handle
+
+- **Stale pins.** A frozen key drifts in meaning as the baseline moves. A player
+  pinned at `8500` still reads as top-ten even if his KTC rank has since
+  collapsed. This makes the "moved" indicator load-bearing rather than
+  decorative, and calls for a post-refresh prompt: *"3 players you placed have
+  moved 20+ spots in KTC — review?"*
+- **Non-contiguous tiers.** Once the board is reordered, KTC's tiers no longer
+  appear in contiguous runs — a tier 3 player can sit between two tier 5s. Tier
+  must therefore render as a per-player badge once a custom order exists.
+  Manual tier breaks are what provide real section grouping.
+- **Orphaned overrides.** A player dropped from KTC leaves an override behind.
+  Harmless at this scale — keep them, since players do get re-added.
 
 ## Feature set
 
