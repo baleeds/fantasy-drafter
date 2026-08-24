@@ -43,17 +43,40 @@ it in one step.
 |---|---|
 | `playerName`, `position`, `team` | identity |
 | `playerID` | stable key — this is what our overrides are keyed on |
-| `byeWeek` | bye-week display and filter (populated for 359/376) |
-| `startSitOverallRank` | the baseline board order |
-| `startSitPositionalRank` | "RB4", "WR7" labels |
-| `startSitOverallTier` | tier grouping |
+| `byeWeek` | bye-week display and filter (missing for 17 of 300) |
+| `rank` | the baseline board order |
+| `positionalRank` | "RB4", "WR7" labels |
+| `overallTier` | tier grouping |
 | `injury` | injury badge — status, body area, expected return |
 | `age`, `rookie` | secondary display |
 
-Rank/tier/injury fields live under either `oneQBValues` or `superflexValues`,
-which are **separate orderings, not minor reshuffles**. Josh Allen is QB1 and
-overall #8 in 1QB, but overall #1 in superflex. Loading the wrong one produces
-a board that is wrong from the first pick.
+Rank/tier fields live under either `oneQBValues` or `superflexValues`, which are
+**separate orderings, not minor reshuffles**. Josh Allen is 6th overall in 1QB
+but 4th in superflex, and superflex puts Drake Maye and Lamar Jackson in the top
+8 where 1QB has neither. Loading the wrong one produces a board that is wrong
+from the first round.
+
+### Use `rank`, not `startSitOverallRank`
+
+The redraft page carries **two unrelated rankings** in the same payload, and
+picking the wrong one silently produces a nonsense board:
+
+| Field | What it actually is |
+|---|---|
+| `rank` | **the draft ranking** — what the page displays, and what we want |
+| `startSitOverallRank` | KTC's *weekly start/sit* ranking, a different product |
+
+The start/sit ranking treats "not a weekly lineup consideration" as effectively
+unranked, so it dumps rookies and deep prospects into a sentinel value of 971.
+Jeremiyah Love is `startSitOverallRank` 971 but `rank` **24** — the page shows
+him 24th, between Drake Maye and Tetairoa McMillan. Ordering a draft board by
+the start/sit field would bury a fourth-round talent at the bottom of the list.
+
+Verified against the live page: ordering by `oneQBValues.rank` reproduces KTC's
+displayed order exactly across the 18–30 window.
+
+The same distinction applies to the tier and positional-rank fields — use
+`overallTier` and `positionalRank`, never their `startSit*` counterparts.
 
 The source covers `QB / RB / WR / TE / PK / DST`. Kickers and defenses are
 filtered out in the pipeline — see "Positions: skill players only" below.
@@ -85,39 +108,35 @@ what I'm looking at.
 My league does not use kickers or defenses, so **PK and DST are dropped entirely
 in the pipeline** — not hidden in the UI. There are no K or DST filter chips and
 those players never enter the app. This takes the redraft board from 376 players
-to **300**, of which 260 are genuinely ranked (see the unranked bucket below).
+to **300**.
 
 ### Densification
 
-KTC's `startSitOverallRank` **cannot be used directly as a sort key.** Three
-things are wrong with it:
+`rank` is unique — 376 distinct values across 376 players, no ties — but it is
+**not contiguous**. It runs 1..2100 with gaps, because KTC ranks against a
+larger universe than this page lists. Kickers and defenses are also interleaved
+into it (Denver DST at 133, Brandon Aubrey at 139), so filtering them opens
+further gaps.
 
-- **K and DST are interleaved** into the overall ranks — Eagles DST at 156,
-  Packers at 159, Seahawks at 163. Filtering them out leaves gaps, which would
-  make the "moved" indicator drift permanently, since board position and KTC
-  rank would no longer share a scale.
-- **Ranks are not unique.** Only 320 distinct ranks across 376 players. Eight
-  are genuine ties — Zach Charbonnet and Trey Benson both sit at 73.
-- **Rank 971 is an "unranked" sentinel** holding 50 players (40 of them skill
-  players), mostly rookies and deep prospects.
+Left alone this would make the "moved" indicator drift permanently, since board
+position and KTC rank would not share a scale.
 
-Left alone, the 40-player sentinel bucket would all receive the identical sort
-key and fall into whatever order the JSON happened to arrive in — meaning **the
-bottom of the board could silently reshuffle on every refresh.**
-
-So the pipeline filters K/DST, sorts by `(startSitOverallRank, playerName)`, and
-assigns a **dense `boardRank` of 1..300**. The app uses `boardRank`, never the
-raw KTC rank. This resolves the gaps, the ties, and the sentinel bucket in one
-step, and makes ordering deterministic across refreshes. Raw `ktcRank` is
-retained as a display-only field.
+So the pipeline filters K/DST, sorts by `(rank, playerName)`, and assigns a
+**dense `boardRank` of 1..300**. The app orders by `boardRank`; raw `rank` is
+retained as a display-only field. The `playerName` tiebreak is belt-and-braces
+— `rank` has no ties today, but a deterministic sort means a refresh can never
+reshuffle the board through iteration order alone.
 
 ### Data quirks to handle
 
-- **Tiers are not strictly monotonic.** Observed: rank 25 is tier 5 while rank
-  26 is tier 4. Group tiers by rank order, don't assume tier increases cleanly.
+- **`overallTier` is monotonic** across all 300 skill players — 13 tiers, clean
+  ascending runs. Safe to render as contiguous groups on an unmodified board.
 - **17 players have no `byeWeek`.** Render blank, don't render `undefined`.
 - **`injury` is present on nearly every player** but healthy ones are just
   `{injuryCode: 1}`. Only badge when `injuryCode > 1` (66 players currently).
+- **`adp` exists in the payload but is empty** — present on every player,
+  populated on none. Do not build against it without re-checking; see the
+  pick-countdown reasoning under Non-goals.
 - **KTC values are crowd-sourced player value, not ADP.** They indicate who is
   good, not when players actually come off the board. Fine as a starting order
   for a board I hand-reorder anyway, but not a source of "he'll last another
@@ -162,9 +181,8 @@ sortKey(player) = override.sortKey ?? (player.boardRank * 1000)
 ```
 
 This uses the dense `boardRank` assigned by the pipeline, **not** KTC's raw
-rank. Raw ranks contain ties and a 40-player sentinel bucket, which would hand
-many players an identical key and let the board reshuffle between refreshes.
-See "Densification" above.
+rank, which is sparse (1..2100) and would leave board position and rank on
+different scales. See "Densification" above.
 
 Dragging a player between neighbours A and B assigns him the midpoint:
 
@@ -330,12 +348,14 @@ Pick timing is therefore coupled to ADP, and returns only if ADP does.
 
 ## Open questions
 
-- Does `startSitOverallRank` hold up once the regular season starts, or does KTC
-  repurpose the redraft page for in-season start/sit? Worth re-checking closer
-  to draft day.
 - Is a "run the refresh workflow" button worth adding to the UI, or is the
   GitHub Actions manual-dispatch page good enough?
-- Should the 40-player unranked tail (KTC's rank-971 sentinel) be visually
-  separated from the 260 genuinely ranked players? KTC is expressing "no
-  opinion" about them rather than "ranked last", and the board currently
-  presents those as the same thing.
+- The pipeline should assert that the field it reads is the *draft* ranking, not
+  the start/sit one, since the two live side by side and differ enormously. A
+  cheap check: no more than a handful of skill players in the top 50 may carry
+  a `rank` above 200. This is the exact mistake that produced a wrong board once
+  already.
+
+**Answered:** `startSitOverallRank` is a separate weekly start/sit product, not
+a seasonal drift in the draft ranking. `rank` is the draft ranking and is stable
+in meaning. See "Use `rank`, not `startSitOverallRank`".
