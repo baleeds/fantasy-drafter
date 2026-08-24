@@ -531,6 +531,16 @@ input[type="range"] {
   background: var(--bg);
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.22);
   scale: 1.02;
+
+  /*
+   * The ghost is a clone of a .row, so it inherits the row's transition — and
+   * the drag sets its transform every frame. Left alone it eases toward the
+   * finger over a quarter second instead of tracking it, which reads as the
+   * whole gesture being laggy. It is not a performance problem and profiling
+   * will not find it.
+   */
+  transition: none;
+  will-change: transform;
 }
 
 body.is-dragging {
