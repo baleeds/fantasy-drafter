@@ -187,6 +187,19 @@ try {
 
   // --- Prep mode: the sheet, do-not-draft, notes ---------------------------
   await page.click('.modes button[data-mode="prep"]');
+
+  // Snapshot every indicator before flagging anyone. The board already carries
+  // a real move by this point, so "all indicators are blank" would be the
+  // wrong assertion — what matters is that flagging changes none of them.
+  const indicatorsBefore = await page.evaluate(() =>
+    Object.fromEntries(
+      [...document.querySelectorAll(".row")].map((r) => [
+        r.querySelector(".name").textContent,
+        r.querySelector(".moved").textContent,
+      ]),
+    ),
+  );
+
   const prepTarget = await nameAt(2);
   await rows().nth(2).click();
   check("tapping in prep opens the sheet, not a pick", await page.locator("#sheet").isVisible());
@@ -196,16 +209,65 @@ try {
   await page.check("#sheet-dnd");
   await page.click("#sheet-close");
 
-  const sunkIndex = await page.evaluate(
-    (name) =>
-      [...document.querySelectorAll(".row .name")].findIndex((n) => n.textContent === name),
-    prepTarget,
+  check("a flagged player drops out of the board", (await visibleCount()) === 299);
+
+  // Flagging is an instruction about one player, not a re-rank of the rest.
+  const afterFlag = await page.evaluate(() =>
+    Object.fromEntries(
+      [...document.querySelectorAll(".row")].map((r) => [
+        r.querySelector(".name").textContent,
+        { rank: r.querySelector(".rank").textContent, moved: r.querySelector(".moved").textContent },
+      ]),
+    ),
   );
-  check("a do-not-draft player sinks to the bottom", sunkIndex === 299, `at ${sunkIndex}`);
+
+  const movedIndicators = Object.entries(afterFlag).filter(
+    ([name, row]) => row.moved !== indicatorsBefore[name],
+  );
   check(
-    "the note shows on the row",
-    (await rows().nth(299).locator(".meta").innerText()).includes("handcuff"),
+    "flagging changes nobody else's indicator",
+    movedIndicators.length === 0,
+    movedIndicators
+      .slice(0, 3)
+      .map(([n, r]) => `${n}: ${indicatorsBefore[n] || "-"} -> ${r.moved || "-"}`)
+      .join(", "),
   );
+
+  // Everyone below the flagged player keeps his number; the flagged one's is
+  // simply missing from the view.
+  const ranks = Object.values(afterFlag).map((r) => Number(r.rank));
+  check(
+    "and nobody else's board position",
+    ranks.every((rank, i) => rank === i + 1 || rank === i + 2),
+    `first six: ${ranks.slice(0, 6).join(" ")}`,
+  );
+
+  // --- Flagged players must stay findable ---------------------------------
+  await page.click('.chip[data-filter="DND"]');
+  check("the DND filter finds flagged players", (await visibleCount()) === 1);
+  check("and it is the right one", (await nameAt(0)) === prepTarget);
+  check(
+    "a flagged player is badged so search results read clearly",
+    (await rows().nth(0).locator(".tag.dnd").count()) === 1,
+  );
+  check(
+    "the note is still on him",
+    (await rows().nth(0).locator(".meta").innerText()).includes("handcuff"),
+  );
+  check(
+    "he keeps his board position rather than being sent to the bottom",
+    Number(await rows().nth(0).locator(".rank").innerText()) < 10,
+    `at board #${await rows().nth(0).locator(".rank").innerText()}`,
+  );
+
+  // Unflagging from there has to work, or the chip is a dead end.
+  await rows().nth(0).click();
+  await page.uncheck("#sheet-dnd");
+  await page.click("#sheet-close");
+  check("unflagging from the DND view empties it", (await visibleCount()) === 0);
+
+  await page.click('.chip[data-filter="ALL"]');
+  check("and puts him back on the board", (await visibleCount()) === 300);
 
   // --- Nudge ----------------------------------------------------------------
   await page.click('.chip[data-filter="ALL"]');
@@ -313,14 +375,15 @@ async function checkDurability() {
       `expected ${promoted} near the top`,
     );
 
+    // Flagged players are hidden from the board, so look where they live.
+    await restored.click('.chip[data-filter="DND"]');
     const restoredFlag = await restored.evaluate(
       (name) =>
-        [...document.querySelectorAll(".row")].find(
-          (r) => r.querySelector(".name").textContent === name,
-        )?.classList.contains("dnd") ?? false,
+        [...document.querySelectorAll(".row .name")].some((n) => n.textContent === name),
       flagged,
     );
-    check("do-not-draft flags come back too", restoredFlag);
+    check("do-not-draft flags come back too", restoredFlag, `expected ${flagged}`);
+    await restored.click('.chip[data-filter="ALL"]');
 
     // Notes are deliberately not in the link, so they should not reappear.
     const noteBack = await restored.evaluate(() =>

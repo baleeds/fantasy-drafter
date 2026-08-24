@@ -302,7 +302,12 @@ needs handling for broken chains when an anchor leaves the list, and for cycles.
   the answer I need is "he went four picks ago", and a search restricted to
   available players fails at exactly the moment it matters.
 - **Injury badges** — "Q — Knee/ACL" inline, for deciding whether to take the risk.
-- **Do-not-draft players** render dimmed and struck through, sunk to the bottom.
+- **Do-not-draft players are hidden, not moved.** The flag says "don't take
+  him"; it is not an opinion that everyone below him is a spot better than I
+  thought. He keeps his board position, so flagging one player renumbers nobody
+  and shifts nobody's "moved" indicator. He simply drops out of the board, and
+  the **`DND` filter chip** is how I get him back to review or unflag. Search
+  finds him too, badged `DND`.
 - **My roster panel** — raw counts by position (2 RB, 3 WR). Deliberately no
   starter requirements: that would mean configuring a starting lineup, and I'd
   rather do the "do I need a TE yet" arithmetic myself than maintain a setting.

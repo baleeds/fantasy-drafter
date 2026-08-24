@@ -479,12 +479,20 @@ input[type="range"] {
   visibility: hidden;
 }
 
+/*
+ * Flagged players are hidden from the board entirely, so the only places they
+ * appear are search results and the DND chip — where the point is to read them
+ * and decide. Struck through to say what they are, but not dimmed into
+ * illegibility.
+ */
 .row.dnd .name {
   text-decoration: line-through;
+  color: var(--muted);
 }
 
-.row.dnd {
-  opacity: 0.45;
+.tag.dnd {
+  color: var(--down);
+  background: color-mix(in srgb, var(--down) 14%, transparent);
 }
 
 /* --- Leaving --------------------------------------------------------------- */

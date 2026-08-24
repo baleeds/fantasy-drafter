@@ -111,6 +111,9 @@ function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): vo
   tags.textContent = "";
   if (row.state === "gone") tags.append(tag("GONE", "gone"));
   if (row.state === "mine") tags.append(tag("MINE", "mine"));
+  // Flagged players are hidden from the board, so this badge is what identifies
+  // them when they turn up in a search or under the DND chip.
+  if (row.doNotDraft) tags.append(tag("DND", "dnd"));
   if (player.injury) {
     tags.append(tag(`${player.injury.status.slice(0, 1)} ${player.injury.area}`, "injury"));
   }

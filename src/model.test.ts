@@ -177,19 +177,54 @@ test("resetting the order clears placements but keeps flags and notes", () => {
   board.setNote(101, "handcuff");
 
   board.resetOrder();
-  assert.deepEqual(names(board).slice(0, 2), ["Player 1", "Player 3"]); // 2 is sunk
+  assert.deepEqual(names(board).slice(0, 2), ["Player 1", "Player 2"]);
   assert.equal(board.isDoNotDraft(101), true);
   assert.equal(board.rows().find((r) => r.player.id === 101)!.note, "handcuff");
 });
 
 // --- Do not draft -----------------------------------------------------------
 
-test("do-not-draft players sink to the bottom and leave the draggable list", () => {
+test("a flagged player keeps his place in the order", () => {
   const board = new Board(makePlayers(4));
   board.setDoNotDraft(100, true);
 
-  assert.deepEqual(names(board), ["Player 2", "Player 3", "Player 4", "Player 1"]);
-  assert.equal(board.draggableRows().some((r) => r.player.id === 100), false);
+  // The flag says "don't take him", not "everyone else is a spot better".
+  // Hiding him is the view's job — see visibleRows in main.ts.
+  assert.deepEqual(names(board), ["Player 1", "Player 2", "Player 3", "Player 4"]);
+  assert.equal(board.rows()[0].doNotDraft, true);
+});
+
+test("flagging one player does not move everyone else's indicator", () => {
+  const board = new Board(makePlayers(10));
+  const before = new Map(board.rows().map((r) => [r.player.id, r.moved]));
+
+  board.setDoNotDraft(102, true); // sink the third player
+
+  for (const row of board.rows()) {
+    assert.equal(
+      row.moved,
+      before.get(row.player.id),
+      `${row.player.name}'s indicator moved because someone else was flagged`,
+    );
+  }
+});
+
+test("a flagged player's own indicator is unchanged too — a flag is not a move", () => {
+  const board = new Board(makePlayers(10));
+  board.setDoNotDraft(102, true);
+
+  const flagged = board.rows().find((r) => r.player.id === 102)!;
+  assert.equal(flagged.moved, 0, "flagging is an instruction, not an opinion about rank");
+  assert.equal(flagged.position, 3, "and he keeps his board position");
+});
+
+test("the indicator still tracks moves I actually make", () => {
+  const board = new Board(makePlayers(10));
+  board.moveTo(105, 0); // Player 6 to the top
+
+  const rows = board.rows();
+  assert.equal(rows[0].player.name, "Player 6");
+  assert.equal(rows[0].moved, 5, "was #6, now #1");
 });
 
 test("clearing a flag removes the override rather than leaving an empty one", () => {

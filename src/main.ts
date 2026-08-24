@@ -26,7 +26,7 @@ import {
 } from "./store.ts";
 import "./styles.css";
 
-const FILTERS = ["ALL", ...POSITIONS, "FLEX", "MINE"] as const;
+const FILTERS = ["ALL", ...POSITIONS, "FLEX", "MINE", "DND"] as const;
 const FLEX: Position[] = ["RB", "WR", "TE"];
 
 let board: Board;
@@ -80,6 +80,12 @@ function visibleRows(): BoardRow[] {
     if (query) return row.player.name.toLowerCase().includes(query);
 
     if (settings.filter === "MINE") return row.state === "mine";
+
+    // Flagged players keep their board position but drop out of view — that is
+    // the whole point of flagging one. This chip is how I get them back to
+    // review or unflag.
+    if (settings.filter === "DND") return row.doNotDraft;
+    if (row.doNotDraft) return false;
 
     // My own picks stay on the board whatever the toggle says. Hiding taken
     // players is for collapsing the run of players that went between my picks

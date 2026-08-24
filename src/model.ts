@@ -88,18 +88,22 @@ export class Board {
     return this.overrides[player.id]?.sortKey ?? player.boardRank * SPACING;
   }
 
-  /** Every player in board order, with do-not-draft players sunk to the end. */
+  /**
+   * Every player in board order.
+   *
+   * Do-not-draft players keep their place here. The flag is an instruction
+   * about one player — don't take him — not an opinion that everyone below him
+   * is a spot better than I thought. Moving flagged players to the end would
+   * renumber the rest of the board and shift their "moved" indicators along
+   * with it. Hiding them is the view's job; see visibleRows in main.ts.
+   */
   rows(): BoardRow[] {
     const ordered = [...this.players].sort((a, b) => {
       const byKey = this.sortKeyOf(a) - this.sortKeyOf(b);
       return byKey !== 0 ? byKey : a.boardRank - b.boardRank;
     });
 
-    const keep: Player[] = [];
-    const sunk: Player[] = [];
-    for (const p of ordered) (this.isDoNotDraft(p.id) ? sunk : keep).push(p);
-
-    return [...keep, ...sunk].map((player, i) => ({
+    return ordered.map((player, i) => ({
       player,
       position: i + 1,
       moved: player.boardRank - (i + 1),
@@ -107,11 +111,6 @@ export class Board {
       doNotDraft: this.isDoNotDraft(player.id),
       note: this.overrides[player.id]?.note ?? "",
     }));
-  }
-
-  /** The rows a drag can reorder — the sunk ones are not draggable. */
-  draggableRows(): BoardRow[] {
-    return this.rows().filter((r) => !r.doNotDraft);
   }
 
   /**
@@ -151,7 +150,7 @@ export class Board {
 
   /** Move a player to an index within the unfiltered draggable list. */
   moveTo(id: number, toIndex: number): void {
-    const list = this.draggableRows().filter((r) => r.player.id !== id);
+    const list = this.rows().filter((r) => r.player.id !== id);
     const clamped = Math.max(0, Math.min(list.length, toIndex));
 
     this.placeBetween(
@@ -163,7 +162,7 @@ export class Board {
 
   /** Single-spot move, for when picking a player up is more effort than it's worth. */
   nudge(id: number, direction: -1 | 1): void {
-    const list = this.draggableRows();
+    const list = this.rows();
     const from = list.findIndex((r) => r.player.id === id);
     if (from === -1) return;
     const to = from + direction;
