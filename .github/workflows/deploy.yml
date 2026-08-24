@@ -47,11 +47,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Pages must already be enabled on the repository, with its source set to
+      # GitHub Actions (Settings -> Pages -> Build and deployment). This is a
+      # one-time manual step and cannot be automated here: `enablement: true`
+      # fails with "Resource not accessible by integration", because creating a
+      # Pages site needs admin rights that GITHUB_TOKEN's `pages: write` does
+      # not grant.
       - uses: actions/configure-pages@v5
-        with:
-          # Create the Pages site on first run rather than requiring someone to
-          # flip it on in repository settings first.
-          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
