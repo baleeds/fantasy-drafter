@@ -277,13 +277,27 @@ Three things follow, and the second is the reason this was worth doing:
   him 26 spots above where the room takes him", which is the same statement as
   **he will keep** — the pick is better spent on someone the market wants
   sooner. `↓15` means wanting him at all means reaching. One number, two jobs.
-- **KTC becomes a prep tool.** It is shown only where it disagrees with draft
-  order by more than half the board position — proportional, because thirty
+- **KTC becomes a prep tool**, and a prep-*mode* one. It is shown only where it
+  disagrees with draft order by more than half the board position — proportional, because thirty
   spots is enormous at #20 and nothing at #250. That marks 38 of 300 rows, and
   inside the top 60 it lands on exactly two things: every older skill player KTC
   fades (McCaffrey, Barkley, Henry, Jacobs, McLaurin, Evans — all 28 and up) and
   the quarterbacks it inflates (Allen, Maye). Those are its two systematic
-  biases for a redraft league, and that is the list worth my own opinion.
+  biases for a redraft league, and that is the list worth my own opinion. The
+  **`KTC` filter chip** collects exactly those rows, so working through them is
+  a task rather than a scroll. Both are absent in draft mode: at the table the
+  board is already built, and what a trade-value market thinks is clutter on the
+  one screen that is time-pressured. `MINE` is hidden in prep for the mirror
+  reason, and selecting a filter whose chip then hides falls back to `ALL` so
+  the board can never strand itself empty.
+
+**What KTC still does, invisibly.** Demoting it from the running order makes it
+look vestigial in the UI — one annotation on 38 rows — but it remains the
+substrate. It defines the player universe (ADP is a column of 282 numbers and
+knows nothing of positions, teams, byes, injuries or `RB4` labels), it anchors
+the interpolation for players without an ADP, it is the deterministic sort
+tiebreak, and it is the fallback ordering when the ADP fetch fails. The board is
+KTC; ADP is a lens that reorders it.
 
 ### The value is noisy; the order is not
 

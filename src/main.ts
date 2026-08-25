@@ -34,7 +34,10 @@ import {
 } from "./store.ts";
 import "./styles.css";
 
-const FILTERS = ["ALL", ...POSITIONS, "FLEX", "MINE", "DND"] as const;
+const FILTERS = ["ALL", ...POSITIONS, "FLEX", "MINE", "KTC", "DND"] as const;
+
+/** Chips that only make sense in one mode, and which mode that is. */
+const MODE_ONLY: Record<string, "prep" | "draft"> = { MINE: "draft", KTC: "prep" };
 const FLEX: Position[] = ["RB", "WR", "TE"];
 
 let board: Board;
@@ -104,6 +107,12 @@ function visibleRows(): BoardRow[] {
       // picks — not for losing sight of my own team.
       if (row.state === "gone" && !settings.showDrafted) return false;
     }
+
+    // Where KTC materially disagrees with draft order. A prep worklist: these
+    // are the players two sources argue about, so they are the ones worth my
+    // own opinion rather than a default. Flagged players are excluded above,
+    // which is right — I have already decided about them.
+    if (settings.filter === "KTC") return row.ktcDisagrees;
 
     if (settings.filter === "ALL") return true;
     if (settings.filter === "FLEX") return FLEX.includes(row.player.position);
@@ -303,21 +312,24 @@ function buildFilters(): void {
 }
 
 function syncChips(): void {
-  const draftOnly = settings.mode !== "draft";
-  for (const chip of document.querySelectorAll<HTMLElement>(".chip")) {
-    // MINE means nothing in prep — nobody has been drafted yet.
-    if (chip.dataset.filter === "MINE") chip.hidden = draftOnly;
-    chip.classList.toggle("active", chip.dataset.filter === settings.filter);
-  }
-  // Leaving prep on a filter that no longer exists would show an empty board.
-  if (draftOnly && settings.filter === "MINE") {
+  // Some chips belong to one mode only: MINE means nothing in prep because
+  // nobody has been drafted, and KTC means nothing in draft because arguing
+  // with a trade-value market is prep work, not table work.
+  const wrongMode = (name?: string) =>
+    name !== undefined && MODE_ONLY[name] !== undefined && MODE_ONLY[name] !== settings.mode;
+
+  // Leaving a filter selected whose chip has just been hidden would show an
+  // empty board with no visible way back.
+  if (wrongMode(settings.filter)) {
     settings.filter = "ALL";
     saveSettings(settings);
-    for (const chip of document.querySelectorAll<HTMLElement>(".chip")) {
-      chip.classList.toggle("active", chip.dataset.filter === "ALL");
-    }
   }
-  el(".strip").hidden = draftOnly;
+
+  for (const chip of document.querySelectorAll<HTMLElement>(".chip")) {
+    chip.hidden = wrongMode(chip.dataset.filter);
+    chip.classList.toggle("active", chip.dataset.filter === settings.filter);
+  }
+  el(".strip").hidden = settings.mode !== "draft";
 }
 
 function wireHeader(): void {

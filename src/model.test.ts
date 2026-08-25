@@ -504,6 +504,29 @@ test("available rank counts only what is left, unlike board position", () => {
   assert.equal(rowFor(board, 102).availableRank, null);
 });
 
+// --- Where KTC disagrees ----------------------------------------------------
+
+test("KTC disagreement is proportional to depth, not a flat number of spots", () => {
+  // The same 30-spot gap, once near the top and once deep. Thirty spots is an
+  // enormous disagreement at #20 and nothing at #250, where both sources guess.
+  const players = makePlayers(300).map((p) =>
+    p.boardRank === 20 || p.boardRank === 250
+      ? { ...p, ktcRank: p.boardRank + 30 }
+      : { ...p, ktcRank: p.boardRank },
+  );
+  const board = new Board(players);
+  const at = (rank: number) => board.rows().find((r) => r.position === rank)!;
+
+  assert.equal(at(20).ktcDisagrees, true, "30 spots at #20 is 1.5x — a real argument");
+  assert.equal(at(250).ktcDisagrees, false, "30 spots at #250 is 0.12x — noise");
+});
+
+test("a board KTC agrees with flags nobody", () => {
+  const players = makePlayers(100).map((p) => ({ ...p, ktcRank: p.boardRank }));
+  const board = new Board(players);
+  assert.equal(board.rows().filter((r) => r.ktcDisagrees).length, 0);
+});
+
 // --- Projecting down ADP rather than down my board --------------------------
 
 test("with no ADP at all, the projection falls back to my own order", () => {

@@ -9,21 +9,6 @@
 
 import type { BoardRow, Projection } from "./model.ts";
 
-/**
- * How far KTC must disagree with draft order before it is worth showing, as a
- * *fraction of board position* rather than a flat number of spots.
- *
- * Proportional because a flat threshold is the wrong shape: thirty spots is an
- * enormous disagreement at #20 and nothing at all at #250, where both sources
- * are guessing. A flat 25 marked 158 of 300 rows — over half the board, which
- * is no signal at all. At 0.5 it marks 38, and inside the top 60 it lands on
- * exactly two things: every older skill player KTC fades (McCaffrey, Barkley,
- * Henry, Jacobs, McLaurin, Evans — all 28 and up) and the quarterbacks it
- * inflates (Allen, Maye). Those are KTC's two systematic biases for a redraft
- * league, and this is the list of players worth forming my own opinion about.
- */
-const KTC_DISAGREEMENT = 0.5;
-
 export interface RowCallbacks {
   onTap: (id: number) => void;
   onMine: (id: number) => void;
@@ -153,13 +138,13 @@ function updateRow(
   text(el, ".rank", String(row.position));
   text(el, ".name", player.name);
 
-  // KTC rides along as an overlay, and a quiet one: it appears only where it
-  // materially disagrees with draft order. The two sources broadly agree about
-  // talent within a position — the top ten at each share 8-10 names — so
-  // printing it on every row would be three hundred numbers to say "yes, still
-  // agreed". Where it does disagree is where I should form my own opinion.
-  const disagrees =
-    Math.abs(player.ktcRank - row.position) / row.position >= KTC_DISAGREEMENT;
+  // KTC is a prep idea, like the rest of the opinion-forming machinery. At the
+  // table I have already built my board and what a trade-value market thinks is
+  // clutter on the one screen that is time-pressured. It also appears only
+  // where KTC materially disagrees: the two sources broadly agree about talent
+  // within a position, so printing it everywhere would be three hundred numbers
+  // saying "yes, still agreed".
+  const disagrees = mode === "prep" && row.ktcDisagrees;
 
   const meta = [
     `${player.position}${player.positionalRank}`,

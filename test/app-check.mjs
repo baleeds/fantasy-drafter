@@ -374,6 +374,26 @@ try {
     await page.locator('.chip[data-filter="MINE"]').isHidden(),
   );
   check(
+    "but shows the KTC one — arguing with a trade-value market is prep work",
+    await page.locator('.chip[data-filter="KTC"]').isVisible(),
+  );
+  const ktcRows = await page.$$eval(".row .meta", (m) =>
+    m.filter((x) => x.innerText.includes("KTC")).length,
+  );
+  check(
+    "KTC is annotated where it materially disagrees, and only there",
+    ktcRows > 5 && ktcRows < 80,
+    `${ktcRows} of 300 rows carry a KTC rank`,
+  );
+  await page.click('.chip[data-filter="KTC"]');
+  const filtered = await visibleCount();
+  check(
+    "and the chip collects exactly those players into a prep worklist",
+    filtered === ktcRows,
+    `chip shows ${filtered}, annotation marked ${ktcRows}`,
+  );
+  await page.click('.chip[data-filter="ALL"]');
+  check(
     "prep hides the roster strip and 'show taken' — both count picks",
     (await page.locator(".strip").isHidden()) &&
       (await page.locator("#taken-toggle").isHidden()),

@@ -100,6 +100,14 @@ export interface BoardRow {
   adpRank: number | null;
   /** The drop behind him, when it is large enough to be worth marking. */
   cliff: Cliff | null;
+  /**
+   * True where KTC materially disagrees with draft order about this player.
+   *
+   * Lives on the row rather than in the view because two places need the same
+   * answer — the annotation and the filter chip — and a rule duplicated in two
+   * files is a rule that will eventually mean two different things.
+   */
+  ktcDisagrees: boolean;
 }
 
 /**
@@ -146,6 +154,21 @@ export interface Cliff {
  * exactly the advice not to take, so the conservative one wins.
  */
 export const CLIFF_RATIO = 2.75;
+
+/**
+ * How far KTC must disagree with draft order to be worth surfacing, as a
+ * *fraction of board position* rather than a flat number of spots.
+ *
+ * Proportional because a flat threshold is the wrong shape: thirty spots is an
+ * enormous disagreement at #20 and nothing at #250, where both sources are
+ * guessing. A flat 25 marked 158 of 300 rows — over half the board, which is no
+ * signal at all. At 0.5 it marks 38, and inside the top 60 it lands on exactly
+ * two things: every older skill player KTC fades (McCaffrey, Barkley, Henry,
+ * Jacobs, McLaurin, Evans — all 28 and up) and the quarterbacks it inflates
+ * (Allen, Maye). Those are KTC's two systematic biases for a redraft league,
+ * and that is the list worth forming my own opinion about.
+ */
+export const KTC_DISAGREEMENT = 0.5;
 
 /** Where one of my picks falls in the list of players still available to me. */
 export interface Projection {
@@ -234,6 +257,8 @@ export class Board {
       state: this.stateOf(player.id),
       doNotDraft: this.isDoNotDraft(player.id),
       note: this.overrides[player.id]?.note ?? "",
+      ktcDisagrees:
+        Math.abs(player.ktcRank - (i + 1)) / (i + 1) >= KTC_DISAGREEMENT,
       availableRank: rank.get(player.id) ?? null,
       adpRank: adpRank.get(player.id) ?? null,
       cliff: cliffs.get(player.id) ?? null,
