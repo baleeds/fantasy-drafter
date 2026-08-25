@@ -114,6 +114,7 @@ function visibleRows(): BoardRow[] {
 function render(): void {
   view.render(visibleRows(), settings.mode);
   renderRoster();
+  renderCliffs();
   document.body.dataset.mode = settings.mode;
 }
 
@@ -122,6 +123,37 @@ function renderRoster(): void {
   const taken = board.picks.length;
   el("#roster").textContent =
     POSITIONS.map((p) => `${p} ${counts[p]}`).join(" · ") + ` · ${taken} taken`;
+}
+
+/**
+ * What it costs to wait: the best two still available at each position, as
+ * `RB 12→16`. A wide gap means take him now; a narrow one means the position
+ * is deep and I should spend the pick elsewhere.
+ *
+ * Both numbers rank against what is *available*, so they are on a different
+ * scale from the rank on a row — which counts drafted and flagged players,
+ * because it is my ranking of everybody. Early on the two nearly agree; they
+ * drift apart as the draft empties the board.
+ *
+ * Read off the whole board rather than what is on screen. If filtering to RB
+ * or searching a name moved these numbers, they would mean nothing.
+ */
+function renderCliffs(): void {
+  const container = el("#cliffs");
+  container.textContent = "";
+
+  for (const { position, best, next } of board.cliffs()) {
+    const label = document.createElement("span");
+    label.className = "pos";
+    label.textContent = position;
+
+    const cliff = document.createElement("span");
+    cliff.className = "cliff";
+    // An em dash rather than a number for "nobody left" and "he is the last
+    // one" — both are real answers, and neither is a distance.
+    cliff.append(label, ` ${best === null ? "—" : `${best}→${next ?? "—"}`}`);
+    container.append(cliff);
+  }
 }
 
 // --- Actions ----------------------------------------------------------------

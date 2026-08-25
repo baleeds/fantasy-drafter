@@ -1,6 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { Board, keyBetween, SPACING, type Player, type Position } from "./model.ts";
+import {
+  Board,
+  keyBetween,
+  POSITIONS,
+  SPACING,
+  type Player,
+  type Position,
+} from "./model.ts";
 
 function makePlayers(n: number): Player[] {
   const positions: Position[] = ["RB", "WR", "QB", "TE"];
@@ -397,4 +404,91 @@ test("roster counts only count my picks", () => {
   board.pick(105, true); // WR
 
   assert.deepEqual(board.rosterCounts(), { QB: 0, RB: 2, WR: 1, TE: 0 });
+});
+
+// --- What it costs to wait --------------------------------------------------
+
+/** The cliff at one position, as "best→next", for readable assertions. */
+const cliff = (board: Board, position: Position) => {
+  const found = board.cliffs().find((c) => c.position === position)!;
+  return `${found.best ?? "-"}→${found.next ?? "-"}`;
+};
+
+test("a cliff is the best two available, ranked among what is left", () => {
+  // Fixture cycles RB, WR, QB, TE, so RBs sit at board 1, 5, 9 and TEs at 4, 8.
+  const board = new Board(makePlayers(12));
+
+  assert.deepEqual(board.cliffs(), [
+    { position: "QB", best: 3, next: 7, gap: 4 },
+    { position: "RB", best: 1, next: 5, gap: 4 },
+    { position: "WR", best: 2, next: 6, gap: 4 },
+    { position: "TE", best: 4, next: 8, gap: 4 },
+  ]);
+});
+
+test("ranks close up as players are drafted", () => {
+  const board = new Board(makePlayers(12));
+  board.pick(100, false); // the top RB goes
+  board.pick(101, false); // and the top WR
+
+  // Everyone shifts up two, and RB/WR fall to their next men.
+  assert.equal(cliff(board, "QB"), "1→5");
+  assert.equal(cliff(board, "RB"), "3→7");
+  assert.equal(cliff(board, "WR"), "4→8");
+});
+
+test("a player I took is not depth at his own position", () => {
+  const board = new Board(makePlayers(12));
+  assert.equal(cliff(board, "RB"), "1→5");
+
+  board.pick(100, true);
+  // Having got him, what an RB run costs me is about the RBs I do not have —
+  // so the drop is now between the second and third, each a rank higher than
+  // before because the player I took no longer sits above them.
+  assert.equal(cliff(board, "RB"), "4→8");
+});
+
+test("a do-not-draft player is not depth either", () => {
+  const board = new Board(makePlayers(12));
+  board.setDoNotDraft(104, true); // the second RB
+
+  // He keeps his board position but stops counting as an RB I could take, so
+  // the drop is now to the third RB and everyone below him ranks one higher.
+  assert.equal(cliff(board, "RB"), "1→8");
+  assert.equal(board.rows()[4].player.id, 104);
+});
+
+test("the last player at a position has no next, rather than a bad number", () => {
+  const board = new Board(makePlayers(12));
+  board.pick(103, false); // two of the three TEs go
+  board.pick(107, false);
+
+  const te = board.cliffs().find((c) => c.position === "TE")!;
+  assert.equal(te.best, 10);
+  assert.equal(te.next, null);
+  assert.equal(te.gap, null);
+});
+
+test("a position with nobody left reports nothing at all", () => {
+  const board = new Board(makePlayers(12));
+  for (const id of [102, 106, 110]) board.pick(id, false); // every QB
+
+  assert.deepEqual(board.cliffs().find((c) => c.position === "QB"), {
+    position: "QB",
+    best: null,
+    next: null,
+    gap: null,
+  });
+});
+
+test("a cliff follows my order, not KTC's", () => {
+  const board = new Board(makePlayers(12));
+  board.moveTo(108, 0); // the third RB to the very top
+
+  assert.equal(cliff(board, "RB"), "1→2");
+});
+
+test("every position is reported, in a stable order", () => {
+  const board = new Board(makePlayers(12));
+  assert.deepEqual(board.cliffs().map((c) => c.position), POSITIONS);
 });

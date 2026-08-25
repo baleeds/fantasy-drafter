@@ -68,6 +68,26 @@ export interface BoardRow {
   note: string;
 }
 
+/**
+ * Where the drop-off sits at one position: the best player still available to
+ * me, the next one after him, and the distance between them.
+ *
+ * Both ranks are positions in the *available* list, not on the full board — so
+ * `{ best: 12, next: 16 }` reads as "the best RB is the 12th best player still
+ * available to me, and the next one is the 16th". They are deliberately on a
+ * different scale from the rank shown on a row, which counts drafted and
+ * flagged players because it is my ranking of everybody.
+ */
+export interface Cliff {
+  position: Position;
+  /** Rank among available players. Null when none are left at this position. */
+  best: number | null;
+  /** Rank of the next one after him. Null when he is the last of his kind. */
+  next: number | null;
+  /** Places I drop if I lose the best one. Null when there is no next. */
+  gap: number | null;
+}
+
 export class Board {
   readonly players: Player[];
   overrides: Overrides;
@@ -343,6 +363,50 @@ export class Board {
       if (player) counts[player.position]++;
     }
     return counts;
+  }
+
+  // --- What it costs to wait -----------------------------------------------
+
+  /**
+   * The best two players still available at each position.
+   *
+   * This is the app's answer to "can I wait?", and the honest replacement for
+   * the tier countdown that went with tiers. A large gap *is* a tier break —
+   * derived from my own ordering at the moment I ask, rather than from KTC's
+   * boundaries, which move between fetches minutes apart.
+   *
+   * What counts as available is three exclusions, each of them a decision:
+   *
+   * - **Drafted players**, obviously — they are off the board.
+   * - **My own players.** Having taken Gibbs, what a run on RBs costs me is a
+   *   question about the RBs I do *not* have. He is not a future option.
+   * - **Do-not-draft players.** "Don't take him" means he is not depth, so
+   *   counting him would report the position as deeper than it is *for me*.
+   *
+   * Note what this does and does not tell you: it is what the drop costs, not
+   * whether the drop will happen. Whether the top RB actually lasts is an ADP
+   * question, and nothing here knows the answer.
+   */
+  cliffs(): Cliff[] {
+    const found = new Map<Position, number[]>(POSITIONS.map((p) => [p, []]));
+
+    let rank = 0;
+    for (const row of this.rows()) {
+      if (row.state !== "available" || row.doNotDraft) continue;
+      rank++;
+      const at = found.get(row.player.position);
+      if (at && at.length < 2) at.push(rank);
+    }
+
+    return POSITIONS.map((position) => {
+      const [best = null, next = null] = found.get(position)!;
+      return {
+        position,
+        best,
+        next,
+        gap: best !== null && next !== null ? next - best : null,
+      };
+    });
   }
 }
 

@@ -98,12 +98,48 @@ try {
       (await page.locator(".modes button").first().isVisible()),
   );
 
+  // --- The positional cliff ------------------------------------------------
+  // What it costs to wait: the best two still available at each position.
+  const cliffs = async () =>
+    (await page.locator("#cliffs .cliff").allInnerTexts()).map((t) =>
+      t.replace(/\s+/g, " ").trim(),
+    );
+
+  const cliffBefore = await cliffs();
+  check("the cliff strip reports all four positions", cliffBefore.length === 4, cliffBefore.join(" | "));
+  check(
+    "as a best→next range of real numbers, not NaN or undefined",
+    cliffBefore.every((t) => /^(QB|RB|WR|TE) \d+→\d+$/.test(t)),
+    cliffBefore.join(" | "),
+  );
+
+  // The cliff is a property of the board, not of what happens to be on screen.
+  // If filtering to one position or searching a name moved these numbers, they
+  // would mean nothing.
+  await page.click('.chip[data-filter="TE"]');
+  const cliffFiltered = await cliffs();
+  await page.click('.chip[data-filter="ALL"]');
+  await page.fill("#search", "a");
+  const cliffSearched = await cliffs();
+  await page.fill("#search", "");
+  check(
+    "filtering and searching leave the cliff numbers alone",
+    cliffFiltered.join("|") === cliffBefore.join("|") &&
+      cliffSearched.join("|") === cliffBefore.join("|"),
+    `filtered ${cliffFiltered.join(" | ")}`,
+  );
+
   const first = await nameAt(0);
   const second = await nameAt(1);
   await rows().nth(0).click();
   await page.waitForTimeout(400);
 
   check("tapping a row takes him off the board", (await nameAt(0)) === second);
+  check(
+    "and the cliff moves with him",
+    (await cliffs()).join("|") !== cliffBefore.join("|"),
+    `${cliffBefore.join(" | ")}   →   ${(await cliffs()).join(" | ")}`,
+  );
   check("the board shrinks by one", (await visibleCount()) === 299);
   check("undo is offered when a row leaves the screen", (await page.locator("#undo").innerText()).includes(first));
 
@@ -271,6 +307,10 @@ try {
     "prep hides the roster strip and 'show taken' — both count picks",
     (await page.locator(".strip").isHidden()) &&
       (await page.locator("#taken-toggle").isHidden()),
+  );
+  check(
+    "and the cliff with them — 'can I wait?' is a draft-night question",
+    await page.locator("#cliffs").isHidden(),
   );
   check(
     "and the header is shorter for it",

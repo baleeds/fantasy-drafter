@@ -50,11 +50,18 @@
       <div id="filters" class="filters"></div>
 
       <div class="strip">
-        <span id="roster"></span>
-        <label class="toggle" id="taken-toggle">
-          <input id="show-drafted" type="checkbox" />
-          <span>Show taken</span>
-        </label>
+        <div class="strip-line">
+          <span id="roster"></span>
+          <label class="toggle" id="taken-toggle">
+            <input id="show-drafted" type="checkbox" />
+            <span>Show taken</span>
+          </label>
+        </div>
+        <!-- What I have is above; what is left is here. -->
+        <p
+          id="cliffs"
+          title="Best and second-best still available at each position"
+        ></p>
       </div>
 
       <div id="menu" hidden>

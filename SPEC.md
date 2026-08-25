@@ -171,11 +171,15 @@ Hand-drawn tier breaks would still work, since they need nothing from KTC beyond
 the sort-key scale. They are deferred rather than impossible; see "Later, not
 day one".
 
-**What this costs.** The tier countdown was the app's answer to "can I wait?" —
-the feature standing in for the pick countdown we cut. With tiers gone the app
-does not answer that question at all. That is a real gap at the table, taken
-knowingly: reading the next few rows of my own board is a decent substitute, and
-a countdown against tiers I hadn't yet drawn would have been vapour anyway.
+**What this costs — and what covers it.** The tier countdown was the app's answer
+to "can I wait?", the feature standing in for the pick countdown we cut. Losing
+tiers left that question unanswered, which was a real gap at the table.
+
+The **positional cliff** covers it, and covers it better. A large gap between the
+best two available players at a position *is* a tier break — computed from my own
+ordering at the moment I ask, rather than read off boundaries that move between
+fetches minutes apart. It needs no stable tier identity to store anything
+against, which was the exact property KTC's tiers failed to have.
 
 ## Data model
 
@@ -339,6 +343,38 @@ the whole board as a ranking, which is what prep is for.
 - **My roster panel** — raw counts by position (2 RB, 3 WR). Deliberately no
   starter requirements: that would mean configuring a starting lineup, and I'd
   rather do the "do I need a TE yet" arithmetic myself than maintain a setting.
+- **The positional cliff** — the best two still available at each position, as
+  `QB 6→21 · RB 1→2 · WR 3→4 · TE 9→12`. This is the answer to "can I wait?".
+  A wide gap says take him now; a narrow one says the position is deep and the
+  pick is better spent elsewhere. Sits under the roster counts, which is the
+  natural pairing: what I have above, what is left below.
+
+  **Both numbers rank against what is available, not against the board.** So
+  `RB 12→16` reads "the best RB is the 12th best player still available to me,
+  and the next one is 16th". This is a different scale from the rank on a row,
+  which counts drafted and flagged players because it is my ranking of
+  everybody. Early on the two nearly agree and they drift apart as the board
+  empties — worth knowing, since the two numbers sit inches apart on screen.
+
+  **Three exclusions, each of them a decision.** Drafted players, obviously.
+  **My own players** — having got Gibbs, what an RB run costs me is a question
+  about the RBs I do *not* have. And **do-not-draft players**, because "don't
+  take him" means he is not depth, so counting him would report the position as
+  deeper than it is *for me*. That finally gives the DND flag a job beyond
+  hiding a row.
+
+  **Computed from the whole board, never from what is on screen.** If filtering
+  to RB or searching a name moved these numbers they would mean nothing.
+
+  **What it does not tell me:** whether the drop will actually happen. It is
+  what the drop costs. Whether the top RB lasts another twelve picks is an ADP
+  question and nothing here knows the answer — see Non-goals. Ordinal gaps are
+  also not linear in value, so the number is most trustworthy in the early
+  rounds and noisier late, when board positions get sparse. That is the right
+  way round: the early rounds are where the decision is hard.
+
+  Draft mode only. The meaning of the number — what it costs to wait — is
+  entirely a draft-night meaning, and prep stays free of draft concepts.
 
 ### The pick log
 

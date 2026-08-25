@@ -11,6 +11,14 @@ single-spot nudges. **Draft** is the screen for the night — tap takes a player
 off the board and tapping him again puts him back, and the **ME** button claims
 and releases him.
 
+Under the roster counts sits the **positional cliff**: the best two players still
+available at each position, as `QB 6→21 · RB 1→2 · WR 3→4 · TE 9→12`. That is the
+answer to "can I wait?" — a wide gap says take him now, a narrow one says the
+position is deep. Both numbers rank against what is *available*, so they are on a
+different scale from the rank shown on a row, which counts everybody. It tells me
+what the drop costs, not whether it will happen; that second half is an ADP
+question this app does not have the data for.
+
 The long-press delay and autoscroll speed were sliders while the gesture was
 being tuned on a real phone. They are constants in `src/drag.ts` now: a
 draft-night screen should not carry its own debug controls.
