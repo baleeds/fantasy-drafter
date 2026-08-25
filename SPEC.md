@@ -343,38 +343,82 @@ the whole board as a ranking, which is what prep is for.
 - **My roster panel** — raw counts by position (2 RB, 3 WR). Deliberately no
   starter requirements: that would mean configuring a starting lineup, and I'd
   rather do the "do I need a TE yet" arithmetic myself than maintain a setting.
-- **The positional cliff** — the best two still available at each position, as
-  `QB 6→21 · RB 1→2 · WR 3→4 · TE 9→12`. This is the answer to "can I wait?".
-  A wide gap says take him now; a narrow one says the position is deep and the
-  pick is better spent elsewhere. Sits under the roster counts, which is the
-  natural pairing: what I have above, what is left below.
+- **Position colour.** A dot at the head of every row, coloured by position the
+  way Sleeper does it. Reading positional shape off a colour column is far
+  faster than reading it off the `RB1` text, because you only have to *see* it
+  rather than look at it. This is a fact about the player, so unlike everything
+  else below it, it is present in prep too.
 
-  **Both numbers rank against what is available, not against the board.** So
-  `RB 12→16` reads "the best RB is the 12th best player still available to me,
-  and the next one is 16th". This is a different scale from the rank on a row,
-  which counts drafted and flagged players because it is my ranking of
-  everybody. Early on the two nearly agree and they drift apart as the board
-  empties — worth knowing, since the two numbers sit inches apart on screen.
+- **Projection lines.** A rule drawn across the board at each of my remaining
+  picks, labelled with the pick number, marking the first player I could still
+  realistically get there. My seat is two numbers — league size and slot — and
+  the snake order falls out of them.
 
-  **Three exclusions, each of them a decision.** Drafted players, obviously.
-  **My own players** — having got Gibbs, what an RB run costs me is a question
-  about the RBs I do *not* have. And **do-not-draft players**, because "don't
-  take him" means he is not depth, so counting him would report the position as
-  deeper than it is *for me*. That finally gives the DND flag a job beyond
-  hiding a row.
+  The arithmetic is only ever counting picks: with `made` picks recorded, the
+  players who come off before my pick `P` number `P - made - 1`. So **the count
+  is exact and only the composition is approximate.** KTC is crowd-sourced value
+  rather than ADP, so *which* players disappear is a guess — but *how many* is
+  not, and if the room reaches for someone I rank low he still leaves my
+  available list and the line stays where it belongs. The line is a good deal
+  more trustworthy than the data behind it sounds.
 
-  **Computed from the whole board, never from what is on screen.** If filtering
-  to RB or searching a name moved these numbers they would mean nothing.
+  A consequence worth knowing at the table: **when the room drafts in my order,
+  the lines do not move.** One fewer pick to wait and one fewer player above
+  cancel exactly. A line only shifts when someone reaches — and it shifts in my
+  favour, because a pick spent on a player I don't rate hands me a better one.
 
-  **What it does not tell me:** whether the drop will actually happen. It is
-  what the drop costs. Whether the top RB lasts another twelve picks is an ADP
-  question and nothing here knows the answer — see Non-goals. Ordinal gaps are
-  also not linear in value, so the number is most trustworthy in the early
-  rounds and noisier late, when board positions get sparse. That is the right
-  way round: the early rounds are where the decision is hard.
+  Drawn with an inset shadow and an absolutely-positioned label, never a border
+  or an extra list item: the drag works out where a held player lands by
+  arithmetic over a uniform row pitch, so two real pixels of border on one row
+  would skew every drop below it.
 
-  Draft mode only. The meaning of the number — what it costs to wait — is
-  entirely a draft-night meaning, and prep stays free of draft concepts.
+- **Cliff markers.** Any available player with an unusually large drop behind him
+  at his own position is badged with the size of it — `⌄24` meaning twenty-four
+  available players until the next TE.
+
+  **The threshold is per-position, and has to be.** Positions are not equally
+  dense: on the shipped board the median gap between consecutive WRs is 2 and
+  between QBs is 4, with mean spacings of 2.4 and 6.8. A raw gap of 5 is
+  therefore twice normal at WR and *below* average at QB. So a gap is divided by
+  its own position's mean spacing, which needs no per-position constants and
+  re-derives itself as the board empties.
+
+  **K = 3**, measured rather than guessed. Sweeping a whole 14-team draft with
+  the flags gated by the pick line: K=2 fires 21 times, K=2.5 eight, K=3 seven,
+  K=3.5 five. Three gives roughly one flag every other pick — sparse enough that
+  each is worth reading. Normalising by *mean* rather than median spacing is
+  also deliberate: the median is more robust and fires about three times as
+  often, and the case that decides it is QB, where a 15-player gap reads 3.75x
+  by median and 2.2x by mean. In a 1QB league, "reach for a quarterback" is
+  exactly the advice not to give.
+
+  A position too thin to have a normal spacing never produces a cliff — three
+  TEs in fifty players have a mean gap of sixteen, so even a forty-player run
+  behind one is unremarkable. With a sample that small there is no such thing as
+  an unusual gap and claiming one would be noise.
+
+- **The two features are one instrument.** A cliff only matters if it falls above
+  my next pick: there I cross it whatever I do, so the only way to stay on the
+  good side is to draft that position now. Below the line there are still
+  pre-drop players left when my turn comes round. Same gap, opposite meaning, so
+  they must not look alike — urgent cliffs are inverted and loud, the rest are
+  muted. Urgency is judged against the pick *after* the imminent one, since
+  almost everything survives a single pick.
+
+  This is what kills the noise. Ungated, K=2 puts a mark on a third of the top
+  40; gated, the whole draft produces seven, and every turn pick produces none —
+  correctly, because with three players between picks 27 and 30 nothing can be a
+  cliff inside that window.
+
+- **What none of this says is whether the drop will happen** — only what it
+  costs. Ordinal gaps are also not linear in scoring: a TE cliff and a QB cliff
+  of the same ratio are not equally worth acting on, and the app cannot know
+  that. Both limits are the ADP-shaped hole, and stay until ADP does.
+
+- **The pick log becomes load-bearing.** A missed tap used to leave one stale
+  row; it now shifts every line for the rest of the night, silently. So the
+  header shows the pick the draft is on — one glance against the real draft
+  board catches a drift that nothing else would surface.
 
 ### The pick log
 
@@ -522,7 +566,16 @@ two riskiest pieces are not the ones that look hardest:
 ## Non-goals
 
 No accounts, no backend, no sync with ESPN/Yahoo/Sleeper, no projections engine,
-no auction support, no multi-user, no league or draft-slot configuration.
+no auction support, no multi-user.
+
+**Reversed: league size and draft slot are configurable.** They were a non-goal
+on the reasoning that no setting should be able to be silently wrong on draft
+night. Two integers that produce visibly wrong lines the moment they are wrong
+are a different proposition from a lineup configuration, and the projection
+lines are worth more than the risk. They default to my actual league rather than
+to something neutral — this app already hard-codes redraft and 1QB because it
+has exactly one user, and lines drawn for the wrong league look identical to
+lines drawn for the right one.
 
 **No pick countdown, and this is a considered exclusion rather than a cut for
 scope.** "Will he last until my next pick?" is by definition an ADP question —
@@ -531,6 +584,14 @@ value does not encode. A countdown beside a KTC-ranked board would be worse
 than absent: it presents a real number (11 picks away) with no way to estimate
 who disappears during those picks, and so reads as actionable when it is not.
 Pick timing is therefore coupled to ADP, and returns only if ADP does.
+
+**The projection lines are not that countdown**, and the distinction is the
+whole reason they are allowed. A countdown says "11 picks away", a real number
+implying knowledge of who vanishes during them. A line makes no such claim: it
+marks a boundary in a list, its position comes from counting picks rather than
+from any ranking, and it is honestly approximate about which players sit above
+it. What it never does is put a confident number on a question the data cannot
+answer.
 
 ## Open questions
 

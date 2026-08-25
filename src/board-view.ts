@@ -7,7 +7,7 @@
  * slot arithmetic depends on a uniform pitch, and test/drag-check.mjs asserts it.
  */
 
-import type { BoardRow } from "./model.ts";
+import type { BoardRow, Projection } from "./model.ts";
 
 export interface RowCallbacks {
   onTap: (id: number) => void;
@@ -33,7 +33,20 @@ export class BoardView {
     });
   }
 
-  render(visible: BoardRow[], mode: "prep" | "draft"): void {
+  /**
+   * @param projections Where my remaining picks fall. Empty in prep, where a
+   *   draft has not started and none of this means anything yet.
+   */
+  render(visible: BoardRow[], mode: "prep" | "draft", projections: Projection[] = []): void {
+    const marks = placeLines(visible, projections);
+
+    // Urgency is measured against my pick *after* this one, not the one I am
+    // about to make. A cliff I can still reach at my upcoming pick but not at
+    // the following one is the whole decision: take that position now, or lose
+    // the tier. Measuring against the imminent pick instead marks nothing,
+    // since by definition almost everything survives the next single pick.
+    const horizon = (projections[1] ?? projections[0])?.after ?? null;
+
     const wanted = new Set(visible.map((r) => r.player.id));
 
     for (const [id, el] of this.rows) {
@@ -50,7 +63,7 @@ export class BoardView {
         el = createRow(row.player.id);
         this.rows.set(row.player.id, el);
       }
-      updateRow(el, row, mode);
+      updateRow(el, row, mode, marks.get(row.player.id) ?? null, horizon);
 
       if (el === cursor) cursor = cursor.nextSibling;
       else this.list.insertBefore(el, cursor);
@@ -83,6 +96,7 @@ function createRow(id: number): HTMLLIElement {
   // Draft status sits on the right because it describes the board. Mixing the
   // two into one strip made "Q Groin" read as a kind of pick.
   row.innerHTML = `<span class="rank"></span>
+    <span class="dot" aria-hidden="true"></span>
     <span class="main">
       <span class="name-line">
         <span class="name"></span>
@@ -97,14 +111,30 @@ function createRow(id: number): HTMLLIElement {
   return row;
 }
 
-function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): void {
+function updateRow(
+  el: HTMLLIElement,
+  row: BoardRow,
+  mode: "prep" | "draft",
+  line: string | null,
+  horizon: number | null,
+): void {
   const { player } = row;
 
   // Draft state is a draft-mode idea. In prep the board is just my ranking of
   // players, so nobody is struck through or badged as taken there.
   const state = mode === "draft" ? row.state : "available";
 
-  el.className = `row state-${state}${row.doNotDraft ? " dnd" : ""} mode-${mode}`;
+  // The cliff is a draft-mode idea for the same reason the rest of them are:
+  // it is about what I can still get, and in prep nobody has taken anything.
+  const cliff = mode === "draft" ? row.cliff : null;
+  const urgent = cliff !== null && horizon !== null && (row.availableRank ?? 0) <= horizon;
+
+  el.className =
+    `row state-${state}${row.doNotDraft ? " dnd" : ""} mode-${mode}` +
+    (cliff ? (urgent ? " cliff cliff-urgent" : " cliff") : "");
+  el.dataset.pos = player.position;
+  if (line) el.dataset.line = line;
+  else delete el.dataset.line;
   text(el, ".rank", String(row.position));
   text(el, ".name", player.name);
 
@@ -128,6 +158,16 @@ function updateRow(el: HTMLLIElement, row: BoardRow, mode: "prep" | "draft"): vo
   // No MINE badge: the pressed ME button and the accent bar already say it,
   // and a third marker for one state is just width.
   if (state === "gone") tags.append(tag("GONE", "gone"));
+  // The size of the drop, not just that there is one: a 9-player gap and a
+  // 25-player gap are different decisions.
+  if (cliff) {
+    const badge = tag(`\u2304${cliff.gap}`, `cliff${urgent ? " urgent" : ""}`);
+    badge.title =
+      `${cliff.gap} players until the next ${player.position} — ` +
+      `${cliff.ratio.toFixed(1)}x normal spacing` +
+      (urgent ? ", and gone before your next pick" : "");
+    tags.append(badge);
+  }
   // Flagged players are hidden from the board, so this badge is what identifies
   // them when they turn up in a search or under the DND chip.
   if (row.doNotDraft) tags.append(tag("DND", "dnd"));
@@ -161,4 +201,33 @@ function tag(label: string, kind: string): HTMLSpanElement {
 function text(root: HTMLElement, selector: string, value: string): void {
   const el = root.querySelector(selector)!;
   if (el.textContent !== value) el.textContent = value;
+}
+
+/**
+ * Work out which rendered row each pick line sits above.
+ *
+ * A line belongs above the first row I could still get at that pick, which is
+ * the first with an available rank past it. Anchoring to the first *visible*
+ * such row rather than to an exact rank is what keeps the line meaningful under
+ * a filter: with the RB chip on, it lands above the first RB who survives to my
+ * pick, which is the question a filtered board is being asked.
+ */
+function placeLines(visible: BoardRow[], projections: Projection[]): Map<number, string> {
+  const marks = new Map<number, string[]>();
+  let next = 0;
+
+  for (const row of visible) {
+    if (row.availableRank === null) continue;
+    while (next < projections.length && row.availableRank > projections[next].after) {
+      const at = marks.get(row.player.id) ?? [];
+      at.push(String(projections[next].pick));
+      marks.set(row.player.id, at);
+      next++;
+    }
+    if (next >= projections.length) break;
+  }
+
+  // Two picks land together when a filter hides everyone between them — at the
+  // turn that is only three players, so it happens often enough to handle.
+  return new Map([...marks].map(([id, picks]) => [id, picks.join(" · ")]));
 }

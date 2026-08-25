@@ -21,12 +21,25 @@ export interface Settings {
   mode: "prep" | "draft";
   filter: string;
   showDrafted: boolean;
+  /**
+   * My league and my seat in it, which is all the projection lines need — the
+   * snake order falls out of the two numbers.
+   *
+   * Defaulted to my actual league rather than to something neutral. This app
+   * already hard-codes redraft and 1QB because it has exactly one user, and a
+   * neutral default here would be worse than useless: lines drawn for the wrong
+   * league look identical to lines drawn for the right one.
+   */
+  teams: number;
+  slot: number;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   mode: "prep",
   filter: "ALL",
   showDrafted: false,
+  teams: 14,
+  slot: 2,
 };
 
 export function loadOverrides(): Overrides {
@@ -45,7 +58,14 @@ export function loadSettings(): Settings {
     mode: stored.mode === "draft" ? "draft" : DEFAULT_SETTINGS.mode,
     filter: typeof stored.filter === "string" ? stored.filter : DEFAULT_SETTINGS.filter,
     showDrafted: stored.showDrafted === true,
+    teams: whole(stored.teams, DEFAULT_SETTINGS.teams),
+    slot: whole(stored.slot, DEFAULT_SETTINGS.slot),
   };
+}
+
+/** A stored league size or seat that is not a whole number is not a setting. */
+function whole(value: unknown, fallback: number): number {
+  return typeof value === "number" && Number.isInteger(value) && value > 0 ? value : fallback;
 }
 
 export function saveOverrides(overrides: Overrides): void {

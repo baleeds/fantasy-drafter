@@ -10,6 +10,14 @@
   --down: #b91c1c;
   --warn: #b45309;
   --row-height: 56px;
+
+  /* Position colours, Sleeper-style. A colour column is the fastest way to
+     read positional shape off a long list — far faster than the "RB1" text,
+     which you have to actually look at rather than just see. */
+  --pos-qb: #e8437a;
+  --pos-rb: #12a88f;
+  --pos-wr: #3d8fe0;
+  --pos-te: #e0812c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,6 +32,12 @@
     --up: #4ade80;
     --down: #f87171;
     --warn: #fbbf24;
+
+    /* Lifted for a dark ground; the light values go muddy against #0f1115. */
+    --pos-qb: #ff5c8d;
+    --pos-rb: #2dd4bf;
+    --pos-wr: #60a5fa;
+    --pos-te: #fb923c;
   }
 }
 
@@ -198,27 +212,10 @@ button:active {
   overflow: hidden;
 }
 
-#roster,
-#cliffs {
-  /* The global reset only covers box-sizing, so a <p> arrives with a 1em
-     margin top and bottom — 24px of pinned header spent on nothing. */
+#roster {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-/*
- * What it costs to wait at each position. The arrows are what tell this line
- * apart from the roster counts above it at a glance — two lines of "QB … RB …
- * WR … TE …" would otherwise read as one block of numbers.
- */
-#cliffs .cliff + .cliff::before {
-  content: " · ";
-  color: var(--muted);
-}
-
-#cliffs .pos {
-  opacity: 0.65;
 }
 
 .toggle {
@@ -329,9 +326,10 @@ button:active {
  * the badges sit on one line.
  */
 .row {
+  position: relative; /* for the pick-line label */
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   height: var(--row-height);
   padding: 0 12px;
   border-bottom: 1px solid var(--line);
@@ -352,8 +350,23 @@ button:active {
   -webkit-touch-callout: none;
 }
 
+/* --- Position colour ------------------------------------------------------- */
+
+.dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.row[data-pos="QB"] .dot { background: var(--pos-qb); }
+.row[data-pos="RB"] .dot { background: var(--pos-rb); }
+.row[data-pos="WR"] .dot { background: var(--pos-wr); }
+.row[data-pos="TE"] .dot { background: var(--pos-te); }
+
 .rank {
-  width: 28px;
+  width: 26px;
   flex-shrink: 0;
   font-size: 13px;
   color: var(--muted);
@@ -696,4 +709,95 @@ body.is-dragging {
   background: var(--down);
   border-color: var(--down);
   color: #fff;
+}
+
+/* --- Where my picks land --------------------------------------------------- */
+
+/*
+ * Drawn with an inset shadow and an absolutely-positioned label, never a
+ * border or an extra list item. The drag works out where a held player lands
+ * by arithmetic over a uniform row pitch, so a real 2px border here would add
+ * two pixels to one row and skew every drop below it.
+ *
+ * Neutral rather than accent-coloured: the accent means "mine" everywhere else
+ * in the app, and a blue rule across the board would read as a state.
+ */
+.row[data-line] {
+  box-shadow: inset 0 2px 0 var(--fg);
+}
+
+.row[data-line]::before {
+  content: "PICK " attr(data-line);
+  position: absolute;
+  /* Left, not right: the ME button occupies the right edge of every draft row
+     and the tab would sit straight on top of it. The rank number below is
+     vertically centred, so this corner is empty. */
+  top: 2px;
+  left: 0;
+  padding: 1px 6px 2px;
+  border-radius: 0 0 5px 0;
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Cliffs ---------------------------------------------------------------- */
+
+/*
+ * Two weights, because the same gap means opposite things either side of my
+ * next pick. Above the line I cross it whatever I do, so the only way to stay
+ * on the good side is to draft the position now. Below it, there are still
+ * pre-drop players left when my turn comes round.
+ */
+.tag.cliff {
+  color: var(--muted);
+  background: color-mix(in srgb, var(--muted) 12%, transparent);
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Inverted, deliberately loud, and in the same neutral as the pick lines —
+ * both are facts about the shape of what is coming, and they should read as
+ * one system. Amber is spoken for: it is the injury badge, which is a fact
+ * about the *player*. Two amber chips on one row would collapse a separation
+ * the rest of the app works to keep.
+ */
+.tag.cliff.urgent {
+  color: var(--bg);
+  background: var(--fg);
+  font-weight: 700;
+}
+
+/* --- League setup ---------------------------------------------------------- */
+
+.league {
+  display: flex;
+  gap: 8px;
+}
+
+.league label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 10px;
+  min-height: 44px;
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.league input {
+  width: 3.5em;
+  padding: 4px 6px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }

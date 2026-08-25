@@ -66,26 +66,73 @@ export interface BoardRow {
   state: PlayerState;
   doNotDraft: boolean;
   note: string;
+  /**
+   * Rank among the players still available to me, or null if he is not one of
+   * them. A different scale from `position`, which counts drafted and flagged
+   * players because it is my ranking of everybody.
+   */
+  availableRank: number | null;
+  /** The drop behind him, when it is large enough to be worth marking. */
+  cliff: Cliff | null;
 }
 
 /**
- * Where the drop-off sits at one position: the best player still available to
- * me, the next one after him, and the distance between them.
+ * The drop behind a player at his own position: how many available players sit
+ * between him and the next one who plays where he does.
  *
- * Both ranks are positions in the *available* list, not on the full board — so
- * `{ best: 12, next: 16 }` reads as "the best RB is the 12th best player still
- * available to me, and the next one is the 16th". They are deliberately on a
- * different scale from the rank shown on a row, which counts drafted and
- * flagged players because it is my ranking of everybody.
+ * `ratio` is what makes the gap comparable across positions, and it is the
+ * whole idea. Positions are not equally dense on a board — on a fresh KTC 300
+ * the median gap between consecutive WRs is 2 and between consecutive QBs is 4,
+ * with mean spacings of 2.4 and 6.8. So a raw gap of 5 is twice the normal
+ * spacing at WR and *below* average at QB. Dividing by the position's own mean
+ * spacing puts every position on one scale, with no per-position constants to
+ * tune and no re-tuning as the board empties.
  */
 export interface Cliff {
-  position: Position;
-  /** Rank among available players. Null when none are left at this position. */
-  best: number | null;
-  /** Rank of the next one after him. Null when he is the last of his kind. */
-  next: number | null;
-  /** Places I drop if I lose the best one. Null when there is no next. */
-  gap: number | null;
+  /** Available players between him and the next one at his position. */
+  gap: number;
+  /** Multiples of that position's normal spacing. */
+  ratio: number;
+}
+
+/**
+ * How many times normal spacing counts as a cliff.
+ *
+ * Measured against the real board rather than guessed. Gating on the pick line
+ * (see `projections`) and sweeping a whole 14-team draft: K=2 fires 21 times,
+ * K=2.5 eight, K=3 seven, K=3.5 five. Three lands on roughly one flag every
+ * other pick — sparse enough that each one is worth reading.
+ *
+ * Normalising by *mean* spacing rather than median is deliberate. The median is
+ * the more robust statistic and fires about three times as often; the place
+ * that decides it is QB, where a 15-player gap reads 3.75x by median and 2.2x
+ * by mean. In a 1QB league being told to reach for a quarterback is exactly the
+ * advice not to take, so the conservative one wins.
+ */
+export const CLIFF_RATIO = 3;
+
+/** Where one of my picks falls in the list of players still available to me. */
+export interface Projection {
+  /** Overall pick number in the draft. */
+  pick: number;
+  /** Available players who come off the board first. Zero means I am up. */
+  after: number;
+}
+
+/**
+ * The overall pick numbers for one seat in a snake draft.
+ *
+ * Odd rounds run 1..teams, even rounds run back the other way, which is what
+ * gives a seat near the top its lopsided rhythm: at slot 2 of 14 the picks are
+ * 2, 27, 30, 55, 58 — twenty-five players gone, then three, then twenty-five.
+ */
+export function snakePicks(teams: number, slot: number, rounds: number): number[] {
+  const picks: number[] = [];
+  for (let round = 1; round <= rounds; round++) {
+    const forward = round % 2 === 1;
+    picks.push((round - 1) * teams + (forward ? slot : teams + 1 - slot));
+  }
+  return picks;
 }
 
 export class Board {
@@ -130,6 +177,10 @@ export class Board {
       return byKey !== 0 ? byKey : a.boardRank - b.boardRank;
     });
 
+    const available = ordered.filter((player) => this.isAvailable(player.id));
+    const rank = new Map(available.map((player, i) => [player.id, i + 1]));
+    const cliffs = findCliffs(available);
+
     return ordered.map((player, i) => ({
       player,
       position: i + 1,
@@ -138,7 +189,23 @@ export class Board {
       state: this.stateOf(player.id),
       doNotDraft: this.isDoNotDraft(player.id),
       note: this.overrides[player.id]?.note ?? "",
+      availableRank: rank.get(player.id) ?? null,
+      cliff: cliffs.get(player.id) ?? null,
     }));
+  }
+
+  /**
+   * A player I could still take.
+   *
+   * Three exclusions, each of them a decision. Drafted players, obviously. **My
+   * own players** — having got Gibbs, what an RB run costs me is a question
+   * about the RBs I do *not* have. And **do-not-draft players**, because "don't
+   * take him" means he is not depth, so counting him would report a position as
+   * deeper than it is *for me*. That last one finally gives the flag a job
+   * beyond hiding a row.
+   */
+  isAvailable(id: number): boolean {
+    return this.stateOf(id) === "available" && !this.isDoNotDraft(id);
   }
 
   /**
@@ -365,49 +432,76 @@ export class Board {
     return counts;
   }
 
-  // --- What it costs to wait -----------------------------------------------
+  // --- Where my picks land --------------------------------------------------
 
   /**
-   * The best two players still available at each position.
+   * How far down the available list each of my remaining picks falls.
    *
-   * This is the app's answer to "can I wait?", and the honest replacement for
-   * the tier countdown that went with tiers. A large gap *is* a tier break —
-   * derived from my own ordering at the moment I ask, rather than from KTC's
-   * boundaries, which move between fetches minutes apart.
+   * The arithmetic is only ever counting picks: with `made` picks recorded, the
+   * number of players who come off the board before my pick `P` is
+   * `P - made - 1`. So **the count is exact and only the composition is
+   * approximate.** KTC is crowd-sourced value rather than ADP, so which players
+   * disappear is a guess — but how many is not, and if the room reaches for
+   * players I rank low they still leave my available list and the line stays
+   * where it belongs. That makes the line considerably more trustworthy than
+   * the data behind it sounds.
    *
-   * What counts as available is three exclusions, each of them a decision:
+   * What this does depend on is the pick log being complete. A missed tap used
+   * to leave one stale row; now it shifts every line for the rest of the night,
+   * and quietly. The header shows the current pick number so a drift can be
+   * caught against the real draft board.
    *
-   * - **Drafted players**, obviously — they are off the board.
-   * - **My own players.** Having taken Gibbs, what a run on RBs costs me is a
-   *   question about the RBs I do *not* have. He is not a future option.
-   * - **Do-not-draft players.** "Don't take him" means he is not depth, so
-   *   counting him would report the position as deeper than it is *for me*.
-   *
-   * Note what this does and does not tell you: it is what the drop costs, not
-   * whether the drop will happen. Whether the top RB actually lasts is an ADP
-   * question, and nothing here knows the answer.
+   * Note a player drafted after I flagged him do-not-draft consumes a pick
+   * without removing anyone from my available list — so the line moves up while
+   * the list stays put, which is exactly right: his going brings my pick nearer
+   * without costing me an option.
    */
-  cliffs(): Cliff[] {
-    const found = new Map<Position, number[]>(POSITIONS.map((p) => [p, []]));
+  projections(teams: number, slot: number): Projection[] {
+    if (!Number.isInteger(teams) || !Number.isInteger(slot)) return [];
+    if (teams < 2 || slot < 1 || slot > teams) return [];
 
-    let rank = 0;
-    for (const row of this.rows()) {
-      if (row.state !== "available" || row.doNotDraft) continue;
-      rank++;
-      const at = found.get(row.player.position);
-      if (at && at.length < 2) at.push(rank);
-    }
+    let available = 0;
+    for (const player of this.players) if (this.isAvailable(player.id)) available++;
 
-    return POSITIONS.map((position) => {
-      const [best = null, next = null] = found.get(position)!;
-      return {
-        position,
-        best,
-        next,
-        gap: best !== null && next !== null ? next - best : null,
-      };
-    });
+    const made = this.picks.length;
+    const rounds = Math.ceil(this.players.length / teams);
+
+    return snakePicks(teams, slot, rounds)
+      .map((pick) => ({ pick, after: pick - made - 1 }))
+      .filter((p) => p.after >= 0 && p.after <= available);
   }
+}
+
+/**
+ * Mark every available player who has an unusually large drop behind him.
+ *
+ * One backward pass, tracking the nearest player already seen at each position.
+ * The last player of his kind gets no cliff — "nobody after him" is a different
+ * fact from "a long way to the next one", and reporting it as an enormous gap
+ * would flag the tail of every position.
+ */
+function findCliffs(available: Player[]): Map<number, Cliff> {
+  const counts = new Map<Position, number>();
+  for (const player of available) {
+    counts.set(player.position, (counts.get(player.position) ?? 0) + 1);
+  }
+
+  const cliffs = new Map<number, Cliff>();
+  const nextAt = new Map<Position, number>();
+
+  for (let i = available.length - 1; i >= 0; i--) {
+    const player = available[i];
+    const next = nextAt.get(player.position);
+    nextAt.set(player.position, i);
+    if (next === undefined) continue;
+
+    const spacing = available.length / counts.get(player.position)!;
+    const gap = next - i;
+    const ratio = gap / spacing;
+    if (ratio >= CLIFF_RATIO) cliffs.set(player.id, { gap, ratio });
+  }
+
+  return cliffs;
 }
 
 /**

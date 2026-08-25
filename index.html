@@ -57,15 +57,16 @@
             <span>Show taken</span>
           </label>
         </div>
-        <!-- What I have is above; what is left is here. -->
-        <p
-          id="cliffs"
-          title="Best and second-best still available at each position"
-        ></p>
       </div>
 
       <div id="menu" hidden>
         <p id="generated"></p>
+
+        <!-- All the projection lines need: the snake order falls out of these. -->
+        <div class="league">
+          <label>Teams <input id="teams" type="number" min="2" max="32" inputmode="numeric" /></label>
+          <label>My pick <input id="slot" type="number" min="1" max="32" inputmode="numeric" /></label>
+        </div>
 
         <p class="note">
           The address bar always holds your board. Bookmark it and a wiped

@@ -112,48 +112,28 @@ function visibleRows(): BoardRow[] {
 }
 
 function render(): void {
-  view.render(visibleRows(), settings.mode);
+  // Prep has no draft, so no pick of mine is coming and no line means anything.
+  const projections =
+    settings.mode === "draft" ? board.projections(settings.teams, settings.slot) : [];
+
+  view.render(visibleRows(), settings.mode, projections);
   renderRoster();
-  renderCliffs();
   document.body.dataset.mode = settings.mode;
 }
 
+/**
+ * What I have, and where the draft has got to.
+ *
+ * The pick number is here because the projection lines are only as honest as
+ * the pick log. A missed tap shifts every line for the rest of the night and
+ * nothing else would show it — but one glance at the real draft board catches
+ * it, provided this number is on screen to compare against.
+ */
 function renderRoster(): void {
   const counts = board.rosterCounts();
-  const taken = board.picks.length;
   el("#roster").textContent =
-    POSITIONS.map((p) => `${p} ${counts[p]}`).join(" · ") + ` · ${taken} taken`;
-}
-
-/**
- * What it costs to wait: the best two still available at each position, as
- * `RB 12→16`. A wide gap means take him now; a narrow one means the position
- * is deep and I should spend the pick elsewhere.
- *
- * Both numbers rank against what is *available*, so they are on a different
- * scale from the rank on a row — which counts drafted and flagged players,
- * because it is my ranking of everybody. Early on the two nearly agree; they
- * drift apart as the draft empties the board.
- *
- * Read off the whole board rather than what is on screen. If filtering to RB
- * or searching a name moved these numbers, they would mean nothing.
- */
-function renderCliffs(): void {
-  const container = el("#cliffs");
-  container.textContent = "";
-
-  for (const { position, best, next } of board.cliffs()) {
-    const label = document.createElement("span");
-    label.className = "pos";
-    label.textContent = position;
-
-    const cliff = document.createElement("span");
-    cliff.className = "cliff";
-    // An em dash rather than a number for "nobody left" and "he is the last
-    // one" — both are real answers, and neither is a distance.
-    cliff.append(label, ` ${best === null ? "—" : `${best}→${next ?? "—"}`}`);
-    container.append(cliff);
-  }
+    POSITIONS.map((p) => `${p} ${counts[p]}`).join(" · ") +
+    ` · on pick ${board.picks.length + 1}`;
 }
 
 // --- Actions ----------------------------------------------------------------
@@ -382,6 +362,28 @@ function wireHeader(): void {
   });
 
   el("#undo").addEventListener("click", undoPick);
+
+  for (const [selector, key, max] of [
+    ["#teams", "teams", 32],
+    ["#slot", "slot", 32],
+  ] as const) {
+    const input = el<HTMLInputElement>(selector);
+    input.value = String(settings[key]);
+    input.addEventListener("change", () => {
+      const value = Number(input.value);
+      // A seat past the end of the league draws no lines at all, which reads as
+      // the feature being broken rather than the number being wrong. Refuse it
+      // and put back what was there.
+      if (Number.isInteger(value) && value >= 1 && value <= max) settings[key] = value;
+      else flash(`${key === "teams" ? "Teams" : "My pick"} must be a whole number`);
+      if (settings.slot > settings.teams) settings.slot = settings.teams;
+
+      el<HTMLInputElement>("#teams").value = String(settings.teams);
+      el<HTMLInputElement>("#slot").value = String(settings.slot);
+      saveSettings(settings);
+      render();
+    });
+  }
 
   el("#menu-toggle").addEventListener("click", () => {
     const menu = el("#menu");

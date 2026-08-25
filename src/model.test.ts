@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   Board,
   keyBetween,
-  POSITIONS,
+  snakePicks,
   SPACING,
   type Player,
   type Position,
@@ -406,89 +406,182 @@ test("roster counts only count my picks", () => {
   assert.deepEqual(board.rosterCounts(), { QB: 0, RB: 2, WR: 1, TE: 0 });
 });
 
-// --- What it costs to wait --------------------------------------------------
+// --- Cliffs -----------------------------------------------------------------
 
-/** The cliff at one position, as "best→next", for readable assertions. */
-const cliff = (board: Board, position: Position) => {
-  const found = board.cliffs().find((c) => c.position === position)!;
-  return `${found.best ?? "-"}→${found.next ?? "-"}`;
-};
+const rowFor = (board: Board, id: number) => board.rows().find((r) => r.player.id === id)!;
 
-test("a cliff is the best two available, ranked among what is left", () => {
-  // Fixture cycles RB, WR, QB, TE, so RBs sit at board 1, 5, 9 and TEs at 4, 8.
-  const board = new Board(makePlayers(12));
+/** A board from an explicit position list, so every gap is exact and countable. */
+function makeBoard(positions: Position[]): Board {
+  return new Board(
+    positions.map((position, i) => ({
+      id: 100 + i,
+      name: `Player ${i + 1}`,
+      position,
+      team: "XXX",
+      boardRank: i + 1,
+      ktcRank: i + 1,
+      positionalRank: 1,
+      rookie: false,
+    })),
+  );
+}
 
-  assert.deepEqual(board.cliffs(), [
-    { position: "QB", best: 3, next: 7, gap: 4 },
-    { position: "RB", best: 1, next: 5, gap: 4 },
-    { position: "WR", best: 2, next: 6, gap: 4 },
-    { position: "TE", best: 4, next: 8, gap: 4 },
-  ]);
+const fill = (position: Position, n: number): Position[] => Array<Position>(n).fill(position);
+
+/**
+ * One TE up top, the next twenty down, and the rest of the position far below.
+ * 100 players with 16 TEs mirrors the real board's TE density (47 of 300), so
+ * the mean spacing is 6.25 and that 20-player gap lands at 3.2x.
+ */
+const sparseTE = (): Position[] => [
+  "TE", ...fill("WR", 19), "TE", ...fill("WR", 65), ...fill("TE", 14),
+];
+
+test("the same gap is a cliff at one position and unremarkable at another", () => {
+  const positions: Position[] = [
+    "WR", ...fill("RB", 9), "WR",   // a WR gap of 10, at index 0
+    ...fill("RB", 9),
+    "TE", ...fill("RB", 9), "TE",   // a TE gap of 10, at index 20
+    ...fill("WR", 38),
+    ...fill("TE", 14),
+    ...fill("RB", 17),
+  ];
+  // Assert the premise, so a miscounted fixture fails here and not below.
+  assert.equal(positions.length, 100);
+  assert.equal(positions.filter((p) => p === "WR").length, 40, "WR spacing 2.5");
+  assert.equal(positions.filter((p) => p === "TE").length, 16, "TE spacing 6.25");
+
+  const board = makeBoard(positions);
+  assert.ok(rowFor(board, 100).cliff, "10 players is 4x normal for a WR");
+  assert.equal(rowFor(board, 120).cliff, null, "the same 10 is only 1.6x for a TE");
 });
 
-test("ranks close up as players are drafted", () => {
-  const board = new Board(makePlayers(12));
-  board.pick(100, false); // the top RB goes
-  board.pick(101, false); // and the top WR
-
-  // Everyone shifts up two, and RB/WR fall to their next men.
-  assert.equal(cliff(board, "QB"), "1→5");
-  assert.equal(cliff(board, "RB"), "3→7");
-  assert.equal(cliff(board, "WR"), "4→8");
+test("a cliff carries the size of the drop and how unusual it is", () => {
+  const board = makeBoard(sparseTE());
+  const cliff = rowFor(board, 100).cliff!;
+  assert.equal(cliff.gap, 20);
+  assert.ok(Math.abs(cliff.ratio - 3.2) < 0.01, `ratio was ${cliff.ratio}`);
 });
 
-test("a player I took is not depth at his own position", () => {
-  const board = new Board(makePlayers(12));
-  assert.equal(cliff(board, "RB"), "1→5");
-
-  board.pick(100, true);
-  // Having got him, what an RB run costs me is about the RBs I do not have —
-  // so the drop is now between the second and third, each a rank higher than
-  // before because the player I took no longer sits above them.
-  assert.equal(cliff(board, "RB"), "4→8");
+test("a position too thin to have a normal spacing is never called a cliff", () => {
+  // Three TEs in fifty players: the mean gap is already 16, so even a 41-player
+  // run behind one is only 2.5x. With a sample that small there is no such
+  // thing as an unusual gap, and claiming one would be noise.
+  const board = makeBoard(["TE", "WR", "TE", ...fill("WR", 40), "TE", ...fill("WR", 6)]);
+  assert.equal(rowFor(board, 102).cliff, null);
 });
 
-test("a do-not-draft player is not depth either", () => {
-  const board = new Board(makePlayers(12));
-  board.setDoNotDraft(104, true); // the second RB
-
-  // He keeps his board position but stops counting as an RB I could take, so
-  // the drop is now to the third RB and everyone below him ranks one higher.
-  assert.equal(cliff(board, "RB"), "1→8");
-  assert.equal(board.rows()[4].player.id, 104);
+test("the last player of his kind carries no cliff", () => {
+  const board = makeBoard(["TE", ...fill("WR", 30)]);
+  assert.equal(rowFor(board, 100).cliff, null, "nobody after him is not a gap");
 });
 
-test("the last player at a position has no next, rather than a bad number", () => {
-  const board = new Board(makePlayers(12));
-  board.pick(103, false); // two of the three TEs go
-  board.pick(107, false);
-
-  const te = board.cliffs().find((c) => c.position === "TE")!;
-  assert.equal(te.best, 10);
-  assert.equal(te.next, null);
-  assert.equal(te.gap, null);
+test("drafting the far side of a gap makes the drop deeper", () => {
+  const board = makeBoard(sparseTE());
+  const before = rowFor(board, 100).cliff!.gap;
+  board.pick(120, false); // the only TE in between goes
+  assert.ok(rowFor(board, 100).cliff!.gap > before, "the drop should have opened up");
 });
 
-test("a position with nobody left reports nothing at all", () => {
-  const board = new Board(makePlayers(12));
-  for (const id of [102, 106, 110]) board.pick(id, false); // every QB
-
-  assert.deepEqual(board.cliffs().find((c) => c.position === "QB"), {
-    position: "QB",
-    best: null,
-    next: null,
-    gap: null,
-  });
+test("do-not-draft closes off depth exactly as a pick does", () => {
+  const board = makeBoard(sparseTE());
+  const before = rowFor(board, 100).cliff!.gap;
+  board.setDoNotDraft(120, true);
+  assert.ok(rowFor(board, 100).cliff!.gap > before, "a player I will not take is not depth");
 });
 
-test("a cliff follows my order, not KTC's", () => {
+test("available rank counts only what is left, unlike board position", () => {
   const board = new Board(makePlayers(12));
-  board.moveTo(108, 0); // the third RB to the very top
+  board.pick(100, false);
+  board.pick(101, true);
+  board.setDoNotDraft(102, true);
 
-  assert.equal(cliff(board, "RB"), "1→2");
+  const row = rowFor(board, 103);
+  assert.equal(row.position, 4, "still 4th on my board");
+  assert.equal(row.availableRank, 1, "but the best player still available");
+  assert.equal(rowFor(board, 100).availableRank, null);
+  assert.equal(rowFor(board, 101).availableRank, null, "mine is not depth");
+  assert.equal(rowFor(board, 102).availableRank, null);
 });
 
-test("every position is reported, in a stable order", () => {
-  const board = new Board(makePlayers(12));
-  assert.deepEqual(board.cliffs().map((c) => c.position), POSITIONS);
+// --- Where my picks land ----------------------------------------------------
+
+test("a snake seat near the top gets a lopsided rhythm", () => {
+  assert.deepEqual(snakePicks(14, 2, 6), [2, 27, 30, 55, 58, 83]);
+  assert.deepEqual(snakePicks(14, 14, 4), [14, 15, 42, 43], "the wheel picks back to back");
+  assert.deepEqual(snakePicks(10, 1, 4), [1, 20, 21, 40]);
+});
+
+test("a projection counts the players who come off before my pick", () => {
+  const board = new Board(makePlayers(60));
+  const [first, second] = board.projections(14, 2);
+
+  // Nothing recorded yet, so pick 1 is still to come: one player goes, then me.
+  assert.deepEqual(first, { pick: 2, after: 1 });
+  assert.deepEqual(second, { pick: 27, after: 26 }, "picks 1 through 26 come first");
+});
+
+test("lines move up as the draft eats picks", () => {
+  const board = new Board(makePlayers(60));
+  for (let i = 0; i < 10; i++) board.pick(100 + i, false);
+
+  const next = board.projections(14, 2).find((p) => p.pick === 27)!;
+  assert.equal(next.after, 16, "27 - 10 recorded - 1");
+});
+
+test("a pick spent on someone I flagged brings my turn nearer for free", () => {
+  const board = new Board(makePlayers(60));
+  board.setDoNotDraft(105, true);
+  const before = board.projections(14, 2).find((p) => p.pick === 27)!.after;
+  const depth = board.rows().filter((r) => r.availableRank !== null).length;
+
+  board.pick(105, false);
+  const after = board.projections(14, 2).find((p) => p.pick === 27)!.after;
+
+  assert.equal(after, before - 1, "the line moved up");
+  assert.equal(
+    board.rows().filter((r) => r.availableRank !== null).length,
+    depth,
+    "and cost me nothing, because he was never an option",
+  );
+});
+
+test("a line only moves when the room departs from my board", () => {
+  const board = new Board(makePlayers(60));
+  const lineAt = () => {
+    const after = board.projections(14, 2).find((p) => p.pick === 27)!.after;
+    return board.rows().find((r) => r.availableRank === after + 1)!.player.boardRank;
+  };
+  assert.equal(lineAt(), 27, "nothing drafted, so board rank and available rank agree");
+
+  // A pick that goes exactly as my board expects costs me a player and a pick
+  // at the same time, and the two cancel: the line does not move at all.
+  board.pick(100, false);
+  assert.equal(lineAt(), 27);
+
+  // A reach nobody on my board justifies consumes a pick without taking anyone
+  // I wanted, so a better player survives to my turn.
+  board.pick(149, false); // board #50
+  assert.equal(lineAt(), 26, "a wasted pick hands me a better player");
+});
+
+test("picks already made drop off, rather than piling up behind me", () => {
+  const board = new Board(makePlayers(60));
+  for (let i = 0; i < 30; i++) board.pick(100 + i, false);
+
+  const picks = board.projections(14, 2).map((p) => p.pick);
+  assert.ok(!picks.includes(2) && !picks.includes(27) && !picks.includes(30));
+  assert.equal(picks[0], 55);
+});
+
+test("projections stop at the end of the board rather than running off it", () => {
+  const board = new Board(makePlayers(40));
+  for (const p of board.projections(14, 2)) assert.ok(p.after <= 40);
+});
+
+test("a nonsense league draws no lines at all", () => {
+  const board = new Board(makePlayers(20));
+  for (const [teams, slot] of [[1, 1], [14, 0], [14, 15], [12, 1.5], [NaN, 1]]) {
+    assert.deepEqual(board.projections(teams, slot), [], `${teams}/${slot}`);
+  }
 });

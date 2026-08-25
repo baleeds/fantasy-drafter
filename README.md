@@ -11,13 +11,25 @@ single-spot nudges. **Draft** is the screen for the night — tap takes a player
 off the board and tapping him again puts him back, and the **ME** button claims
 and releases him.
 
-Under the roster counts sits the **positional cliff**: the best two players still
-available at each position, as `QB 6→21 · RB 1→2 · WR 3→4 · TE 9→12`. That is the
-answer to "can I wait?" — a wide gap says take him now, a narrow one says the
-position is deep. Both numbers rank against what is *available*, so they are on a
-different scale from the rank shown on a row, which counts everybody. It tells me
-what the drop costs, not whether it will happen; that second half is an ADP
-question this app does not have the data for.
+Two things answer "can I wait?". **Projection lines** are drawn across the board
+at each of my remaining picks, labelled with the pick number, marking the first
+player I could still realistically get there — league size and slot in settings
+are all the snake order needs. **Cliff markers** badge any player with an
+unusually large drop behind him at his own position, `⌄24` meaning twenty-four
+available players until the next TE.
+
+They are one instrument. A cliff above my next line is one I cross whatever I
+do, so the only way to stay on the good side is to draft that position now;
+below the line there are still pre-drop players left when my turn comes round.
+Same gap, opposite meaning — so the urgent ones are loud and the rest are muted.
+Ungated, the flags cover a third of the top 40. Gated, a whole draft produces
+seven.
+
+Rows carry a **position colour dot**, Sleeper-style, because reading positional
+shape off a colour column is much faster than reading it off the `RB1` text.
+
+None of it says whether the drop will actually happen — only what it costs. That
+second half is an ADP question this app does not have the data for.
 
 The long-press delay and autoscroll speed were sliders while the gesture was
 being tuned on a real phone. They are constants in `src/drag.ts` now: a

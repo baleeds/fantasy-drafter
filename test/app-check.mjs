@@ -98,35 +98,72 @@ try {
       (await page.locator(".modes button").first().isVisible()),
   );
 
-  // --- The positional cliff ------------------------------------------------
-  // What it costs to wait: the best two still available at each position.
-  const cliffs = async () =>
-    (await page.locator("#cliffs .cliff").allInnerTexts()).map((t) =>
-      t.replace(/\s+/g, " ").trim(),
-    );
+  // --- Projection lines ----------------------------------------------------
+  // Defaults are a 14-team league from slot 2, so the snake runs 2, 27, 30, 55.
+  const lines = () => page.$$eval(".row[data-line]", (els) => els.map((e) => e.dataset.line));
 
-  const cliffBefore = await cliffs();
-  check("the cliff strip reports all four positions", cliffBefore.length === 4, cliffBefore.join(" | "));
   check(
-    "as a best→next range of real numbers, not NaN or undefined",
-    cliffBefore.every((t) => /^(QB|RB|WR|TE) \d+→\d+$/.test(t)),
-    cliffBefore.join(" | "),
+    "pick lines are drawn down the board in snake order",
+    (await lines()).slice(0, 4).join(",") === "2,27,30,55",
+    (await lines()).slice(0, 6).join(" · "),
+  );
+  check(
+    "a line marks the first player I could still get at that pick",
+    await page.evaluate(() => {
+      const row = [...document.querySelectorAll(".row")].find((r) => r.dataset.line === "27");
+      return Number(row.querySelector(".rank").innerText) === 27;
+    }),
+    "with nothing drafted, board position and available rank still agree",
+  );
+  check(
+    "the line is drawn without changing any row's height",
+    await page.evaluate(() => {
+      const hs = [...document.querySelectorAll(".row")].slice(0, 40).map((r) => r.getBoundingClientRect().height);
+      return new Set(hs).size === 1 && hs[0] === 56;
+    }),
+    "a real border here would skew every drag drop below it",
   );
 
-  // The cliff is a property of the board, not of what happens to be on screen.
-  // If filtering to one position or searching a name moved these numbers, they
-  // would mean nothing.
-  await page.click('.chip[data-filter="TE"]');
-  const cliffFiltered = await cliffs();
-  await page.click('.chip[data-filter="ALL"]');
-  await page.fill("#search", "a");
-  const cliffSearched = await cliffs();
-  await page.fill("#search", "");
+  // --- Cliffs --------------------------------------------------------------
+  const cliffs = () =>
+    page.$$eval(".row.cliff", (els) =>
+      els.map((e) => ({
+        name: e.querySelector(".name").innerText,
+        tag: e.querySelector(".tag.cliff").innerText,
+        urgent: e.classList.contains("cliff-urgent"),
+      })),
+    );
+
+  const found = await cliffs();
+  check("cliffs are marked, and sparsely", found.length > 0 && found.length < 30, `${found.length} on 300 players`);
   check(
-    "filtering and searching leave the cliff numbers alone",
-    cliffFiltered.join("|") === cliffBefore.join("|") &&
-      cliffSearched.join("|") === cliffBefore.join("|"),
-    `filtered ${cliffFiltered.join(" | ")}`,
+    "each carries the size of the drop",
+    found.every((c) => /^\u2304\d+$/.test(c.tag.replace(/\s/g, ""))),
+    found.slice(0, 3).map((c) => `${c.name} ${c.tag}`).join(" · "),
+  );
+  check(
+    "only the ones I cannot wait out are marked urgent",
+    found.filter((c) => c.urgent).length === 1,
+    `urgent: ${found.filter((c) => c.urgent).map((c) => c.name).join(", ") || "none"}`,
+  );
+  check(
+    "and an urgent cliff does not borrow the injury badge's colour",
+    await page.evaluate(() => {
+      const cliff = document.querySelector(".tag.cliff.urgent");
+      const injury = document.querySelector(".injury");
+      return getComputedStyle(cliff).backgroundColor !== getComputedStyle(injury).backgroundColor;
+    }),
+  );
+
+  // --- Position colour -----------------------------------------------------
+  check(
+    "every row carries a position dot, and the four positions differ",
+    await page.evaluate(() => {
+      const rows = [...document.querySelectorAll(".row")].slice(0, 60);
+      const seen = new Map();
+      for (const r of rows) seen.set(r.dataset.pos, getComputedStyle(r.querySelector(".dot")).backgroundColor);
+      return seen.size === 4 && new Set(seen.values()).size === 4;
+    }),
   );
 
   const first = await nameAt(0);
@@ -136,9 +173,18 @@ try {
 
   check("tapping a row takes him off the board", (await nameAt(0)) === second);
   check(
-    "and the cliff moves with him",
-    (await cliffs()).join("|") !== cliffBefore.join("|"),
-    `${cliffBefore.join(" | ")}   →   ${(await cliffs()).join(" | ")}`,
+    "a pick that went as my board expected leaves the lines where they are",
+    (await lines()).slice(0, 3).join(",") === "2,27,30" &&
+      (await page.evaluate(() => {
+        const row = [...document.querySelectorAll(".row")].find((r) => r.dataset.line === "27");
+        return Number(row.querySelector(".rank").innerText);
+      })) === 27,
+    "one fewer pick to wait and one fewer player above: they cancel",
+  );
+  check(
+    "and the header says which pick the draft is on",
+    (await page.locator("#roster").innerText()).includes("on pick 2"),
+    await page.locator("#roster").innerText(),
   );
   check("the board shrinks by one", (await visibleCount()) === 299);
   check("undo is offered when a row leaves the screen", (await page.locator("#undo").innerText()).includes(first));
@@ -309,8 +355,14 @@ try {
       (await page.locator("#taken-toggle").isHidden()),
   );
   check(
-    "and the cliff with them — 'can I wait?' is a draft-night question",
-    await page.locator("#cliffs").isHidden(),
+    "prep draws no pick lines and marks no cliffs",
+    (await page.locator(".row[data-line]").count()) === 0 &&
+      (await page.locator(".row.cliff").count()) === 0,
+    "both are about a draft that has not started",
+  );
+  check(
+    "but the position dots stay — they are a fact about the player",
+    (await page.locator(".row .dot").count()) > 0,
   );
   check(
     "and the header is shorter for it",
