@@ -120,14 +120,17 @@ try {
     picks.slice(0, 8).join(" · "),
   );
 
-  // The point of the whole exercise: the line counts down what the *room* does,
-  // not down my ordering. My top 18 all carry an ADP inside the top 25, so the
-  // first player who survives to pick 27 sits well above board #27.
+  // The board is ordered by ADP, so on an untouched board my order and the
+  // room's are the same and every line lands exactly on its own pick number.
+  // That is the property that stopped the lines collapsing onto one row: they
+  // used to count down ADP while the list ran in KTC order, and ADP rank is not
+  // monotonic down a talent ranking. Divergence now appears only where I have
+  // actually dragged someone — see model.test.ts for that half.
   const at27 = await lineRow(27);
   check(
-    "a line is placed by ADP, not by my own board order",
-    at27 !== null && at27 < 27,
-    `first survivor at pick 27 is my board #${at27}, not #27`,
+    "on an untouched board every line lands on its own pick number",
+    at27 === 27,
+    `pick 27's line sits at board #${at27}`,
   );
   check(
     "the line is drawn without changing any row's height",
@@ -155,16 +158,24 @@ try {
     found.every((c) => /^\u2304\d+$/.test(c.tag.replace(/\s/g, ""))),
     found.slice(0, 3).map((c) => `${c.name} ${c.tag}`).join(" · "),
   );
+  // A range rather than an exact count: how many fire is a function of
+  // CLIFF_RATIO, and pinning the number here would mean re-calibrating the
+  // threshold breaks a test that is not about the threshold. The names are
+  // printed so a change is still visible.
+  const urgent = found.filter((c) => c.urgent);
   check(
     "only the ones I cannot wait out are marked urgent",
-    found.filter((c) => c.urgent).length === 1,
-    `urgent: ${found.filter((c) => c.urgent).map((c) => c.name).join(", ") || "none"}`,
+    urgent.length >= 1 && urgent.length <= 4,
+    `${urgent.length} urgent: ${urgent.map((c) => c.name).join(", ") || "none"}`,
   );
   check(
     "and an urgent cliff does not borrow the injury badge's colour",
     await page.evaluate(() => {
       const cliff = document.querySelector(".tag.cliff.urgent");
       const injury = document.querySelector(".injury");
+      // Guarded: a missing element should fail this check, not throw and take
+      // the rest of the run down with it.
+      if (!cliff || !injury) return false;
       return getComputedStyle(cliff).backgroundColor !== getComputedStyle(injury).backgroundColor;
     }),
   );

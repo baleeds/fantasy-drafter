@@ -252,9 +252,52 @@ ordering at the moment I ask, rather than read off boundaries that move between
 fetches minutes apart. It needs no stable tier identity to store anything
 against, which was the exact property KTC's tiers failed to have.
 
+## The board runs in draft order
+
+**The baseline is ordered by ADP, not by KTC.** KTC survives as `ktcRank`, an
+overlay rather than the running order.
+
+The two sources agree closely about *talent within a position* — the top ten at
+each position share 8 to 10 of the same names, differing by one- and two-spot
+swaps — and disagree sharply about how to **interleave** the positions. That is
+the whole reason to switch: KTC does no replacement-value adjustment, while a
+market does it implicitly by pricing scarcity. Quarterbacks are the clearest
+case, going about 31 spots later than KTC ranks them, because the 15th-best
+quarterback scores nearly as much as the best one. Ordering by ADP therefore
+keeps almost all of KTC's talent read and replaces only the part KTC is not
+equipped to have an opinion about.
+
+Three things follow, and the second is the reason this was worth doing:
+
+- **Pick lines stop collapsing.** They count down ADP; when the list also runs
+  in ADP order they land one per row instead of piling several onto the first
+  player whose ADP rank happens to clear the threshold. Divergence appears only
+  where I have actually dragged someone, which is exactly where it should.
+- **The "moved" arrow becomes the availability signal.** `↑26` now means "I rate
+  him 26 spots above where the room takes him", which is the same statement as
+  **he will keep** — the pick is better spent on someone the market wants
+  sooner. `↓15` means wanting him at all means reaching. One number, two jobs.
+- **KTC becomes a prep tool.** It is shown only where it disagrees with draft
+  order by more than half the board position — proportional, because thirty
+  spots is enormous at #20 and nothing at #250. That marks 38 of 300 rows, and
+  inside the top 60 it lands on exactly two things: every older skill player KTC
+  fades (McCaffrey, Barkley, Henry, Jacobs, McLaurin, Evans — all 28 and up) and
+  the quarterbacks it inflates (Allen, Maye). Those are its two systematic
+  biases for a redraft league, and that is the list worth my own opinion.
+
+**A player with no ADP is interpolated between his nearest KTC neighbours who
+have one**, not appended. Eighteen of the 300 have none and the shallowest sits
+at KTC #122; appending would bury him 160 spots down.
+
+**Timing matters if this is ever revisited.** Sort keys are anchored to the base
+ordering — `sortKey = boardRank × 1000` means "between base #8 and #9" — so
+changing what the base *is* moves every existing placement. Re-basing moved the
+board a median of 23 spots, with 129 players moving 25 or more. Do it before
+building a board, or not at all.
+
 ## Data model
 
-The critical structural decision: **the KTC baseline and my personal edits are
+The critical structural decision: **the baseline and my personal edits are
 separate layers, merged at load time.**
 
 ```
@@ -372,8 +415,9 @@ the whole board as a ranking, which is what prep is for.
 - **Do-not-draft flag** on any player.
 - **Per-player notes** — short free text.
 - **Manual add** for anyone missing. Minor, given a 300-player board.
-- **"Moved" indicator** — how far a player sits from KTC's rank (`↑12` / `↓8`),
-  so my own biases are visible. **Only players I actually placed carry one.**
+- **"Moved" indicator** — how far a player sits from where the room drafts him
+  (`↑12` / `↓8`), which doubles as the availability signal: a player I rate well
+  above market will keep. **Only players I actually placed carry one.**
   Moving one player up necessarily pushes everyone beneath him down a spot, and
   that displacement is arithmetic, not an opinion: showing it would put an
   arrow against 40 players for one decision, and cover two-thirds of the board

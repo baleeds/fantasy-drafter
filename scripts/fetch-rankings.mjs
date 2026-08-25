@@ -17,7 +17,7 @@ import { readFile, writeFile, rename, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractPlayersArray, buildBoard, validate } from "./lib/transform.mjs";
-import { ADP_FIELD, adpQuery, extractAdp, joinAdp, validateAdp } from "./lib/adp.mjs";
+import { ADP_FIELD, adpQuery, extractAdp, joinAdp, orderByAdp, validateAdp } from "./lib/adp.mjs";
 
 const SOURCE_URL = "https://keeptradecut.com/fantasy-rankings";
 const ADP_URL = "https://sleeper.app/graphql";
@@ -113,8 +113,12 @@ async function attachAdp(players, args) {
     }
 
     const shallowest = missing.sort((a, b) => a.boardRank - b.boardRank)[0];
-    if (shallowest) console.log(`shallowest player with no ADP: ${shallowest.name} (#${shallowest.boardRank})`);
-    return joined;
+    if (shallowest) console.log(`shallowest player with no ADP: ${shallowest.name} (KTC #${shallowest.ktcRank})`);
+
+    // The board runs in draft order, not in KTC's order. See orderByAdp.
+    const { players: reordered, interpolated } = orderByAdp(joined);
+    console.log(`ordered the board by ADP; ${interpolated.length} placed by interpolation`);
+    return reordered;
   } catch (err) {
     console.warn(`ADP fetch failed (${err.message}) — the board is written without it`);
     return players;
@@ -230,15 +234,19 @@ function summarise(players) {
   console.log(`  ${injured} carrying an injury designation`);
   const adp = players.filter((p) => typeof p.adp === "number");
   if (adp.length) {
+    // Drift against KTC, not against ADP: the board is now ordered by ADP, so
+    // drift against it is zero by construction. KTC is the overlay, and where
+    // it disagrees is the interesting direction.
     const drift = (pos) => {
-      const g = adp.filter((p) => p.position === pos && p.boardRank <= 80);
-      if (!g.length) return `${pos} —`;
-      const ranked = [...adp].sort((a, b) => a.adp - b.adp);
-      const rankOf = new Map(ranked.map((p, i) => [p.id, i + 1]));
-      const mean = g.reduce((s, p) => s + (rankOf.get(p.id) - p.boardRank), 0) / g.length;
+      const g = players.filter((p) => p.position === pos && p.boardRank <= 80);
+      if (!g.length) return `${pos} -`;
+      const mean = g.reduce((s, p) => s + (p.ktcRank - p.boardRank), 0) / g.length;
       return `${pos} ${mean > 0 ? "+" : ""}${mean.toFixed(0)}`;
     };
-    console.log(`  ${adp.length} with ADP; drift vs my top 80: ${["QB", "RB", "WR", "TE"].map(drift).join("  ")}`);
+    console.log(
+      `  ${adp.length} with ADP; KTC's drift vs draft order, top 80: ` +
+        ["QB", "RB", "WR", "TE"].map(drift).join("  "),
+    );
   }
   console.log(
     `  top of board: ${players

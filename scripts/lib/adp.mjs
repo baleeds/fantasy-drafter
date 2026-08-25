@@ -156,3 +156,62 @@ export function validateAdp(players, { field = ADP_FIELD } = {}) {
 
   return problems;
 }
+
+/**
+ * Re-order the board by ADP, and re-densify.
+ *
+ * The board is ordered by when the room takes players, not by KTC's opinion of
+ * them. The two agree closely about talent *within* a position — the top ten at
+ * each position share 8-10 of the same names, differing by one- and two-spot
+ * swaps — and disagree about how to interleave the positions, by a lot. That
+ * disagreement is the whole point: KTC does no replacement-value adjustment,
+ * and a market does it implicitly by pricing scarcity. Quarterbacks are the
+ * clearest case, going about 31 spots later than KTC ranks them, because the
+ * 15th-best quarterback scores nearly as much as the best one.
+ *
+ * So ordering by ADP keeps almost all of KTC's talent read and replaces only
+ * the interleave, which is the part KTC is not equipped to have an opinion on.
+ *
+ * KTC survives as `ktcRank`, an overlay that says where to disagree — which is
+ * a better job for a talent opinion than being the running order.
+ */
+export function orderByAdp(players) {
+  const known = players.filter((p) => typeof p.adp === "number");
+  if (known.length < 50) return { players, interpolated: [] };
+
+  const anchors = [...known].sort((a, b) => a.ktcRank - b.ktcRank);
+  const interpolated = [];
+
+  // A player with no ADP is not simply late — beyond about pick 200 nobody is
+  // drafted reliably enough to have one, and the shallowest gap here sits at
+  // KTC #122. Appending them would drop him 160 spots. Interpolating between
+  // his nearest KTC neighbours who *do* have an ADP keeps him roughly where
+  // both sources would put him, without inventing a number to display.
+  const effective = (player) => {
+    if (typeof player.adp === "number") return player.adp;
+    interpolated.push(player);
+
+    let below = null;
+    let above = null;
+    for (const anchor of anchors) {
+      if (anchor.ktcRank < player.ktcRank) below = anchor;
+      else if (above === null) { above = anchor; break; }
+    }
+    if (!below) return above.adp / 2;
+    if (!above) return below.adp + 1;
+
+    const span = above.ktcRank - below.ktcRank;
+    const at = (player.ktcRank - below.ktcRank) / span;
+    return below.adp + (above.adp - below.adp) * at;
+  };
+
+  const ordered = [...players]
+    .map((player) => ({ player, key: effective(player) }))
+    // Name as the final tiebreak, so a refresh can never reshuffle the board
+    // through iteration order alone — the same reason the KTC sort has one.
+    .sort((a, b) => a.key - b.key || a.player.ktcRank - b.player.ktcRank
+      || a.player.name.localeCompare(b.player.name))
+    .map(({ player }, i) => ({ ...player, boardRank: i + 1 }));
+
+  return { players: ordered, interpolated };
+}

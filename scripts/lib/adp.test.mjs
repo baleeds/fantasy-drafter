@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { normaliseName, extractAdp, joinAdp, validateAdp } from "./adp.mjs";
+import { normaliseName, extractAdp, joinAdp, orderByAdp, validateAdp } from "./adp.mjs";
 
 const row = (first, last, position, adp, extra = {}) => ({
   player_id: `${first}${last}`,
@@ -105,4 +105,69 @@ test("a sentinel that somehow survived the extract is still refused", () => {
 test("a mostly-empty join is refused outright", () => {
   const sparse = board().map((p) => (p.boardRank > 40 ? { ...p, adp: undefined } : p));
   assert.ok(validateAdp(sparse).length > 0);
+});
+
+// --- Ordering the board by draft order --------------------------------------
+
+/** KTC order 1..n, with ADP supplied per player by a callback. */
+function ktcBoard(n, adpFor) {
+  return Array.from({ length: n }, (_, i) => {
+    const player = {
+      id: 100 + i, name: `Player ${i + 1}`, position: "RB",
+      boardRank: i + 1, ktcRank: i + 1,
+    };
+    const adp = adpFor(i + 1);
+    return adp === undefined ? player : { ...player, adp };
+  });
+}
+
+test("the board runs in draft order, not in KTC's order", () => {
+  // KTC's #1 is the market's #60, and vice versa.
+  const players = ktcBoard(60, (r) => 61 - r);
+  const { players: ordered } = orderByAdp(players);
+  assert.equal(ordered[0].name, "Player 60");
+  assert.equal(ordered[0].boardRank, 1);
+  assert.equal(ordered[59].name, "Player 1");
+  assert.equal(ordered[59].boardRank, 60, "boardRank is dense and re-derived");
+});
+
+test("KTC's rank survives the reorder, as the overlay", () => {
+  const { players: ordered } = orderByAdp(ktcBoard(60, (r) => 61 - r));
+  assert.equal(ordered[0].ktcRank, 60, "he is still KTC's 60th, we just draft him first");
+});
+
+test("a player with no ADP lands between his KTC neighbours, not at the end", () => {
+  // Everyone tracks KTC except #30, who has no ADP at all.
+  const players = ktcBoard(60, (r) => (r === 30 ? undefined : r));
+  const { players: ordered, interpolated } = orderByAdp(players);
+
+  assert.deepEqual(interpolated.map((p) => p.name), ["Player 30"]);
+  const at = ordered.findIndex((p) => p.name === "Player 30");
+  assert.ok(at > 25 && at < 34, `landed at ${at + 1}; appending would have buried him at 60`);
+});
+
+test("interpolation follows KTC's neighbours even when the market disagrees", () => {
+  // The market drafts in reverse. Player 30 has no ADP; his KTC neighbours are
+  // 29 and 31, whose ADPs are 32 and 30 — so he belongs between them, at 31.
+  const players = ktcBoard(60, (r) => (r === 30 ? undefined : 61 - r));
+  const { players: ordered } = orderByAdp(players);
+  const at = ordered.findIndex((p) => p.name === "Player 30");
+  const around = [ordered[at - 1].name, ordered[at + 1].name].sort();
+  assert.deepEqual(around, ["Player 29", "Player 31"]);
+});
+
+test("a board with almost no ADP is left in KTC order rather than mangled", () => {
+  const players = ktcBoard(60, (r) => (r <= 10 ? r : undefined));
+  const { players: ordered } = orderByAdp(players);
+  assert.deepEqual(ordered.map((p) => p.name), players.map((p) => p.name));
+});
+
+test("ordering is deterministic, so a refresh cannot reshuffle on its own", () => {
+  // Two players share an ADP exactly; the tiebreak has to be stable. Sixty
+  // players, because below fifty known ADPs orderByAdp declines to reorder at
+  // all and hands the list straight back.
+  const players = ktcBoard(60, (r) => (r === 5 || r === 6 ? 5 : r));
+  const once = orderByAdp(players).players.map((p) => p.name);
+  const again = orderByAdp([...players].reverse()).players.map((p) => p.name);
+  assert.deepEqual(once, again);
 });

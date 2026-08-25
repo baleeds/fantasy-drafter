@@ -55,13 +55,21 @@ export type PlayerState = "available" | "gone" | "mine";
  */
 export const SPACING = 1000;
 
-/** Where a player sits on the board, and how far that is from KTC's opinion. */
+/** Where a player sits on the board, and how far that is from the market. */
 export interface BoardRow {
   player: Player;
   /** 1-based position on the full board, independent of any active filter. */
   position: number;
   /**
-   * How far he sits from KTC's rank. Positive means I rate him higher.
+   * How far he sits from where the room drafts him. Positive means I rate him
+   * above the market — which also means **he will keep**: if I have him twenty
+   * spots above his ADP, he is not going anywhere and the pick is better spent
+   * on someone the market wants sooner. Negative means he goes before I would
+   * take him, so wanting him at all means reaching.
+   *
+   * The baseline is ADP because the board is ordered by it. This is the single
+   * most useful number on the row, and it used to measure distance from KTC's
+   * trade value, which was mildly interesting by comparison.
    *
    * Only meaningful alongside `placed`: a player I never touched can still be
    * displaced by moves around him, and that displacement is not an opinion.
@@ -116,18 +124,28 @@ export interface Cliff {
 /**
  * How many times normal spacing counts as a cliff.
  *
- * Measured against the real board rather than guessed. Gating on the pick line
- * (see `projections`) and sweeping a whole 14-team draft: K=2 fires 21 times,
- * K=2.5 eight, K=3 seven, K=3.5 five. Three lands on roughly one flag every
- * other pick — sparse enough that each one is worth reading.
+ * Measured against the real board rather than guessed, by gating on the pick
+ * line (see `projections`) and sweeping a whole 14-team draft from slot 2:
+ * K=2 fires 20 times, K=2.5 ten, K=2.75 seven, K=3 three. Seven across
+ * thirteen picks is roughly one flag every other pick — sparse enough that
+ * each one is worth reading.
  *
- * Normalising by *mean* spacing rather than median is deliberate. The median is
- * the more robust statistic and fires about three times as often; the place
- * that decides it is QB, where a 15-player gap reads 3.75x by median and 2.2x
- * by mean. In a 1QB league being told to reach for a quarterback is exactly the
- * advice not to take, so the conservative one wins.
+ * **This constant is coupled to the board's base ordering, and that is a trap.**
+ * It was 3 while the board ran in KTC's order, which produced the same seven
+ * flags. Re-basing the board on ADP compressed the gaps — the market prices
+ * positional scarcity into its ordering, so it has fewer holes than a pure
+ * talent ranking does — and at K=3 the flag count collapsed to three. The one
+ * that vanished was the elite-TE cliff, which is the single most valuable thing
+ * this feature says: it fell from 3.44x to 2.97x and missed by a hundredth.
+ * Change what the board is sorted by and this has to be re-derived.
+ *
+ * Normalising by *mean* spacing rather than median is also deliberate. The
+ * median is the more robust statistic and fires about three times as often; the
+ * place that decides it is QB, where a 15-player gap reads 3.75x by median and
+ * 2.2x by mean. In a 1QB league being told to reach for a quarterback is
+ * exactly the advice not to take, so the conservative one wins.
  */
-export const CLIFF_RATIO = 3;
+export const CLIFF_RATIO = 2.75;
 
 /** Where one of my picks falls in the list of players still available to me. */
 export interface Projection {
@@ -173,8 +191,9 @@ export class Board {
 
   /**
    * A player's key on the board. Players I have never moved store nothing and
-   * inherit KTC's rank, so a rankings refresh repositions them automatically —
-   * which is correct, because I have no opinion about them.
+   * inherit the baseline's order — which is draft order, from ADP — so a
+   * refresh repositions them automatically. That is correct: I have no opinion
+   * about them, so they should sit wherever the room is taking them.
    */
   sortKeyOf(player: Player): number {
     return this.overrides[player.id]?.sortKey ?? player.boardRank * SPACING;

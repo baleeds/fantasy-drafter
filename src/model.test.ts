@@ -511,6 +511,21 @@ test("with no ADP at all, the projection falls back to my own order", () => {
   for (const row of board.rows()) assert.equal(row.adpRank, row.availableRank);
 });
 
+test("dragging is what makes my order diverge from the room's", () => {
+  // The board arrives in draft order, so untouched, the two agree exactly.
+  const players = makePlayers(30).map((p) => ({ ...p, adp: p.boardRank }));
+  const board = new Board(players);
+  for (const row of board.rows()) assert.equal(row.adpRank, row.availableRank);
+
+  // Dragging a player the room takes late up to the top splits them, and the
+  // projection has to keep counting down the room's order, not mine.
+  board.moveTo(125, 0); // board #26, ADP 26
+  const rows = board.rows();
+  assert.equal(rows[0].player.id, 125);
+  assert.equal(rows[0].availableRank, 1, "top of my board");
+  assert.equal(rows[0].adpRank, 26, "but the room is not taking him for a while");
+});
+
 test("a player the room does not rate survives past where my board puts him", () => {
   // He is my number one; the room takes him around pick 40. That is the whole
   // reason the line counts down ADP and not my ordering.

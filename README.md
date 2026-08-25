@@ -11,6 +11,17 @@ single-spot nudges. **Draft** is the screen for the night — tap takes a player
 off the board and tapping him again puts him back, and the **ME** button claims
 and releases him.
 
+**The board runs in draft order.** The baseline is ordered by ADP; KTC rides
+along as `ktcRank` and is shown only where it disagrees by more than half the
+board position — 38 of 300 rows, and in the top 60 that is every older player it
+fades and the two quarterbacks it inflates. The two sources agree about talent
+within a position and disagree about interleaving them, which is the part KTC
+does not adjust for and a market does.
+
+So the **moved arrow** measures distance from the market rather than from KTC:
+`↑26` means I rate him 26 spots above where the room takes him, which is the
+same thing as *he will keep* — spend the pick on someone the market wants first.
+
 Two things answer "can I wait?". **Projection lines** are drawn across the board
 at each of my remaining picks, labelled with the pick number, marking the first
 player I could still realistically get there — league size and slot in settings
