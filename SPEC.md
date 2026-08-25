@@ -273,6 +273,23 @@ Three things follow, and the second is the reason this was worth doing:
   in ADP order they land one per row instead of piling several onto the first
   player whose ADP rank happens to clear the threshold. Divergence appears only
   where I have actually dragged someone, which is exactly where it should.
+
+  **A line sits below the last player the room is expected to take, not above
+  the first one it is not.** Those sound equivalent and are not, because ADP
+  rank is *not* monotonic down the board — dragging a player up is precisely how
+  I say "I rate him above the market", which puts a large ADP rank early in the
+  list. Anchored to the first survivor, every later line piled onto that one row,
+  because a player the room takes at 120 genuinely does survive my picks at 55,
+  83 and 114 alike. True, and useless as a position marker: a line exists to say
+  how far down the board my next turn lands, so it has to keep the spacing of the
+  picks behind it. Ten dragged players turned 25-row gaps into zero before this
+  was fixed, and re-basing on ADP had hidden it by making an *untouched* board
+  monotonic.
+
+  Under a position filter the anchor is the last *visible* player taken, so the
+  gaps are legitimately smaller than the pick count — with the RB chip on, "25
+  picks from now" may be only seven RBs away. That is the question a filtered
+  board is being asked, not a bug.
 - **The "moved" arrow becomes the availability signal.** `↑26` now means "I rate
   him 26 spots above where the room takes him", which is the same statement as
   **he will keep** — the pick is better spent on someone the market wants

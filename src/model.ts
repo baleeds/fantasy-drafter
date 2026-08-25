@@ -590,3 +590,44 @@ export function keyBetween(before: number | null, after: number | null): number 
   // respace threshold is 2, so that triggers a renormalise on the same move.
   return Math.floor((before + after) / 2);
 }
+
+/**
+ * Work out which rendered row each pick line sits above.
+ *
+ * A line sits **below the last player the room is expected to have taken** by
+ * that pick — not above the first one it has not. The two sound equivalent and
+ * are not, because `adpRank` is *not* monotonic down the board: dragging a
+ * player up is exactly how I say "I rate him above the market", which puts a
+ * large ADP rank early in the list.
+ *
+ * Anchoring to the first survivor made every remaining line pile onto that one
+ * row, because a player the room takes at 120 legitimately survives my picks at
+ * 55, 83 and 114 alike. True, and useless as a position marker. Anchoring to
+ * the last casualty keeps the lines spaced by the number of picks between them,
+ * which is what a line is for: knowing how far down the board my next turn lands.
+ *
+ * Under a filter the anchor is the last *visible* casualty, so the line still
+ * marks a real boundary within whatever subset is on screen.
+ */
+export function placeLines(visible: BoardRow[], projections: Projection[]): Map<number, string> {
+  const marks = new Map<number, string[]>();
+
+  for (const { pick, after } of projections) {
+    let lastGone = -1;
+    for (let i = 0; i < visible.length; i++) {
+      const rank = visible[i].adpRank;
+      if (rank !== null && rank <= after) lastGone = i;
+    }
+
+    const anchor = visible[lastGone + 1];
+    if (!anchor) continue; // the pick lands past the end of what is on screen
+
+    const at = marks.get(anchor.player.id) ?? [];
+    at.push(String(pick));
+    marks.set(anchor.player.id, at);
+  }
+
+  // Two picks can still share a row when nothing visible separates them — at
+  // the turn that is only three players, so it happens often enough to handle.
+  return new Map([...marks].map(([id, picks]) => [id, picks.join(" · ")]));
+}

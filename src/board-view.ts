@@ -7,6 +7,7 @@
  * slot arithmetic depends on a uniform pitch, and test/drag-check.mjs asserts it.
  */
 
+import { placeLines } from "./model.ts";
 import type { BoardRow, Projection } from "./model.ts";
 
 export interface RowCallbacks {
@@ -210,36 +211,4 @@ function tag(label: string, kind: string): HTMLSpanElement {
 function text(root: HTMLElement, selector: string, value: string): void {
   const el = root.querySelector(selector)!;
   if (el.textContent !== value) el.textContent = value;
-}
-
-/**
- * Work out which rendered row each pick line sits above.
- *
- * A line belongs above the first row I could still get at that pick: the first
- * player the *room* has not already taken by then. That is a question about
- * ADP, not about my ordering — project down consensus, decide down my board.
- * So the players above a line are scattered through it rather than being a
- * contiguous block, and the line marks the first survivor. Anchoring to the first *visible*
- * such row rather than to an exact rank is what keeps the line meaningful under
- * a filter: with the RB chip on, it lands above the first RB who survives to my
- * pick, which is the question a filtered board is being asked.
- */
-function placeLines(visible: BoardRow[], projections: Projection[]): Map<number, string> {
-  const marks = new Map<number, string[]>();
-  let next = 0;
-
-  for (const row of visible) {
-    if (row.adpRank === null) continue;
-    while (next < projections.length && row.adpRank > projections[next].after) {
-      const at = marks.get(row.player.id) ?? [];
-      at.push(String(projections[next].pick));
-      marks.set(row.player.id, at);
-      next++;
-    }
-    if (next >= projections.length) break;
-  }
-
-  // Two picks land together when a filter hides everyone between them — at the
-  // turn that is only three players, so it happens often enough to handle.
-  return new Map([...marks].map(([id, picks]) => [id, picks.join(" · ")]));
 }
