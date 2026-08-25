@@ -285,6 +285,38 @@ Three things follow, and the second is the reason this was worth doing:
   the quarterbacks it inflates (Allen, Maye). Those are its two systematic
   biases for a redraft league, and that is the list worth my own opinion.
 
+### The value is noisy; the order is not
+
+Worth knowing before trusting a printed ADP. Between two fetches hours apart,
+**695 of ~9,400 values changed**, and Gibbs — the consensus number one — moved
+from 1.1 to 1.6. That is not how an average over thousands of drafts behaves;
+most likely it is a rolling window small enough that a few new drafts shift the
+mean, though the API gives no way to confirm that.
+
+The **ordering**, however, barely moves at all:
+
+| across the top 150 | |
+|---|---|
+| mean rank change between fetches | **0.3 spots** |
+| median | 0 |
+| worst | 2 |
+| players moving 5+ | 0 |
+
+The top 12 came back in exactly the same sequence. So the jitter is in the
+decimal, not in who goes when.
+
+**Nothing in the app consumes the value.** `orderByAdp` sorts by it, `adpRank`
+sorts by it, projections compare ranks — every consumer collapses it to an
+ordering first, and it is never displayed. The one raw use is interpolating the
+players who have no ADP, where half a pick is irrelevant.
+
+This also settles whether ADP is stable enough to be the baseline, which was an
+open risk when the board was re-based: 0.3 spots of drift per refresh, against
+the 23-spot median move that re-basing itself produced, and against KTC's own
+values which re-rank within minutes. **Untouched players will not shuffle and
+placements will hold.** Do not, however, put a printed ADP on a row and imply
+it is precise to a tenth.
+
 **A player with no ADP is interpolated between his nearest KTC neighbours who
 have one**, not appended. Eighteen of the 300 have none and the shallowest sits
 at KTC #122; appending would bury him 160 spots down.
