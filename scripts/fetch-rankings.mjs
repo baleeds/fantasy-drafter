@@ -17,8 +17,10 @@ import { readFile, writeFile, rename, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { extractPlayersArray, buildBoard, validate } from "./lib/transform.mjs";
+import { ADP_FIELD, adpQuery, extractAdp, joinAdp, validateAdp } from "./lib/adp.mjs";
 
 const SOURCE_URL = "https://keeptradecut.com/fantasy-rankings";
+const ADP_URL = "https://sleeper.app/graphql";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_OUT = resolve(ROOT, "public/players.json");
 
@@ -35,7 +37,7 @@ async function main() {
   const raw = extractPlayersArray(html);
   console.log(`extracted ${raw.length} players from the page`);
 
-  const players = buildBoard(raw);
+  let players = buildBoard(raw);
   console.log(`kept ${players.length} skill players (dropped PK and DST)`);
 
   const problems = validate(players);
@@ -46,13 +48,21 @@ async function main() {
   }
   console.log("validation passed");
 
+  // ADP is a second opinion about the same players, and a strictly optional
+  // one: the board is useful without it and must not become unbuildable
+  // because someone else's endpoint moved. A failure here costs the projection
+  // lines their accuracy, not the app its board.
+  const withAdp = args.skipAdp ? players : await attachAdp(players, args);
+
   const board = {
     generatedAt: new Date().toISOString(),
     source: SOURCE_URL,
+    adpSource: withAdp.some((p) => p.adp !== undefined) ? `${ADP_URL} ${ADP_FIELD}` : null,
     format: "redraft-1qb",
-    playerCount: players.length,
-    players,
+    playerCount: withAdp.length,
+    players: withAdp,
   };
+  players = withAdp;
 
   if (args.dryRun) {
     console.log("dry run — nothing written");
@@ -74,8 +84,64 @@ async function main() {
   summarise(players);
 }
 
+/**
+ * Fetch ADP and join it on by name, or carry on without it.
+ *
+ * Deliberately non-fatal, unlike the KTC validators. A stale board beats an
+ * empty one, and a board with no ADP beats no board at all — the app falls
+ * back to projecting down my own ordering, which is what it did before ADP
+ * existed. What must never happen is bad ADP passing silently, so the
+ * validators still refuse the join outright rather than half-applying it.
+ */
+async function attachAdp(players, args) {
+  try {
+    const season = args.season ?? String(new Date().getFullYear());
+    const body = JSON.stringify({ query: adpQuery(season, ADP_FIELD) });
+    const response = await fetchJsonWithRetry(ADP_URL, body);
+
+    const table = extractAdp(response, ADP_FIELD);
+    console.log(`extracted ${table.size} ${ADP_FIELD} entries for ${season}`);
+
+    const { players: joined, matched, missing } = joinAdp(players, table);
+    console.log(`joined ADP onto ${matched.length}/${players.length} players`);
+
+    const problems = validateAdp(joined, { field: ADP_FIELD });
+    if (problems.length > 0) {
+      console.warn(`\nADP rejected — the board is written without it:`);
+      for (const p of problems) console.warn(`  - ${p}`);
+      return players;
+    }
+
+    const shallowest = missing.sort((a, b) => a.boardRank - b.boardRank)[0];
+    if (shallowest) console.log(`shallowest player with no ADP: ${shallowest.name} (#${shallowest.boardRank})`);
+    return joined;
+  } catch (err) {
+    console.warn(`ADP fetch failed (${err.message}) — the board is written without it`);
+    return players;
+  }
+}
+
+async function fetchJsonWithRetry(url, body) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
+      return await res.json();
+    } catch (err) {
+      if (attempt >= RETRIES) throw new Error(`after ${RETRIES + 1} attempts: ${err.message}`);
+      const wait = BACKOFF_MS[attempt];
+      console.warn(`ADP attempt ${attempt + 1} failed (${err.message}); retrying in ${wait}ms`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+}
+
 function parseArgs(argv) {
-  const args = { fromFile: null, out: DEFAULT_OUT, dryRun: false, onlyIfChanged: false };
+  const args = { fromFile: null, out: DEFAULT_OUT, dryRun: false, onlyIfChanged: false, skipAdp: false, season: null };
   for (let i = 0; i < argv.length; i++) {
     switch (argv[i]) {
       case "--from-file":
@@ -89,6 +155,12 @@ function parseArgs(argv) {
         break;
       case "--only-if-changed":
         args.onlyIfChanged = true;
+        break;
+      case "--skip-adp":
+        args.skipAdp = true;
+        break;
+      case "--season":
+        args.season = argv[++i];
         break;
       default:
         throw new Error(`unknown argument: ${argv[i]}`);
@@ -156,6 +228,18 @@ function summarise(players) {
       .join("  ")}`,
   );
   console.log(`  ${injured} carrying an injury designation`);
+  const adp = players.filter((p) => typeof p.adp === "number");
+  if (adp.length) {
+    const drift = (pos) => {
+      const g = adp.filter((p) => p.position === pos && p.boardRank <= 80);
+      if (!g.length) return `${pos} —`;
+      const ranked = [...adp].sort((a, b) => a.adp - b.adp);
+      const rankOf = new Map(ranked.map((p, i) => [p.id, i + 1]));
+      const mean = g.reduce((s, p) => s + (rankOf.get(p.id) - p.boardRank), 0) / g.length;
+      return `${pos} ${mean > 0 ? "+" : ""}${mean.toFixed(0)}`;
+    };
+    console.log(`  ${adp.length} with ADP; drift vs my top 80: ${["QB", "RB", "WR", "TE"].map(drift).join("  ")}`);
+  }
   console.log(
     `  top of board: ${players
       .slice(0, 3)

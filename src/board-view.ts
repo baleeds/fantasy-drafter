@@ -127,7 +127,7 @@ function updateRow(
   // The cliff is a draft-mode idea for the same reason the rest of them are:
   // it is about what I can still get, and in prep nobody has taken anything.
   const cliff = mode === "draft" ? row.cliff : null;
-  const urgent = cliff !== null && horizon !== null && (row.availableRank ?? 0) <= horizon;
+  const urgent = cliff !== null && horizon !== null && (row.adpRank ?? 0) <= horizon;
 
   el.className =
     `row state-${state}${row.doNotDraft ? " dnd" : ""} mode-${mode}` +
@@ -206,8 +206,11 @@ function text(root: HTMLElement, selector: string, value: string): void {
 /**
  * Work out which rendered row each pick line sits above.
  *
- * A line belongs above the first row I could still get at that pick, which is
- * the first with an available rank past it. Anchoring to the first *visible*
+ * A line belongs above the first row I could still get at that pick: the first
+ * player the *room* has not already taken by then. That is a question about
+ * ADP, not about my ordering — project down consensus, decide down my board.
+ * So the players above a line are scattered through it rather than being a
+ * contiguous block, and the line marks the first survivor. Anchoring to the first *visible*
  * such row rather than to an exact rank is what keeps the line meaningful under
  * a filter: with the RB chip on, it lands above the first RB who survives to my
  * pick, which is the question a filtered board is being asked.
@@ -217,8 +220,8 @@ function placeLines(visible: BoardRow[], projections: Projection[]): Map<number,
   let next = 0;
 
   for (const row of visible) {
-    if (row.availableRank === null) continue;
-    while (next < projections.length && row.availableRank > projections[next].after) {
+    if (row.adpRank === null) continue;
+    while (next < projections.length && row.adpRank > projections[next].after) {
       const at = marks.get(row.player.id) ?? [];
       at.push(String(projections[next].pick));
       marks.set(row.player.id, at);

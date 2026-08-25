@@ -100,20 +100,34 @@ try {
 
   // --- Projection lines ----------------------------------------------------
   // Defaults are a 14-team league from slot 2, so the snake runs 2, 27, 30, 55.
+  // A line can carry more than one pick: lines are placed by ADP rank, which is
+  // not monotonic down my board, so consecutive picks can share a first
+  // survivor. "Picks 27 and 30 both get you this player" is a true statement.
   const lines = () => page.$$eval(".row[data-line]", (els) => els.map((e) => e.dataset.line));
+  const lineRow = (pick) =>
+    page.evaluate((p) => {
+      const row = [...document.querySelectorAll(".row")].find((r) =>
+        (r.dataset.line ?? "").split(" · ").includes(String(p)),
+      );
+      return row ? Number(row.querySelector(".rank").innerText) : null;
+    }, pick);
 
+  const picks = (await lines()).flatMap((v) => v.split(" · ").map(Number));
   check(
-    "pick lines are drawn down the board in snake order",
-    (await lines()).slice(0, 4).join(",") === "2,27,30,55",
-    (await lines()).slice(0, 6).join(" · "),
+    "every one of my snake picks gets a line, once, in order",
+    picks.slice(0, 6).join(",") === "2,27,30,55,58,83" &&
+      picks.every((v, i) => i === 0 || v > picks[i - 1]),
+    picks.slice(0, 8).join(" · "),
   );
+
+  // The point of the whole exercise: the line counts down what the *room* does,
+  // not down my ordering. My top 18 all carry an ADP inside the top 25, so the
+  // first player who survives to pick 27 sits well above board #27.
+  const at27 = await lineRow(27);
   check(
-    "a line marks the first player I could still get at that pick",
-    await page.evaluate(() => {
-      const row = [...document.querySelectorAll(".row")].find((r) => r.dataset.line === "27");
-      return Number(row.querySelector(".rank").innerText) === 27;
-    }),
-    "with nothing drafted, board position and available rank still agree",
+    "a line is placed by ADP, not by my own board order",
+    at27 !== null && at27 < 27,
+    `first survivor at pick 27 is my board #${at27}, not #27`,
   );
   check(
     "the line is drawn without changing any row's height",
@@ -173,13 +187,12 @@ try {
 
   check("tapping a row takes him off the board", (await nameAt(0)) === second);
   check(
-    "a pick that went as my board expected leaves the lines where they are",
-    (await lines()).slice(0, 3).join(",") === "2,27,30" &&
-      (await page.evaluate(() => {
-        const row = [...document.querySelectorAll(".row")].find((r) => r.dataset.line === "27");
-        return Number(row.querySelector(".rank").innerText);
-      })) === 27,
-    "one fewer pick to wait and one fewer player above: they cancel",
+    "a pick the room was always going to make leaves the lines where they are",
+    (await lineRow(27)) === at27,
+    // The player taken was first by ADP as well as first on my board, so every
+    // ADP rank drops by one at the same moment the horizon does. They cancel,
+    // and the first survivor is still the same man.
+    `still my board #${await lineRow(27)}`,
   );
   check(
     "and the header says which pick the draft is on",

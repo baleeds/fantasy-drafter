@@ -21,6 +21,12 @@ export interface Player {
   ktcRank: number;
   positionalRank: number;
   rookie: boolean;
+  /**
+   * Average draft position — when this player actually comes off the board,
+   * as opposed to how good he is. Absent past roughly pick 200, where nobody
+   * is reliably drafted and "no ADP" is the honest answer.
+   */
+  adp?: number;
   byeWeek?: number;
   age?: number;
   injury?: { status: string; area: string; returns: string };
@@ -72,6 +78,18 @@ export interface BoardRow {
    * players because it is my ranking of everybody.
    */
   availableRank: number | null;
+  /**
+   * Rank among available players by *ADP* rather than by my board — where the
+   * room would take him, not where I rate him.
+   *
+   * This is what every prediction in the app counts down. My ordering decides
+   * who I want; ADP decides who will still be there. Players with no ADP sort
+   * last, which is correct: nobody is taking them soon.
+   *
+   * With no ADP anywhere in the data this collapses to `availableRank`, so a
+   * board built before ADP existed still projects, just less well.
+   */
+  adpRank: number | null;
   /** The drop behind him, when it is large enough to be worth marking. */
   cliff: Cliff | null;
 }
@@ -181,6 +199,14 @@ export class Board {
     const rank = new Map(available.map((player, i) => [player.id, i + 1]));
     const cliffs = findCliffs(available);
 
+    // Sorted by when the room takes them, with my own order as the tiebreak so
+    // players sharing an ADP — and the whole undrafted tail, which shares none
+    // at all — stay in a stable, sensible sequence.
+    const byAdp = [...available].sort(
+      (a, b) => (a.adp ?? Infinity) - (b.adp ?? Infinity) || a.boardRank - b.boardRank,
+    );
+    const adpRank = new Map(byAdp.map((player, i) => [player.id, i + 1]));
+
     return ordered.map((player, i) => ({
       player,
       position: i + 1,
@@ -190,6 +216,7 @@ export class Board {
       doNotDraft: this.isDoNotDraft(player.id),
       note: this.overrides[player.id]?.note ?? "",
       availableRank: rank.get(player.id) ?? null,
+      adpRank: adpRank.get(player.id) ?? null,
       cliff: cliffs.get(player.id) ?? null,
     }));
   }

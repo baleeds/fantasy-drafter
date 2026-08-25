@@ -18,6 +18,77 @@ judged on how well it works during those four hours.
 | Users | One. No accounts, no sync, no sharing. |
 | League format | **Redraft, 1QB.** Fixed, not configurable — no dynasty, no superflex. |
 
+## ADP: Sleeper, via GraphQL
+
+KTC is crowd-sourced **value** — who is good. ADP is **behaviour** — when
+players actually come off the board. The app needs both and must never confuse
+them.
+
+Source: `POST https://sleeper.app/graphql`, public and unauthenticated,
+`season_stats(category: "proj", order_by: "adp_half_ppr")`. Two findings worth
+keeping, because neither is discoverable:
+
+- **ADP is not under `category: "adp"`.** That category exists and returns zero
+  rows for every season and season_type. The numbers live inside the `proj`
+  category's stats map, supplied by Rotowire, alongside twelve scoring flavours
+  (`adp_ppr`, `adp_half_ppr`, `adp_std`, `adp_2qb`, `adp_dynasty_*`, …). The
+  column is named explicitly for the same reason `oneQBValues` is: they are
+  interchangeable in shape and silently wrong in content.
+- **The player object is inlined on every row**, so the join needs no second
+  request for the 14MB player dump just to turn ids into names.
+
+**`search_rank` on the player dump is not ADP.** It is a coarse bucketed
+ordering — 290 draftable players share only 206 distinct values, with three-way
+ties at the very top — drawn from a universe that includes IDP and kickers, and
+carrying its own `9999999` and `999` sentinels. Measured against it, KTC appears
+to wildly over-rate tight ends (+16 spots) and the whole TE cliff structure
+looks like an artifact. Measured against real ADP that drift is +6, and the
+actual outlier is quarterbacks. A bucketed popularity ranking is not a draft
+order, and reading it as one produced confident nonsense for a whole round of
+analysis.
+
+### What the join found
+
+Half-PPR ADP against my board, mean drift over my top 80 (positive = they go
+later than I rate them):
+
+| QB | RB | WR | TE |
+|---|---|---|---|
+| **+31** | −9 | +1 | +6 |
+
+Every one of the sixteen quarterbacks in my top 80 falls. Allen at my #6 goes at
+21.9; Mahomes at my #57 goes at 106; Jordan Love at #77 goes at 147. KTC rates
+quarterbacks like a superflex crowd and my room is 1QB, so **I can wait far
+longer at QB than my board implies.** This also retroactively justifies
+normalising the cliff metric by mean rather than median spacing: those QB gaps
+are largely an artifact of KTC over-rating the position, so suppressing them was
+right for a better reason than the one I had.
+
+Coverage is 282 of 300; the shallowest player with no ADP is #122, and past
+about pick 200 "no ADP" is the honest answer rather than a gap. Missing ADP
+sorts last, which is correct — nobody is taking those players soon.
+
+### Failing safe
+
+ADP is **optional**. A fetch failure, or a join the validators refuse, warns and
+writes the board without it; the app then falls back to projecting down my own
+ordering, which is what it did before ADP existed. A stale board beats an empty
+one and a board with no ADP beats no board.
+
+The validators are data-driven rather than name-based, for the same reason the
+KTC ones are:
+
+- **Coverage of the top 120**, so a half-broken name join cannot pass. Suffixes
+  are stripped — KTC writes "Marvin Harrison Jr." where Sleeper writes "Marvin
+  Harrison" — which takes the raw match from 290 to 298.
+- **No sentinel survives.** 999 means "not drafted", and letting it through
+  would seat a player at pick 999.
+- **The column must carry decimals.** Real ADP is an average. A column of whole
+  numbers is a *ranking* wearing ADP's name, which is precisely what
+  `search_rank` is.
+- **At most two quarterbacks in the twelve earliest ADPs.** In 1QB the first
+  goes around 22; a top 12 stiff with them means a superflex column.
+
 ## Rankings source: KeepTradeCut
 
 Rankings are imported from [KeepTradeCut](https://keeptradecut.com) rather than
@@ -410,10 +481,17 @@ the whole board as a ranking, which is what prep is for.
   correctly, because with three players between picks 27 and 30 nothing can be a
   cliff inside that window.
 
-- **What none of this says is whether the drop will happen** — only what it
-  costs. Ordinal gaps are also not linear in scoring: a TE cliff and a QB cliff
-  of the same ratio are not equally worth acting on, and the app cannot know
-  that. Both limits are the ADP-shaped hole, and stay until ADP does.
+- **ADP answers "will he be there".** Projection lines and cliff urgency both
+  count down *ADP* rank among available players, never my own ordering. Project
+  down consensus, decide down my board. Ordinal gaps are still not linear in
+  scoring — a TE cliff and a QB cliff of the same ratio are not equally worth
+  acting on, and the app cannot know that.
+
+  Because ADP rank is **not monotonic down my board**, consecutive picks can
+  share a first survivor and their lines collapse onto one row. "Picks 27 and 30
+  both get you this player" is a true statement rather than a rendering fault,
+  but the deep end of the board piles many picks onto one row, where it stops
+  being informative. Open question: draw only the next two picks.
 
 - **The pick log becomes load-bearing.** A missed tap used to leave one stale
   row; it now shifts every line for the rest of the night, silently. So the

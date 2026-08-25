@@ -28,8 +28,9 @@ seven.
 Rows carry a **position colour dot**, Sleeper-style, because reading positional
 shape off a colour column is much faster than reading it off the `RB1` text.
 
-None of it says whether the drop will actually happen — only what it costs. That
-second half is an ADP question this app does not have the data for.
+Both count down **ADP** rank, not my own ordering: project down consensus,
+decide down my board. ADP comes from Sleeper's GraphQL endpoint at build time —
+see [SPEC.md](SPEC.md) for where it hides and why `search_rank` is not it.
 
 The long-press delay and autoscroll speed were sliders while the gesture was
 being tuned on a real phone. They are constants in `src/drag.ts` now: a

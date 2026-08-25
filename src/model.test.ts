@@ -504,6 +504,61 @@ test("available rank counts only what is left, unlike board position", () => {
   assert.equal(rowFor(board, 102).availableRank, null);
 });
 
+// --- Projecting down ADP rather than down my board --------------------------
+
+test("with no ADP at all, the projection falls back to my own order", () => {
+  const board = new Board(makePlayers(20));
+  for (const row of board.rows()) assert.equal(row.adpRank, row.availableRank);
+});
+
+test("a player the room does not rate survives past where my board puts him", () => {
+  // He is my number one; the room takes him around pick 40. That is the whole
+  // reason the line counts down ADP and not my ordering.
+  const players = makePlayers(60).map((p) =>
+    p.boardRank === 1 ? { ...p, adp: 40 } : { ...p, adp: p.boardRank },
+  );
+  const board = new Board(players);
+  const mine = board.rows()[0];
+
+  assert.equal(mine.availableRank, 1, "still the best player on my board");
+  assert.ok(mine.adpRank! > 30, `but the room is in no hurry — adpRank ${mine.adpRank}`);
+});
+
+test("a player the room loves is counted as gone even if I rate him low", () => {
+  const players = makePlayers(60).map((p) =>
+    p.boardRank === 50 ? { ...p, adp: 1 } : { ...p, adp: p.boardRank + 10 },
+  );
+  const board = new Board(players);
+  const row = board.rows().find((r) => r.player.boardRank === 50)!;
+  assert.equal(row.adpRank, 1);
+  assert.equal(row.availableRank, 50);
+});
+
+test("players with no ADP sort behind everyone who has one", () => {
+  const players = makePlayers(20).map((p) =>
+    p.boardRank <= 10 ? p : { ...p, adp: p.boardRank },
+  );
+  const board = new Board(players);
+  const rows = board.rows();
+  const rated = rows.filter((r) => r.player.adp !== undefined).map((r) => r.adpRank!);
+  const unrated = rows.filter((r) => r.player.adp === undefined).map((r) => r.adpRank!);
+  assert.ok(Math.max(...rated) < Math.min(...unrated), "nobody is taking an unranked player soon");
+});
+
+test("ADP rank ignores players who are gone, mine, or flagged", () => {
+  const players = makePlayers(20).map((p) => ({ ...p, adp: p.boardRank }));
+  const board = new Board(players);
+  board.pick(100, false);
+  board.pick(101, true);
+  board.setDoNotDraft(102, true);
+
+  const row = board.rows().find((r) => r.player.id === 103)!;
+  assert.equal(row.adpRank, 1, "the three above him are not coming back");
+  for (const id of [100, 101, 102]) {
+    assert.equal(board.rows().find((r) => r.player.id === id)!.adpRank, null);
+  }
+});
+
 // --- Where my picks land ----------------------------------------------------
 
 test("a snake seat near the top gets a lopsided rhythm", () => {
