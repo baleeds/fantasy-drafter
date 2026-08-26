@@ -594,40 +594,54 @@ export function keyBetween(before: number | null, after: number | null): number 
 /**
  * Work out which rendered row each pick line sits above.
  *
- * A line sits **below the last player the room is expected to have taken** by
- * that pick — not above the first one it has not. The two sound equivalent and
- * are not, because `adpRank` is *not* monotonic down the board: dragging a
- * player up is exactly how I say "I rate him above the market", which puts a
- * large ADP rank early in the list.
+ * **The line is a count, not a search.** For a pick with `after` players due to
+ * come off the board first, it sits immediately below the `after`-th player
+ * still available — so the row underneath the line is the one I would expect to
+ * be looking at when my turn comes, assuming the room drafts in ADP order.
  *
- * Anchoring to the first survivor made every remaining line pile onto that one
- * row, because a player the room takes at 120 legitimately survives my picks at
- * 55, 83 and 114 alike. True, and useless as a position marker. Anchoring to
- * the last casualty keeps the lines spaced by the number of picks between them,
- * which is what a line is for: knowing how far down the board my next turn lands.
+ * Two earlier rules both searched for an anchor by inspecting `adpRank`, and
+ * both collapsed, in mirror-image ways. Anchoring to the *first survivor* piled
+ * every later line onto one row as soon as a late-ADP player was dragged up,
+ * because he genuinely survives all of them. Anchoring to the *last casualty*
+ * did the same as soon as an early-ADP player was dragged down. The mistake was
+ * shared: `adpRank` is not monotonic down the board — dragging is precisely how
+ * I say I disagree with the market — so no single row can be found by scanning
+ * for a threshold crossing.
  *
- * Under a filter the anchor is the last *visible* casualty, so the line still
- * marks a real boundary within whatever subset is on screen.
+ * Counting sidesteps it entirely. Lines land at fixed spacing, always in order,
+ * never on top of each other, and dragging a player does not move them — which
+ * is right, because where my next turn falls is a fact about the draft, not
+ * about my opinion of anybody.
+ *
+ * Only players still available are counted. My own picks and anyone already
+ * taken are not going to be drafted again, and flagged players never entered
+ * the count, so a row with no `adpRank` is passed over rather than tallied.
  */
 export function placeLines(visible: BoardRow[], projections: Projection[]): Map<number, string> {
   const marks = new Map<number, string[]>();
 
   for (const { pick, after } of projections) {
-    let lastGone = -1;
-    for (let i = 0; i < visible.length; i++) {
-      const rank = visible[i].adpRank;
-      if (rank !== null && rank <= after) lastGone = i;
+    let available = 0;
+    let anchor: BoardRow | undefined;
+
+    for (const row of visible) {
+      if (available === after) {
+        anchor = row;
+        break;
+      }
+      if (row.adpRank !== null) available++;
     }
 
-    const anchor = visible[lastGone + 1];
-    if (!anchor) continue; // the pick lands past the end of what is on screen
+    // The pick lands past the end of what is on screen, so there is no row to
+    // hang it on. Drawing nothing beats drawing it in the wrong place.
+    if (!anchor) continue;
 
     const at = marks.get(anchor.player.id) ?? [];
     at.push(String(pick));
     marks.set(anchor.player.id, at);
   }
 
-  // Two picks can still share a row when nothing visible separates them — at
-  // the turn that is only three players, so it happens often enough to handle.
+  // Two picks share a row only when nothing available separates them — a run of
+  // my own players at the turn, say, where three picks span two rows.
   return new Map([...marks].map(([id, picks]) => [id, picks.join(" · ")]));
 }

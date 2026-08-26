@@ -274,22 +274,27 @@ Three things follow, and the second is the reason this was worth doing:
   player whose ADP rank happens to clear the threshold. Divergence appears only
   where I have actually dragged someone, which is exactly where it should.
 
-  **A line sits below the last player the room is expected to take, not above
-  the first one it is not.** Those sound equivalent and are not, because ADP
-  rank is *not* monotonic down the board — dragging a player up is precisely how
-  I say "I rate him above the market", which puts a large ADP rank early in the
-  list. Anchored to the first survivor, every later line piled onto that one row,
-  because a player the room takes at 120 genuinely does survive my picks at 55,
-  83 and 114 alike. True, and useless as a position marker: a line exists to say
-  how far down the board my next turn lands, so it has to keep the spacing of the
-  picks behind it. Ten dragged players turned 25-row gaps into zero before this
-  was fixed, and re-basing on ADP had hidden it by making an *untouched* board
-  monotonic.
+  **The line is a count, not a search.** For a pick with `after` players due to
+  come off the board first, it sits immediately below the `after`-th player
+  *still available* — so the row underneath it is what I would expect to be
+  looking at on my turn, assuming the room drafts in ADP order. `after` shrinks
+  as picks are recorded, and a pick already made drops its line entirely.
 
-  Under a position filter the anchor is the last *visible* player taken, so the
-  gaps are legitimately smaller than the pick count — with the RB chip on, "25
-  picks from now" may be only seven RBs away. That is the question a filtered
-  board is being asked, not a bug.
+  Two earlier rules both searched for the anchor by inspecting `adpRank`, and
+  both collapsed every line onto one row, in mirror-image ways. Anchoring to the
+  *first survivor* failed when a late-ADP player was dragged **up**, because he
+  genuinely survives all my remaining picks. Anchoring to the *last casualty*
+  failed when an early-ADP player was dragged **down**. The mistake was shared:
+  `adpRank` is not monotonic down the board — dragging is precisely how I say I
+  disagree with the market — so no anchor can be found by scanning for a
+  threshold crossing.
+
+  Counting sidesteps it. Lines land at fixed spacing, always in order, never
+  stacked, and **dragging a player does not move them**, which is right: where my
+  next turn falls is a fact about the draft, not about my opinion of anybody.
+  Only available rows are counted — my own picks and anyone already taken cannot
+  be drafted again, so a row with no `adpRank` is passed over rather than tallied.
+
 - **The "moved" arrow becomes the availability signal.** `↑26` now means "I rate
   him 26 spots above where the room takes him", which is the same statement as
   **he will keep** — the pick is better spent on someone the market wants
