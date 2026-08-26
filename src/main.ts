@@ -412,13 +412,28 @@ function wireHeader(): void {
     flash("Draft reset");
   });
 
+  // The label used to say KTC, which stopped being true when the board was
+  // re-based on ADP, and it advertised what it *keeps* while staying quiet
+  // about what it destroys. Both halves matter: this is the only control that
+  // can wipe a whole prep session, and it sits one tap from "Copy board link".
   el("#reset-order").addEventListener("click", () => {
-    if (!confirm("Reset the board to KTC's order? Your flags and notes are kept.")) return;
+    const placed = board.rows().filter((row) => row.placed).length;
+    if (placed === 0) return flash("Nothing moved — the board already follows ADP");
+
+    const many = placed === 1 ? "" : "s";
+    if (
+      !confirm(
+        `Give all ${placed} player${many} you have moved back to ADP order?\n\n` +
+          `Your flags and notes are kept. This cannot be undone.`,
+      )
+    ) {
+      return;
+    }
     board.resetOrder();
     persistOverrides();
     closeMenu();
     render();
-    flash("Order reset to KTC");
+    flash(`${placed} player${many} back with the market`);
   });
 
   el("#reset-all").addEventListener("click", () => {

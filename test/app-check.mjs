@@ -405,6 +405,31 @@ try {
     nudged,
   );
 
+  // --- The board-wide reset says what it destroys --------------------------
+  check(
+    "the menu no longer claims the board is ordered by KTC",
+    !(await page.locator("#reset-order").innerText()).includes("KTC"),
+    await page.locator("#reset-order").innerText(),
+  );
+  {
+    // With something placed, it must name the count and warn before wiping.
+    let asked = "";
+    page.once("dialog", (d) => { asked = d.message(); d.dismiss(); });
+    await page.click("#menu-toggle");
+    await page.click("#reset-order");
+    await page.waitForTimeout(200);
+    check(
+      "it names how many placements it is about to drop, and that it is final",
+      /\b\d+ players? you have moved\b/.test(asked) && /cannot be undone/.test(asked),
+      asked.replace(/\n+/g, " "),
+    );
+    check(
+      "and dismissing it keeps every placement",
+      (await page.locator(".row .moved:not(:empty)").count()) > 0,
+    );
+    await page.click("#menu-toggle");
+  }
+
   check(
     "prep hides the MINE filter",
     await page.locator('.chip[data-filter="MINE"]').isHidden(),
