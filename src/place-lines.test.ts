@@ -71,9 +71,26 @@ test("players already off the board are passed over, not counted", () => {
   assert.equal(rowOf(marks, "9"), 8);
 });
 
-test("being on the clock puts the line above the whole board", () => {
-  const marks = placeLines(straight(20), projections([2, 0]));
-  assert.equal(rowOf(marks, "2"), 1);
+test("being on the clock puts the line above the best available player", () => {
+  assert.equal(rowOf(placeLines(straight(20), projections([2, 0])), "2"), 1);
+
+  // ...and never on one of my own players, who sit at the top of the board and
+  // carry no ADP rank. Anchoring there reads as "your next pick gets you this
+  // guy" about somebody already on my roster.
+  const withMine = rows([null, null, 1, 2, 3, 4, 5]);
+  assert.equal(rowOf(placeLines(withMine, projections([2, 0])), "2"), 3);
+});
+
+test("a line is never hung on a player I already hold", () => {
+  // My picks are interleaved through the board and stay visible there.
+  const board = rows([1, null, 2, 3, null, 4, 5, null, 6, 7]);
+  const marks = placeLines(board, projections([10, 1], [11, 3], [12, 5]));
+  for (const pick of ["10", "11", "12"]) {
+    const row = rowOf(marks, pick)!;
+    assert.notEqual(board[row - 1].adpRank, null, `pick ${pick} landed on a row I hold`);
+  }
+  // One available player before it, so the line sits above the second one.
+  assert.equal(rowOf(marks, "10"), 3);
 });
 
 test("lines never run backwards, however the board is arranged", () => {

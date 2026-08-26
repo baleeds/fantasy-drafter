@@ -625,11 +625,14 @@ export function placeLines(visible: BoardRow[], projections: Projection[]): Map<
     let anchor: BoardRow | undefined;
 
     for (const row of visible) {
+      // No ADP rank means gone, mine, or flagged — not a slot the draft can
+      // consume, so it neither counts toward `after` nor anchors the line.
+      if (row.adpRank === null) continue;
       if (available === after) {
         anchor = row;
         break;
       }
-      if (row.adpRank !== null) available++;
+      available++;
     }
 
     // The pick lands past the end of what is on screen, so there is no row to

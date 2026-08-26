@@ -292,8 +292,10 @@ Three things follow, and the second is the reason this was worth doing:
   Counting sidesteps it. Lines land at fixed spacing, always in order, never
   stacked, and **dragging a player does not move them**, which is right: where my
   next turn falls is a fact about the draft, not about my opinion of anybody.
-  Only available rows are counted — my own picks and anyone already taken cannot
-  be drafted again, so a row with no `adpRank` is passed over rather than tallied.
+  Rows I cannot draft into are skipped entirely — neither counted nor used as
+  the anchor. My own players stay on the board at their position, and hanging a
+  line on one reads as "your next pick gets you this guy" about somebody already
+  on my roster.
 
 - **The "moved" arrow becomes the availability signal.** `↑26` now means "I rate
   him 26 spots above where the room takes him", which is the same statement as
