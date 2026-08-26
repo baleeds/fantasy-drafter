@@ -482,6 +482,13 @@ the whole board as a ranking, which is what prep is for.
   highest-risk piece of UI in the app and gets validated first.
 - **Up/down nudge buttons** alongside drag, for single-spot moves where picking
   a player up is more effort than the move is worth.
+- **Reset one player to ADP**, from his sheet, offered only for someone I have
+  actually placed and labelled with where he would land. It drops his explicit
+  key, which does more than move him: it makes him *untouched* again, so he
+  follows every future refresh instead of being frozen where I left him. That is
+  the difference between "put him back at 40" and "I no longer have an opinion
+  about him", and only the second keeps working once the market moves. His flag
+  and note stay — those are opinions about the player, not about his position.
 - **Do-not-draft flag** on any player.
 - **Per-player notes** — short free text.
 - **Manual add** for anyone missing. Minor, given a 300-player board.

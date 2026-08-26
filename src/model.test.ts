@@ -504,6 +504,63 @@ test("available rank counts only what is left, unlike board position", () => {
   assert.equal(rowFor(board, 102).availableRank, null);
 });
 
+// --- Handing one player back to the market ----------------------------------
+
+test("resetting a player drops him back to where the market has him", () => {
+  const board = new Board(makePlayers(30));
+  board.moveTo(124, 0); // Player 25 to the top
+  assert.equal(names(board)[0], "Player 25");
+
+  board.resetPosition(124);
+  assert.deepEqual(names(board).slice(0, 3), ["Player 1", "Player 2", "Player 3"]);
+  assert.equal(board.rows().find((r) => r.player.id === 124)!.position, 25);
+});
+
+test("a reset player is untouched again, so a refresh moves him", () => {
+  // The difference between "put him back at 25" and "I no longer have an
+  // opinion about him" — only the second keeps working when ADP moves.
+  const board = new Board(makePlayers(30));
+  board.moveTo(124, 0);
+  board.resetPosition(124);
+  assert.equal(board.rows().find((r) => r.player.id === 124)!.placed, false);
+  assert.equal(board.overrides[124], undefined, "no override left behind at all");
+
+  const refreshed = makePlayers(30).map((p) => (p.id === 124 ? { ...p, boardRank: 3 } : p));
+  const after = new Board(refreshed, board.overrides, []);
+  assert.equal(after.rows().find((r) => r.player.id === 124)!.position, 3);
+});
+
+test("resetting a position keeps the flag and the note", () => {
+  // Those are opinions about the player, not about where he sits.
+  const board = new Board(makePlayers(30));
+  board.moveTo(124, 0);
+  board.setDoNotDraft(124, true);
+  board.setNote(124, "handcuff is available late");
+
+  board.resetPosition(124);
+  assert.equal(board.isDoNotDraft(124), true);
+  assert.equal(board.overrides[124].note, "handcuff is available late");
+  assert.equal(board.overrides[124].sortKey, undefined);
+});
+
+test("resetting someone I never moved changes nothing", () => {
+  const board = new Board(makePlayers(10));
+  const before = names(board);
+  board.resetPosition(105);
+  assert.deepEqual(names(board), before);
+  assert.deepEqual(board.overrides, {});
+});
+
+test("resetting one player leaves my other placements alone", () => {
+  const board = new Board(makePlayers(30));
+  board.moveTo(124, 0);
+  board.moveTo(125, 1);
+  board.resetPosition(124);
+
+  assert.equal(board.rows().find((r) => r.player.id === 125)!.placed, true);
+  assert.deepEqual(Object.keys(board.overrides), ["125"]);
+});
+
 // --- Where KTC disagrees ----------------------------------------------------
 
 test("KTC disagreement is proportional to depth, not a flat number of spots", () => {

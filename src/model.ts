@@ -393,6 +393,20 @@ export class Board {
     }
   }
 
+  /**
+   * Hand one player back to the market.
+   *
+   * Dropping his explicit key does more than move him: it makes him *untouched*
+   * again, so he follows every future ADP refresh instead of being frozen where
+   * I left him. That is the difference between "put him back at 16" and "I no
+   * longer have an opinion about him", and only the second one keeps working
+   * when the market moves. His flag and note are opinions about the player
+   * rather than his position, so they stay.
+   */
+  resetPosition(id: number): void {
+    this.clearSortKey(id);
+  }
+
   resetOrder(): void {
     for (const id of Object.keys(this.overrides)) this.clearSortKey(Number(id));
   }

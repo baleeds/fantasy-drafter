@@ -106,6 +106,10 @@
           <button id="sheet-down" type="button">↓ Move down</button>
         </div>
 
+        <!-- Only for players I actually placed. There is nothing to undo for
+             anyone still sitting where the market put him. -->
+        <button id="sheet-reset" class="sheet-row wide" type="button" hidden></button>
+
         <!-- Toggles, not actions. Every one of these is a state the player is
              either in or not, and pressing it again is how you get out. -->
         <div class="sheet-row toggles">

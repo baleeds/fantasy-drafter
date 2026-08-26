@@ -538,6 +538,12 @@ function syncSheetToggles(): void {
   press("#toggle-taken", row.state === "gone");
   press("#toggle-dnd", row.doNotDraft);
 
+  // Offered only where there is something to give back. The target is named so
+  // the button says what it will do rather than merely what it is.
+  const reset = el<HTMLButtonElement>("#sheet-reset");
+  reset.hidden = !row.placed;
+  reset.textContent = `Reset to ADP — back to #${row.player.boardRank}`;
+
   el(".toggles").hidden = settings.mode !== "draft";
 }
 
@@ -554,6 +560,16 @@ function closeSheet(): void {
 function wireSheet(): void {
   el("#sheet-close").addEventListener("click", closeSheet);
   el("#sheet-backdrop").addEventListener("click", closeSheet);
+
+  el("#sheet-reset").addEventListener("click", () => {
+    if (sheetPlayerId === null) return;
+    const row = board.rows().find((r) => r.player.id === sheetPlayerId);
+    board.resetPosition(sheetPlayerId);
+    persistOverrides();
+    syncSheetToggles();
+    render();
+    if (row) flash(`${row.player.name} is back with the market`);
+  });
 
   el("#toggle-dnd").addEventListener("click", () => {
     if (sheetPlayerId === null) return;
@@ -587,6 +603,9 @@ function wireSheet(): void {
       if (sheetPlayerId === null) return;
       board.nudge(sheetPlayerId, direction);
       persistOverrides();
+      // A nudge is what *places* a player, so the sheet has to re-sync: the
+      // reset button only exists for someone I have moved.
+      syncSheetToggles();
       render();
     });
   }

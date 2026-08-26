@@ -369,6 +369,42 @@ try {
   await page.click('.modes button[data-mode="prep"]');
 
   // Prep is about what I think of players, not what has happened to them.
+  // --- Handing a player back to the market ---------------------------------
+  await page.click('.chip[data-filter="ALL"]');
+  await page.locator(".row").nth(4).click();
+  check(
+    "an untouched player is offered no reset — there is nothing to give back",
+    await page.locator("#sheet-reset").isHidden(),
+  );
+  await page.click("#sheet-close");
+
+  // Nudge someone, which places him, then hand him back.
+  const nudged = await rows().nth(6).locator(".name").innerText();
+  await rows().nth(6).click();
+  await page.click("#sheet-up");
+  check(
+    "placing a player offers the reset, and names where he would land",
+    (await page.locator("#sheet-reset").isVisible()) &&
+      /Reset to ADP — back to #\d+/.test(await page.locator("#sheet-reset").innerText()),
+    await page.locator("#sheet-reset").innerText(),
+  );
+  await page.click("#sheet-reset");
+  check(
+    "and after resetting there is nothing left to reset",
+    await page.locator("#sheet-reset").isHidden(),
+  );
+  await page.click("#sheet-close");
+  check(
+    "the reset player is back where the market has him, carrying no arrow",
+    await page.evaluate((name) => {
+      const row = [...document.querySelectorAll(".row")].find(
+        (r) => r.querySelector(".name").innerText === name,
+      );
+      return row !== undefined && row.querySelector(".moved").innerText === "";
+    }, nudged),
+    nudged,
+  );
+
   check(
     "prep hides the MINE filter",
     await page.locator('.chip[data-filter="MINE"]').isHidden(),
