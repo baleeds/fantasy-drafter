@@ -525,7 +525,14 @@ test("a reset player is untouched again, so a refresh moves him", () => {
   assert.equal(board.rows().find((r) => r.player.id === 124)!.placed, false);
   assert.equal(board.overrides[124], undefined, "no override left behind at all");
 
-  const refreshed = makePlayers(30).map((p) => (p.id === 124 ? { ...p, boardRank: 3 } : p));
+  // A real refresh re-densifies: ranks are unique, so moving him to 3 pushes
+  // everyone from 3 to 24 down one. Colliding two players on rank 3 instead
+  // would leave the tiebreak deciding the answer rather than the refresh.
+  const refreshed = makePlayers(30).map((p) => {
+    if (p.id === 124) return { ...p, boardRank: 3 };
+    if (p.boardRank >= 3 && p.boardRank < 25) return { ...p, boardRank: p.boardRank + 1 };
+    return p;
+  });
   const after = new Board(refreshed, board.overrides, []);
   assert.equal(after.rows().find((r) => r.player.id === 124)!.position, 3);
 });
