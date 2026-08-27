@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T12:43:51.660Z",
+  "generatedAt": "2026-08-27T21:41:22.104Z",
   "source": "https://keeptradecut.com/fantasy-rankings",
   "adpSource": "https://sleeper.app/graphql adp_half_ppr",
   "format": "redraft-1qb",
@@ -11,12 +11,12 @@
       "position": "RB",
       "team": "DET",
       "boardRank": 1,
-      "ktcRank": 1,
-      "positionalRank": 1,
+      "ktcRank": 2,
+      "positionalRank": 2,
       "rookie": false,
       "byeWeek": 6,
       "age": 24.4,
-      "adp": 1.3
+      "adp": 1.9
     },
     {
       "id": 1507,
@@ -24,12 +24,12 @@
       "position": "RB",
       "team": "ATL",
       "boardRank": 2,
-      "ktcRank": 2,
-      "positionalRank": 2,
+      "ktcRank": 1,
+      "positionalRank": 1,
       "rookie": false,
       "byeWeek": 11,
       "age": 24.6,
-      "adp": 2.8
+      "adp": 2.4
     },
     {
       "id": 1004,
@@ -47,7 +47,7 @@
         "area": "Knee",
         "returns": "Aug 28, 2026"
       },
-      "adp": 3.3
+      "adp": 3.7
     },
     {
       "id": 1519,
@@ -55,8 +55,8 @@
       "position": "WR",
       "team": "LAR",
       "boardRank": 4,
-      "ktcRank": 4,
-      "positionalRank": 2,
+      "ktcRank": 5,
+      "positionalRank": 3,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.2,
@@ -73,7 +73,7 @@
       "position": "RB",
       "team": "SFO",
       "boardRank": 5,
-      "ktcRank": 15,
+      "ktcRank": 17,
       "positionalRank": 7,
       "rookie": false,
       "byeWeek": 8,
@@ -91,12 +91,12 @@
       "position": "RB",
       "team": "IND",
       "boardRank": 6,
-      "ktcRank": 12,
+      "ktcRank": 10,
       "positionalRank": 5,
       "rookie": false,
       "byeWeek": 13,
       "age": 27.6,
-      "adp": 6.6
+      "adp": 6.5
     },
     {
       "id": 1530,
@@ -104,12 +104,12 @@
       "position": "WR",
       "team": "SEA",
       "boardRank": 7,
-      "ktcRank": 5,
-      "positionalRank": 3,
+      "ktcRank": 4,
+      "positionalRank": 2,
       "rookie": false,
       "byeWeek": 11,
       "age": 24.5,
-      "adp": 7.9
+      "adp": 7.6
     },
     {
       "id": 1010,
@@ -122,7 +122,7 @@
       "rookie": false,
       "byeWeek": 6,
       "age": 26.8,
-      "adp": 7.9
+      "adp": 8.8
     },
     {
       "id": 1331,
@@ -135,7 +135,7 @@
       "rookie": false,
       "byeWeek": 7,
       "age": 26.9,
-      "adp": 9.4
+      "adp": 9
     },
     {
       "id": 546,
@@ -143,12 +143,12 @@
       "position": "WR",
       "team": "DAL",
       "boardRank": 10,
-      "ktcRank": 9,
-      "positionalRank": 5,
+      "ktcRank": 15,
+      "positionalRank": 6,
       "rookie": false,
       "byeWeek": 14,
       "age": 27.4,
-      "adp": 10.3
+      "adp": 10.6
     },
     {
       "id": 1,
@@ -156,12 +156,12 @@
       "position": "RB",
       "team": "PHI",
       "boardRank": 11,
-      "ktcRank": 21,
-      "positionalRank": 10,
+      "ktcRank": 20,
+      "positionalRank": 9,
       "rookie": false,
       "byeWeek": 10,
       "age": 29.5,
-      "adp": 11.8
+      "adp": 11.9
     },
     {
       "id": 542,
@@ -169,8 +169,8 @@
       "position": "WR",
       "team": "MIN",
       "boardRank": 12,
-      "ktcRank": 10,
-      "positionalRank": 6,
+      "ktcRank": 11,
+      "positionalRank": 5,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.2,
@@ -182,7 +182,7 @@
       "position": "RB",
       "team": "LVR",
       "boardRank": 13,
-      "ktcRank": 17,
+      "ktcRank": 18,
       "positionalRank": 8,
       "rookie": false,
       "byeWeek": 13,
@@ -192,7 +192,7 @@
         "area": "Ankle",
         "returns": "Aug 27, 2026"
       },
-      "adp": 13
+      "adp": 13.3
     },
     {
       "id": 1491,
@@ -200,38 +200,38 @@
       "position": "RB",
       "team": "MIA",
       "boardRank": 14,
-      "ktcRank": 11,
+      "ktcRank": 9,
       "positionalRank": 4,
       "rookie": false,
       "byeWeek": 6,
       "age": 24.9,
-      "adp": 14.2
-    },
-    {
-      "id": 296,
-      "name": "Derrick Henry",
-      "position": "RB",
-      "team": "BAL",
-      "boardRank": 15,
-      "ktcRank": 49,
-      "positionalRank": 17,
-      "rookie": false,
-      "byeWeek": 13,
-      "age": 32.6,
-      "adp": 15.2
+      "adp": 14.9
     },
     {
       "id": 1833,
       "name": "Omarion Hampton",
       "position": "RB",
       "team": "LAC",
-      "boardRank": 16,
-      "ktcRank": 14,
+      "boardRank": 15,
+      "ktcRank": 13,
       "positionalRank": 6,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.4,
-      "adp": 15.8
+      "adp": 15.4
+    },
+    {
+      "id": 296,
+      "name": "Derrick Henry",
+      "position": "RB",
+      "team": "BAL",
+      "boardRank": 16,
+      "ktcRank": 44,
+      "positionalRank": 16,
+      "rookie": false,
+      "byeWeek": 13,
+      "age": 32.6,
+      "adp": 16
     },
     {
       "id": 1489,
@@ -239,12 +239,12 @@
       "position": "RB",
       "team": "CIN",
       "boardRank": 17,
-      "ktcRank": 20,
-      "positionalRank": 9,
+      "ktcRank": 21,
+      "positionalRank": 10,
       "rookie": false,
       "byeWeek": 6,
       "age": 26.4,
-      "adp": 17.4
+      "adp": 17.7
     },
     {
       "id": 1327,
@@ -252,17 +252,17 @@
       "position": "RB",
       "team": "KCC",
       "boardRank": 18,
-      "ktcRank": 29,
-      "positionalRank": 12,
+      "ktcRank": 28,
+      "positionalRank": 11,
       "rookie": false,
       "byeWeek": 5,
       "age": 25.8,
       "injury": {
         "status": "Questionable",
-        "area": "Foot",
+        "area": "Ankle",
         "returns": "Aug 28, 2026"
       },
-      "adp": 18
+      "adp": 17.8
     },
     {
       "id": 217,
@@ -270,38 +270,38 @@
       "position": "WR",
       "team": "NEP",
       "boardRank": 19,
-      "ktcRank": 30,
-      "positionalRank": 13,
+      "ktcRank": 27,
+      "positionalRank": 11,
       "rookie": false,
       "byeWeek": 11,
       "age": 29.2,
       "adp": 19
     },
     {
-      "id": 1368,
-      "name": "Drake London",
-      "position": "WR",
-      "team": "ATL",
-      "boardRank": 20,
-      "ktcRank": 22,
-      "positionalRank": 9,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 25.1,
-      "adp": 20.3
-    },
-    {
       "id": 365,
       "name": "Josh Allen",
       "position": "QB",
       "team": "BUF",
-      "boardRank": 21,
+      "boardRank": 20,
       "ktcRank": 6,
       "positionalRank": 1,
       "rookie": false,
       "byeWeek": 7,
       "age": 30.3,
-      "adp": 21.3
+      "adp": 20.1
+    },
+    {
+      "id": 1368,
+      "name": "Drake London",
+      "position": "WR",
+      "team": "ATL",
+      "boardRank": 21,
+      "ktcRank": 24,
+      "positionalRank": 9,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 25.1,
+      "adp": 21.2
     },
     {
       "id": 1704,
@@ -309,12 +309,12 @@
       "position": "TE",
       "team": "LVR",
       "boardRank": 22,
-      "ktcRank": 13,
+      "ktcRank": 12,
       "positionalRank": 1,
       "rookie": false,
       "byeWeek": 13,
       "age": 23.7,
-      "adp": 22.8
+      "adp": 22.5
     },
     {
       "id": 1040,
@@ -322,12 +322,12 @@
       "position": "WR",
       "team": "HOU",
       "boardRank": 23,
-      "ktcRank": 28,
+      "ktcRank": 29,
       "positionalRank": 12,
       "rookie": false,
       "byeWeek": 8,
       "age": 27.4,
-      "adp": 23.1
+      "adp": 23.6
     },
     {
       "id": 1353,
@@ -335,12 +335,12 @@
       "position": "TE",
       "team": "ARI",
       "boardRank": 24,
-      "ktcRank": 16,
+      "ktcRank": 14,
       "positionalRank": 2,
       "rookie": false,
       "byeWeek": 14,
       "age": 26.8,
-      "adp": 23.2
+      "adp": 24.2
     },
     {
       "id": 1379,
@@ -353,29 +353,16 @@
       "rookie": false,
       "byeWeek": 14,
       "age": 25.5,
-      "adp": 25.8
-    },
-    {
-      "id": 1326,
-      "name": "Kyren Williams",
-      "position": "RB",
-      "team": "LAR",
-      "boardRank": 26,
-      "ktcRank": 35,
-      "positionalRank": 13,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 26,
-      "adp": 26.8
+      "adp": 25
     },
     {
       "id": 2020,
       "name": "Jeremiyah Love",
       "position": "RB",
       "team": "ARI",
-      "boardRank": 27,
-      "ktcRank": 23,
-      "positionalRank": 11,
+      "boardRank": 26,
+      "ktcRank": 33,
+      "positionalRank": 12,
       "rookie": true,
       "byeWeek": 14,
       "age": 21.2,
@@ -384,7 +371,20 @@
         "area": "Ankle",
         "returns": "Sep 13, 2026"
       },
-      "adp": 27.1
+      "adp": 26.4
+    },
+    {
+      "id": 1326,
+      "name": "Kyren Williams",
+      "position": "RB",
+      "team": "LAR",
+      "boardRank": 27,
+      "ktcRank": 35,
+      "positionalRank": 13,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 26,
+      "adp": 26.8
     },
     {
       "id": 303,
@@ -392,8 +392,8 @@
       "position": "RB",
       "team": "GBP",
       "boardRank": 28,
-      "ktcRank": 58,
-      "positionalRank": 20,
+      "ktcRank": 61,
+      "positionalRank": 22,
       "rookie": false,
       "byeWeek": 11,
       "age": 28.5,
@@ -402,7 +402,7 @@
         "area": "Groin",
         "returns": "Aug 28, 2026"
       },
-      "adp": 28.7
+      "adp": 28.5
     },
     {
       "id": 1540,
@@ -410,12 +410,12 @@
       "position": "WR",
       "team": "KCC",
       "boardRank": 29,
-      "ktcRank": 38,
-      "positionalRank": 17,
+      "ktcRank": 40,
+      "positionalRank": 18,
       "rookie": false,
       "byeWeek": 5,
-      "age": 26.3,
-      "adp": 29
+      "age": 26.4,
+      "adp": 29.6
     },
     {
       "id": 1678,
@@ -423,7 +423,7 @@
       "position": "WR",
       "team": "NYG",
       "boardRank": 30,
-      "ktcRank": 18,
+      "ktcRank": 16,
       "positionalRank": 7,
       "rookie": false,
       "byeWeek": 8,
@@ -433,7 +433,7 @@
         "area": "Knee - ACL",
         "returns": "Aug 28, 2026"
       },
-      "adp": 30
+      "adp": 30.2
     },
     {
       "id": 1371,
@@ -441,17 +441,12 @@
       "position": "WR",
       "team": "NOS",
       "boardRank": 31,
-      "ktcRank": 31,
-      "positionalRank": 14,
+      "ktcRank": 30,
+      "positionalRank": 13,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.2,
-      "injury": {
-        "status": "Questionable",
-        "area": "Upper Body",
-        "returns": "Aug 28, 2026"
-      },
-      "adp": 31.1
+      "adp": 31.4
     },
     {
       "id": 1324,
@@ -459,7 +454,7 @@
       "position": "RB",
       "team": "NYJ",
       "boardRank": 32,
-      "ktcRank": 44,
+      "ktcRank": 41,
       "positionalRank": 15,
       "rookie": false,
       "byeWeek": 13,
@@ -469,7 +464,7 @@
         "area": "Groin",
         "returns": "Aug 28, 2026"
       },
-      "adp": 31.6
+      "adp": 32.6
     },
     {
       "id": 1033,
@@ -477,12 +472,12 @@
       "position": "RB",
       "team": "DAL",
       "boardRank": 33,
-      "ktcRank": 45,
-      "positionalRank": 16,
+      "ktcRank": 54,
+      "positionalRank": 18,
       "rookie": false,
       "byeWeek": 14,
       "age": 26.3,
-      "adp": 33.1
+      "adp": 33.9
     },
     {
       "id": 1005,
@@ -490,12 +485,12 @@
       "position": "WR",
       "team": "PHI",
       "boardRank": 34,
-      "ktcRank": 32,
-      "positionalRank": 15,
+      "ktcRank": 31,
+      "positionalRank": 14,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.8,
-      "adp": 34.2
+      "adp": 34.9
     },
     {
       "id": 372,
@@ -503,12 +498,12 @@
       "position": "QB",
       "team": "BAL",
       "boardRank": 35,
-      "ktcRank": 24,
-      "positionalRank": 2,
+      "ktcRank": 23,
+      "positionalRank": 3,
       "rookie": false,
       "byeWeek": 13,
       "age": 29.6,
-      "adp": 35.6
+      "adp": 35.4
     },
     {
       "id": 1860,
@@ -516,12 +511,12 @@
       "position": "WR",
       "team": "CAR",
       "boardRank": 36,
-      "ktcRank": 26,
+      "ktcRank": 25,
       "positionalRank": 10,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.4,
-      "adp": 36.4
+      "adp": 36
     },
     {
       "id": 1834,
@@ -530,11 +525,11 @@
       "team": "NYG",
       "boardRank": 37,
       "ktcRank": 53,
-      "positionalRank": 18,
+      "positionalRank": 17,
       "rookie": false,
       "byeWeek": 8,
       "age": 24.6,
-      "adp": 37
+      "adp": 37.5
     },
     {
       "id": 543,
@@ -542,21 +537,34 @@
       "position": "WR",
       "team": "CIN",
       "boardRank": 38,
-      "ktcRank": 52,
-      "positionalRank": 23,
+      "ktcRank": 48,
+      "positionalRank": 21,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.6,
-      "adp": 38.8
+      "adp": 38.2
+    },
+    {
+      "id": 1690,
+      "name": "Ladd McConkey",
+      "position": "WR",
+      "team": "LAC",
+      "boardRank": 39,
+      "ktcRank": 34,
+      "positionalRank": 16,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 24.8,
+      "adp": 39
     },
     {
       "id": 1870,
       "name": "Emeka Egbuka",
       "position": "WR",
       "team": "TBB",
-      "boardRank": 39,
-      "ktcRank": 27,
-      "positionalRank": 11,
+      "boardRank": 40,
+      "ktcRank": 32,
+      "positionalRank": 15,
       "rookie": false,
       "byeWeek": 10,
       "age": 23.9,
@@ -565,20 +573,7 @@
         "area": "Toe",
         "returns": "Aug 28, 2026"
       },
-      "adp": 39.4
-    },
-    {
-      "id": 1690,
-      "name": "Ladd McConkey",
-      "position": "WR",
-      "team": "LAC",
-      "boardRank": 40,
-      "ktcRank": 34,
-      "positionalRank": 16,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 24.8,
-      "adp": 39.8
+      "adp": 40.7
     },
     {
       "id": 1030,
@@ -586,12 +581,12 @@
       "position": "RB",
       "team": "NOS",
       "boardRank": 41,
-      "ktcRank": 59,
-      "positionalRank": 21,
+      "ktcRank": 57,
+      "positionalRank": 19,
       "rookie": false,
       "byeWeek": 8,
       "age": 27.6,
-      "adp": 41
+      "adp": 41.9
     },
     {
       "id": 1536,
@@ -599,11 +594,16 @@
       "position": "WR",
       "team": "BAL",
       "boardRank": 42,
-      "ktcRank": 42,
-      "positionalRank": 19,
+      "ktcRank": 46,
+      "positionalRank": 20,
       "rookie": false,
       "byeWeek": 13,
       "age": 26,
+      "injury": {
+        "status": "Questionable",
+        "area": "Undisclosed",
+        "returns": "Sep 13, 2026"
+      },
       "adp": 42.1
     },
     {
@@ -612,12 +612,12 @@
       "position": "TE",
       "team": "CHI",
       "boardRank": 43,
-      "ktcRank": 33,
+      "ktcRank": 26,
       "positionalRank": 3,
       "rookie": false,
       "byeWeek": 10,
       "age": 22.4,
-      "adp": 43.2
+      "adp": 43.7
     },
     {
       "id": 1370,
@@ -625,12 +625,12 @@
       "position": "WR",
       "team": "NYJ",
       "boardRank": 44,
-      "ktcRank": 39,
-      "positionalRank": 18,
+      "ktcRank": 38,
+      "positionalRank": 17,
       "rookie": false,
       "byeWeek": 13,
       "age": 26.1,
-      "adp": 44.5
+      "adp": 44.1
     },
     {
       "id": 1661,
@@ -638,12 +638,12 @@
       "position": "RB",
       "team": "TBB",
       "boardRank": 45,
-      "ktcRank": 57,
-      "positionalRank": 19,
+      "ktcRank": 60,
+      "positionalRank": 21,
       "rookie": false,
       "byeWeek": 10,
       "age": 24,
-      "adp": 45.3
+      "adp": 44.2
     },
     {
       "id": 288,
@@ -651,7 +651,7 @@
       "position": "RB",
       "team": "HOU",
       "boardRank": 46,
-      "ktcRank": 73,
+      "ktcRank": 70,
       "positionalRank": 25,
       "rookie": false,
       "byeWeek": 8,
@@ -659,30 +659,30 @@
       "adp": 46.4
     },
     {
-      "id": 1840,
-      "name": "Quinshon Judkins",
-      "position": "RB",
-      "team": "CLE",
-      "boardRank": 47,
-      "ktcRank": 41,
-      "positionalRank": 14,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 22.8,
-      "adp": 47.6
-    },
-    {
       "id": 1007,
       "name": "Jaylen Waddle",
       "position": "WR",
       "team": "DEN",
-      "boardRank": 48,
+      "boardRank": 47,
       "ktcRank": 50,
-      "positionalRank": 21,
+      "positionalRank": 23,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.8,
       "adp": 47.6
+    },
+    {
+      "id": 1840,
+      "name": "Quinshon Judkins",
+      "position": "RB",
+      "team": "CLE",
+      "boardRank": 48,
+      "ktcRank": 39,
+      "positionalRank": 14,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 22.8,
+      "adp": 48.2
     },
     {
       "id": 639,
@@ -690,21 +690,39 @@
       "position": "RB",
       "team": "CHI",
       "boardRank": 49,
-      "ktcRank": 60,
-      "positionalRank": 22,
+      "ktcRank": 62,
+      "positionalRank": 23,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.6,
-      "adp": 49.1
+      "adp": 49.4
+    },
+    {
+      "id": 1891,
+      "name": "Tyler Warren",
+      "position": "TE",
+      "team": "IND",
+      "boardRank": 50,
+      "ktcRank": 36,
+      "positionalRank": 4,
+      "rookie": false,
+      "byeWeek": 13,
+      "age": 24.3,
+      "injury": {
+        "status": "Questionable",
+        "area": "Groin",
+        "returns": "Aug 29, 2026"
+      },
+      "adp": 50
     },
     {
       "id": 1832,
       "name": "TreVeyon Henderson",
       "position": "RB",
       "team": "NEP",
-      "boardRank": 50,
-      "ktcRank": 62,
-      "positionalRank": 23,
+      "boardRank": 51,
+      "ktcRank": 58,
+      "positionalRank": 20,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.8,
@@ -713,25 +731,7 @@
         "area": "Ankle",
         "returns": "Sep 9, 2026"
       },
-      "adp": 50.1
-    },
-    {
-      "id": 1891,
-      "name": "Tyler Warren",
-      "position": "TE",
-      "team": "IND",
-      "boardRank": 51,
-      "ktcRank": 37,
-      "positionalRank": 4,
-      "rookie": false,
-      "byeWeek": 13,
-      "age": 24.2,
-      "injury": {
-        "status": "Questionable",
-        "area": "Groin",
-        "returns": "Aug 29, 2026"
-      },
-      "adp": 51.2
+      "adp": 51.3
     },
     {
       "id": 1643,
@@ -739,64 +739,64 @@
       "position": "QB",
       "team": "NEP",
       "boardRank": 52,
-      "ktcRank": 25,
-      "positionalRank": 3,
+      "ktcRank": 22,
+      "positionalRank": 2,
       "rookie": false,
       "byeWeek": 11,
       "age": 24,
-      "adp": 52.5
-    },
-    {
-      "id": 328,
-      "name": "Terry McLaurin",
-      "position": "WR",
-      "team": "WAS",
-      "boardRank": 53,
-      "ktcRank": 85,
-      "positionalRank": 35,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 30.9,
-      "adp": 53.2
+      "adp": 52.1
     },
     {
       "id": 601,
       "name": "Joe Burrow",
       "position": "QB",
       "team": "CIN",
-      "boardRank": 54,
-      "ktcRank": 40,
+      "boardRank": 53,
+      "ktcRank": 42,
       "positionalRank": 5,
       "rookie": false,
       "byeWeek": 6,
       "age": 29.7,
-      "adp": 54.3
+      "adp": 53.4
     },
     {
-      "id": 277,
-      "name": "Davante Adams",
+      "id": 328,
+      "name": "Terry McLaurin",
       "position": "WR",
-      "team": "LAR",
-      "boardRank": 55,
-      "ktcRank": 81,
-      "positionalRank": 33,
+      "team": "WAS",
+      "boardRank": 54,
+      "ktcRank": 79,
+      "positionalRank": 31,
       "rookie": false,
-      "byeWeek": 11,
-      "age": 33.7,
-      "adp": 55.2
+      "byeWeek": 7,
+      "age": 31,
+      "adp": 53.4
     },
     {
       "id": 304,
       "name": "D.J. Moore",
       "position": "WR",
       "team": "BUF",
-      "boardRank": 56,
-      "ktcRank": 55,
+      "boardRank": 55,
+      "ktcRank": 56,
       "positionalRank": 25,
       "rookie": false,
       "byeWeek": 7,
       "age": 29.4,
-      "adp": 55.8
+      "adp": 55.7
+    },
+    {
+      "id": 277,
+      "name": "Davante Adams",
+      "position": "WR",
+      "team": "LAR",
+      "boardRank": 56,
+      "ktcRank": 80,
+      "positionalRank": 32,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 33.7,
+      "adp": 56.2
     },
     {
       "id": 1373,
@@ -804,12 +804,12 @@
       "position": "WR",
       "team": "DET",
       "boardRank": 57,
-      "ktcRank": 65,
+      "ktcRank": 67,
       "positionalRank": 26,
       "rookie": false,
       "byeWeek": 6,
       "age": 25.4,
-      "adp": 57.1
+      "adp": 57.8
     },
     {
       "id": 1859,
@@ -817,8 +817,8 @@
       "position": "WR",
       "team": "CHI",
       "boardRank": 58,
-      "ktcRank": 54,
-      "positionalRank": 24,
+      "ktcRank": 49,
+      "positionalRank": 22,
       "rookie": false,
       "byeWeek": 10,
       "age": 22.7,
@@ -827,7 +827,7 @@
         "area": "Groin",
         "returns": "Sep 13, 2026"
       },
-      "adp": 58.7
+      "adp": 58.5
     },
     {
       "id": 2021,
@@ -835,12 +835,12 @@
       "position": "RB",
       "team": "SEA",
       "boardRank": 59,
-      "ktcRank": 63,
+      "ktcRank": 64,
       "positionalRank": 24,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.9,
-      "adp": 59.2
+      "adp": 59.4
     },
     {
       "id": 275,
@@ -848,43 +848,43 @@
       "position": "WR",
       "team": "SFO",
       "boardRank": 60,
-      "ktcRank": 100,
-      "positionalRank": 44,
+      "ktcRank": 99,
+      "positionalRank": 43,
       "rookie": false,
       "byeWeek": 8,
       "age": 33,
       "injury": {
         "status": "Questionable",
         "area": "Groin",
-        "returns": "Aug 27, 2026"
+        "returns": "Sep 10, 2026"
       },
-      "adp": 61.9
-    },
-    {
-      "id": 595,
-      "name": "Jalen Hurts",
-      "position": "QB",
-      "team": "PHI",
-      "boardRank": 61,
-      "ktcRank": 46,
-      "positionalRank": 7,
-      "rookie": false,
-      "byeWeek": 10,
-      "age": 28,
-      "adp": 62.3
+      "adp": 61.4
     },
     {
       "id": 1679,
       "name": "Rome Odunze",
       "position": "WR",
       "team": "CHI",
-      "boardRank": 62,
-      "ktcRank": 48,
-      "positionalRank": 20,
+      "boardRank": 61,
+      "ktcRank": 55,
+      "positionalRank": 24,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.2,
-      "adp": 63.1
+      "adp": 62.1
+    },
+    {
+      "id": 595,
+      "name": "Jalen Hurts",
+      "position": "QB",
+      "team": "PHI",
+      "boardRank": 62,
+      "ktcRank": 51,
+      "positionalRank": 8,
+      "rookie": false,
+      "byeWeek": 10,
+      "age": 28,
+      "adp": 62.2
     },
     {
       "id": 1522,
@@ -892,8 +892,8 @@
       "position": "TE",
       "team": "DET",
       "boardRank": 63,
-      "ktcRank": 67,
-      "positionalRank": 7,
+      "ktcRank": 66,
+      "positionalRank": 6,
       "rookie": false,
       "byeWeek": 6,
       "age": 25.6,
@@ -902,28 +902,15 @@
         "area": "Hip",
         "returns": "Aug 29, 2026"
       },
-      "adp": 63.6
-    },
-    {
-      "id": 1644,
-      "name": "Jayden Daniels",
-      "position": "QB",
-      "team": "WAS",
-      "boardRank": 64,
-      "ktcRank": 36,
-      "positionalRank": 4,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 25.7,
-      "adp": 65.7
+      "adp": 64.1
     },
     {
       "id": 1511,
       "name": "Tucker Kraft",
       "position": "TE",
       "team": "GBP",
-      "boardRank": 65,
-      "ktcRank": 61,
+      "boardRank": 64,
+      "ktcRank": 59,
       "positionalRank": 5,
       "rookie": false,
       "byeWeek": 11,
@@ -931,9 +918,22 @@
       "injury": {
         "status": "Questionable",
         "area": "Knee - ACL",
-        "returns": "Aug 28, 2026"
+        "returns": "Sep 13, 2026"
       },
-      "adp": 66
+      "adp": 65.3
+    },
+    {
+      "id": 1644,
+      "name": "Jayden Daniels",
+      "position": "QB",
+      "team": "WAS",
+      "boardRank": 65,
+      "ktcRank": 37,
+      "positionalRank": 4,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 25.7,
+      "adp": 66.3
     },
     {
       "id": 2045,
@@ -941,12 +941,12 @@
       "position": "WR",
       "team": "TEN",
       "boardRank": 66,
-      "ktcRank": 51,
-      "positionalRank": 22,
+      "ktcRank": 45,
+      "positionalRank": 19,
       "rookie": true,
       "byeWeek": 9,
       "age": 21.6,
-      "adp": 67
+      "adp": 67.6
     },
     {
       "id": 1348,
@@ -954,12 +954,12 @@
       "position": "WR",
       "team": "GBP",
       "boardRank": 67,
-      "ktcRank": 84,
-      "positionalRank": 34,
+      "ktcRank": 81,
+      "positionalRank": 33,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.3,
-      "adp": 68
+      "adp": 68.2
     },
     {
       "id": 1301,
@@ -967,8 +967,8 @@
       "position": "RB",
       "team": "PIT",
       "boardRank": 68,
-      "ktcRank": 97,
-      "positionalRank": 27,
+      "ktcRank": 96,
+      "positionalRank": 26,
       "rookie": false,
       "byeWeek": 9,
       "age": 27.8,
@@ -985,7 +985,7 @@
       "rookie": false,
       "byeWeek": 11,
       "age": 25.9,
-      "adp": 70.9
+      "adp": 70.6
     },
     {
       "id": 1538,
@@ -993,12 +993,12 @@
       "position": "WR",
       "team": "JAC",
       "boardRank": 70,
-      "ktcRank": 163,
-      "positionalRank": 70,
+      "ktcRank": 154,
+      "positionalRank": 65,
       "rookie": false,
       "byeWeek": 7,
       "age": 24.4,
-      "adp": 71.1
+      "adp": 71.5
     },
     {
       "id": 1681,
@@ -1006,8 +1006,8 @@
       "position": "WR",
       "team": "JAC",
       "boardRank": 71,
-      "ktcRank": 72,
-      "positionalRank": 28,
+      "ktcRank": 71,
+      "positionalRank": 27,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.9,
@@ -1024,12 +1024,12 @@
       "position": "WR",
       "team": "ARI",
       "boardRank": 72,
-      "ktcRank": 68,
-      "positionalRank": 27,
+      "ktcRank": 74,
+      "positionalRank": 28,
       "rookie": false,
       "byeWeek": 14,
       "age": 24,
-      "adp": 73.5
+      "adp": 73.7
     },
     {
       "id": 1892,
@@ -1037,12 +1037,12 @@
       "position": "TE",
       "team": "CLE",
       "boardRank": 73,
-      "ktcRank": 66,
-      "positionalRank": 6,
+      "ktcRank": 69,
+      "positionalRank": 7,
       "rookie": false,
       "byeWeek": 11,
       "age": 22.1,
-      "adp": 74
+      "adp": 74.2
     },
     {
       "id": 1642,
@@ -1055,7 +1055,7 @@
       "rookie": false,
       "byeWeek": 10,
       "age": 24.8,
-      "adp": 75.2
+      "adp": 75.4
     },
     {
       "id": 1036,
@@ -1063,12 +1063,12 @@
       "position": "RB",
       "team": "NEP",
       "boardRank": 75,
-      "ktcRank": 94,
-      "positionalRank": 26,
+      "ktcRank": 104,
+      "positionalRank": 28,
       "rookie": false,
       "byeWeek": 11,
       "age": 28.5,
-      "adp": 76.4
+      "adp": 76.8
     },
     {
       "id": 1014,
@@ -1076,7 +1076,7 @@
       "position": "RB",
       "team": "CAR",
       "boardRank": 76,
-      "ktcRank": 129,
+      "ktcRank": 132,
       "positionalRank": 36,
       "rookie": false,
       "byeWeek": 5,
@@ -1086,7 +1086,7 @@
         "area": "Hamstring",
         "returns": "Sep 13, 2026"
       },
-      "adp": 77.1
+      "adp": 77.2
     },
     {
       "id": 224,
@@ -1094,7 +1094,7 @@
       "position": "WR",
       "team": "PIT",
       "boardRank": 77,
-      "ktcRank": 93,
+      "ktcRank": 94,
       "positionalRank": 41,
       "rookie": false,
       "byeWeek": 9,
@@ -1104,33 +1104,33 @@
         "area": "Undisclosed",
         "returns": "Aug 27, 2026"
       },
-      "adp": 78.2
-    },
-    {
-      "id": 599,
-      "name": "Justin Herbert",
-      "position": "QB",
-      "team": "LAC",
-      "boardRank": 78,
-      "ktcRank": 47,
-      "positionalRank": 8,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 28.5,
-      "adp": 79.2
+      "adp": 78.8
     },
     {
       "id": 344,
       "name": "Tony Pollard",
       "position": "RB",
       "team": "TEN",
-      "boardRank": 79,
-      "ktcRank": 136,
-      "positionalRank": 38,
+      "boardRank": 78,
+      "ktcRank": 134,
+      "positionalRank": 37,
       "rookie": false,
       "byeWeek": 9,
       "age": 29.3,
-      "adp": 79.4
+      "adp": 79.6
+    },
+    {
+      "id": 599,
+      "name": "Justin Herbert",
+      "position": "QB",
+      "team": "LAC",
+      "boardRank": 79,
+      "ktcRank": 47,
+      "positionalRank": 7,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 28.5,
+      "adp": 80.1
     },
     {
       "id": 1857,
@@ -1138,12 +1138,12 @@
       "position": "RB",
       "team": "DEN",
       "boardRank": 80,
-      "ktcRank": 102,
-      "positionalRank": 28,
+      "ktcRank": 103,
+      "positionalRank": 27,
       "rookie": false,
       "byeWeek": 10,
       "age": 25.6,
-      "adp": 81.6
+      "adp": 80.3
     },
     {
       "id": 226,
@@ -1151,12 +1151,12 @@
       "position": "WR",
       "team": "DEN",
       "boardRank": 81,
-      "ktcRank": 112,
-      "positionalRank": 49,
+      "ktcRank": 107,
+      "positionalRank": 48,
       "rookie": false,
       "byeWeek": 10,
       "age": 30.9,
-      "adp": 82
+      "adp": 82.5
     },
     {
       "id": 371,
@@ -1164,12 +1164,12 @@
       "position": "QB",
       "team": "DAL",
       "boardRank": 82,
-      "ktcRank": 74,
+      "ktcRank": 73,
       "positionalRank": 14,
       "rookie": false,
       "byeWeek": 14,
       "age": 33.1,
-      "adp": 84.2
+      "adp": 84.5
     },
     {
       "id": 636,
@@ -1177,32 +1177,19 @@
       "position": "RB",
       "team": "DEN",
       "boardRank": 83,
-      "ktcRank": 107,
+      "ktcRank": 109,
       "positionalRank": 30,
       "rookie": false,
       "byeWeek": 10,
       "age": 27.7,
-      "adp": 85.1
-    },
-    {
-      "id": 2047,
-      "name": "Makai Lemon",
-      "position": "WR",
-      "team": "PHI",
-      "boardRank": 84,
-      "ktcRank": 80,
-      "positionalRank": 32,
-      "rookie": true,
-      "byeWeek": 10,
-      "age": 22.2,
-      "adp": 86.7
+      "adp": 85.2
     },
     {
       "id": 298,
       "name": "George Kittle",
       "position": "TE",
       "team": "SFO",
-      "boardRank": 85,
+      "boardRank": 84,
       "ktcRank": 88,
       "positionalRank": 9,
       "rookie": false,
@@ -1213,7 +1200,20 @@
         "area": "Achilles",
         "returns": "Sep 10, 2026"
       },
-      "adp": 87.8
+      "adp": 86.1
+    },
+    {
+      "id": 2047,
+      "name": "Makai Lemon",
+      "position": "WR",
+      "team": "PHI",
+      "boardRank": 85,
+      "ktcRank": 84,
+      "positionalRank": 35,
+      "rookie": true,
+      "byeWeek": 10,
+      "age": 22.2,
+      "adp": 87.6
     },
     {
       "id": 1660,
@@ -1221,21 +1221,34 @@
       "position": "RB",
       "team": "CAR",
       "boardRank": 86,
-      "ktcRank": 172,
-      "positionalRank": 48,
+      "ktcRank": 169,
+      "positionalRank": 47,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.1,
-      "adp": 88
+      "adp": 88.5
+    },
+    {
+      "id": 1521,
+      "name": "Dalton Kincaid",
+      "position": "TE",
+      "team": "BUF",
+      "boardRank": 87,
+      "ktcRank": 97,
+      "positionalRank": 11,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 26.8,
+      "adp": 91.9
     },
     {
       "id": 2046,
       "name": "Jordyn Tyson",
       "position": "WR",
       "team": "NOS",
-      "boardRank": 87,
-      "ktcRank": 78,
-      "positionalRank": 30,
+      "boardRank": 88,
+      "ktcRank": 82,
+      "positionalRank": 34,
       "rookie": true,
       "byeWeek": 8,
       "age": 22,
@@ -1244,20 +1257,7 @@
         "area": "Hamstring",
         "returns": "Oct 18, 2026"
       },
-      "adp": 91.5
-    },
-    {
-      "id": 1521,
-      "name": "Dalton Kincaid",
-      "position": "TE",
-      "team": "BUF",
-      "boardRank": 88,
-      "ktcRank": 103,
-      "positionalRank": 11,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 26.8,
-      "adp": 92.7
+      "adp": 92
     },
     {
       "id": 1656,
@@ -1265,12 +1265,12 @@
       "position": "RB",
       "team": "LAR",
       "boardRank": 89,
-      "ktcRank": 111,
+      "ktcRank": 113,
       "positionalRank": 31,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.8,
-      "adp": 93
+      "adp": 93.3
     },
     {
       "id": 299,
@@ -1278,7 +1278,7 @@
       "position": "WR",
       "team": "TBB",
       "boardRank": 90,
-      "ktcRank": 119,
+      "ktcRank": 120,
       "positionalRank": 52,
       "rookie": false,
       "byeWeek": 10,
@@ -1291,12 +1291,12 @@
       "position": "TE",
       "team": "KCC",
       "boardRank": 91,
-      "ktcRank": 130,
+      "ktcRank": 126,
       "positionalRank": 14,
       "rookie": false,
       "byeWeek": 5,
       "age": 36.9,
-      "adp": 95
+      "adp": 95.8
     },
     {
       "id": 1385,
@@ -1304,17 +1304,17 @@
       "position": "WR",
       "team": "IND",
       "boardRank": 92,
-      "ktcRank": 91,
-      "positionalRank": 39,
+      "ktcRank": 93,
+      "positionalRank": 40,
       "rookie": false,
       "byeWeek": 13,
       "age": 26.3,
       "injury": {
-        "status": "Out",
+        "status": "Questionable",
         "area": "Ankle",
         "returns": "Aug 29, 2026"
       },
-      "adp": 95.8
+      "adp": 96.6
     },
     {
       "id": 1094,
@@ -1322,21 +1322,34 @@
       "position": "QB",
       "team": "JAC",
       "boardRank": 93,
-      "ktcRank": 70,
+      "ktcRank": 68,
       "positionalRank": 12,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.9,
-      "adp": 97.4
+      "adp": 97
+    },
+    {
+      "id": 1426,
+      "name": "Jordan Mason",
+      "position": "RB",
+      "team": "MIN",
+      "boardRank": 94,
+      "ktcRank": 123,
+      "positionalRank": 34,
+      "rookie": false,
+      "byeWeek": 6,
+      "age": 27.3,
+      "adp": 98.2
     },
     {
       "id": 1924,
       "name": "Jacory Croskey-Merritt",
       "position": "RB",
       "team": "WAS",
-      "boardRank": 94,
-      "ktcRank": 131,
-      "positionalRank": 37,
+      "boardRank": 95,
+      "ktcRank": 138,
+      "positionalRank": 38,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.4,
@@ -1345,20 +1358,7 @@
         "area": "Lower Body",
         "returns": "Aug 28, 2026"
       },
-      "adp": 98.1
-    },
-    {
-      "id": 1426,
-      "name": "Jordan Mason",
-      "position": "RB",
-      "team": "MIN",
-      "boardRank": 95,
-      "ktcRank": 126,
-      "positionalRank": 34,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 27.2,
-      "adp": 99.1
+      "adp": 98.6
     },
     {
       "id": 1513,
@@ -1371,7 +1371,7 @@
       "rookie": false,
       "byeWeek": 6,
       "age": 24.6,
-      "adp": 100.4
+      "adp": 100.6
     },
     {
       "id": 1512,
@@ -1379,12 +1379,12 @@
       "position": "WR",
       "team": "GBP",
       "boardRank": 97,
-      "ktcRank": 95,
-      "positionalRank": 42,
+      "ktcRank": 91,
+      "positionalRank": 39,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.3,
-      "adp": 102.7
+      "adp": 102.5
     },
     {
       "id": 1821,
@@ -1392,12 +1392,12 @@
       "position": "QB",
       "team": "NYG",
       "boardRank": 98,
-      "ktcRank": 69,
-      "positionalRank": 11,
+      "ktcRank": 63,
+      "positionalRank": 10,
       "rookie": false,
       "byeWeek": 8,
       "age": 23.3,
-      "adp": 103.3
+      "adp": 103.2
     },
     {
       "id": 536,
@@ -1405,8 +1405,8 @@
       "position": "WR",
       "team": "PIT",
       "boardRank": 99,
-      "ktcRank": 79,
-      "positionalRank": 31,
+      "ktcRank": 77,
+      "positionalRank": 29,
       "rookie": false,
       "byeWeek": 9,
       "age": 28.9,
@@ -1415,7 +1415,7 @@
         "area": "Hamstring",
         "returns": "Aug 27, 2026"
       },
-      "adp": 103.9
+      "adp": 104.4
     },
     {
       "id": 1534,
@@ -1433,7 +1433,7 @@
         "area": "Lower Body",
         "returns": "Aug 27, 2026"
       },
-      "adp": 105.9
+      "adp": 105.7
     },
     {
       "id": 356,
@@ -1441,12 +1441,12 @@
       "position": "QB",
       "team": "LAR",
       "boardRank": 101,
-      "ktcRank": 101,
+      "ktcRank": 105,
       "positionalRank": 20,
       "rookie": false,
       "byeWeek": 11,
       "age": 38.6,
-      "adp": 106.5
+      "adp": 106.8
     },
     {
       "id": 1533,
@@ -1454,17 +1454,17 @@
       "position": "WR",
       "team": "IND",
       "boardRank": 102,
-      "ktcRank": 77,
-      "positionalRank": 29,
+      "ktcRank": 78,
+      "positionalRank": 30,
       "rookie": false,
       "byeWeek": 13,
       "age": 25,
       "injury": {
         "status": "Questionable",
-        "area": "Undisclosed",
+        "area": "Calf",
         "returns": "Aug 29, 2026"
       },
-      "adp": 107.5
+      "adp": 107.9
     },
     {
       "id": 1358,
@@ -1472,33 +1472,20 @@
       "position": "TE",
       "team": "DAL",
       "boardRank": 103,
-      "ktcRank": 108,
+      "ktcRank": 112,
       "positionalRank": 12,
       "rookie": false,
       "byeWeek": 14,
       "age": 27.6,
-      "adp": 108.5
-    },
-    {
-      "id": 301,
-      "name": "Aaron Jones",
-      "position": "RB",
-      "team": "MIN",
-      "boardRank": 104,
-      "ktcRank": 175,
-      "positionalRank": 49,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 31.7,
-      "adp": 111.1
+      "adp": 109.1
     },
     {
       "id": 272,
       "name": "Patrick Mahomes",
       "position": "QB",
       "team": "KCC",
-      "boardRank": 105,
-      "ktcRank": 56,
+      "boardRank": 104,
+      "ktcRank": 52,
       "positionalRank": 9,
       "rookie": false,
       "byeWeek": 5,
@@ -1508,20 +1495,33 @@
         "area": "Knee - ACL",
         "returns": "Aug 28, 2026"
       },
-      "adp": 111.3
+      "adp": 111.2
     },
     {
       "id": 1357,
       "name": "Isaiah Likely",
       "position": "TE",
       "team": "NYG",
-      "boardRank": 106,
+      "boardRank": 105,
       "ktcRank": 114,
       "positionalRank": 13,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.4,
-      "adp": 113.2
+      "adp": 112
+    },
+    {
+      "id": 301,
+      "name": "Aaron Jones",
+      "position": "RB",
+      "team": "MIN",
+      "boardRank": 106,
+      "ktcRank": 175,
+      "positionalRank": 49,
+      "rookie": false,
+      "byeWeek": 6,
+      "age": 31.7,
+      "adp": 113.3
     },
     {
       "id": 2049,
@@ -1534,7 +1534,7 @@
       "rookie": true,
       "byeWeek": 11,
       "age": 21.9,
-      "adp": 114.4
+      "adp": 114.7
     },
     {
       "id": 262,
@@ -1542,7 +1542,7 @@
       "position": "WR",
       "team": "WAS",
       "boardRank": 108,
-      "ktcRank": 160,
+      "ktcRank": 159,
       "positionalRank": 68,
       "rookie": false,
       "byeWeek": 7,
@@ -1555,12 +1555,17 @@
       "position": "WR",
       "team": "TEN",
       "boardRank": 109,
-      "ktcRank": 99,
-      "positionalRank": 43,
+      "ktcRank": 101,
+      "positionalRank": 45,
       "rookie": false,
       "byeWeek": 9,
       "age": 25.6,
-      "adp": 116
+      "injury": {
+        "status": "Questionable",
+        "area": "Head",
+        "returns": "Aug 29, 2026"
+      },
+      "adp": 116.9
     },
     {
       "id": 1645,
@@ -1568,38 +1573,20 @@
       "position": "QB",
       "team": "DEN",
       "boardRank": 110,
-      "ktcRank": 64,
-      "positionalRank": 10,
+      "ktcRank": 65,
+      "positionalRank": 11,
       "rookie": false,
       "byeWeek": 10,
       "age": 26.5,
-      "adp": 118.5
-    },
-    {
-      "id": 13,
-      "name": "Jakobi Meyers",
-      "position": "WR",
-      "team": "JAC",
-      "boardRank": 111,
-      "ktcRank": 110,
-      "positionalRank": 48,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 29.8,
-      "injury": {
-        "status": "Questionable",
-        "area": "Hand",
-        "returns": "Aug 28, 2026"
-      },
-      "adp": 119.6
+      "adp": 118.2
     },
     {
       "id": 1280,
       "name": "Rachaad White",
       "position": "RB",
       "team": "WAS",
-      "boardRank": 112,
-      "ktcRank": 141,
+      "boardRank": 111,
+      "ktcRank": 144,
       "positionalRank": 41,
       "rookie": false,
       "byeWeek": 7,
@@ -1609,7 +1596,25 @@
         "area": "Hamstring",
         "returns": "Aug 28, 2026"
       },
-      "adp": 119.9
+      "adp": 119
+    },
+    {
+      "id": 13,
+      "name": "Jakobi Meyers",
+      "position": "WR",
+      "team": "JAC",
+      "boardRank": 112,
+      "ktcRank": 106,
+      "positionalRank": 47,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 29.8,
+      "injury": {
+        "status": "Questionable",
+        "area": "Hand",
+        "returns": "Aug 28, 2026"
+      },
+      "adp": 120.4
     },
     {
       "id": 1314,
@@ -1617,12 +1622,12 @@
       "position": "QB",
       "team": "SFO",
       "boardRank": 113,
-      "ktcRank": 76,
-      "positionalRank": 16,
+      "ktcRank": 85,
+      "positionalRank": 17,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.7,
-      "adp": 121.5
+      "adp": 121.6
     },
     {
       "id": 366,
@@ -1630,12 +1635,12 @@
       "position": "TE",
       "team": "BAL",
       "boardRank": 114,
-      "ktcRank": 133,
+      "ktcRank": 131,
       "positionalRank": 15,
       "rookie": false,
       "byeWeek": 13,
       "age": 31,
-      "adp": 122.2
+      "adp": 122.7
     },
     {
       "id": 1864,
@@ -1643,8 +1648,8 @@
       "position": "WR",
       "team": "GBP",
       "boardRank": 115,
-      "ktcRank": 104,
-      "positionalRank": 45,
+      "ktcRank": 102,
+      "positionalRank": 46,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.1,
@@ -1656,34 +1661,21 @@
       "position": "TE",
       "team": "PHI",
       "boardRank": 116,
-      "ktcRank": 134,
-      "positionalRank": 16,
+      "ktcRank": 136,
+      "positionalRank": 17,
       "rookie": false,
       "byeWeek": 10,
       "age": 31.6,
-      "adp": 125.5
-    },
-    {
-      "id": 1338,
-      "name": "Romeo Doubs",
-      "position": "WR",
-      "team": "NEP",
-      "boardRank": 117,
-      "ktcRank": 105,
-      "positionalRank": 46,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 26.4,
-      "adp": 127.3
+      "adp": 125.8
     },
     {
       "id": 1683,
       "name": "Xavier Worthy",
       "position": "WR",
       "team": "KCC",
-      "boardRank": 118,
-      "ktcRank": 109,
-      "positionalRank": 47,
+      "boardRank": 117,
+      "ktcRank": 110,
+      "positionalRank": 49,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.3,
@@ -1692,7 +1684,20 @@
         "area": "Shoulder",
         "returns": "Aug 28, 2026"
       },
-      "adp": 127.9
+      "adp": 127.4
+    },
+    {
+      "id": 1338,
+      "name": "Romeo Doubs",
+      "position": "WR",
+      "team": "NEP",
+      "boardRank": 118,
+      "ktcRank": 100,
+      "positionalRank": 44,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 26.4,
+      "adp": 128.3
     },
     {
       "id": 1482,
@@ -1700,12 +1705,12 @@
       "position": "RB",
       "team": "JAC",
       "boardRank": 119,
-      "ktcRank": 187,
+      "ktcRank": 190,
       "positionalRank": 54,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.9,
-      "adp": 129.1
+      "adp": 129.5
     },
     {
       "id": 383,
@@ -1713,12 +1718,12 @@
       "position": "WR",
       "team": "SFO",
       "boardRank": 120,
-      "ktcRank": 155,
-      "positionalRank": 65,
+      "ktcRank": 151,
+      "positionalRank": 62,
       "rookie": false,
       "byeWeek": 8,
       "age": 30.6,
-      "adp": 131.6
+      "adp": 131.5
     },
     {
       "id": 1328,
@@ -1727,19 +1732,32 @@
       "team": "ARI",
       "boardRank": 121,
       "ktcRank": 139,
-      "positionalRank": 40,
+      "positionalRank": 39,
       "rookie": false,
       "byeWeek": 14,
       "age": 26.4,
-      "adp": 132.7
+      "adp": 132.6
+    },
+    {
+      "id": 1726,
+      "name": "Tyrone Tracy",
+      "position": "RB",
+      "team": "NYG",
+      "boardRank": 122,
+      "ktcRank": 148,
+      "positionalRank": 42,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 26.8,
+      "adp": 133.9
     },
     {
       "id": 1477,
       "name": "Zach Charbonnet",
       "position": "RB",
       "team": "SEA",
-      "boardRank": 122,
-      "ktcRank": 118,
+      "boardRank": 123,
+      "ktcRank": 115,
       "positionalRank": 32,
       "rookie": false,
       "byeWeek": 11,
@@ -1749,20 +1767,7 @@
         "area": "Knee - ACL",
         "returns": "Sep 9, 2026"
       },
-      "adp": 133.7
-    },
-    {
-      "id": 1726,
-      "name": "Tyrone Tracy",
-      "position": "RB",
-      "team": "NYG",
-      "boardRank": 123,
-      "ktcRank": 138,
-      "positionalRank": 39,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 26.8,
-      "adp": 134.5
+      "adp": 139.1
     },
     {
       "id": 388,
@@ -1775,7 +1780,7 @@
       "rookie": false,
       "byeWeek": 6,
       "age": 31.9,
-      "adp": 140.6
+      "adp": 140
     },
     {
       "id": 2025,
@@ -1783,20 +1788,33 @@
       "position": "RB",
       "team": "DEN",
       "boardRank": 125,
-      "ktcRank": 106,
+      "ktcRank": 108,
       "positionalRank": 29,
       "rookie": true,
       "byeWeek": 10,
       "age": 23,
-      "adp": 143.7
+      "adp": 143.9
+    },
+    {
+      "id": 379,
+      "name": "Kyler Murray",
+      "position": "QB",
+      "team": "MIN",
+      "boardRank": 126,
+      "ktcRank": 116,
+      "positionalRank": 22,
+      "rookie": false,
+      "byeWeek": 6,
+      "age": 29,
+      "adp": 145.2
     },
     {
       "id": 1378,
       "name": "Khalil Shakir",
       "position": "WR",
       "team": "BUF",
-      "boardRank": 126,
-      "ktcRank": 122,
+      "boardRank": 127,
+      "ktcRank": 124,
       "positionalRank": 54,
       "rookie": false,
       "byeWeek": 7,
@@ -1806,46 +1824,32 @@
         "area": "Undisclosed",
         "returns": "Aug 27, 2026"
       },
-      "adp": 143.9
+      "adp": 146.7
     },
     {
       "id": 1888,
       "name": "Oronde Gadsden",
       "position": "TE",
       "team": "LAC",
-      "boardRank": 127,
-      "ktcRank": 140,
+      "boardRank": 128,
+      "ktcRank": 137,
       "positionalRank": 18,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.2,
-      "adp": 146.8
-    },
-    {
-      "id": 379,
-      "name": "Kyler Murray",
-      "position": "QB",
-      "team": "MIN",
-      "boardRank": 128,
-      "ktcRank": 113,
-      "positionalRank": 21,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 29,
       "adp": 147.2
     },
     {
-      "id": 212,
-      "name": "Hunter Henry",
-      "position": "TE",
-      "team": "NEP",
+      "id": 1032,
+      "name": "Kenneth Gainwell",
+      "position": "RB",
+      "team": "TBB",
       "boardRank": 129,
-      "ktcRank": 177,
-      "positionalRank": 25,
+      "ktcRank": 121,
+      "positionalRank": 33,
       "rookie": false,
-      "byeWeek": 11,
-      "age": 31.7,
-      "adp": 148.9
+      "byeWeek": 10,
+      "age": 27.4
     },
     {
       "id": 1463,
@@ -1853,33 +1857,46 @@
       "position": "WR",
       "team": "SEA",
       "boardRank": 130,
-      "ktcRank": 115,
+      "ktcRank": 117,
       "positionalRank": 50,
       "rookie": false,
       "byeWeek": 11,
       "age": 28,
-      "adp": 150.9
+      "adp": 148.5
+    },
+    {
+      "id": 212,
+      "name": "Hunter Henry",
+      "position": "TE",
+      "team": "NEP",
+      "boardRank": 131,
+      "ktcRank": 178,
+      "positionalRank": 25,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 31.7,
+      "adp": 149.4
     },
     {
       "id": 215,
       "name": "Baker Mayfield",
       "position": "QB",
       "team": "TBB",
-      "boardRank": 131,
-      "ktcRank": 82,
-      "positionalRank": 17,
+      "boardRank": 132,
+      "ktcRank": 76,
+      "positionalRank": 16,
       "rookie": false,
       "byeWeek": 10,
       "age": 31.4,
-      "adp": 151.4
+      "adp": 152.2
     },
     {
       "id": 282,
       "name": "Alvin Kamara",
       "position": "RB",
       "team": "NOS",
-      "boardRank": 132,
-      "ktcRank": 178,
+      "boardRank": 133,
+      "ktcRank": 179,
       "positionalRank": 50,
       "rookie": false,
       "byeWeek": 8,
@@ -1889,58 +1906,58 @@
         "area": "Knee - MCL",
         "returns": "Sep 13, 2026"
       },
-      "adp": 154.9
+      "adp": 154.8
     },
     {
       "id": 1555,
       "name": "Brenton Strange",
       "position": "TE",
       "team": "JAC",
-      "boardRank": 133,
-      "ktcRank": 135,
-      "positionalRank": 17,
+      "boardRank": 134,
+      "ktcRank": 133,
+      "positionalRank": 16,
       "rookie": false,
       "byeWeek": 7,
       "age": 25.7,
-      "adp": 155.6
+      "adp": 157.8
     },
     {
       "id": 2048,
       "name": "Denzel Boston",
       "position": "WR",
       "team": "CLE",
-      "boardRank": 134,
-      "ktcRank": 92,
-      "positionalRank": 40,
+      "boardRank": 135,
+      "ktcRank": 98,
+      "positionalRank": 42,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.7,
-      "adp": 158.2
+      "adp": 158.5
     },
     {
       "id": 2030,
       "name": "Mike Washington Jr.",
       "position": "RB",
       "team": "LVR",
-      "boardRank": 135,
-      "ktcRank": 186,
+      "boardRank": 136,
+      "ktcRank": 185,
       "positionalRank": 53,
       "rookie": true,
       "byeWeek": 13,
       "age": 23.2,
-      "adp": 159.3
+      "adp": 159.5
     },
     {
       "id": 2065,
       "name": "Ja'Kobi Lane",
       "position": "WR",
       "team": "BAL",
-      "boardRank": 136,
+      "boardRank": 137,
       "ktcRank": 146,
       "positionalRank": 59,
       "rookie": true,
       "byeWeek": 13,
-      "age": 22,
+      "age": 22.1,
       "adp": 161
     },
     {
@@ -1948,64 +1965,52 @@
       "name": "Tank Bigsby",
       "position": "RB",
       "team": "PHI",
-      "boardRank": 137,
-      "ktcRank": 162,
-      "positionalRank": 44,
+      "boardRank": 138,
+      "ktcRank": 161,
+      "positionalRank": 43,
       "rookie": false,
       "byeWeek": 10,
       "age": 25,
-      "adp": 166.1
+      "adp": 165.7
     },
     {
       "id": 596,
       "name": "Jordan Love",
       "position": "QB",
       "team": "GBP",
-      "boardRank": 138,
-      "ktcRank": 71,
+      "boardRank": 139,
+      "ktcRank": 72,
       "positionalRank": 13,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.8,
-      "adp": 167.1
+      "adp": 167.6
     },
     {
       "id": 331,
       "name": "Sam Darnold",
       "position": "QB",
       "team": "SEA",
-      "boardRank": 139,
-      "ktcRank": 116,
-      "positionalRank": 22,
+      "boardRank": 140,
+      "ktcRank": 111,
+      "positionalRank": 21,
       "rookie": false,
       "byeWeek": 11,
       "age": 29.2,
-      "adp": 169.1
+      "adp": 169.5
     },
     {
       "id": 1510,
       "name": "Tyjae Spears",
       "position": "RB",
       "team": "TEN",
-      "boardRank": 140,
-      "ktcRank": 158,
-      "positionalRank": 43,
+      "boardRank": 141,
+      "ktcRank": 164,
+      "positionalRank": 44,
       "rookie": false,
       "byeWeek": 9,
       "age": 25.2,
-      "adp": 170
-    },
-    {
-      "id": 1032,
-      "name": "Kenneth Gainwell",
-      "position": "RB",
-      "team": "TBB",
-      "boardRank": 141,
-      "ktcRank": 121,
-      "positionalRank": 33,
-      "rookie": false,
-      "byeWeek": 10,
-      "age": 27.4
+      "adp": 170.7
     },
     {
       "id": 1366,
@@ -2013,17 +2018,17 @@
       "position": "RB",
       "team": "DET",
       "boardRank": 142,
-      "ktcRank": 185,
+      "ktcRank": 184,
       "positionalRank": 52,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.5,
       "injury": {
         "status": "Questionable",
-        "area": "Knee - MCL",
+        "area": "Back",
         "returns": "Sep 13, 2026"
       },
-      "adp": 171.6
+      "adp": 171
     },
     {
       "id": 1332,
@@ -2031,8 +2036,8 @@
       "position": "RB",
       "team": "ATL",
       "boardRank": 143,
-      "ktcRank": 170,
-      "positionalRank": 47,
+      "ktcRank": 172,
+      "positionalRank": 48,
       "rookie": false,
       "byeWeek": 11,
       "age": 27.4,
@@ -2044,7 +2049,7 @@
       "position": "TE",
       "team": "NYJ",
       "boardRank": 144,
-      "ktcRank": 96,
+      "ktcRank": 95,
       "positionalRank": 10,
       "rookie": true,
       "byeWeek": 13,
@@ -2054,7 +2059,7 @@
         "area": "Abdomen",
         "returns": "Aug 28, 2026"
       },
-      "adp": 174.5
+      "adp": 174.3
     },
     {
       "id": 1863,
@@ -2062,12 +2067,12 @@
       "position": "WR",
       "team": "JAC",
       "boardRank": 145,
-      "ktcRank": 117,
+      "ktcRank": 119,
       "positionalRank": 51,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.3,
-      "adp": 175.4
+      "adp": 176.6
     },
     {
       "id": 2050,
@@ -2075,12 +2080,12 @@
       "position": "WR",
       "team": "NYJ",
       "boardRank": 146,
-      "ktcRank": 124,
-      "positionalRank": 55,
+      "ktcRank": 129,
+      "positionalRank": 56,
       "rookie": true,
       "byeWeek": 13,
       "age": 22.7,
-      "adp": 177
+      "adp": 177.6
     },
     {
       "id": 1667,
@@ -2088,21 +2093,47 @@
       "position": "RB",
       "team": "GBP",
       "boardRank": 147,
-      "ktcRank": 221,
+      "ktcRank": 222,
       "positionalRank": 62,
       "rookie": false,
       "byeWeek": 11,
       "age": 25.6,
-      "adp": 180.7
+      "adp": 179.1
+    },
+    {
+      "id": 247,
+      "name": "T.J. Hockenson",
+      "position": "TE",
+      "team": "MIN",
+      "boardRank": 148,
+      "ktcRank": 140,
+      "positionalRank": 19,
+      "rookie": false,
+      "byeWeek": 6,
+      "age": 29.2,
+      "adp": 183.9
+    },
+    {
+      "id": 575,
+      "name": "Juwan Johnson",
+      "position": "TE",
+      "team": "NOS",
+      "boardRank": 149,
+      "ktcRank": 150,
+      "positionalRank": 20,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 30,
+      "adp": 184.2
     },
     {
       "id": 1531,
       "name": "Tank Dell",
       "position": "WR",
       "team": "HOU",
-      "boardRank": 148,
-      "ktcRank": 192,
-      "positionalRank": 77,
+      "boardRank": 150,
+      "ktcRank": 188,
+      "positionalRank": 76,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.8,
@@ -2111,33 +2142,7 @@
         "area": "Knee - ACL + MCL",
         "returns": "Aug 28, 2026"
       },
-      "adp": 183.4
-    },
-    {
-      "id": 247,
-      "name": "T.J. Hockenson",
-      "position": "TE",
-      "team": "MIN",
-      "boardRank": 149,
-      "ktcRank": 142,
-      "positionalRank": 19,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 29.2,
-      "adp": 183.7
-    },
-    {
-      "id": 575,
-      "name": "Juwan Johnson",
-      "position": "TE",
-      "team": "NOS",
-      "boardRank": 150,
-      "ktcRank": 156,
-      "positionalRank": 21,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 30,
-      "adp": 186.7
+      "adp": 186.1
     },
     {
       "id": 2010,
@@ -2150,7 +2155,7 @@
       "rookie": true,
       "byeWeek": 13,
       "age": 22.9,
-      "adp": 187
+      "adp": 188
     },
     {
       "id": 1828,
@@ -2158,38 +2163,38 @@
       "position": "QB",
       "team": "NOS",
       "boardRank": 152,
-      "ktcRank": 486,
+      "ktcRank": 487,
       "positionalRank": 61,
       "rookie": false,
       "byeWeek": 8,
       "age": 26.9,
-      "adp": 188.5
-    },
-    {
-      "id": 1836,
-      "name": "Dylan Sampson",
-      "position": "RB",
-      "team": "CLE",
-      "boardRank": 153,
-      "ktcRank": 169,
-      "positionalRank": 46,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 22,
-      "adp": 191.1
+      "adp": 190.7
     },
     {
       "id": 1659,
       "name": "Braelon Allen",
       "position": "RB",
       "team": "NYJ",
-      "boardRank": 154,
-      "ktcRank": 181,
+      "boardRank": 153,
+      "ktcRank": 180,
       "positionalRank": 51,
       "rookie": false,
       "byeWeek": 13,
       "age": 22.6,
-      "adp": 191.6
+      "adp": 191.7
+    },
+    {
+      "id": 1836,
+      "name": "Dylan Sampson",
+      "position": "RB",
+      "team": "CLE",
+      "boardRank": 154,
+      "ktcRank": 167,
+      "positionalRank": 45,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 22,
+      "adp": 192.9
     },
     {
       "id": 1310,
@@ -2197,28 +2202,28 @@
       "position": "QB",
       "team": "MIA",
       "boardRank": 155,
-      "ktcRank": 370,
+      "ktcRank": 371,
       "positionalRank": 43,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.2,
-      "adp": 194.1
+      "adp": 193.9
     },
     {
-      "id": 1872,
-      "name": "Jayden Higgins",
+      "id": 1691,
+      "name": "Jalen McMillan",
       "position": "WR",
-      "team": "HOU",
+      "team": "TBB",
       "boardRank": 156,
-      "ktcRank": 120,
-      "positionalRank": 53,
+      "ktcRank": 128,
+      "positionalRank": 55,
       "rookie": false,
-      "byeWeek": 8,
-      "age": 23.7,
+      "byeWeek": 10,
+      "age": 24.7,
       "injury": {
-        "status": "IR",
-        "area": "Knee - ACL",
-        "returns": "Feb 15, 2027"
+        "status": "Questionable",
+        "area": "Knee",
+        "returns": "Sep 13, 2026"
       },
       "adp": 196.6
     },
@@ -2228,56 +2233,56 @@
       "position": "RB",
       "team": "TEN",
       "boardRank": 157,
-      "ktcRank": 149,
-      "positionalRank": 42,
+      "ktcRank": 143,
+      "positionalRank": 40,
       "rookie": true,
       "byeWeek": 9,
       "age": 22.6,
-      "adp": 197
-    },
-    {
-      "id": 1691,
-      "name": "Jalen McMillan",
-      "position": "WR",
-      "team": "TBB",
-      "boardRank": 158,
-      "ktcRank": 137,
-      "positionalRank": 56,
-      "rookie": false,
-      "byeWeek": 10,
-      "age": 24.7,
-      "injury": {
-        "status": "Questionable",
-        "area": "Knee",
-        "returns": "Aug 28, 2026"
-      },
-      "adp": 198.1
-    },
-    {
-      "id": 576,
-      "name": "Jauan Jennings",
-      "position": "WR",
-      "team": "MIN",
-      "boardRank": 159,
-      "ktcRank": 157,
-      "positionalRank": 66,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 29.1,
-      "adp": 199.4
+      "adp": 197.1
     },
     {
       "id": 2022,
       "name": "Emmett Johnson",
       "position": "RB",
       "team": "KCC",
-      "boardRank": 160,
-      "ktcRank": 191,
+      "boardRank": 158,
+      "ktcRank": 192,
       "positionalRank": 55,
       "rookie": true,
       "byeWeek": 5,
       "age": 22.9,
-      "adp": 199.6
+      "adp": 197.9
+    },
+    {
+      "id": 1872,
+      "name": "Jayden Higgins",
+      "position": "WR",
+      "team": "HOU",
+      "boardRank": 159,
+      "ktcRank": 122,
+      "positionalRank": 53,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 23.7,
+      "injury": {
+        "status": "IR",
+        "area": "Knee - ACL",
+        "returns": "Feb 15, 2027"
+      },
+      "adp": 199.9
+    },
+    {
+      "id": 576,
+      "name": "Jauan Jennings",
+      "position": "WR",
+      "team": "MIN",
+      "boardRank": 160,
+      "ktcRank": 163,
+      "positionalRank": 70,
+      "rookie": false,
+      "byeWeek": 6,
+      "age": 29.1,
+      "adp": 200.7
     },
     {
       "id": 265,
@@ -2285,12 +2290,12 @@
       "position": "WR",
       "team": "IND",
       "boardRank": 161,
-      "ktcRank": 209,
-      "positionalRank": 86,
+      "ktcRank": 206,
+      "positionalRank": 83,
       "rookie": false,
       "byeWeek": 13,
       "age": 34.3,
-      "adp": 202.3
+      "adp": 202.9
     },
     {
       "id": 310,
@@ -2298,12 +2303,12 @@
       "position": "WR",
       "team": "SEA",
       "boardRank": 162,
-      "ktcRank": 207,
-      "positionalRank": 84,
+      "ktcRank": 208,
+      "positionalRank": 85,
       "rookie": false,
       "byeWeek": 11,
       "age": 33.2,
-      "adp": 205.5
+      "adp": 205
     },
     {
       "id": 1896,
@@ -2311,8 +2316,8 @@
       "position": "TE",
       "team": "LAR",
       "boardRank": 163,
-      "ktcRank": 227,
-      "positionalRank": 33,
+      "ktcRank": 220,
+      "positionalRank": 31,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.5,
@@ -2321,7 +2326,7 @@
         "area": "General Soreness",
         "returns": "Aug 27, 2026"
       },
-      "adp": 207.4
+      "adp": 206.3
     },
     {
       "id": 1496,
@@ -2329,64 +2334,64 @@
       "position": "QB",
       "team": "HOU",
       "boardRank": 164,
-      "ktcRank": 123,
+      "ktcRank": 118,
       "positionalRank": 23,
       "rookie": false,
       "byeWeek": 8,
       "age": 24.9,
-      "adp": 207.8
-    },
-    {
-      "id": 487,
-      "name": "Dalton Schultz",
-      "position": "TE",
-      "team": "HOU",
-      "boardRank": 165,
-      "ktcRank": 168,
-      "positionalRank": 23,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 30.1,
-      "adp": 210.5
+      "adp": 208
     },
     {
       "id": 1666,
       "name": "Ray Davis",
       "position": "RB",
       "team": "BUF",
-      "boardRank": 166,
-      "ktcRank": 212,
-      "positionalRank": 58,
+      "boardRank": 165,
+      "ktcRank": 213,
+      "positionalRank": 60,
       "rookie": false,
       "byeWeek": 7,
       "age": 26.8,
-      "adp": 211.6
+      "adp": 210.2
+    },
+    {
+      "id": 487,
+      "name": "Dalton Schultz",
+      "position": "TE",
+      "team": "HOU",
+      "boardRank": 166,
+      "ktcRank": 162,
+      "positionalRank": 22,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 30.1,
+      "adp": 211.2
+    },
+    {
+      "id": 1539,
+      "name": "Kayshon Boutte",
+      "position": "WR",
+      "team": "HOU",
+      "boardRank": 167,
+      "ktcRank": 157,
+      "positionalRank": 67,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 24.3,
+      "adp": 212.4
     },
     {
       "id": 87,
       "name": "Daniel Jones",
       "position": "QB",
       "team": "IND",
-      "boardRank": 167,
-      "ktcRank": 127,
+      "boardRank": 168,
+      "ktcRank": 135,
       "positionalRank": 24,
       "rookie": false,
       "byeWeek": 13,
       "age": 29.2,
-      "adp": 212.7
-    },
-    {
-      "id": 545,
-      "name": "Jerry Jeudy",
-      "position": "WR",
-      "team": "CLE",
-      "boardRank": 168,
-      "ktcRank": 171,
-      "positionalRank": 73,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 27.3,
-      "adp": 214.2
+      "adp": 214.7
     },
     {
       "id": 2055,
@@ -2394,25 +2399,25 @@
       "position": "WR",
       "team": "ATL",
       "boardRank": 169,
-      "ktcRank": 145,
-      "positionalRank": 58,
+      "ktcRank": 141,
+      "positionalRank": 57,
       "rookie": true,
       "byeWeek": 11,
       "age": 22.4,
-      "adp": 215.4
+      "adp": 215.6
     },
     {
-      "id": 1819,
-      "name": "Cam Ward",
-      "position": "QB",
-      "team": "TEN",
+      "id": 545,
+      "name": "Jerry Jeudy",
+      "position": "WR",
+      "team": "CLE",
       "boardRank": 170,
-      "ktcRank": 98,
-      "positionalRank": 19,
+      "ktcRank": 173,
+      "positionalRank": 73,
       "rookie": false,
-      "byeWeek": 9,
-      "age": 24.2,
-      "adp": 215.9
+      "byeWeek": 11,
+      "age": 27.3,
+      "adp": 215.7
     },
     {
       "id": 1861,
@@ -2430,7 +2435,7 @@
         "area": "Undisclosed",
         "returns": "Aug 27, 2026"
       },
-      "adp": 218.8
+      "adp": 217
     },
     {
       "id": 286,
@@ -2438,7 +2443,7 @@
       "position": "WR",
       "team": "FA",
       "boardRank": 172,
-      "ktcRank": 231,
+      "ktcRank": 235,
       "positionalRank": 91,
       "rookie": false,
       "age": 32.5,
@@ -2447,7 +2452,7 @@
         "area": "Knee - ACL",
         "returns": "Sep 13, 2026"
       },
-      "adp": 219.1
+      "adp": 219.4
     },
     {
       "id": 268,
@@ -2455,7 +2460,7 @@
       "position": "RB",
       "team": "ARI",
       "boardRank": 173,
-      "ktcRank": 234,
+      "ktcRank": 232,
       "positionalRank": 67,
       "rookie": false,
       "byeWeek": 14,
@@ -2465,7 +2470,7 @@
         "area": "Foot",
         "returns": "Aug 28, 2026"
       },
-      "adp": 220
+      "adp": 220.5
     },
     {
       "id": 2059,
@@ -2473,8 +2478,8 @@
       "position": "WR",
       "team": "NYG",
       "boardRank": 174,
-      "ktcRank": 159,
-      "positionalRank": 67,
+      "ktcRank": 153,
+      "positionalRank": 64,
       "rookie": true,
       "byeWeek": 8,
       "age": 23,
@@ -2486,8 +2491,8 @@
       "position": "RB",
       "team": "SFO",
       "boardRank": 175,
-      "ktcRank": 268,
-      "positionalRank": 72,
+      "ktcRank": 275,
+      "positionalRank": 75,
       "rookie": false,
       "byeWeek": 8,
       "age": 22.4,
@@ -2509,123 +2514,124 @@
       "rookie": false,
       "byeWeek": 7,
       "age": 30.1,
-      "adp": 230.6
+      "adp": 230.4
+    },
+    {
+      "id": 1819,
+      "name": "Cam Ward",
+      "position": "QB",
+      "team": "TEN",
+      "boardRank": 177,
+      "ktcRank": 92,
+      "positionalRank": 19,
+      "rookie": false,
+      "byeWeek": 9,
+      "age": 24.2,
+      "adp": 231.9
     },
     {
       "id": 1689,
       "name": "Adonai Mitchell",
       "position": "WR",
       "team": "NYJ",
-      "boardRank": 177,
-      "ktcRank": 184,
+      "boardRank": 178,
+      "ktcRank": 187,
       "positionalRank": 75,
       "rookie": false,
       "byeWeek": 13,
       "age": 23.9,
-      "adp": 231.6
-    },
-    {
-      "id": 1539,
-      "name": "Kayshon Boutte",
-      "position": "WR",
-      "team": "HOU",
-      "boardRank": 178,
-      "ktcRank": 151,
-      "positionalRank": 63,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 24.3,
-      "adp": 231.8
-    },
-    {
-      "id": 1549,
-      "name": "Bryce Young",
-      "position": "QB",
-      "team": "CAR",
-      "boardRank": 179,
-      "ktcRank": 152,
-      "positionalRank": 25,
-      "rookie": false,
-      "byeWeek": 5,
-      "age": 25.1,
-      "adp": 233.3
+      "adp": 232.4
     },
     {
       "id": 1053,
       "name": "Pat Freiermuth",
       "position": "TE",
       "team": "PIT",
-      "boardRank": 180,
-      "ktcRank": 180,
+      "boardRank": 179,
+      "ktcRank": 181,
       "positionalRank": 26,
       "rookie": false,
       "byeWeek": 9,
       "age": 27.8,
-      "adp": 234.2
-    },
-    {
-      "id": 2026,
-      "name": "Kaytron Allen",
-      "position": "RB",
-      "team": "WAS",
-      "boardRank": 181,
-      "ktcRank": 217,
-      "positionalRank": 60,
-      "rookie": true,
-      "byeWeek": 7,
-      "age": 23.6,
-      "adp": 235.3
-    },
-    {
-      "id": 235,
-      "name": "Aaron Rodgers",
-      "position": "QB",
-      "team": "PIT",
-      "boardRank": 182,
-      "ktcRank": 216,
-      "positionalRank": 30,
-      "rookie": false,
-      "byeWeek": 9,
-      "age": 42.7,
-      "adp": 236.8
-    },
-    {
-      "id": 1413,
-      "name": "Chigoziem Okonkwo",
-      "position": "TE",
-      "team": "WAS",
-      "boardRank": 183,
-      "ktcRank": 167,
-      "positionalRank": 22,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 27
+      "adp": 233.1
     },
     {
       "id": 2054,
       "name": "Chris Bell",
       "position": "WR",
       "team": "MIA",
-      "boardRank": 184,
-      "ktcRank": 148,
-      "positionalRank": 61,
+      "boardRank": 180,
+      "ktcRank": 152,
+      "positionalRank": 63,
       "rookie": true,
       "byeWeek": 6,
       "age": 22.2,
-      "adp": 237.1
+      "adp": 233.2
+    },
+    {
+      "id": 1549,
+      "name": "Bryce Young",
+      "position": "QB",
+      "team": "CAR",
+      "boardRank": 181,
+      "ktcRank": 158,
+      "positionalRank": 25,
+      "rookie": false,
+      "byeWeek": 5,
+      "age": 25.1,
+      "adp": 235.3
+    },
+    {
+      "id": 2026,
+      "name": "Kaytron Allen",
+      "position": "RB",
+      "team": "WAS",
+      "boardRank": 182,
+      "ktcRank": 224,
+      "positionalRank": 63,
+      "rookie": true,
+      "byeWeek": 7,
+      "age": 23.6,
+      "adp": 236.9
+    },
+    {
+      "id": 235,
+      "name": "Aaron Rodgers",
+      "position": "QB",
+      "team": "PIT",
+      "boardRank": 183,
+      "ktcRank": 218,
+      "positionalRank": 30,
+      "rookie": false,
+      "byeWeek": 9,
+      "age": 42.7,
+      "adp": 237.4
     },
     {
       "id": 2068,
       "name": "Ted Hurst",
       "position": "WR",
       "team": "TBB",
-      "boardRank": 185,
-      "ktcRank": 238,
-      "positionalRank": 93,
+      "boardRank": 184,
+      "ktcRank": 234,
+      "positionalRank": 90,
       "rookie": true,
       "byeWeek": 10,
       "age": 22.2,
-      "adp": 238.4
+      "adp": 238.9
+    },
+    {
+      "id": 1673,
+      "name": "Jaylen Wright",
+      "position": "RB",
+      "team": "MIA",
+      "boardRank": 185,
+      "ktcRank": 229,
+      "positionalRank": 66,
+      "rookie": false,
+      "byeWeek": 6,
+      "age": 23.4,
+      "adp": 240.1
     },
     {
       "id": 1680,
@@ -2633,8 +2639,8 @@
       "position": "WR",
       "team": "BUF",
       "boardRank": 186,
-      "ktcRank": 190,
-      "positionalRank": 76,
+      "ktcRank": 189,
+      "positionalRank": 77,
       "rookie": false,
       "byeWeek": 7,
       "age": 23.3,
@@ -2651,38 +2657,38 @@
       "position": "RB",
       "team": "MIN",
       "boardRank": 187,
-      "ktcRank": 219,
+      "ktcRank": 216,
       "positionalRank": 61,
       "rookie": true,
       "byeWeek": 6,
       "age": 22.9,
-      "adp": 242.5
-    },
-    {
-      "id": 1673,
-      "name": "Jaylen Wright",
-      "position": "RB",
-      "team": "MIA",
-      "boardRank": 188,
-      "ktcRank": 229,
-      "positionalRank": 65,
-      "rookie": false,
-      "byeWeek": 6,
-      "age": 23.4,
-      "adp": 243.8
+      "adp": 242.7
     },
     {
       "id": 2051,
       "name": "Germie Bernard",
       "position": "WR",
       "team": "PIT",
-      "boardRank": 189,
-      "ktcRank": 208,
-      "positionalRank": 85,
+      "boardRank": 188,
+      "ktcRank": 210,
+      "positionalRank": 86,
       "rookie": true,
       "byeWeek": 9,
       "age": 22.7,
-      "adp": 245.4
+      "adp": 245.8
+    },
+    {
+      "id": 1361,
+      "name": "Cade Otton",
+      "position": "TE",
+      "team": "TBB",
+      "boardRank": 189,
+      "ktcRank": 155,
+      "positionalRank": 21,
+      "rookie": false,
+      "byeWeek": 10,
+      "age": 27.4,
+      "adp": 246.9
     },
     {
       "id": 2060,
@@ -2695,7 +2701,7 @@
       "rookie": true,
       "byeWeek": 7,
       "age": 22.1,
-      "adp": 246.2
+      "adp": 247.8
     },
     {
       "id": 2092,
@@ -2703,8 +2709,8 @@
       "position": "TE",
       "team": "PHI",
       "boardRank": 191,
-      "ktcRank": 188,
-      "positionalRank": 28,
+      "ktcRank": 191,
+      "positionalRank": 29,
       "rookie": true,
       "byeWeek": 10,
       "age": 23.4,
@@ -2713,28 +2719,15 @@
         "area": "Hamstring",
         "returns": "Aug 28, 2026"
       },
-      "adp": 247.1
-    },
-    {
-      "id": 1361,
-      "name": "Cade Otton",
-      "position": "TE",
-      "team": "TBB",
-      "boardRank": 192,
-      "ktcRank": 154,
-      "positionalRank": 20,
-      "rookie": false,
-      "byeWeek": 10,
-      "age": 27.4,
-      "adp": 247.3
+      "adp": 248.6
     },
     {
       "id": 1493,
       "name": "Sean Tucker",
       "position": "RB",
       "team": "TBB",
-      "boardRank": 193,
-      "ktcRank": 215,
+      "boardRank": 192,
+      "ktcRank": 211,
       "positionalRank": 59,
       "rookie": false,
       "byeWeek": 10,
@@ -2746,9 +2739,9 @@
       "name": "Calvin Ridley",
       "position": "WR",
       "team": "TEN",
-      "boardRank": 194,
-      "ktcRank": 203,
-      "positionalRank": 81,
+      "boardRank": 193,
+      "ktcRank": 207,
+      "positionalRank": 84,
       "rookie": false,
       "byeWeek": 9,
       "age": 31.7,
@@ -2759,8 +2752,8 @@
       "name": "Tua Tagovailoa",
       "position": "QB",
       "team": "ATL",
-      "boardRank": 195,
-      "ktcRank": 201,
+      "boardRank": 194,
+      "ktcRank": 204,
       "positionalRank": 28,
       "rookie": false,
       "byeWeek": 11,
@@ -2772,9 +2765,9 @@
       "name": "Darnell Mooney",
       "position": "WR",
       "team": "NYG",
-      "boardRank": 196,
-      "ktcRank": 193,
-      "positionalRank": 78,
+      "boardRank": 195,
+      "ktcRank": 200,
+      "positionalRank": 80,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.8,
@@ -2785,9 +2778,9 @@
       "name": "Tory Horton",
       "position": "WR",
       "team": "SEA",
-      "boardRank": 197,
-      "ktcRank": 144,
-      "positionalRank": 57,
+      "boardRank": 196,
+      "ktcRank": 145,
+      "positionalRank": 58,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.7,
@@ -2803,9 +2796,9 @@
       "name": "Troy Franklin",
       "position": "WR",
       "team": "DEN",
-      "boardRank": 198,
-      "ktcRank": 153,
-      "positionalRank": 64,
+      "boardRank": 197,
+      "ktcRank": 147,
+      "positionalRank": 60,
       "rookie": false,
       "byeWeek": 10,
       "age": 23.6,
@@ -2816,9 +2809,9 @@
       "name": "Trey Benson",
       "position": "RB",
       "team": "FA",
-      "boardRank": 199,
-      "ktcRank": 166,
-      "positionalRank": 45,
+      "boardRank": 198,
+      "ktcRank": 168,
+      "positionalRank": 46,
       "rookie": false,
       "age": 24.1,
       "injury": {
@@ -2833,9 +2826,9 @@
       "name": "Brandon Aiyuk",
       "position": "WR",
       "team": "SFO",
-      "boardRank": 200,
+      "boardRank": 199,
       "ktcRank": 196,
-      "positionalRank": 79,
+      "positionalRank": 78,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.4,
@@ -2851,9 +2844,9 @@
       "name": "Raheem Mostert",
       "position": "RB",
       "team": "LVR",
-      "boardRank": 201,
-      "ktcRank": 481,
-      "positionalRank": 137,
+      "boardRank": 200,
+      "ktcRank": 482,
+      "positionalRank": 138,
       "rookie": false,
       "byeWeek": 13,
       "age": 34.4,
@@ -2864,12 +2857,30 @@
       }
     },
     {
+      "id": 1703,
+      "name": "Jacob Cowing",
+      "position": "WR",
+      "team": "SFO",
+      "boardRank": 201,
+      "ktcRank": 338,
+      "positionalRank": 135,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 25.6,
+      "injury": {
+        "status": "Questionable",
+        "area": "Groin",
+        "returns": "Aug 27, 2026"
+      },
+      "adp": 287
+    },
+    {
       "id": 1826,
       "name": "Dillon Gabriel",
       "position": "QB",
       "team": "CLE",
       "boardRank": 202,
-      "ktcRank": 351,
+      "ktcRank": 352,
       "positionalRank": 40,
       "rookie": false,
       "byeWeek": 11,
@@ -2881,8 +2892,8 @@
       "position": "RB",
       "team": "FA",
       "boardRank": 203,
-      "ktcRank": 350,
-      "positionalRank": 93,
+      "ktcRank": 351,
+      "positionalRank": 94,
       "rookie": false,
       "age": 28.3,
       "injury": {
@@ -2898,7 +2909,7 @@
       "team": "DET",
       "boardRank": 204,
       "ktcRank": 349,
-      "positionalRank": 39,
+      "positionalRank": 38,
       "rookie": true,
       "byeWeek": 6,
       "age": 23.8
@@ -2913,49 +2924,44 @@
       "positionalRank": 127,
       "rookie": false,
       "age": 25.2,
-      "adp": 390
+      "adp": 411
+    },
+    {
+      "id": 1413,
+      "name": "Chigoziem Okonkwo",
+      "position": "TE",
+      "team": "WAS",
+      "boardRank": 206,
+      "ktcRank": 165,
+      "positionalRank": 23,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 27
     },
     {
       "id": 84,
       "name": "Jonnu Smith",
       "position": "TE",
       "team": "FA",
-      "boardRank": 206,
-      "ktcRank": 257,
-      "positionalRank": 39,
+      "boardRank": 207,
+      "ktcRank": 256,
+      "positionalRank": 38,
       "rookie": false,
       "age": 31,
-      "adp": 413.5
+      "adp": 440.5
     },
     {
       "id": 327,
       "name": "Zay Jones",
       "position": "WR",
       "team": "HOU",
-      "boardRank": 207,
-      "ktcRank": 341,
+      "boardRank": 208,
+      "ktcRank": 340,
       "positionalRank": 136,
       "rookie": false,
       "byeWeek": 8,
       "age": 31.4,
-      "adp": 449.7
-    },
-    {
-      "id": 1703,
-      "name": "Jacob Cowing",
-      "position": "WR",
-      "team": "SFO",
-      "boardRank": 208,
-      "ktcRank": 339,
-      "positionalRank": 135,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 25.6,
-      "injury": {
-        "status": "Questionable",
-        "area": "Groin",
-        "returns": "Aug 27, 2026"
-      }
+      "adp": 494.3
     },
     {
       "id": 2093,
@@ -2963,7 +2969,7 @@
       "position": "TE",
       "team": "CIN",
       "boardRank": 209,
-      "ktcRank": 272,
+      "ktcRank": 271,
       "positionalRank": 40,
       "rookie": true,
       "byeWeek": 6,
@@ -2976,43 +2982,18 @@
       "position": "RB",
       "team": "FA",
       "boardRank": 210,
-      "ktcRank": 267,
-      "positionalRank": 71,
+      "ktcRank": 272,
+      "positionalRank": 73,
       "rookie": false,
       "age": 31,
-      "adp": 540.6
-    },
-    {
-      "id": 1649,
-      "name": "Spencer Rattler",
-      "position": "QB",
-      "team": "NOS",
-      "boardRank": 211,
-      "ktcRank": 300,
-      "positionalRank": 34,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 25.9,
-      "adp": 573.3
-    },
-    {
-      "id": 274,
-      "name": "Nick Chubb",
-      "position": "RB",
-      "team": "FA",
-      "boardRank": 212,
-      "ktcRank": 299,
-      "positionalRank": 82,
-      "rookie": false,
-      "age": 30.7,
-      "adp": 575.7
+      "adp": 509.9
     },
     {
       "id": 1822,
       "name": "Jalen Milroe",
       "position": "QB",
       "team": "SEA",
-      "boardRank": 213,
+      "boardRank": 211,
       "ktcRank": 273,
       "positionalRank": 33,
       "rookie": false,
@@ -3020,24 +3001,12 @@
       "age": 23.7
     },
     {
-      "id": 1012,
-      "name": "Elijah Moore",
-      "position": "WR",
-      "team": "PHI",
-      "boardRank": 214,
-      "ktcRank": 301,
-      "positionalRank": 115,
-      "rookie": false,
-      "byeWeek": 10,
-      "age": 26.4
-    },
-    {
       "id": 1825,
       "name": "Will Howard",
       "position": "QB",
       "team": "PIT",
-      "boardRank": 215,
-      "ktcRank": 387,
+      "boardRank": 212,
+      "ktcRank": 388,
       "positionalRank": 48,
       "rookie": false,
       "byeWeek": 9,
@@ -3045,49 +3014,36 @@
       "adp": 609.5
     },
     {
-      "id": 2027,
-      "name": "Le'Veon Moss",
+      "id": 274,
+      "name": "Nick Chubb",
       "position": "RB",
-      "team": "MIA",
-      "boardRank": 216,
-      "ktcRank": 298,
+      "team": "FA",
+      "boardRank": 213,
+      "ktcRank": 296,
       "positionalRank": 81,
-      "rookie": true,
-      "byeWeek": 6,
-      "age": 23.8
+      "rookie": false,
+      "age": 30.7,
+      "adp": 613.9
     },
     {
       "id": 1347,
       "name": "Jalen Tolbert",
       "position": "WR",
       "team": "MIA",
-      "boardRank": 217,
-      "ktcRank": 248,
-      "positionalRank": 98,
+      "boardRank": 214,
+      "ktcRank": 247,
+      "positionalRank": 96,
       "rookie": false,
       "byeWeek": 6,
       "age": 27.5,
       "adp": 617.2
     },
     {
-      "id": 1031,
-      "name": "Najee Harris",
-      "position": "RB",
-      "team": "NYG",
-      "boardRank": 218,
-      "ktcRank": 277,
-      "positionalRank": 75,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 28.5,
-      "adp": 620.3
-    },
-    {
       "id": 1698,
       "name": "Luke McCaffrey",
       "position": "WR",
       "team": "WAS",
-      "boardRank": 219,
+      "boardRank": 215,
       "ktcRank": 270,
       "positionalRank": 106,
       "rookie": false,
@@ -3096,25 +3052,12 @@
       "adp": 620.4
     },
     {
-      "id": 307,
-      "name": "Brandin Cooks",
-      "position": "WR",
-      "team": "BUF",
-      "boardRank": 220,
-      "ktcRank": 335,
-      "positionalRank": 133,
-      "rookie": false,
-      "byeWeek": 7,
-      "age": 32.9,
-      "adp": 622
-    },
-    {
       "id": 1065,
       "name": "Joshua Palmer",
       "position": "WR",
       "team": "BUF",
-      "boardRank": 221,
-      "ktcRank": 291,
+      "boardRank": 216,
+      "ktcRank": 290,
       "positionalRank": 112,
       "rookie": false,
       "byeWeek": 7,
@@ -3122,23 +3065,11 @@
       "adp": 624
     },
     {
-      "id": 1866,
-      "name": "Xavier Restrepo",
-      "position": "WR",
-      "team": "TEN",
-      "boardRank": 222,
-      "ktcRank": 332,
-      "positionalRank": 131,
-      "rookie": false,
-      "byeWeek": 9,
-      "age": 24.4
-    },
-    {
       "id": 385,
       "name": "Austin Ekeler",
       "position": "RB",
       "team": "FA",
-      "boardRank": 223,
+      "boardRank": 217,
       "ktcRank": 328,
       "positionalRank": 88,
       "rookie": false,
@@ -3150,9 +3081,9 @@
       "name": "Jerome Ford",
       "position": "RB",
       "team": "FA",
-      "boardRank": 224,
-      "ktcRank": 233,
-      "positionalRank": 66,
+      "boardRank": 218,
+      "ktcRank": 238,
+      "positionalRank": 69,
       "rookie": false,
       "age": 27,
       "injury": {
@@ -3163,12 +3094,38 @@
       "adp": 636.6
     },
     {
+      "id": 1031,
+      "name": "Najee Harris",
+      "position": "RB",
+      "team": "NYG",
+      "boardRank": 219,
+      "ktcRank": 277,
+      "positionalRank": 76,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 28.5,
+      "adp": 637.2
+    },
+    {
+      "id": 1649,
+      "name": "Spencer Rattler",
+      "position": "QB",
+      "team": "NOS",
+      "boardRank": 220,
+      "ktcRank": 298,
+      "positionalRank": 34,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 25.9,
+      "adp": 638.7
+    },
+    {
       "id": 243,
       "name": "Noah Fant",
       "position": "TE",
       "team": "NOS",
-      "boardRank": 225,
-      "ktcRank": 283,
+      "boardRank": 221,
+      "ktcRank": 284,
       "positionalRank": 43,
       "rookie": false,
       "byeWeek": 8,
@@ -3176,36 +3133,12 @@
       "adp": 641.8
     },
     {
-      "id": 150,
-      "name": "Taysom Hill",
-      "position": "TE",
-      "team": "FA",
-      "boardRank": 226,
-      "ktcRank": 397,
-      "positionalRank": 56,
-      "rookie": false,
-      "age": 36,
-      "adp": 645.2
-    },
-    {
-      "id": 1843,
-      "name": "Damien Martinez",
-      "position": "RB",
-      "team": "GBP",
-      "boardRank": 227,
-      "ktcRank": 412,
-      "positionalRank": 113,
-      "rookie": false,
-      "byeWeek": 11,
-      "age": 22.6
-    },
-    {
       "id": 305,
       "name": "Zach Ertz",
       "position": "TE",
       "team": "FA",
-      "boardRank": 228,
-      "ktcRank": 274,
+      "boardRank": 222,
+      "ktcRank": 280,
       "positionalRank": 41,
       "rookie": false,
       "age": 35.8,
@@ -3216,9 +3149,9 @@
       "name": "Ty Chandler",
       "position": "RB",
       "team": "NOS",
-      "boardRank": 229,
-      "ktcRank": 457,
-      "positionalRank": 129,
+      "boardRank": 223,
+      "ktcRank": 458,
+      "positionalRank": 130,
       "rookie": false,
       "byeWeek": 8,
       "age": 28.3,
@@ -3230,12 +3163,24 @@
       "adp": 647.7
     },
     {
+      "id": 1012,
+      "name": "Elijah Moore",
+      "position": "WR",
+      "team": "PHI",
+      "boardRank": 224,
+      "ktcRank": 299,
+      "positionalRank": 114,
+      "rookie": false,
+      "byeWeek": 10,
+      "age": 26.4
+    },
+    {
       "id": 2052,
       "name": "CJ Daniels",
       "position": "WR",
       "team": "LAR",
-      "boardRank": 230,
-      "ktcRank": 289,
+      "boardRank": 225,
+      "ktcRank": 287,
       "positionalRank": 110,
       "rookie": true,
       "byeWeek": 11,
@@ -3247,9 +3192,9 @@
       "name": "Tyler Higbee",
       "position": "TE",
       "team": "LAR",
-      "boardRank": 231,
-      "ktcRank": 292,
-      "positionalRank": 44,
+      "boardRank": 226,
+      "ktcRank": 297,
+      "positionalRank": 45,
       "rookie": false,
       "byeWeek": 11,
       "age": 33.6,
@@ -3260,7 +3205,7 @@
       "name": "Adam Thielen",
       "position": "WR",
       "team": "FA",
-      "boardRank": 232,
+      "boardRank": 227,
       "ktcRank": 317,
       "positionalRank": 125,
       "rookie": false,
@@ -3272,15 +3217,15 @@
       "name": "J.J. McCarthy",
       "position": "QB",
       "team": "MIN",
-      "boardRank": 233,
-      "ktcRank": 198,
-      "positionalRank": 27,
+      "boardRank": 228,
+      "ktcRank": 205,
+      "positionalRank": 29,
       "rookie": false,
       "byeWeek": 6,
       "age": 23.6,
       "injury": {
         "status": "Questionable",
-        "area": "Undisclosed",
+        "area": "Ankle",
         "returns": "Aug 28, 2026"
       },
       "adp": 653.9
@@ -3290,7 +3235,7 @@
       "name": "Anthony Richardson",
       "position": "QB",
       "team": "IND",
-      "boardRank": 234,
+      "boardRank": 229,
       "ktcRank": 313,
       "positionalRank": 36,
       "rookie": false,
@@ -3299,13 +3244,25 @@
       "adp": 657.4
     },
     {
+      "id": 1069,
+      "name": "Dyami Brown",
+      "position": "WR",
+      "team": "WAS",
+      "boardRank": 230,
+      "ktcRank": 300,
+      "positionalRank": 115,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 26.8
+    },
+    {
       "id": 330,
       "name": "Mike Gesicki",
       "position": "TE",
       "team": "CIN",
-      "boardRank": 235,
-      "ktcRank": 252,
-      "positionalRank": 38,
+      "boardRank": 231,
+      "ktcRank": 251,
+      "positionalRank": 37,
       "rookie": false,
       "byeWeek": 6,
       "age": 30.9,
@@ -3316,33 +3273,20 @@
       "name": "Devin Singletary",
       "position": "RB",
       "team": "NYG",
-      "boardRank": 236,
+      "boardRank": 232,
       "ktcRank": 286,
-      "positionalRank": 79,
+      "positionalRank": 78,
       "rookie": false,
       "byeWeek": 8,
       "age": 29,
       "adp": 660.1
     },
     {
-      "id": 1547,
-      "name": "Xavier Hutchinson",
-      "position": "WR",
-      "team": "HOU",
-      "boardRank": 237,
-      "ktcRank": 278,
-      "positionalRank": 107,
-      "rookie": false,
-      "byeWeek": 8,
-      "age": 26.2,
-      "adp": 660.4
-    },
-    {
       "id": 61,
       "name": "Josh Reynolds",
       "position": "WR",
       "team": "NYJ",
-      "boardRank": 238,
+      "boardRank": 233,
       "ktcRank": 314,
       "positionalRank": 122,
       "rookie": false,
@@ -3354,8 +3298,8 @@
       "name": "Russell Wilson",
       "position": "QB",
       "team": "FA",
-      "boardRank": 239,
-      "ktcRank": 383,
+      "boardRank": 234,
+      "ktcRank": 384,
       "positionalRank": 47,
       "rookie": false,
       "age": 37.7,
@@ -3366,8 +3310,8 @@
       "name": "Jaylin Noel",
       "position": "WR",
       "team": "HOU",
-      "boardRank": 240,
-      "ktcRank": 161,
+      "boardRank": 235,
+      "ktcRank": 160,
       "positionalRank": 69,
       "rookie": false,
       "byeWeek": 8,
@@ -3384,8 +3328,8 @@
       "name": "Jameis Winston",
       "position": "QB",
       "team": "NYG",
-      "boardRank": 241,
-      "ktcRank": 503,
+      "boardRank": 236,
+      "ktcRank": 504,
       "positionalRank": 63,
       "rookie": false,
       "byeWeek": 8,
@@ -3397,7 +3341,7 @@
       "name": "Curtis Samuel",
       "position": "WR",
       "team": "FA",
-      "boardRank": 242,
+      "boardRank": 237,
       "ktcRank": 315,
       "positionalRank": 123,
       "rookie": false,
@@ -3408,8 +3352,8 @@
       "name": "Dameon Pierce",
       "position": "RB",
       "team": "PHI",
-      "boardRank": 243,
-      "ktcRank": 287,
+      "boardRank": 238,
+      "ktcRank": 291,
       "positionalRank": 80,
       "rookie": false,
       "byeWeek": 10,
@@ -3421,7 +3365,7 @@
       "name": "Ollie Gordon",
       "position": "RB",
       "team": "MIA",
-      "boardRank": 244,
+      "boardRank": 239,
       "ktcRank": 194,
       "positionalRank": 56,
       "rookie": false,
@@ -3439,9 +3383,9 @@
       "name": "Joe Mixon",
       "position": "RB",
       "team": "FA",
-      "boardRank": 245,
-      "ktcRank": 266,
-      "positionalRank": 70,
+      "boardRank": 240,
+      "ktcRank": 274,
+      "positionalRank": 74,
       "rookie": false,
       "age": 30.1,
       "injury": {
@@ -3456,8 +3400,8 @@
       "name": "Mason Taylor",
       "position": "TE",
       "team": "NYJ",
-      "boardRank": 246,
-      "ktcRank": 176,
+      "boardRank": 241,
+      "ktcRank": 177,
       "positionalRank": 24,
       "rookie": false,
       "byeWeek": 13,
@@ -3469,9 +3413,9 @@
       "name": "Elijah Arroyo",
       "position": "TE",
       "team": "SEA",
-      "boardRank": 247,
-      "ktcRank": 189,
-      "positionalRank": 29,
+      "boardRank": 242,
+      "ktcRank": 186,
+      "positionalRank": 28,
       "rookie": false,
       "byeWeek": 11,
       "age": 23.4,
@@ -3482,8 +3426,8 @@
       "name": "Darius Slayton",
       "position": "WR",
       "team": "NYG",
-      "boardRank": 248,
-      "ktcRank": 255,
+      "boardRank": 243,
+      "ktcRank": 254,
       "positionalRank": 101,
       "rookie": false,
       "byeWeek": 8,
@@ -3495,7 +3439,7 @@
       "name": "Hunter Renfrow",
       "position": "WR",
       "team": "FA",
-      "boardRank": 249,
+      "boardRank": 244,
       "ktcRank": 316,
       "positionalRank": 124,
       "rookie": false,
@@ -3507,8 +3451,8 @@
       "name": "Barion Brown",
       "position": "WR",
       "team": "NOS",
-      "boardRank": 250,
-      "ktcRank": 306,
+      "boardRank": 245,
+      "ktcRank": 305,
       "positionalRank": 116,
       "rookie": true,
       "byeWeek": 8,
@@ -3516,12 +3460,24 @@
       "adp": 668.3
     },
     {
+      "id": 1866,
+      "name": "Xavier Restrepo",
+      "position": "WR",
+      "team": "TEN",
+      "boardRank": 246,
+      "ktcRank": 333,
+      "positionalRank": 131,
+      "rookie": false,
+      "byeWeek": 9,
+      "age": 24.4
+    },
+    {
       "id": 2058,
       "name": "Deion Burks",
       "position": "WR",
       "team": "IND",
-      "boardRank": 251,
-      "ktcRank": 294,
+      "boardRank": 247,
+      "ktcRank": 293,
       "positionalRank": 113,
       "rookie": true,
       "byeWeek": 13,
@@ -3529,13 +3485,25 @@
       "adp": 670
     },
     {
+      "id": 1843,
+      "name": "Damien Martinez",
+      "position": "RB",
+      "team": "GBP",
+      "boardRank": 248,
+      "ktcRank": 413,
+      "positionalRank": 114,
+      "rookie": false,
+      "byeWeek": 11,
+      "age": 22.6
+    },
+    {
       "id": 1483,
       "name": "Roschon Johnson",
       "position": "RB",
       "team": "CHI",
-      "boardRank": 252,
-      "ktcRank": 262,
-      "positionalRank": 69,
+      "boardRank": 249,
+      "ktcRank": 263,
+      "positionalRank": 70,
       "rookie": false,
       "byeWeek": 10,
       "age": 25.6,
@@ -3546,22 +3514,34 @@
       "name": "Kendrick Bourne",
       "position": "WR",
       "team": "ARI",
-      "boardRank": 253,
-      "ktcRank": 290,
-      "positionalRank": 111,
+      "boardRank": 250,
+      "ktcRank": 283,
+      "positionalRank": 109,
       "rookie": false,
       "byeWeek": 14,
       "age": 31.1,
       "adp": 672.6
     },
     {
+      "id": 2027,
+      "name": "Le'Veon Moss",
+      "position": "RB",
+      "team": "MIA",
+      "boardRank": 251,
+      "ktcRank": 306,
+      "positionalRank": 84,
+      "rookie": true,
+      "byeWeek": 6,
+      "age": 23.8
+    },
+    {
       "id": 222,
       "name": "Miles Sanders",
       "position": "RB",
       "team": "FA",
-      "boardRank": 254,
-      "ktcRank": 305,
-      "positionalRank": 84,
+      "boardRank": 252,
+      "ktcRank": 304,
+      "positionalRank": 83,
       "rookie": false,
       "age": 29.3
     },
@@ -3570,9 +3550,9 @@
       "name": "Ty Simpson",
       "position": "QB",
       "team": "LAR",
-      "boardRank": 255,
-      "ktcRank": 202,
-      "positionalRank": 29,
+      "boardRank": 253,
+      "ktcRank": 198,
+      "positionalRank": 27,
       "rookie": true,
       "byeWeek": 11,
       "age": 23.7,
@@ -3583,7 +3563,7 @@
       "name": "Tez Johnson",
       "position": "WR",
       "team": "TBB",
-      "boardRank": 256,
+      "boardRank": 254,
       "ktcRank": 260,
       "positionalRank": 102,
       "rookie": false,
@@ -3601,7 +3581,7 @@
       "name": "Kevin Coleman",
       "position": "WR",
       "team": "MIA",
-      "boardRank": 257,
+      "boardRank": 255,
       "ktcRank": 265,
       "positionalRank": 105,
       "rookie": true,
@@ -3614,9 +3594,9 @@
       "name": "Kendre Miller",
       "position": "RB",
       "team": "NOS",
-      "boardRank": 258,
-      "ktcRank": 224,
-      "positionalRank": 63,
+      "boardRank": 256,
+      "ktcRank": 227,
+      "positionalRank": 65,
       "rookie": false,
       "byeWeek": 8,
       "age": 24.2,
@@ -3627,8 +3607,8 @@
       "name": "Garrett Nussmeier",
       "position": "QB",
       "team": "KCC",
-      "boardRank": 259,
-      "ktcRank": 304,
+      "boardRank": 257,
+      "ktcRank": 303,
       "positionalRank": 35,
       "rookie": true,
       "byeWeek": 5,
@@ -3636,24 +3616,37 @@
       "adp": 677.9
     },
     {
-      "id": 1069,
-      "name": "Dyami Brown",
-      "position": "WR",
-      "team": "WAS",
-      "boardRank": 260,
-      "ktcRank": 295,
-      "positionalRank": 114,
+      "id": 150,
+      "name": "Taysom Hill",
+      "position": "TE",
+      "team": "FA",
+      "boardRank": 258,
+      "ktcRank": 398,
+      "positionalRank": 56,
       "rookie": false,
-      "byeWeek": 7,
-      "age": 26.8
+      "age": 36,
+      "adp": 678.1
+    },
+    {
+      "id": 1547,
+      "name": "Xavier Hutchinson",
+      "position": "WR",
+      "team": "HOU",
+      "boardRank": 259,
+      "ktcRank": 278,
+      "positionalRank": 107,
+      "rookie": false,
+      "byeWeek": 8,
+      "age": 26.2,
+      "adp": 679.1
     },
     {
       "id": 349,
       "name": "Darren Waller",
       "position": "TE",
       "team": "CAR",
-      "boardRank": 261,
-      "ktcRank": 303,
+      "boardRank": 260,
+      "ktcRank": 302,
       "positionalRank": 46,
       "rookie": false,
       "byeWeek": 5,
@@ -3665,7 +3658,7 @@
       "name": "Shedeur Sanders",
       "position": "QB",
       "team": "CLE",
-      "boardRank": 262,
+      "boardRank": 261,
       "ktcRank": 243,
       "positionalRank": 32,
       "rookie": false,
@@ -3678,7 +3671,7 @@
       "name": "Isaiah Bond",
       "position": "WR",
       "team": "CLE",
-      "boardRank": 263,
+      "boardRank": 262,
       "ktcRank": 279,
       "positionalRank": 108,
       "rookie": false,
@@ -3687,12 +3680,25 @@
       "adp": 682.5
     },
     {
+      "id": 307,
+      "name": "Brandin Cooks",
+      "position": "WR",
+      "team": "BUF",
+      "boardRank": 263,
+      "ktcRank": 335,
+      "positionalRank": 133,
+      "rookie": false,
+      "byeWeek": 7,
+      "age": 32.9,
+      "adp": 683
+    },
+    {
       "id": 569,
       "name": "Cole Kmet",
       "position": "TE",
       "team": "CHI",
       "boardRank": 264,
-      "ktcRank": 213,
+      "ktcRank": 217,
       "positionalRank": 30,
       "rookie": false,
       "byeWeek": 10,
@@ -3705,8 +3711,8 @@
       "position": "TE",
       "team": "KCC",
       "boardRank": 265,
-      "ktcRank": 251,
-      "positionalRank": 37,
+      "ktcRank": 259,
+      "positionalRank": 39,
       "rookie": false,
       "byeWeek": 5,
       "age": 27.3,
@@ -3718,7 +3724,7 @@
       "position": "QB",
       "team": "KCC",
       "boardRank": 266,
-      "ktcRank": 222,
+      "ktcRank": 225,
       "positionalRank": 31,
       "rookie": false,
       "byeWeek": 5,
@@ -3744,8 +3750,8 @@
       "position": "WR",
       "team": "PHI",
       "boardRank": 268,
-      "ktcRank": 230,
-      "positionalRank": 90,
+      "ktcRank": 237,
+      "positionalRank": 92,
       "rookie": false,
       "byeWeek": 10,
       "age": 29.2,
@@ -3757,7 +3763,7 @@
       "position": "QB",
       "team": "LVR",
       "boardRank": 269,
-      "ktcRank": 490,
+      "ktcRank": 491,
       "positionalRank": 62,
       "rookie": false,
       "byeWeek": 13,
@@ -3770,8 +3776,8 @@
       "position": "RB",
       "team": "PHI",
       "boardRank": 270,
-      "ktcRank": 269,
-      "positionalRank": 73,
+      "ktcRank": 268,
+      "positionalRank": 72,
       "rookie": false,
       "byeWeek": 10,
       "age": 24,
@@ -3802,7 +3808,7 @@
       "team": "KCC",
       "boardRank": 272,
       "ktcRank": 241,
-      "positionalRank": 95,
+      "positionalRank": 94,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.5,
@@ -3814,8 +3820,8 @@
       "position": "WR",
       "team": "ATL",
       "boardRank": 273,
-      "ktcRank": 253,
-      "positionalRank": 100,
+      "ktcRank": 252,
+      "positionalRank": 99,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.4,
@@ -3827,8 +3833,8 @@
       "position": "WR",
       "team": "CAR",
       "boardRank": 274,
-      "ktcRank": 245,
-      "positionalRank": 96,
+      "ktcRank": 253,
+      "positionalRank": 100,
       "rookie": false,
       "byeWeek": 5,
       "age": 25.6,
@@ -3845,7 +3851,7 @@
       "position": "TE",
       "team": "GBP",
       "boardRank": 275,
-      "ktcRank": 244,
+      "ktcRank": 245,
       "positionalRank": 35,
       "rookie": false,
       "byeWeek": 11,
@@ -3863,8 +3869,8 @@
       "position": "WR",
       "team": "PIT",
       "boardRank": 276,
-      "ktcRank": 261,
-      "positionalRank": 103,
+      "ktcRank": 264,
+      "positionalRank": 104,
       "rookie": false,
       "byeWeek": 9,
       "age": 25.2,
@@ -3876,7 +3882,7 @@
       "position": "WR",
       "team": "CAR",
       "boardRank": 277,
-      "ktcRank": 210,
+      "ktcRank": 214,
       "positionalRank": 87,
       "rookie": true,
       "byeWeek": 5,
@@ -3894,8 +3900,8 @@
       "position": "TE",
       "team": "DAL",
       "boardRank": 278,
-      "ktcRank": 296,
-      "positionalRank": 45,
+      "ktcRank": 294,
+      "positionalRank": 44,
       "rookie": true,
       "byeWeek": 14,
       "age": 24.2,
@@ -3925,8 +3931,8 @@
       "position": "WR",
       "team": "MIA",
       "boardRank": 280,
-      "ktcRank": 285,
-      "positionalRank": 109,
+      "ktcRank": 289,
+      "positionalRank": 111,
       "rookie": false,
       "byeWeek": 6,
       "age": 26.9,
@@ -3938,8 +3944,8 @@
       "position": "WR",
       "team": "BUF",
       "boardRank": 281,
-      "ktcRank": 247,
-      "positionalRank": 97,
+      "ktcRank": 250,
+      "positionalRank": 98,
       "rookie": true,
       "byeWeek": 7,
       "age": 24.1,
@@ -3962,8 +3968,8 @@
       "position": "RB",
       "team": "PIT",
       "boardRank": 283,
-      "ktcRank": 199,
-      "positionalRank": 57,
+      "ktcRank": 202,
+      "positionalRank": 58,
       "rookie": false,
       "byeWeek": 9,
       "age": 23,
@@ -3975,8 +3981,8 @@
       "position": "RB",
       "team": "IND",
       "boardRank": 284,
-      "ktcRank": 284,
-      "positionalRank": 78,
+      "ktcRank": 285,
+      "positionalRank": 77,
       "rookie": true,
       "byeWeek": 13,
       "age": 24.8,
@@ -3988,7 +3994,7 @@
       "position": "WR",
       "team": "SFO",
       "boardRank": 285,
-      "ktcRank": 228,
+      "ktcRank": 231,
       "positionalRank": 89,
       "rookie": false,
       "byeWeek": 8,
@@ -4006,8 +4012,8 @@
       "position": "WR",
       "team": "SFO",
       "boardRank": 286,
-      "ktcRank": 147,
-      "positionalRank": 60,
+      "ktcRank": 149,
+      "positionalRank": 61,
       "rookie": false,
       "byeWeek": 8,
       "age": 26,
@@ -4037,8 +4043,8 @@
       "position": "TE",
       "team": "CAR",
       "boardRank": 288,
-      "ktcRank": 220,
-      "positionalRank": 31,
+      "ktcRank": 221,
+      "positionalRank": 32,
       "rookie": false,
       "byeWeek": 5,
       "age": 23.4,
@@ -4068,7 +4074,7 @@
       "position": "WR",
       "team": "BAL",
       "boardRank": 290,
-      "ktcRank": 164,
+      "ktcRank": 166,
       "positionalRank": 71,
       "rookie": true,
       "byeWeek": 13,
@@ -4081,8 +4087,8 @@
       "position": "TE",
       "team": "LVR",
       "boardRank": 291,
-      "ktcRank": 225,
-      "positionalRank": 32,
+      "ktcRank": 228,
+      "positionalRank": 33,
       "rookie": false,
       "byeWeek": 13,
       "age": 25.1,
@@ -4107,15 +4113,15 @@
       "position": "WR",
       "team": "CLE",
       "boardRank": 293,
-      "ktcRank": 237,
-      "positionalRank": 92,
+      "ktcRank": 242,
+      "positionalRank": 95,
       "rookie": false,
       "byeWeek": 11,
       "age": 26.4,
       "injury": {
         "status": "Questionable",
         "area": "Undisclosed",
-        "returns": "Aug 27, 2026"
+        "returns": "Sep 13, 2026"
       },
       "adp": 697.6
     },
@@ -4125,15 +4131,15 @@
       "position": "WR",
       "team": "NYG",
       "boardRank": 294,
-      "ktcRank": 250,
-      "positionalRank": 99,
+      "ktcRank": 248,
+      "positionalRank": 97,
       "rookie": false,
       "byeWeek": 8,
       "age": 27.4,
       "injury": {
-        "status": "Questionable",
+        "status": "Out",
         "area": "Knee",
-        "returns": "Aug 28, 2026"
+        "returns": "Feb 15, 2027"
       },
       "adp": 698.3
     },
@@ -4143,8 +4149,8 @@
       "position": "WR",
       "team": "KCC",
       "boardRank": 295,
-      "ktcRank": 263,
-      "positionalRank": 104,
+      "ktcRank": 261,
+      "positionalRank": 103,
       "rookie": false,
       "byeWeek": 5,
       "age": 26,
@@ -4168,8 +4174,8 @@
       "position": "WR",
       "team": "TEN",
       "boardRank": 297,
-      "ktcRank": 150,
-      "positionalRank": 62,
+      "ktcRank": 156,
+      "positionalRank": 66,
       "rookie": false,
       "byeWeek": 9,
       "age": 23.2,
@@ -4181,7 +4187,7 @@
       "position": "TE",
       "team": "DEN",
       "boardRank": 298,
-      "ktcRank": 242,
+      "ktcRank": 244,
       "positionalRank": 34,
       "rookie": false,
       "byeWeek": 10,
@@ -4194,8 +4200,8 @@
       "position": "WR",
       "team": "DEN",
       "boardRank": 299,
-      "ktcRank": 200,
-      "positionalRank": 80,
+      "ktcRank": 201,
+      "positionalRank": 81,
       "rookie": false,
       "byeWeek": 10,
       "age": 24.4,
@@ -4208,7 +4214,7 @@
       "team": "BAL",
       "boardRank": 300,
       "ktcRank": 240,
-      "positionalRank": 94,
+      "positionalRank": 93,
       "rookie": false,
       "byeWeek": 13,
       "age": 26.7,
